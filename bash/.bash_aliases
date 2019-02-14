@@ -13,9 +13,6 @@
     alias ra='ranger'
     alias c='clear'
 
-# source all
-    alias s='source ~/.bashrc && source ~/.vimrc && source ~/.tmux.conf'
-
 # locations
     alias notes='cd ~/notes/'
     alias note='cd ~/notes/'
