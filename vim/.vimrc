@@ -25,7 +25,7 @@
 
     " let Vundle manage Vundle, required
 
-    Plugin 'https://github.com/yegappan/mru.git'
+    "Plugin 'https://github.com/yegappan/mru.git'
     Plugin 'VundleVim/Vundle.vim'
     Plugin 'jiangmiao/auto-pairs'
     Plugin 'yuttie/comfortable-motion.vim'

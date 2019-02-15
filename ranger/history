@@ -1,0 +1,50 @@
+search collins
+search ranica
+search bullara
+search kim
+search david
+touch david.kim.md
+search pruett
+tallon
+search rache
+search ena
+search jennifer
+search marie
+search teri
+search beck
+search john
+search jones
+search cox
+search canada
+search nanette
+search amil
+search amanda
+search ellen
+search ana
+search papetro
+search papietro
+search lagsob
+search deidre
+search denise
+search kirsten
+touch st.elizabeth.md
+search st.elizabeth
+ 
+Delete
+mkdir tmux
+rename .bash_aliases
+w
+shell source .vimrc
+open_with 
+rename neomutt
+mkdir neovim
+rename .neomuttrc
+search dot
+mkdir newsboat
+touch urls
+touch config
+open_with vim
+delete
+shell 
+delete 
+

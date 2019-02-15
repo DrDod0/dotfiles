@@ -32,3 +32,6 @@
 
 # vim
     alias vim='nvim'
+
+# OS update/upgrade pkts
+    alias update='sh ~/notes/code/update.sh'
