@@ -2,6 +2,12 @@
 # TODO for all files in directory
 
 
+# neofetch
+- config
+
+# powerline
+- config
+
 # .neomuttrc
 - setup two-set verification in google * maybe not, a good time to drop google
 - setup google password specific for app * maybe not, a good time to drop google

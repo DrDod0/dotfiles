@@ -99,6 +99,21 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-
 # fzf fuckers
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Vim Keybindings because fck you
+set -o vi
+
+# neofetch
+neofetch
+
+# powerline-shell
+
+function _update_ps1() {
+    PS1=$(powerline-shell $?)
+}
+
+if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi

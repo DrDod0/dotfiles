@@ -6,7 +6,7 @@ reload-threads 4
 download-retries 4
 download-timeout 10
 prepopulate-query-feeds yes
-
+refresh-on-startup yes
 
 # -- display -------------------------------------------------------------------
 
@@ -48,4 +48,10 @@ bind-key k up article
 
 unbind-key C feedlist
 confirm-exit no
-cleanup-on-quit no
+cleanup-on-quit yes
+delete-read-articles-on-quit yes
+history-limit 0 # disables history saving
+keep-articles-days 0
+notify-beep no
+
+

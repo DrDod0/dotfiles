@@ -10,7 +10,6 @@
 "╚═╝╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
 "
 " TODO w !pbcopy
-" TODO rm pathogen
 "
 " Pluging Manager:
 
@@ -27,6 +26,10 @@
 
     "Plugin 'https://github.com/yegappan/mru.git'
     Plugin 'VundleVim/Vundle.vim'
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
+    Plugin 'Shougo/deoplete.nvim'
+    Plugin 'roxma/vim-hug-neovim-rpc'
     Plugin 'jiangmiao/auto-pairs'
     Plugin 'yuttie/comfortable-motion.vim'
     Plugin 'kien/ctrlp.vim'
@@ -204,7 +207,10 @@
         nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 "Plugins
-    "
+    "Airline:
+        let g:airline_theme='bubblegum'
+    "Deopelte:
+        let g:deoplete#enable_at_startup = 1
     "ComfortablMotionVim:
         " Mapping
            " Default maping <C-d> and <C-u>
@@ -359,16 +365,18 @@
             command Soll call s:Soll()
 
 	"Statusline:
-		set laststatus =2                       "show sttaus line
-		set statusline +=%1*\ %n\ %*            "buffer number
-		set statusline +=%5*%{&ff}%*            "file format
-		set statusline +=%3*%y%*                "file type
-		set statusline +=%4*\ %<%F%*            "full path
-		set statusline +=%2*%m%*                "[+] will if current buffer is modified
-		set statusline +=%1*%=%5l%*             "current line
-		set statusline +=%2*/%L%*               "total lines
-		set statusline +=%1*%4v\ %*	            "virtual column number
-		set statusline +=%{strftime('%-I:%M')}	"time in 12h format
+
+        " Non-Powerline
+        "set laststatus =2                       "show sttaus line
+		"set statusline +=%1*\ %n\ %*            "buffer number
+		"set statusline +=%5*%{&ff}%*            "file format
+		"set statusline +=%3*%y%*                "file type
+		"set statusline +=%4*\ %<%F%*            "full path
+		"set statusline +=%2*%m%*                "[+] will if current buffer is modified
+		"set statusline +=%1*%=%5l%*             "current line
+		"set statusline +=%2*/%L%*               "total lines
+		"set statusline +=%1*%4v\ %*	            "virtual column number
+		"set statusline +=%{strftime('%-I:%M')}	"time in 12h format
 
 	" Syntax:
         " File type *markdown

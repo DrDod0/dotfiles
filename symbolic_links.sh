@@ -88,6 +88,7 @@ neomuttrc_link()
     ask_user
     }
 
+#newsboat config
 newsboat_config_link()
     {
     if [ -e ~/.config/newsboat/config ]
@@ -102,6 +103,7 @@ newsboat_config_link()
     newsboat_urls_link
     }
 
+#newsboat Url
 newsboat_urls_link()
     {
     if [ -e ~/.config/newsboat/urls ]
@@ -116,7 +118,7 @@ newsboat_urls_link()
     ask_user
     }
 
-
+#ranger configs
 ranger_link()
     {
     if [ -e ~/.config/ranger/rc.conf ]
@@ -144,11 +146,43 @@ ranger_link()
     ask_user
     }
 
+# neofetch config
+neofetch_link()
+    {
+    if [ -e ~/.config/neofetch/config.conf ]
+    then
+        rm ~/.config/neofetch/config.conf
+        ln -s ~/dotfiles/neofetch/config.conf ~/.config/neofetch/
+        echo neofetch config was found, removed and a link from dotfiles directory established.
+    else
+        ln -s ~/dotfiles/neofetch/config.conf ~/.config/neofetch/
+        echo neofetch config not was not found, a link from the dotfiles directory was established.
+    fi
+    ask_user
+    }
+
+# powerline config
+powerline_link()
+    {
+    if [ -e ~/.config/powerline-shell/config.json ]
+    then
+        rm ~/.config/powerline-shell/config.json
+        ln -s ~/dotfiles/powerline/config.json ~/.config/powerline-shell/
+        echo powerline-shell config was found, removed and a link from dotfiles directory established.
+    else
+        ln -s ~/dotfiles/powerline/config.json ~/.config/powerline-shell/
+        echo powerline config not was not found, a link from the dotfiles directory was established.
+    fi
+    ask_user
+    }
+
+
+
 ###############################
 
 ask_user()
     {
-    echo -n 'Select the symbolic link you want setup
+    echo -n 'Select the number for the symbolic link you want setup
 
          1. "vim / neovim"
          2. "bash"
@@ -157,16 +191,16 @@ ask_user()
          5. "neomutt"
          6. "newsboat"
          7. "ranger"
-         9. "All"
+         8. "neofetch"
+         9. "poweline"
          0. "exit")
-                '
+            : '
 
     read ans
 
     case "$ans" in
         1)
-            vim_link
-            # vim_link is linked to neovim_link
+            vim_link # vim_link is linked to neovim_link
             ;;
         2)
             bash_link
@@ -186,8 +220,11 @@ ask_user()
         7)
             ranger_link
             ;;
+        8)
+            neofetch_link
+            ;;
         9)
-            vim_link && bashrc_link && bash_aliases_link && tmux_link && neomuttrc_link && newsboat_config_link && ranger_link
+            powerline_link
             ;;
         0)
             exit
@@ -196,6 +233,4 @@ ask_user()
     }
 
 ########################################################
-
 ask_user
-
