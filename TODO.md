@@ -11,7 +11,13 @@
 # symbolic_links.sh
 - test each function
 - instead of rm a found config file, give user option to replace or keep
-[X] create function to ask user which link to setup
+- XXX create function to reload bash
+- XXX create function to ignore powerline-shell if not installed
+- XXX add echo readout to all functions 
+- FIX in osx tmux does not recognize the bash_aliases, outside of tmux okay
+- create a search function for all aliace if X program not installed, do not set up aliase.
+- [X] 02.21.19 FIX line 209 bashrc link not working * corrected function name
+- [X] XXX create function to ask user which link to setup
 
 
 

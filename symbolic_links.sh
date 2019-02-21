@@ -37,14 +37,17 @@ neovim_link()
     }
 
 # bash
-bashrc_link()
+bash_link()
     {
     if [ -e ~/.bashrc ]
     then
+        unlink ~/.bashrc
         rm ~/.bashrc
 	    ln -s ~/dotfiles/bash/.bashrc ~/
+        echo a .bashrc was found, removed and replaced
     else
         ln -s ~/dotfiles/bash/.bashrc ~/
+        echo .bashrc not found, created symbolic link
     fi
     ask_user
     }

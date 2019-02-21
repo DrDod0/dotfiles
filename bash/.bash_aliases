@@ -33,8 +33,9 @@
     alias pub='sh ~/notes/code/git.sh'
 
 # vim
-    alias vim='nvim'
-    alias vi='nvim'
+    #alias vim='nvim'
+    #alias vi='nvim'
+    
     alias vimrc='vim ~/dotfiles/vim/.vimrc'
 
 # OS update/upgrade pkts
