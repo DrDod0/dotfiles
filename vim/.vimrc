@@ -29,6 +29,7 @@
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
     Plugin 'Shougo/deoplete.nvim'
+    Plugin 'zchee/deoplete-jedi'
     Plugin 'roxma/vim-hug-neovim-rpc'
     Plugin 'jiangmiao/auto-pairs'
     Plugin 'yuttie/comfortable-motion.vim'
@@ -50,7 +51,7 @@
     Plugin 'vim-scripts/DrawIt'
     Plugin 'tpope/vim-vinegar'
     Plugin 'dhruvasagar/vim-table-mode'
-
+    Plugin 'airblade/vim-gitgutter'
 
     " All of your Plugins must be added before the following line
 
@@ -189,8 +190,6 @@
 
     " School Remapping
 
-        " N = C x10^e
-            nnoremap <leader>1 <esc>i<right>x 10^
 
         " Calculator
             ino <C-A> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
@@ -207,10 +206,20 @@
         nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 "Plugins
+    "
     "Airline:
         let g:airline_theme='bubblegum'
+        "
     "Deopelte:
         let g:deoplete#enable_at_startup = 1
+
+        " Tab complete
+        inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+        " Flake 8 / Linter
+        "let g:python3_host_prog = '/usr/bin/nvim/bin/python3'
+        "
+        "
     "ComfortablMotionVim:
         " Mapping
            " Default maping <C-d> and <C-u>

@@ -35,6 +35,7 @@
 # vim
     alias vim='nvim'
     alias vi='nvim'
+    alias vimrc='vim ~/dotfiles/vim/.vimrc'
 
 # OS update/upgrade pkts
     alias update='sh ~/notes/code/update.sh'
@@ -45,3 +46,5 @@
 # Pip
     alias pip='pip3'
 
+# Newsboat
+    alias news='newsboat'
