@@ -10,6 +10,7 @@
 
 # symbolic_links.sh
 - test each function
+- XXX function to remove directory 
 - instead of rm a found config file, give user option to replace or keep
 - XXX create function to reload bash
 - XXX create function to ignore powerline-shell if not installed

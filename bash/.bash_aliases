@@ -21,7 +21,7 @@
     alias dot='cd ~/dotfiles'
 
 # todo.txt
-    alias t='~/Dropbox/todo.txt/todo.sh'
+    #alias t='~/Dropbox/todo.txt/todo.sh'
 
 # Dropbox
     alias ds='~/dropbox.py status'
@@ -33,9 +33,9 @@
     alias pub='sh ~/notes/code/git.sh'
 
 # vim
-    #alias vim='nvim'
-    #alias vi='nvim'
-    
+    alias vim='nvim'
+    alias vi='nvim'
+
     alias vimrc='vim ~/dotfiles/vim/.vimrc'
 
 # OS update/upgrade pkts
