@@ -1,24 +1,42 @@
 #!/bin/bash
 
 
+# Lets remove any existing directory and configs
+rm_all()
+    {
+    # test
+    rm -rf $HOME/.shit/ 2>/dev/null
+
+    # vim plugins
+    #rm -rf $HOME/.vim/bundle/
+
+    # ranger configs
+    #rm -rf $HOME/.config/ranger/
+
+    # neovim  configs
+    #rm -rf $HOME/.config/nvim/
+
+    # neofetch configs
+    #rm -rf $HOME/.config/neofetch/
+    ask_user
+    }
+
+
 # vim
 vim_link()
     {
-        # check for existance of vimrc in $HOME directory
-    if [ -e ~/.vimrc ] || [ -L ~/.vimrc ]
-
+        # check for existance of vim
+    if [ -x "$(command -v nvim)" ]
     then
-        # vimrc found, remove found vimrc and create symbolic link from vimrc in dotfiles
-        unlink ~/.vimrc # should a symbolic link already exist
-        rm ~/.vimrc &> /dev/null # &> /dev/null suppress error message.
-		echo a vimrc was found, removed and replaced
-
-    else
-        # vimrc not found, created symbolic link
+        # vim existrance found, symbolic link established
         ln -s ~/dotfiles/vim/.vimrc ~/
-		echo vimrc not found, created symbolic link
+        echo vim found, created symbolic link.
+        ask_user
+    else
+        # vim existance NOT found, no action taken, send back to user prompt.
+        echo vim NOT found, no action taken.
+        ask_user
     fi
-    neovim_link
     }
 
 #neovim
@@ -26,7 +44,6 @@ neovim_link()
     {
     if [ -e ~/.config/nvim/init.vim]
     then
-         rm ~/.config/nvim/init.vim
          ln -s ~/dotfiles/neovim/init.vim ~/.config/nvim/
          echo neovim init.vim file found and replaced with init.vim from dotfiles directory.
      else
@@ -68,12 +85,12 @@ bash_aliases_link()
 # tmux
 tmux_link()
     {
-    if [ -e ~/.tmux.conf ]
+    if [ -e ~/tmux.conf ]
     then
-        rm ~/.tmux.config
-        ln -s ~/dotfiles/tmux/.tmux.conf ~/
+        rm ~/tmux.config
+        ln -s ~/dotfiles/tmux/tmux.conf ~/
     else
-        ln -s ~/dotfiles/tmux/.tmux.conf ~/
+        ln -s ~/dotfiles/tmux/tmux.conf ~/
     fi
     ask_user
     }
@@ -196,6 +213,7 @@ ask_user()
          7. "ranger"
          8. "neofetch"
          9. "poweline"
+         *. "remove all"
          0. "exit")
             : '
 
@@ -229,6 +247,9 @@ ask_user()
         9)
             powerline_link
             ;;
+        *)
+            rm_all
+            ;;
         0)
             exit
             ;;
@@ -237,3 +258,7 @@ ask_user()
 
 ########################################################
 ask_user
+
+
+
+

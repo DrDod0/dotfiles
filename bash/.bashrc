@@ -105,7 +105,7 @@ fi
 # Vim Keybindings because fck you
 set -o vi
 
-# neofetch
+# neofetch startup
 neofetch
 
 # powerline-shell
@@ -117,3 +117,7 @@ function _update_ps1() {
 if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
+
+
+
+

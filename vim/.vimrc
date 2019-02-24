@@ -30,6 +30,7 @@
     Plugin 'vim-airline/vim-airline-themes'
     Plugin 'Shougo/deoplete.nvim'
     Plugin 'zchee/deoplete-jedi'
+    Plugin 'roxma/nvim-yarp'
     Plugin 'roxma/vim-hug-neovim-rpc'
     Plugin 'jiangmiao/auto-pairs'
     Plugin 'yuttie/comfortable-motion.vim'
