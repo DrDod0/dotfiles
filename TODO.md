@@ -28,6 +28,7 @@
 
 # powerline
 [X]- config
+- create a minimal powerline
 
 # ranger
 [X] pull configuration files into dotfiles directory

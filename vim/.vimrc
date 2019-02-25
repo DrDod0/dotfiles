@@ -26,6 +26,9 @@
 
     "Plugin 'https://github.com/yegappan/mru.git'
     Plugin 'VundleVim/Vundle.vim'
+    Plugin 'christoomey/vim-tmux-navigator'
+    Plugin 'ryanoasis/vim-devicons'
+    Plugin 'scrooloose/nerdtree'
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
     Plugin 'Shougo/deoplete.nvim'
