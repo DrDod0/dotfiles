@@ -49,3 +49,13 @@
 
 # Newsboat
     alias news='newsboat'
+
+# SSH
+
+    alias ssh.status='/etc/init.d/ssh status'
+    alias ssh.reload='/etc/init.d/ssh reload'
+    alias ssh.stop='/etc/init.d/ssh stop'
+    alias ssh.restart='/etc/init.d/ssh restart'
+    alias ssh.start='/etc/init.d/ssh start'
+
+

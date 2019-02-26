@@ -82,6 +82,7 @@
 	set nowrap					" No text wrap
 	"set lazyredraw				" Vim don't redraw the screen, macros need speed
     set termguicolors
+    set clipboard^=unnamed
 
 	set ignorecase				" Ignore case when searching
 	set smartcase				" Use case when used
@@ -212,7 +213,7 @@
 "Plugins
     "
     "Airline:
-        let g:airline_theme='bubblegum'
+        let g:airline_theme='minimalist'
         "
     "Deopelte:
         let g:deoplete#enable_at_startup = 1
