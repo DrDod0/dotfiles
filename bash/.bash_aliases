@@ -6,6 +6,7 @@
     alias ta='tmux attach'
     alias tk='tmux kill-server'
     alias tu='tmux'
+    alias source.tmux='tmux source-file $HOME/.tmux.conf'
 
 # bash
     alias ls='ls -a'
@@ -13,6 +14,7 @@
     alias ra='ranger'
     alias ran='ranger'
     alias c='clear'
+    alias source.bash='source $HOME/.bashrc'
 
 # locations
     alias notes='cd ~/notes/'
@@ -24,7 +26,7 @@
     #alias t='~/Dropbox/todo.txt/todo.sh'
 
 # Dropbox
-    alias ds='~/dropbox.py status'
+    alias dropbox.status='~/dropbox.py status'
 
 # w3m
     alias net='w3m www.duckduckgo.com'
@@ -37,6 +39,7 @@
     alias vi='nvim'
 
     alias vimrc='vim ~/dotfiles/vim/.vimrc'
+    alias source.vimrc='source $HOME/.vimrc'
 
 # OS update/upgrade pkts
     alias update='sh ~/notes/code/update.sh'
@@ -57,5 +60,6 @@
     alias ssh.stop='/etc/init.d/ssh stop'
     alias ssh.restart='/etc/init.d/ssh restart'
     alias ssh.start='/etc/init.d/ssh start'
-
+    # ssh.help
+    alias ssh.help='cat $HOME/dotfiles/help/ssh.help'
 
