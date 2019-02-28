@@ -1,7 +1,9 @@
 
 # TODO for all files in directory
 - set up keys for all git repos
--
+
+# VIMRC
+- review gitgutter settings, not working as expected
 
 # symbolic_links.sh
 - rewrite setting up one function a list, maybe
@@ -47,6 +49,9 @@
 
 # neofetch
 [X]- config
+
+# Zshrc
+[X] setup with aliases
 
 # powerline
 [X]- config
