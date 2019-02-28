@@ -88,16 +88,20 @@ alias l='ls -CF'
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+
+
+
+
+####################### veggietorta<3 #########################
+
+# Alias
+source $HOME/dotfiles/alias/.shell_alias
 
 # fzf fuckers
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -107,13 +111,6 @@ set -o vi
 
 # neofetch startup
 neofetch
-
-# powerline-shell
-
-
-if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
-    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-fi
 
 
 

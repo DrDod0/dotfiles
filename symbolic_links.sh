@@ -69,19 +69,6 @@ bash_link()
     ask_user
     }
 
-# bash_aliases
-bash_aliases_link()
-    {
-    if [ -e ~/.bash_aliases ]
-    then
-        rm ~/.bash_aliases
-        ln -s ~/dotfiles/bash/.bash_aliases ~/
-    else
-        ln -s ~/dotfiles/bash/.bash_aliases ~/
-    fi
-    ask_user
-    }
-
 # tmux
 tmux_link()
     {
@@ -206,7 +193,7 @@ ask_user()
 
          1. "vim / neovim"
          2. "bash"
-         3. "bash aliases"
+         3. "REMOVED bash aliases"
          4. "tmux"
          5. "neomutt"
          6. "newsboat"
