@@ -4,20 +4,32 @@
 # Lets remove any existing directory and configs
 rm_all()
     {
-    # test
-    rm -rf $HOME/.shit/ 2>/dev/null
+
+    # bashrc
+    rm -rf $HOME/.bashrc 2>/dev/null
 
     # vim plugins
-    #rm -rf $HOME/.vim/bundle/
+    rm -rf $HOME/.vim/bundle/ 2>/dev/null
 
-    # ranger configs
-    #rm -rf $HOME/.config/ranger/
+    # ranger
+    rm -rf $HOME/.config/ranger/ 2>/dev/null
 
-    # neovim  configs
-    #rm -rf $HOME/.config/nvim/
+    # neovim
+    rm -rf $HOME/.config/nvim/ 2>/dev/null
 
-    # neofetch configs
-    #rm -rf $HOME/.config/neofetch/
+    # neofetch
+    rm -rf $HOME/.config/neofetch/ 2>/dev/null
+
+    # newsboat
+    rm -rf $HOME/.config/newsboat/urls 2>/dev/null
+    rm -rf $HOME/.config/newsboat/config 2>/dev/null
+
+    # tmux
+    rm -rf $HOME/.tmux.conf 2>/dev/null
+
+   # neomutt
+   rm -rf $HOME/.neomuttrc 2>/dev/null
+
     ask_user
     }
 
@@ -42,13 +54,12 @@ vim_link()
 #neovim
 neovim_link()
     {
-    if [ -e ~/.config/nvim/init.vim]
+    if [ -x "$(command -v nvim)" ]
     then
          ln -s ~/dotfiles/neovim/init.vim ~/.config/nvim/
-         echo neovim init.vim file found and replaced with init.vim from dotfiles directory.
+         echo neovim found, created symbolic link.
      else
-         ln -s ~/dotfiles/neovim/init.vim ~/.config/nvim/
-         echo neovim init.vim not found, init.vim file from dotfiles directory established.
+         echo neovim not found, no action taken.
      fi
      ask_user
     }
@@ -56,28 +67,20 @@ neovim_link()
 # bash
 bash_link()
     {
-    if [ -e ~/.bashrc ]
-    then
-        unlink ~/.bashrc
-        rm ~/.bashrc
-	    ln -s ~/dotfiles/bash/.bashrc ~/
-        echo a .bashrc was found, removed and replaced
-    else
-        ln -s ~/dotfiles/bash/.bashrc ~/
-        echo .bashrc not found, created symbolic link
-    fi
+	ln -s $HOME/dotfiles/bash/.bashrc $HOME/
+    echo No check done, .bashrc setup.
     ask_user
     }
 
 # tmux
 tmux_link()
     {
-    if [ -e ~/tmux.conf ]
+    if [ -x "$(command -v tmux)" ]
     then
-        rm ~/tmux.config
-        ln -s ~/dotfiles/tmux/tmux.conf ~/
+        ln -s $HOME/dotfiles/tmux/.tmux.conf $HOME/
+        echo tmux found, symbolic link established.
     else
-        ln -s ~/dotfiles/tmux/tmux.conf ~/
+        echo tmux not found, no action taken.
     fi
     ask_user
     }
@@ -85,70 +88,49 @@ tmux_link()
 # neomutt
 neomuttrc_link()
     {
-    if [ -e ~/.neomuttrc ]
+    if [ -x "$(command -v mutt)" ]
     then
-        rm ~/.neomuttrc
         ln -s ~/dotfiles/neomutt/.neomuttrc ~/
+        echo mutt found, symbolic link established
     else
-        ln -s ~/dotfiles/neomutt/.neomuttrc ~/
+        echo mutt not found, no action taken.
     fi
     ask_user
     }
 
 #newsboat config
-newsboat_config_link()
+newsboat_link()
     {
-    if [ -e ~/.config/newsboat/config ]
+    if [ -x "$(command -v newsboat)" ]
     then
-        rm ~/.config/newsboat/config
         ln -s ~/dotfiles/newsboat/config ~/.config/newsboat/
-        echo newsboat config was found, removed and a link from the dotfiles directory established.
-    else
-        ln -s ~/dotfiles/newsboat/config ~/.config/newsboat/
-        echo newsboat config was not found, a link from the dotfiles directory was established.
-    fi
-    newsboat_urls_link
-    }
+        echo newsboat found, .config symbolic link established
 
-#newsboat Url
-newsboat_urls_link()
-    {
-    if [ -e ~/.config/newsboat/urls ]
-    then
-        rm ~/.config/newsboat/urls
         ln -s ~/dotfiles/newsboat/urls ~/.config/newsboat/
-        echo newsboat urls was found, removed and a link from dotfiles directory established.
+        echo newsboat urls sybolic link for established.
+
     else
-        ln -s ~/dotfiles/newsboat/urls ~/.config/newsboat/
-        echo newsboat urls not was not found, a link from the dotfiles directory was established.
-    fi
+        echo newsboat not found, no action taken.
+
     ask_user
+    fi
     }
 
 #ranger configs
 ranger_link()
     {
-    if [ -e ~/.config/ranger/rc.conf ]
+    if [ -x "$(command -v ranger)" ]
     then
-        rm -rf ~/.config/ranger/rc.conf
-        rm -rf ~/.config/ranger/rifle.conf
-        rm -rf ~/.config/ranger/bookmarks
-        rm -rf ~/.config/ranger/tagged
 
         ln -s ~/dotfiles/ranger/rc.conf ~/.config/ranger/
         ln -s ~/dotfiles/ranger/rifle.conf ~/.config/ranger/
         ln -s ~/dotfiles/ranger/bookmarks ~/.config/ranger/
         ln -s ~/dotfiles/ranger/tagged ~/.config/ranger/
 
-        echo ranger config files were found, removed and a link from dotfiles directory established.
+        echo ranger found, configis symbolic link establish.
 
     else
-        ln -s ~/dotfiles/ranger/rc.conf ~/.config/ranger/
-        ln -s ~/dotfiles/ranger/rifle.conf ~/.config/ranger/
-        ln -s ~/dotfiles/ranger/bookmarks ~/.config/ranger/
-        ln -s ~/dotfiles/ranger/tagged ~/.config/ranger/
-
-        echo ranger config fiels were not found, a link from the dotfiles directory was established.
+        echo ranger not found, no action taken.
     fi
     ask_user
     }
@@ -156,14 +138,12 @@ ranger_link()
 # neofetch config
 neofetch_link()
     {
-    if [ -e ~/.config/neofetch/config.conf ]
+    if [ -x "$(command -v neofetch)" ]
     then
-        rm ~/.config/neofetch/config.conf
         ln -s ~/dotfiles/neofetch/config.conf ~/.config/neofetch/
-        echo neofetch config was found, removed and a link from dotfiles directory established.
+        echo neofetch found, config symbolic link establish.
     else
-        ln -s ~/dotfiles/neofetch/config.conf ~/.config/neofetch/
-        echo neofetch config not was not found, a link from the dotfiles directory was established.
+        echo neofetch not found, no action taken.
     fi
     ask_user
     }
@@ -171,18 +151,22 @@ neofetch_link()
 # powerline config
 powerline_link()
     {
-    if [ -e ~/.config/powerline-shell/config.json ]
+    if [ -x "$(command -v powerline-shell)" ]
     then
-        rm ~/.config/powerline-shell/config.json
         ln -s ~/dotfiles/powerline/config.json ~/.config/powerline-shell/
-        echo powerline-shell config was found, removed and a link from dotfiles directory established.
+        echo powerline-shell found, config symbolic link established.
     else
-        ln -s ~/dotfiles/powerline/config.json ~/.config/powerline-shell/
-        echo powerline config not was not found, a link from the dotfiles directory was established.
+        echo powerline-shell not found, no action taken
     fi
     ask_user
     }
 
+
+# exit
+exit_link()
+    {
+    exit
+    }
 
 
 ###############################
@@ -191,16 +175,16 @@ ask_user()
     {
     echo -n 'Select the number for the symbolic link you want setup
 
-         1. "vim / neovim"
+         1. "vim"
          2. "bash"
-         3. "REMOVED bash aliases"
+         3. "neovim"
          4. "tmux"
          5. "neomutt"
          6. "newsboat"
          7. "ranger"
          8. "neofetch"
-         9. "poweline"
-         *. "remove all"
+         9. "poweline-shell"
+         z. "remove all"
          0. "exit")
             : '
 
@@ -214,7 +198,7 @@ ask_user()
             bash_link
             ;;
         3)
-            bash_aliases_link
+            neovim_link
             ;;
         4)
             tmux_link
@@ -223,7 +207,7 @@ ask_user()
             neomuttrc_link
             ;;
         6)
-            newsboat_config_link
+            newsboat_link
             ;;
         7)
             ranger_link
@@ -234,11 +218,11 @@ ask_user()
         9)
             powerline_link
             ;;
-        *)
+        z)
             rm_all
             ;;
         0)
-            exit
+            exit_link
             ;;
     esac
     }

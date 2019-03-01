@@ -8,13 +8,13 @@
 # symbolic_links.sh
 - rewrite setting up one function a list, maybe
 - test each function
-- XXX function to remove directory
-- instead of rm a found config file, give user option to replace or keep
 - XXX create function to reload bash
-- XXX create function to ignore powerline-shell if not installed
-- XXX add echo readout to all functions
 - FIX in osx tmux does not recognize the bash_aliases, outside of tmux okay
-- create a search function for all aliace if X program not installed, do not set up aliase.
+- [x] instead of rm a found config file, give user option to replace or keep * going with remove all 
+- [x] 02.28.19 XXX add echo readout to all functions * done
+- [x] 02.28.19 create a search function for all aliace if X program not installed, do not set up aliase.* done
+- [x] 02.28.19 XXX function to remove directory * done
+- [x] 02.28.19 XXX create function to ignore powerline-shell if not installed * done for all
 - [X] 02.21.19 FIX line 209 bashrc link not working * corrected function name
 - [X] XXX create function to ask user which link to setup
 
@@ -55,7 +55,7 @@
 
 # powerline
 [X]- config
-- create a minimal powerline
+[x]- create a minimal powerline * moved away from powerline, no longer needed
 
 # ranger
 [X] pull configuration files into dotfiles directory
@@ -63,7 +63,7 @@
 [X] update symbolic_link.sh w/ranger info
 
 # neovim
-- create folder and for sh to place config
+[X] create folder and to place config
 [X] pull configuration files into dotfiles directory
 [X] symbolick link configuration files
 [X] update symobolic_link.sh w/neovim info
