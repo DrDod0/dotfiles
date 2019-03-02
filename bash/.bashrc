@@ -106,12 +106,17 @@ source $HOME/dotfiles/alias/.shell_alias
 # fzf fuckers
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# Vim Keybindings because fck you
-set -o vi
+# Vim Keybindings
+if [ -x "$(command -v vim)" ]
+then
+	set -o vi
+fi
 
-# neofetch startup
-neofetch
-
+# Neofetch show at login/boot
+if [ -x "$(command -v neofetch)" ]
+then
+	neofetch
+fi
 
 
 
