@@ -1,10 +1,5 @@
 ### Alias below ###
 
-if [ -f $HOME/dotfiles/alias/.shell_alias ]
-then
-    source $HOME/dotfiles/alias/.shell_alias
-fi
-
 # Tmux alias
     alias tl='tmux ls'
     alias td='tmux detach'
