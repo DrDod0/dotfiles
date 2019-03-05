@@ -21,6 +21,7 @@
     alias note='cd ~/notes/'
     alias code='cd ~/notes/code/'
     alias dot='cd ~/dotfiles'
+    alias node="cd ~/node.setup/"
 
 # todo.txt
     #alias t='~/Dropbox/todo.txt/todo.sh'
@@ -52,6 +53,10 @@
 
 # Newsboat
     alias news='newsboat'
+
+
+# system
+    alias shutdown='showdown -now'
 
 # SSH
 

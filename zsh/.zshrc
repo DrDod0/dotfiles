@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
- export ZSH="/root/.oh-my-zsh"
+export ZSH="/root/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -99,15 +99,11 @@ source $ZSH/oh-my-zsh.sh
 
 ###################### veggietorta <3 ################################
 
-# Powerlevel9K
-    #source /usr/share/powerlevel9k/powerlevel9k.zsh-theme
-
-# Syntax highlighting 
-    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # Neofetch
-    neofetch
+    #neofetch
 
 # Alias location
-    source $HOME/dotfiles/bash/.bash_aliases
+    source ~/dotfiles/alias/.bash_aliases
 
+# syntax highlight
+    source /root/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

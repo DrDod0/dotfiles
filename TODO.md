@@ -2,6 +2,9 @@
 # TODO for all files in directory
 - set up keys for all git repos
 
+# git-config
+XXX create git-config file
+
 # VIMRC
 - review gitgutter settings, not working as expected
 
