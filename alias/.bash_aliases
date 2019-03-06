@@ -70,4 +70,7 @@
 
 # Install
 	alias install.vundle='git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim'
-
+    alias install.notes='git clone https://gitlab.com/veggietorta/notes.git'
+    alias install.dotfiles='git clone https://github.com/VeggieTorta/dotfiles.git'
+    alias install.tmux.plugin.manager='git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+'
