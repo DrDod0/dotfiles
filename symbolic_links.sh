@@ -56,6 +56,7 @@ neovim_link()
     {
     if [ -x "$(command -v nvim)" ]
     then
+         mkdir ~/.config/nvim/
          ln -s ~/dotfiles/neovim/init.vim ~/.config/nvim/
          echo neovim found, created symbolic link.
      else
@@ -161,6 +162,11 @@ powerline_link()
     ask_user
     }
 
+git_link()
+{
+    ln -s ~/dotfiles/git/.gitconfig ~/
+
+}
 
 # exit
 exit_link()
@@ -185,6 +191,7 @@ ask_user()
          8. "neofetch"
          9. "poweline-shell"
          z. "remove all"
+         g. "git"
          0. "exit")
             : '
 
@@ -217,6 +224,9 @@ ask_user()
             ;;
         9)
             powerline_link
+            ;;
+        g)
+            git_link
             ;;
         z)
             rm_all

@@ -68,3 +68,6 @@
     # ssh.help
     alias ssh.help='cat $HOME/dotfiles/help/ssh.help'
 
+# Install
+	alias install.vundle='git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim'
+
