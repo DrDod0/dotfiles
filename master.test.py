@@ -1,60 +1,65 @@
 #! /usr/bin/python3.6
+# Author: veggietorta
+# Contact: @veggietorta
+# Init: 03.07.19
+# Updtd: 03.07.19
 
 from subprocess import call
 
 
 def ask_user():
+    print('test: inside of def ask_user')
+    user_input = input(''' Type name of program to install or action':\n
+                           vim
+                           neovim
+                           ranger
+                           tmux
+                           newsboat
+                           git
+                           pip3
+                           pip black
+                           flake8
+                           python3
+                           fzf
+                           dropbox
+                           curl
 
-    user_input = input('''Select program to install':\n
-                           1. vim
-                           2. neovim
-                           3. ranger
-                           4. tmux
-                           5. newsboat
-                           6. git
-                           7. pip3
-                           8. pip black
-                           9. flake 8
-                          10. python 3
-                          11. fzf
-                          12. dropbox
-                          13. vim vundle plugin manager
-                          14. curl
-                           x. exit
+                           exit
                            ''')
+    return user_input
+    print('test: leaving ask_user')
 
-    # commonly used path
-    dot = '$HOME/dotfiles/'   # dotfiles directory
-    conf = '$HOME/.config/'   # .config directory
 
-    # TODO FIX
-    program_known = '/usr/bin/nvim'
+def find_user_input(user_input):
 
     # 'call' calls on $SHELL to search for the path of a program.
     # $ which {user_input}.
     # example: $ which vim.
     # example readout: /user/bin/vim
 
-    call(["which", user_input])
+    search = call(["which", user_input])
 
     # Search for program in predefined path /usr/bin/{user_input}
     # if {user_input} matches program_known set-up symbolink & notify user
     # if {user_input} DID NOT matche program_known, no action & notify user
 
-    if '/usr/bin/' + user_input == program_known:
-        print(user_input + ' location matches our known location')
+    if '/usr/bin/' + user_input == search:
+        print(user_input + 'already installed, no action taken.')
 
-    elif user_input == 'x':
+    elif user_input == 'exit':
         let_me_out
 
     else:
-        print(user_input + ' not found, no action take')
-        ask_user
+        print(user_input + 'not on system, installing program.')
+        print('lets pretend i just installed something')
 
 
 def let_me_out():
+    print('Bye.')
     exit()
 
 
 #################################
-ask_user
+print('Test: asking to be sent to ask_user')
+ask_user()
+find_user_input(user_input)
