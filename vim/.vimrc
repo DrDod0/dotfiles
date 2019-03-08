@@ -35,7 +35,7 @@
     Plugin 'zchee/deoplete-jedi'
     Plugin 'roxma/nvim-yarp'
     Plugin 'roxma/vim-hug-neovim-rpc'
-    Plugin 'jiangmiao/auto-pairs'
+    "Plugin 'jiangmiao/auto-pairs'
     Plugin 'yuttie/comfortable-motion.vim'
     Plugin 'kien/ctrlp.vim'
     Plugin 'junegunn/goyo.vim'

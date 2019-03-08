@@ -1,4 +1,4 @@
-#! /usr/bin/python3.6
+# !/usr/bin/python3.6
 # Author: veggietorta
 # Contact: @veggietorta
 # Init: 03.07.19
@@ -26,11 +26,11 @@ def ask_user():
 
                            exit
                            ''')
-    return user_input
+    return ask_user
     print('test: leaving ask_user')
 
 
-def find_user_input(user_input):
+def find_user_input(ask_user):
 
     # 'call' calls on $SHELL to search for the path of a program.
     # $ which {user_input}.
@@ -62,4 +62,4 @@ def let_me_out():
 #################################
 print('Test: asking to be sent to ask_user')
 ask_user()
-find_user_input(user_input)
+find_user_input(ask_user)

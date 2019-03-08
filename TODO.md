@@ -1,4 +1,8 @@
 
+rm /etc/localtime/ 
+ln -s /usr/share/zoneinfo/US/Pacific-New /etc/localtime
+reference https://www.designhaven.co.uk/2014/10/update-server-timedate-linux-command-line-ssh/
+
 # TODO for all files in directory
 - set up keys for all git repos
 
