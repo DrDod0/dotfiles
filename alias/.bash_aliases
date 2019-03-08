@@ -65,12 +65,15 @@
     alias ssh.stop='/etc/init.d/ssh stop'
     alias ssh.restart='/etc/init.d/ssh restart'
     alias ssh.start='/etc/init.d/ssh start'
-    # ssh.help
-    alias ssh.help='cat $HOME/dotfiles/help/ssh.help'
+
+# help
+    alias help.ssh='cat $HOME/dotfiles/help/help.ssh'
+    alias help.tmux='cat $HOME/dotfiles/help/help.tmux'
+    alias help.git='cat $HOME/dotfiles/help/help.git'
+    alias help.apt-get='cat $HOME/dotfiles/help/help.apt-get' '|'
 
 # Install
 	alias install.vundle='git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim'
     alias install.notes='git clone https://gitlab.com/veggietorta/notes.git'
     alias install.dotfiles='git clone https://github.com/VeggieTorta/dotfiles.git'
-    alias install.tmux.plugin.manager='git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-'
+    alias install.tmux.plugin.manager='git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm'

@@ -1,0 +1,33 @@
+---
+Update package database         apt-get update
+                                    hit: pck no changes
+                                    ign: pck ignored
+                                    get: new version
+
+Upgrade all packages            apt-get upgrade
+
+Upgrade specific package        apt-get upgrade <package_name>
+
+Update database & Upgrade       apt-get update && apt-ge upgrade -y
+
+---
+Install package                 apt-get install <package_name>
+
+Install multiple packages       apt-get install <package1> <package2> <package3>
+
+Search for package              apt-cache pkgname <package_name>
+
+---
+Remove package                  apt-get remove <package>
+                                    removes binaries of package NOT config files
+                                apt-get purge <package>
+                                    removes everything incld config files
+
+Clean retrieved package files   apt-get clean
+
+Clean only packages w/new ver   apt-get autoclean
+
+Clean unused dependencies       apt-get autoremove
+
+
+
