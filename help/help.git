@@ -1,0 +1,11 @@
+
+Clone repo                  git clone <awesome repo url>
+Create local repo           git init
+Branch list                 git branch
+
+Typical workflow:
+                            git fetch
+    						git status
+    						git add -A
+    						git commit -m "<vauge comment in here>"
+    						git push

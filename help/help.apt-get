@@ -5,17 +5,15 @@ Update package database         apt-get update
                                     get: new version
 
 Upgrade all packages            apt-get upgrade
-
 Upgrade specific package        apt-get upgrade <package_name>
-
 Update database & Upgrade       apt-get update && apt-ge upgrade -y
+Update database & ck depend.    apt-get check
 
 ---
 Install package                 apt-get install <package_name>
-
 Install multiple packages       apt-get install <package1> <package2> <package3>
-
 Search for package              apt-cache pkgname <package_name>
+See pending install             apt-get install --dry-run
 
 ---
 Remove package                  apt-get remove <package>
@@ -24,10 +22,8 @@ Remove package                  apt-get remove <package>
                                     removes everything incld config files
 
 Clean retrieved package files   apt-get clean
-
 Clean only packages w/new ver   apt-get autoclean
-
 Clean unused dependencies       apt-get autoremove
 
 
-
+Tell me more: $ help apt-get

@@ -1,4 +1,3 @@
-### Alias below ###
 
 # Tmux alias
     alias tl='tmux ls'
@@ -9,7 +8,7 @@
     alias source.tmux='tmux source-file $HOME/.tmux.conf'
 
 # bash
-    alias ls='ls -a'
+    alias ls='ls -a -1'
     alias q='exit'
     alias ra='ranger'
     alias ran='ranger'
@@ -54,12 +53,22 @@
 # Newsboat
     alias news='newsboat'
 
-
 # system
     alias shutdown='showdown -now'
 
-# SSH
 
+
+# School
+    alias chem='cd ~/notes/nursing/chemistry31/'
+
+# Install
+    alias install.tmux.plugin.manager='git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm'
+    alias install.vundle='git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim'
+    alias install.notes='git clone https://gitlab.com/veggietorta/notes.git'
+    alias install.dotfiles='git clone https://github.com/VeggieTorta/dotfiles.git'
+
+
+# SSH
     alias ssh.status='/etc/init.d/ssh status'
     alias ssh.reload='/etc/init.d/ssh reload'
     alias ssh.stop='/etc/init.d/ssh stop'
@@ -72,8 +81,30 @@
     alias help.git='cat $HOME/dotfiles/help/help.git'
     alias help.apt-get='cat $HOME/dotfiles/help/help.apt-get' '|'
 
-# Install
-	alias install.vundle='git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim'
-    alias install.notes='git clone https://gitlab.com/veggietorta/notes.git'
-    alias install.dotfiles='git clone https://github.com/VeggieTorta/dotfiles.git'
-    alias install.tmux.plugin.manager='git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
