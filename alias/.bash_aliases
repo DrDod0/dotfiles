@@ -1,5 +1,5 @@
 
-# Tmux alias
+# tmux alias
     alias tl='tmux ls'
     alias td='tmux detach'
     alias ta='tmux attach'
@@ -25,7 +25,7 @@
 # todo.txt
     #alias t='~/Dropbox/todo.txt/todo.sh'
 
-# Dropbox
+# dropbox
     alias dropbox.status='~/dropbox.py status'
 
 # w3m
@@ -44,29 +44,36 @@
 # OS update/upgrade pkts
     alias update='sh ~/notes/code/update.sh'
 
-# Python
+# python
     alias py='python3'
 
-# Pip
+# pip
     alias pip='pip3'
 
-# Newsboat
+# newsboat
     alias news='newsboat'
 
 # system
     alias shutdown='showdown -now'
 
+# VirtualEnv
+    #alias virtual_create='virtualenv '
+    #alias virtual_source='source /bin/activate'
+    #alias virtual_deactivate=''
+
+# fail2band
+    alias fail2band.start='sudo systemctl start fail2ban'
+    alias fail2band.enable='sudo systemctl enable fail2ban'
 
 
-# School
+# school
     alias chem='cd ~/notes/nursing/chemistry31/'
 
-# Install
+# install
     alias install.tmux.plugin.manager='git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm'
     alias install.vundle='git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim'
     alias install.notes='git clone https://gitlab.com/veggietorta/notes.git'
     alias install.dotfiles='git clone https://github.com/VeggieTorta/dotfiles.git'
-
 
 # SSH
     alias ssh.status='/etc/init.d/ssh status'
@@ -79,7 +86,7 @@
     alias help.ssh='cat $HOME/dotfiles/help/help.ssh'
     alias help.tmux='cat $HOME/dotfiles/help/help.tmux'
     alias help.git='cat $HOME/dotfiles/help/help.git'
-    alias help.apt-get='cat $HOME/dotfiles/help/help.apt-get' '|'
+    alias help.apt-get='cat $HOME/dotfiles/help/help.apt-get'
 
 
 

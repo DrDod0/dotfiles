@@ -56,11 +56,14 @@
     Plugin 'tpope/vim-vinegar'
     Plugin 'dhruvasagar/vim-table-mode'
     Plugin 'airblade/vim-gitgutter'
+    "
     " python specific
     Plugin 'vim-scripts/indentpython.vim'
     Plugin 'vim-syntastic/syntastic'
     Plugin 'nvie/vim-flake8'
-
+    "
+    " chemistry specific
+    Plugin 'segeljakt/vim-isotope'
 
     " All of your Plugins must be added before the following line
 

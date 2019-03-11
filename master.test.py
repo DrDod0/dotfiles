@@ -2,36 +2,30 @@
 # Author: veggietorta
 # Contact: @veggietorta
 # Init: 03.07.19
-# Updtd: 03.07.19
+# Updtd: 03.11.19
 
+import os
 from subprocess import call
 
 
 def ask_user():
-    print('test: inside of def ask_user')
-    user_input = input(''' Type name of program to install or action':\n
-                           vim
-                           neovim
-                           ranger
-                           tmux
-                           newsboat
-                           git
-                           pip3
-                           pip black
-                           flake8
-                           python3
-                           fzf
-                           dropbox
-                           curl
+    os.system('clear')
+    user_input = input(''' Type name of program to install or action :\n
+            vimi        neovim      ranger      tmux
+            newsboat    git         pip3        pip black
+            flake8      python3     fzf         dropbox
+            curl
 
-                           exit
-                           ''')
-    return ask_user
-    print('test: leaving ask_user')
+            TODO virtualen, fail2ban
+            ---------------------------------------------
+            exit
+
+                       ''')
+    return user_input
 
 
-def find_user_input(ask_user):
-
+def find_user_input(user_input):
+    print("I'm inside the find_user_input function")
     # 'call' calls on $SHELL to search for the path of a program.
     # $ which {user_input}.
     # example: $ which vim.
@@ -60,6 +54,34 @@ def let_me_out():
 
 
 #################################
-print('Test: asking to be sent to ask_user')
 ask_user()
-find_user_input(ask_user)
+find_user_input(user_input)
+
+
+## fail2ban
+Install:
+apt-get install fail2ban
+
+start fail2ban:
+sudo systemctl start fail2ban
+
+enable fail2ban:
+sudo systemctl enable fail2ban
+
+Configure Jail:
+    create config:
+        touch /etc/fail2ban/jail.local
+        echo >
+            [sshd]
+            enabled = true
+            port ########
+            filter = sshd
+            logpath = /var/log/auth.log
+            maxretry = 3
+
+restart fail2ban
+    sudo systemctl restart fail2ban
+
+
+
+
