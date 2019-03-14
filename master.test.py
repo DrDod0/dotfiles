@@ -59,29 +59,41 @@ find_user_input(user_input)
 
 
 ## fail2ban
-Install:
-apt-get install fail2ban
+#Install:
+#apt-get install fail2ban
+#
+#start fail2ban:
+#sudo systemctl start fail2ban
+#
+#enable fail2ban:
+#sudo systemctl enable fail2ban
+#
+#Configure Jail:
+#    create config:
+#        touch /etc/fail2ban/jail.local
+#        echo >
+#            [sshd]
+#            enabled = true
+#            port ########
+#            filter = sshd
+#            logpath = /var/log/auth.log
+#            maxretry = 3
+#
+#restart fail2ban
+#    sudo systemctl restart fail2ban
 
-start fail2ban:
-sudo systemctl start fail2ban
+# Block IPs by geo location
+    # Install xtables w/ depen
+        # sudo apt-get install xtables-addons-common
+    # Dll GeoIP list as CSV. create & cd to it
+        # mkdir ~/tmp/geoip 
+        # sudo /usr/lib/xtables-addons/xt_geoip_dl
 
-enable fail2ban:
-sudo systemctl enable fail2ban
-
-Configure Jail:
-    create config:
-        touch /etc/fail2ban/jail.local
-        echo >
-            [sshd]
-            enabled = true
-            port ########
-            filter = sshd
-            logpath = /var/log/auth.log
-            maxretry = 3
-
-restart fail2ban
-    sudo systemctl restart fail2ban
-
-
+    # libtext-cvs-xs-perl need to import list to iptables
+        # sudo apt-get install libtext-csv-xs-perl
+    
+    # Create folder to stash converterd files and import them
+        #sudo mkdir /usr/share/xt_geoip
+        #sudo /usr/lib/xtables-addons/xt_geoip_build -D /usr/share/xt_geoip *.csv
 
 

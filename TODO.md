@@ -1,4 +1,14 @@
+# CLI twitter:
+    # https://sferik.github.io/t/
 
+# created script to see all programs installed and versions
+
+# instructions on installing ruby gem, which is needed for tmuxinator
+    # apt-get install rubygem -y
+    # gem install tmuxinator
+    # set up configs
+
+# update server local time
 rm /etc/localtime/ 
 ln -s /usr/share/zoneinfo/US/Pacific-New /etc/localtime
 reference https://www.designhaven.co.uk/2014/10/update-server-timedate-linux-command-line-ssh/
