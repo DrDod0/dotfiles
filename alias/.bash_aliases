@@ -21,6 +21,7 @@
     alias code='cd ~/notes/code/'
     alias dot='cd ~/dotfiles'
     alias node="cd ~/node.setup/"
+    alias f1='cd ~/notes/F1/'
 
 # todo.txt
     #alias t='~/Dropbox/todo.txt/todo.sh'
@@ -52,6 +53,9 @@
 
 # newsboat
     alias news='newsboat'
+
+# sqlite3
+    alias sq='sqlite3'
 
 # system
     alias shutdown='showdown -now'
@@ -87,7 +91,7 @@
     alias help.tmux='cat $HOME/dotfiles/help/help.tmux'
     alias help.git='cat $HOME/dotfiles/help/help.git'
     alias help.apt-get='cat $HOME/dotfiles/help/help.apt-get'
-
+    alias help.sqlite='cat $HOME/dotfiles/help/help.sqlite'
 
 
 

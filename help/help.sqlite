@@ -1,0 +1,14 @@
+
+
+Clear screen                <Ctrl+l>
+
+.database                   List names and files of attached db
+.dump                       dumps db in a sql text format
+.import <file> <table>      Import dagta from files into table
+.show                       Show current values of settings
+
+
+db Back-up         sqlite3 {data.db} .dump > {data.sql}
+db Import          sqlite3 {date.db} < {date.sql}
+
+
