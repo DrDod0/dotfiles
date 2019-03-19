@@ -9,7 +9,7 @@ grows.
 # Configuration Collection:
 
 |CML|Name|
-|:---|---:|
+|:---:|:---:|
 |bash| .bashrc|
 |zsh| .zshrc|
 |aliases| .aliases|
@@ -24,21 +24,24 @@ grows.
 
 
 These files have been created for those brain-fart momments. They are assigned an
-alias to cat its content.
+alias to cat its content. The following terminal input,
 
->$ help.git
->   Typical workflow:
->                       git fetch
->                       git status
->                       git add -A
->                       git commit - m 'vauge comment get in here'
->                       git push
+`$ help.git`
 
+Will read out the following:
+
+```   Typical workflow:
+                       git fetch
+                       git status
+                       git add -A
+                       git commit - m 'vauge comment get in here'
+                       git push
+```
 
 
 # Help-me Collection:
 |CML|Name|
-|---|---|
+|:---:|:---:|
 |apt-get|help.apt-get|
 |git|help.git|
 |sqlite|help.sqlite|
