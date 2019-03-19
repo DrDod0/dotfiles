@@ -6,10 +6,10 @@ There really isn't a good reason for you to use them. These files are alive and 
 become more abstract as their use increases and ultimately return to state of simplicity as my knowledge and comfort
 grows.
 
-# Configuration Collection:
+## Configuration Collection:
 
 |CML|Name|
-|:---:|:---:|
+|:---|---:|
 |bash| .bashrc|
 |zsh| .zshrc|
 |aliases| .aliases|
@@ -23,25 +23,24 @@ grows.
 |git| .gitconfig|
 
 
-These files have been created for those brain-fart momments. They are assigned an
+## Help Collection:
+These files have been created for those brain-fart momments. They are assigned a
 alias to cat its content. The following terminal input,
 
-`$ help.git`
+    `$ help.git`
 
 Will read out the following:
 
 ```   Typical workflow:
-                       git fetch
+    Typical workflow:  git fetch
                        git status
                        git add -A
                        git commit - m 'vauge comment get in here'
                        git push
 ```
 
-
-# Help-me Collection:
 |CML|Name|
-|:---:|:---:|
+|:---|---:|
 |apt-get|help.apt-get|
 |git|help.git|
 |sqlite|help.sqlite|
