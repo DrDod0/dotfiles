@@ -103,7 +103,7 @@ fi
 # Alias
 source $HOME/dotfiles/alias/.bash_aliases 
 
- fzf fuckers
+# fzf fuckers
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # Vim Keybindings

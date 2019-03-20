@@ -1,0 +1,10 @@
+
+The following aliases have already been set-up.
+
+$ ssh.[option]
+     - start
+     - stop
+     - reload
+     - status
+     - reload
+
