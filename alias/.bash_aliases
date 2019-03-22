@@ -92,6 +92,7 @@
     alias help.git='cat $HOME/dotfiles/help/help.git'
     alias help.apt-get='cat $HOME/dotfiles/help/help.apt-get'
     alias help.sqlite='cat $HOME/dotfiles/help/help.sqlite'
+    alias help.env='cat $HOME/dotfiles/help/help.env'
 
 
 
