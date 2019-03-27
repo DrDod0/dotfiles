@@ -6,6 +6,15 @@ There really isn't a good reason for you to use them. These files are alive and 
 become more abstract as their use increases and ultimately return to state of simplicity as my knowledge and comfort
 grows.
 
+# Structure:
+    + Shared
+        + alias
+        + help
+    + osx
+        +
+    + ubuntu
+        + 
+
 ## Configuration Collection:
 
 |CML|Name|

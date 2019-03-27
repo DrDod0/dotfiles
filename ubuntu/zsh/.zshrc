@@ -103,7 +103,7 @@ source $ZSH/oh-my-zsh.sh
     #neofetch
 
 # Alias location
-    source ~/dotfiles/alias/.bash_aliases
+    source ~/dotfiles/shared/alias/alias
 
 # syntax highlight
     #source /root/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
