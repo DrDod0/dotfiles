@@ -106,6 +106,6 @@ source $ZSH/oh-my-zsh.sh
     source ~/dotfiles/shared/alias/alias
 
 # syntax highlight
-    #source /root/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-	source /Users/vt/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    	source /root/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+	#source /Users/vt/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
