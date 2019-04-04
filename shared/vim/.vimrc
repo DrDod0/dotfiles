@@ -1,5 +1,5 @@
 
-" Last updated: 02.04.19
+" Last updated: 04.03.19
 "
 "
 "   ██╗██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
@@ -57,12 +57,12 @@
     Plugin 'dhruvasagar/vim-table-mode'
     Plugin 'airblade/vim-gitgutter'
     "
-    " python specific
+    "Python specific
     Plugin 'vim-scripts/indentpython.vim'
     Plugin 'vim-syntastic/syntastic'
     Plugin 'nvie/vim-flake8'
     "
-    " chemistry specific
+    "Chemistry specific
     Plugin 'segeljakt/vim-isotope'
 
     " All of your Plugins must be added before the following line
@@ -89,7 +89,6 @@
 	"set relativenumber			" Numbers displayed relative to position
 	set nowrap					" No text wrap
 	"set lazyredraw				" Vim don't redraw the screen, macros need speed
-    set termguicolors
     set clipboard^=unnamed
 
 	set ignorecase				" Ignore case when searching
@@ -103,6 +102,7 @@
 	set shiftwidth=4
 	set scrolloff=3				" Number of lines to keep above and below of cursor
 	set expandtab
+
 	set sidescrolloff=5			" Number of columns to keep left and right of cursor
 
 	set noswapfile				" No more .swap files
