@@ -8,6 +8,7 @@ Upgrade all packages            apt-get upgrade
 Upgrade specific package        apt-get upgrade <package_name>
 Update database & Upgrade       apt-get update && apt-ge upgrade -y
 Update database & ck depend.    apt-get check
+Update security                 unattended-upgrade -d
 
 ---
 Install package                 apt-get install <package_name>
