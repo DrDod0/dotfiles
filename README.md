@@ -1,5 +1,3 @@
-# dotfiles
-
 # Introduction:
 Welcome to my dotfiles repo. This repo is a curated collection of dotfiles that fit my personal and selfish needs.
 There really isn't a good reason for you to use them. These files are alive and constantly shifting, the files
@@ -50,4 +48,4 @@ grows.
 These files have been created for those brain-fart momments. They are assigned a
 alias to cat its content. The following terminal input,
 
-<a href="https://imgflip.com/gif/2y3pe7"><img src="https://i.imgflip.com/2y3pe7.gif" title="made at imgflip.com"/></a>
+<iframe src="https://giphy.com/embed/U7UPCcXwwkb15mQztC" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/U7UPCcXwwkb15mQztC">via GIPHY</a></p>
