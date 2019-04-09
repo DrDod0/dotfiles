@@ -3,37 +3,30 @@
 
 # created script to see all programs installed and versions
 
-# instructions on installing ruby gem, which is needed for tmuxinator
+# Instructions on installing ruby gem, which is needed for tmuxinator
     # apt-get install rubygem -y
     # gem install tmuxinator
     # set up configs
 
-# update server local time
-rm /etc/localtime/ 
+# Instructions update server local time
+rm /etc/localtime/
 ln -s /usr/share/zoneinfo/US/Pacific-New /etc/localtime
 reference https://www.designhaven.co.uk/2014/10/update-server-timedate-linux-command-line-ssh/
 
-# TODO for all files in directory
-- set up keys for all git repos
 
-# git-config
-XXX create git-config file
-
-# VIMRC
-- review gitgutter settings, not working as expected
+[] set up keys for all git repos
+[] create git-config file
 
 # symbolic_links.sh
-- rewrite setting up one function a list, maybe
-- test each function
-- XXX create function to reload bash
-- FIX in osx tmux does not recognize the bash_aliases, outside of tmux okay
-- [x] instead of rm a found config file, give user option to replace or keep * going with remove all 
-- [x] 02.28.19 XXX add echo readout to all functions * done
-- [x] 02.28.19 create a search function for all aliace if X program not installed, do not set up aliase.* done
-- [x] 02.28.19 XXX function to remove directory * done
-- [x] 02.28.19 XXX create function to ignore powerline-shell if not installed * done for all
-- [X] 02.21.19 FIX line 209 bashrc link not working * corrected function name
-- [X] XXX create function to ask user which link to setup
+rewrite setting up one function a list, maybe
+test each function
+FIX in osx tmux does not recognize the bash_aliases, outside of tmux okay
+[x] Create function to reload bash * moved to zsh
+[x] instead of rm a found config file, give user option to replace or keep * going with remove all
+[x] 02.28.19 XXX add echo readout to all functions * done
+[x] 02.28.19 create a search function for all aliace if X program not installed, do not set up aliase.* done
+[x] 02.28.19 XXX function to remove directory * done
+[X] XXX create function to ask user which link to setup
 
 # fail2ban
 - create directory for fail2ban
@@ -71,8 +64,8 @@ XXX create git-config file
 [X] setup with aliases
 
 # powerline
-[X]- config
-[x]- create a minimal powerline * moved away from powerline, no longer needed
+[X] config
+[x] create a minimal powerline * moved away from powerline, no longer needed
 
 # ranger
 [X] pull configuration files into dotfiles directory
@@ -94,3 +87,6 @@ XXX create git-config file
 
 # tmux.conf
 [X] tmux.conf not being read. * file was named as '.tmux.conf' instead of 'tmux.conf'
+
+# VIMRC
+[x] review gitgutter settings, not working as expected

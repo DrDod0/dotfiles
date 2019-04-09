@@ -86,12 +86,12 @@ find_user_input(user_input)
     # Install xtables w/ depen
         # sudo apt-get install xtables-addons-common
     # Dll GeoIP list as CSV. create & cd to it
-        # mkdir ~/tmp/geoip 
+        # mkdir ~/tmp/geoip
         # sudo /usr/lib/xtables-addons/xt_geoip_dl
 
     # libtext-cvs-xs-perl need to import list to iptables
         # sudo apt-get install libtext-csv-xs-perl
-    
+
     # Create folder to stash converterd files and import them
         #sudo mkdir /usr/share/xt_geoip
         #sudo /usr/lib/xtables-addons/xt_geoip_build -D /usr/share/xt_geoip *.csv
