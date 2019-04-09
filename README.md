@@ -48,5 +48,5 @@ grows.
 These files have been created for those brain-fart momments. They are assigned a
 alias to cat its content. The following terminal input,
 
-![](https://gph.is/g/E1d88q4)
-![Alt Text](https://gph.is/g/E1d88q4)
+![](https://media.giphy.com/media/w90V9nosRSkbxzB3dy/giphy.gif)
+
