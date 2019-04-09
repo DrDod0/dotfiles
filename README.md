@@ -7,30 +7,44 @@ become more abstract as their use increases and ultimately return to state of si
 grows.
 
 # Structure:
-    + Shared
+    + osx
+        + bash
+        + tmux
+        + zsh
+    + shared
         + alias
         + help
-    + osx
-        +
+        + neovim
+        + ranger
+        + sqlite
+        + tmux
+        + vim
     + ubuntu
-        + 
+        + bash
+        + git
+        + help
+        + neofetch
+        + neomutt
+        + newsboat
+        + powerline
+        + ranger
+        + tmux
+        + zsh
 
 ## Configuration Collection:
-
-|CML|Name|
-|:---|---:|
-|bash| .bashrc|
-|zsh| .zshrc|
-|aliases| .aliases|
-|neovim|
-|ranger|
-|tmux| .tmux_conf|
-|vim| .vimrc|
-|newsbaot| |
-|powerline-shell| |
-|sqlite| |
-|git| .gitconfig|
-
+* alias
+* bash
+* git
+* help
+* neofetch
+* neomutt
+* neovim
+* newsboat
+* powerline
+* sqlite
+* ranger
+* tmux
+* zsh
 
 ## Help Collection:
 These files have been created for those brain-fart momments. They are assigned a
@@ -47,11 +61,3 @@ Will read out the following:
                        git commit - m 'vauge comment get in here'
                        git push
 ```
-
-|CML|Name|
-|:---|---:|
-|apt-get|help.apt-get|
-|git|help.git|
-|sqlite|help.sqlite|
-|ssh|help.ssh|
-|tmux|help.tmux|
