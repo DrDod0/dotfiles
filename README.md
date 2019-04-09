@@ -50,4 +50,4 @@ alias to cat its content. The following terminal input,
 
 ![](https://gph.is/g/E1d88q4)
 
-<iframe src="https://giphy.com/embed/U7UPCcXwwkb15mQztC" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/U7UPCcXwwkb15mQztC">via GIPHY</a></p>
+<iframe src="https://giphy.com/gifs/U7UPCcXwwkb15mQztC"
