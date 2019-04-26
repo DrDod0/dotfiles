@@ -57,7 +57,7 @@
 # system
     alias shutdown='showdown -now'
     alias update.me='sudo apt-get update && sudo apt-get dist-upgrade -y'
-
+    alias time='dpkg-reconfigure tzdata'
 
 # VirtualEnv
     #alias virtual_create='virtualenv '
