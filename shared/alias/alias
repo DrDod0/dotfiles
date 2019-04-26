@@ -23,9 +23,6 @@
     alias node="cd ~/node.setup/"
     alias f1='cd ~/notes/F1/'
 
-# todo.txt
-    #alias t='~/Dropbox/todo.txt/todo.sh'
-
 # dropbox
     alias dropbox.status='~/dropbox.py status'
 
@@ -59,6 +56,8 @@
 
 # system
     alias shutdown='showdown -now'
+    alias update.me='sudo apt-get update && sudo apt-get dist-upgrade -y'
+
 
 # VirtualEnv
     #alias virtual_create='virtualenv '
