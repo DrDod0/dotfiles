@@ -122,6 +122,8 @@
     set complete+=kspell
     set spellfile=$HOME/notes/en.utf-8.add
 
+    set backspace=indent,eol,start "backspace fix in OSX
+
 " Remapping / Mapping / Abbreviation:
 
     " Change Leader
