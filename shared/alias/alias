@@ -48,8 +48,9 @@
 # pip
     alias pip='pip3'
 
-# newsboat
+# RRS & Readers
     alias news='newsboat'
+    alias read='fltrdr --config-base ~/.config/fltrdr/default'
 
 # sqlite3
     alias sq='sqlite3'
