@@ -1,0 +1,21 @@
+#!/bin/zsh
+
+# Create session
+new-session -d -s *LA*
+
+# Window set-up
+new-window -n git
+new-window -n rain
+
+
+# Select window
+select-window -t *LA*:1
+
+# Attach to session created
+attach-session -d -t *LA*
+
+# Kill all other sessions
+kill-session -a
+
+# Display bar
+display-message 'session loaded motherfucker'

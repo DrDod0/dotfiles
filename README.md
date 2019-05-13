@@ -45,7 +45,7 @@ grows.
 * zsh
 
 ## Help Collection:
-These files have been created for those brain-fart momments. They are assigned a
+These files have been created for those brain-fart moments. They are assigned a
 alias to cat its content. The following terminal input,
 
 ![](https://media.giphy.com/media/w90V9nosRSkbxzB3dy/giphy.gif)

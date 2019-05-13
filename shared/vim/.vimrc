@@ -222,6 +222,13 @@
 
 "Plugins
     "
+    "Vim-isotope:
+        "Convert next character into Superscript
+        " <C-g><C-k> {char}
+        "
+        " Convert next character into Subscript
+        " <C-g><C-j> {char}
+        "
     "Airline:
         let g:airline_theme='minimalist'
         "
