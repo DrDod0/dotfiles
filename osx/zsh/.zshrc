@@ -107,5 +107,5 @@ source $ZSH/oh-my-zsh.sh
 
 # syntax highlight
     #source /root/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-	source /Users/vt/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+	source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
