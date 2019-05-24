@@ -1,9 +1,0 @@
-{
-  "segments": [
-    "cwd",
-    "git",
-    "hg",
-    "jobs",
-    "root"
-  ]
-}
