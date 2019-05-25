@@ -5,29 +5,7 @@ become more abstract as their use increases and ultimately return to state of si
 grows.
 
 # Structure:
-    + osx
-        + bash
-        + tmux
-        + zsh
     + shared
-        + alias
-        + help
-        + neovim
-        + ranger
-        + sqlite
-        + tmux
-        + vim
-    + ubuntu
-        + bash
-        + git
-        + help
-        + neofetch
-        + neomutt
-        + newsboat
-        + powerline
-        + ranger
-        + tmux
-        + zsh
 
 ## Configuration Collection:
 * alias
@@ -38,7 +16,6 @@ grows.
 * neomutt
 * neovim
 * newsboat
-* powerline
 * sqlite
 * ranger
 * tmux
@@ -49,4 +26,4 @@ These files have been created for those brain-fart moments. They are assigned a
 alias to cat its content. The following terminal input,
 
 ![](https://media.giphy.com/media/w90V9nosRSkbxzB3dy/giphy.gif)
-
+Updated: 05.25.19
