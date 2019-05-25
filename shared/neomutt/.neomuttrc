@@ -3,16 +3,16 @@
 
 # Configure Internet Message Access Protocol for reading mail
 # Username and password for your Gmail or G Suite account
-set from = 'ochoaje@gmail.com'
-set realname = 'J'
-set imap_user = 'ochoaje@gmail.com'
+set from = 'EMAIL@EMAIL.com'
+set realname = 'me'
+set imap_user = 'EMAIL@EMAIL.com'
 set imap_pass = ''
 
 # # Specifies the default location of your mailboxes
 set folder = 'imaps://imap.gmail.com:993'
 
 # # Configure Simple Mail Transfer Protocol for sending mail
-set smtp_url = 'smtp://ochoaje@gmail.com@smtp.gmail.com:587/'
+set smtp_url = 'smtp://email@email.com@smtp.email.com:587/'
 set smtp_pass = ''
 set smtp_authenticators = 'plain'
 set ssl_force_tls = yes
@@ -21,10 +21,10 @@ set ssl_force_tls = yes
 set spoolfile = '+INBOX'
 
 # # Location of drafts
-set postponed = '+[GMail]/Drafts'
+set postponed = '+Drafts'
 
 ## Location of trash
-set trash = '+[Google Mail]/Trash'
+set trash = 'Trash'
 
 # # Activate caching, as it can greatly improve speed
 set header_cache =~/.mutt/cache/headers

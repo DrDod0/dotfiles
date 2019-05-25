@@ -8,18 +8,18 @@ grows.
     + shared
 
 ## Configuration Collection:
-* alias
-* bash
+* alias     * sourced in .zshrc and .bashrc
+* bash      * vim bindings enabled
+* zsh       * vim bindings enabled
 * git
-* help
-* neofetch
+* help      * set-up as alias'
+* neofetch  * sourced in .zshrc and .bashrc
 * neomutt
 * neovim
 * newsboat
 * sqlite
 * ranger
 * tmux
-* zsh
 
 ## Help Collection:
 These files have been created for those brain-fart moments. They are assigned a
