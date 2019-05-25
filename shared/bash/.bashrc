@@ -97,26 +97,26 @@ fi
 
 
 
-
-####################### veggietorta<3 #########################
+####################### veggietorta <3 #########################
+# Updated: 05.25.19
 
 # Alias
-source $HOME/dotfiles/alias/.bash_aliases 
+    source ~/dotfiles/shared/alias/alias
 
-# fzf fuckers
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# FZF
+    [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # Vim Keybindings
-if [ -x "$(command -v vim)" ]
-then
-	set -o vi
-fi
+    if [ -x "$(command -v vim)" ]
+    then
+	    set -o vi
+    fi
 
 # Neofetch show at login/boot
-if [ -x "$(command -v neofetch)" ]
-then
-	neofetch
-fi
+    if [ -x "$(command -v neofetch)" ]
+    then
+	    neofetch
+    fi
 
 
 

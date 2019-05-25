@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH="/root/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -98,14 +98,25 @@ source $ZSH/oh-my-zsh.sh
 
 
 ###################### veggietorta <3 ################################
-
-# Neofetch
-    #neofetch
+# Updated: 05.25.19
 
 # Alias location
     source ~/dotfiles/shared/alias/alias
 
+# Neofetch
+    #neofetch
+    if [ -x "$(command -v neofetch)" ]
+    then
+        neofetch
+    fi
+
+
+# FZF
+
+
+# Vim Keybindings
+    bindkey -v
+
 # syntax highlight
-    #source /root/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-	source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
