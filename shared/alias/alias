@@ -71,7 +71,7 @@
 
 
 # school
-    alias chem='cd ~/notes/nursing/chemistry31/'
+    alias school='cd ~/notes/school/'
 
 # install
     alias install.tmux.plugin.manager='git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm'
