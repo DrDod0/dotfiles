@@ -117,6 +117,4 @@ source $ZSH/oh-my-zsh.sh
 # Vim Keybindings
     bindkey -v
 
-# syntax highlight
-    source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
