@@ -50,7 +50,7 @@
 
 # RRS & Readers
     alias news='newsboat'
-    alias read='fltrdr --config-base ~/.config/fltrdr/default'
+    #alias read='fltrdr --config-base ~/.config/fltrdr/default'
 
 # sqlite3
     alias sq='sqlite3'
