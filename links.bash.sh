@@ -1,6 +1,6 @@
 #!/bin/bash
 # Author: veggietorta
-# Update: 06.01.19
+# Update: 06.08.19
 # Puporse: Automate a consistent configuration across rigs
 
 ##############################################################
@@ -87,6 +87,7 @@ ask_user()
     echo "Which configuration would you like to establish:
                  a. alias
                  b. help
+                 e. essential_links
 
                  1. zsh
                  2. bash
@@ -122,6 +123,7 @@ ask_user()
 
                 a) alias_link;;
                 b) help_link;;
+                e) essential_links;;
             esac
         }
 
@@ -303,6 +305,12 @@ git_link()
     {
     ln -s ~/dotfiles/shared/git/.gitconfig ~/
     }
+
+alias_link()
+    {
+    echo alias source in .zshrc and .bashrc
+    }
+
 
 # exit
 exit_link()
