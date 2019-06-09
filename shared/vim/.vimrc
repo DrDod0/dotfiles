@@ -42,7 +42,11 @@
     Plugin 'sk1418/HowMuch'
     Plugin 'yggdroot/indentLine'
     Plugin 'junegunn/limelight.vim'
+
     Plugin 'drewtempelmeyer/palenight.vim'
+    Plugin 'sainnhe/vim-color-forest-night'
+    Plugin 'lifepillar/vim-solarized8'
+
     Plugin 'sotte/presenting.vim'
     Plugin 'skywind3000/quickmenu.vim'
     Plugin 'pseewald/vim-anyfold'
@@ -51,7 +55,6 @@
     Plugin 'aaronbieber/vim-quicktask'
     Plugin 'bronson/vim-trailing-whitespace'
     Plugin 'tpope/vim-unimpaired'
-    Plugin 'lifepillar/vim-solarized8'
     Plugin 'vim-scripts/DrawIt'
     Plugin 'tpope/vim-vinegar'
     Plugin 'dhruvasagar/vim-table-mode'
@@ -82,6 +85,8 @@
     " auto-approve removal
 
 " General Settings:
+
+    set termguicolors
     set ma                      " Modifiable
 	set encoding=utf-8			" Unicode support
 	set nrformats=				" Treat all numberals as decimal
