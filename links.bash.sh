@@ -167,6 +167,7 @@ bash_link()
     {
         if [ -x "$(command -v bash)" ]
         then
+            rm ~/.bashrc
             ln -s ~/dotfiles/shared/bash/.bashrc ~/
             echo bash program found, created symbolick link
         else
@@ -180,6 +181,7 @@ zsh_link()
  {
      if [ -x "$(command -v zsh)" ]
      then
+         rm ~/.zshrc
          ln -s ~/dotfiles/shared/zsh/.zshrc ~/
          echo zsh program found, created symbolic link
      else
@@ -195,6 +197,7 @@ vim_link()
     if [ -x "$(command -v nvim)" ]
     then
         # vim program found, symbolic link established, send back to user
+        rm ~/.vimrc
         ln -s ~/dotfiles/shared/vim/.vimrc ~/
         echo vim program found, created symbolic link.
         ask_user

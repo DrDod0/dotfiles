@@ -367,16 +367,11 @@
 
 	" Colorschemes:
 
-		" Default Theme:
-             colorscheme palenight				"colorscheme ~/.vim/colors/...
-             set background=dark
-             syntax on
-
-        " Dracula:
-            fun! s:Dra()
-                colorscheme dracula
-                set background=dark
-                syntax on
+        	" Dracula:
+           	 fun! s:Dra()
+                	colorscheme dracula
+                	set background=dark
+                	syntax on
             endfun
             command Dra call s:Dra()
 
