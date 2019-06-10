@@ -1,29 +1,38 @@
 # Introduction:
-Welcome to my dotfiles repo. This repo is a curated collection of dotfiles that fit my personal and selfish needs.
-There really isn't a good reason for you to use them. These files are alive and constantly shifting, the files
+I subscribe to the idea that an OS is never as fast as when its freshly installed. I therefore wipe my OS many times a year.
+This repo and scripts have been created to assist in speeding up the turn around time in getting back up and running. Currently
+this repo has two components to its structure.
+
+    1. A script which will bulk install applications I've deemed essential.
+
+    2. A script which will set-up symbolic links to a curated collection of dotfiles fitting my personal and selfish needs.
+
+There really isn't a good reason for anyone (but me) to use these configurations. These files are alive and constantly shifting, the files
 become more abstract as their use increases and ultimately return to state of simplicity as my knowledge and comfort
 grows.
 
-# Structure:
-    + shared
+
+## Structure
++ shared: Collection of configurations
++ setup_configs.sh: script to set-up config files
++ setup_fresh_install.sh: script to bulk install applications.
 
 ## Configuration Collection:
-* alias     * sourced in .zshrc and .bashrc
-* bash      * vim bindings enabled
-* zsh       * vim bindings enabled
-* git
-* help      * set-up as alias'
-* neofetch  * sourced in .zshrc and .bashrc
-* neomutt
-* neovim
-* newsboat
-* sqlite
-* ranger
-* tmux
++ alias
++ bash
++ git
++ help
++ irssi
++ neofetch
++ neomutt
++ neovim
++ newsboat
++ ranger
++ sqlite
++ tmux
++ vim
++ zsh
 
-## Help Collection:
-These files have been created for those brain-fart moments. They are assigned a
-alias to cat its content. The following terminal input,
 
 ![](https://media.giphy.com/media/w90V9nosRSkbxzB3dy/giphy.gif)
-Updated: 05.25.19
+Updated: 06.10.19
