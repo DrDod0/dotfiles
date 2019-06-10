@@ -1,6 +1,6 @@
 #!/bin/bash
 # Author: veggietorta
-# Update: 06.08.19
+# Update: 06.10.19
 # Puporse: Automate a consistent configuration across rigs
 
 ##############################################################
@@ -72,13 +72,6 @@
 
 ###############################################################
 
-#dotfile_location()
-#    {
-#
-#    echo "Please enter the path to your configuration files, do NOT end with a '/' (~/dotfiles/shared):"
-#    read dotfile_path
-#
-#    }
 
 ask_user()
     {
@@ -325,5 +318,4 @@ exit_link()
 
 ###############################
 
-#dotfile_location
 ask_user
