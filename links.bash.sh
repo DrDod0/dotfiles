@@ -199,6 +199,7 @@ vim_link()
         # vim program found, symbolic link established, send back to user
         rm ~/.vimrc
         ln -s ~/dotfiles/shared/vim/.vimrc ~/
+        ln -s /dotfiles/shared/vim/.selected_editor ~/
         echo vim program found, created symbolic link.
         ask_user
     else
