@@ -13,26 +13,25 @@ grows.
 
 
 ## Structure
-+ shared: Collection of configurations
-+ setup_configs.sh: script to set-up config files
-+ setup_fresh_install.sh: script to bulk install applications.
+    + shared: Collection of configurations
+    + setup_configs.sh: script to set-up config files
+    + setup_fresh_install.sh: script to bulk install applications.
 
 ## Configuration Collection:
-+ alias
-+ bash
-+ git
-+ help
-+ irssi
-+ neofetch
-+ neomutt
-+ neovim
-+ newsboat
-+ ranger
-+ sqlite
-+ tmux
-+ vim
-+ zsh
+    + alias
+    + bash
+    + git
+    + help
+    + irssi
+    + neofetch
+    + neomutt
+    + neovim
+    + newsboat
+    + ranger
+    + sqlite
+    + tmux
+    + vim
+    + zsh
 
 
-![](https://media.giphy.com/media/w90V9nosRSkbxzB3dy/giphy.gif)
 Updated: 06.10.19
