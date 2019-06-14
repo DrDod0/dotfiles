@@ -30,7 +30,7 @@
     alias net='w3m www.duckduckgo.com'
 
 # git
-    alias pub='sh ~/notes/code/git.sh'
+    alias pub='sh ~/notes/code/project.git/git.sh'
 
 # vim
     alias vim='nvim'
