@@ -227,6 +227,11 @@
 
 "Plugins
     "
+    "Xpdf
+        :command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> -
+        :command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> - |fmt -csw78
+        "
+        "
     "Vim-isotope:
         "Convert next character into Superscript
         " <C-g><C-k> {char}
