@@ -1,5 +1,5 @@
 
-" Last updated: 04.03.19
+" Last updated: 06.28.19
 "
 "
 "   ██╗██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
@@ -9,63 +9,67 @@
 "██╗██║ ╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗
 "╚═╝╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
 "
-" TODO w !pbcopy
 "
 " Pluging Manager:
 
-    set nocompatible    " be iMproved, required
-    filetype off        " required
+    set nocompatible
+    filetype off
 
-    " set the runtime path to include Vundle and initialize
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
-    " alternatively, pass a path where Vundle should install plugins
-    "call vundle#begin('~/some/path/here')
-
-    " let Vundle manage Vundle, required
+    " Runtime path, include Vundle and initialize
+        set rtp+=~/.vim/bundle/Vundle.vim
+        call vundle#begin()
 
     "Plugin 'https://github.com/yegappan/mru.git'
+    "Plugin 'jiangmiao/auto-pairs'
     Plugin 'VundleVim/Vundle.vim'
-    Plugin 'christoomey/vim-tmux-navigator'
+
+    "Eye Candy
     Plugin 'ryanoasis/vim-devicons'
-    Plugin 'scrooloose/nerdtree'
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
-    Plugin 'Shougo/deoplete.nvim'
-    Plugin 'zchee/deoplete-jedi'
     Plugin 'roxma/nvim-yarp'
     Plugin 'roxma/vim-hug-neovim-rpc'
-    "Plugin 'jiangmiao/auto-pairs'
     Plugin 'yuttie/comfortable-motion.vim'
+
+    "Navigation Tools
+    Plugin 'scrooloose/nerdtree'
+    Plugin 'christoomey/vim-tmux-navigator'
     Plugin 'kien/ctrlp.vim'
-    Plugin 'junegunn/goyo.vim'
-    Plugin 'sk1418/HowMuch'
+
+    "Writing Tools
     Plugin 'yggdroot/indentLine'
     Plugin 'junegunn/limelight.vim'
+    Plugin 'junegunn/goyo.vim'
+    Plugin 'plasticboy/vim-markdown'
+    Plugin 'bronson/vim-trailing-whitespace'
+    Plugin 'reedes/vim-pencil'
 
+    "Colorschemes
     Plugin 'drewtempelmeyer/palenight.vim'
     Plugin 'sainnhe/vim-color-forest-night'
     Plugin 'lifepillar/vim-solarized8'
 
-    Plugin 'sotte/presenting.vim'
     Plugin 'skywind3000/quickmenu.vim'
     Plugin 'pseewald/vim-anyfold'
-    Plugin 'plasticboy/vim-markdown'
-    Plugin 'reedes/vim-pencil'
     Plugin 'aaronbieber/vim-quicktask'
-    Plugin 'bronson/vim-trailing-whitespace'
     Plugin 'tpope/vim-unimpaired'
-    Plugin 'vim-scripts/DrawIt'
     Plugin 'tpope/vim-vinegar'
     Plugin 'dhruvasagar/vim-table-mode'
     Plugin 'airblade/vim-gitgutter'
-    "
-    "Python specific
+
+    "Dev Tools
+    Plugin 'zchee/deoplete-jedi'
+    Plugin 'Shougo/deoplete.nvim'
+
+    "Python Tools
     Plugin 'vim-scripts/indentpython.vim'
     Plugin 'vim-syntastic/syntastic'
     Plugin 'nvie/vim-flake8'
-    "
-    "Chemistry specific
+
+    "School Tools
+    Plugin 'sk1418/HowMuch'
+    Plugin 'sotte/presenting.vim'
+    Plugin 'vim-scripts/DrawIt'
     Plugin 'segeljakt/vim-isotope'
 
     " All of your Plugins must be added before the following line
