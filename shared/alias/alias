@@ -7,7 +7,7 @@
     alias tu='tmux'
     alias source.tmux='tmux source-file $HOME/.tmux.conf'
 
-# bash
+# bash/zsh
     alias ls='ls -a -1'
     alias q='exit'
     alias ra='ranger'
@@ -27,7 +27,7 @@
     alias dropbox.status='~/dropbox.py status'
 
 # w3m
-    alias net='w3m www.duckduckgo.com'
+    alias net='w3m'
 
 # git
     alias pub='sh ~/notes/code/project.git/git.sh'
@@ -38,9 +38,6 @@
 
     alias vimrc='vim ~/dotfiles/vim/.vimrc'
     alias source.vimrc='source $HOME/.vimrc'
-
-# OS update/upgrade pkts
-    alias update='sh ~/notes/code/update.sh'
 
 # python
     alias py='python3'
@@ -57,7 +54,7 @@
 
 # system
     alias shutdown='showdown -now'
-    alias update.me='sudo apt-get update && sudo apt-get dist-upgrade -y'
+    alias update.me='sudo apt-get update && sudo apt-get dist-upgrade -y && apt autoremove -y'
     alias time='dpkg-reconfigure tzdata'
 
 # VirtualEnv
@@ -68,7 +65,6 @@
 # fail2band
     alias fail2band.start='sudo systemctl start fail2ban'
     alias fail2band.enable='sudo systemctl enable fail2ban'
-
 
 # school
     alias school='cd ~/notes/school/'
