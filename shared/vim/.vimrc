@@ -92,7 +92,7 @@
 
     set termguicolors
     set ma                      " Modifiable
-	set encoding=utf-8			" Unicode support
+	set encoding=UTF-8			" Unicode support, required for devicons
 	set nrformats=				" Treat all numberals as decimal
     set number
 	"set relativenumber			" Numbers displayed relative to position
