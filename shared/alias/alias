@@ -75,6 +75,9 @@
     alias install.notes='git clone https://gitlab.com/veggietorta/notes.git'
     alias install.dotfiles='git clone https://github.com/VeggieTorta/dotfiles.git'
 
+# fzf
+    alias ff="fzf --preview 'head -100 {}'"
+
 # SSH
     alias ssh.status='/etc/init.d/ssh status'
     alias ssh.reload='/etc/init.d/ssh reload'
