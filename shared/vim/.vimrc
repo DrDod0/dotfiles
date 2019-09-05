@@ -1,5 +1,5 @@
 
-" Last updated: 06.28.19
+" Last updated: 09.04.19
 "
 "
 "   ██╗██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
@@ -50,6 +50,7 @@
     Plugin 'drewtempelmeyer/palenight.vim'
     Plugin 'sainnhe/vim-color-forest-night'
     Plugin 'lifepillar/vim-solarized8'
+    Plugin 'crusoexia/vim-dracula'
 
     Plugin 'skywind3000/quickmenu.vim'
     Plugin 'pseewald/vim-anyfold'
@@ -93,6 +94,9 @@
 " General Settings:
 
     "set termguicolors          " Using OSX/iterm turns colorschemes all pink
+
+    set guifont=Fira\ Code:h12
+
     set ma                      " Modifiable
 	set encoding=UTF-8			" Unicode support, required for devicons
 	set nrformats=				" Treat all numberals as decimal
@@ -230,8 +234,8 @@
       "
     " C-l redraws screen & removes highlight
         nnoremap <silent> <C-l> :nohl<CR><C-l>
-  
-        
+
+
 "Plugins
     "
     "Xpdf
