@@ -35,6 +35,8 @@
     Plugin 'scrooloose/nerdtree'
     Plugin 'christoomey/vim-tmux-navigator'
     Plugin 'kien/ctrlp.vim'
+    Plugin 'francoiscabrol/ranger.vim'
+    Plugin 'rbgrouleff/bclose.vim'
 
     "Writing Tools
     Plugin 'yggdroot/indentLine'
@@ -90,7 +92,7 @@
 
 " General Settings:
 
-    set termguicolors
+    "set termguicolors          " Using OSX/iterm turns colorschemes all pink
     set ma                      " Modifiable
 	set encoding=UTF-8			" Unicode support, required for devicons
 	set nrformats=				" Treat all numberals as decimal
@@ -210,7 +212,7 @@
         nnoremap <leader>sp :call FixSpellingError()<cr>
 
     " Source TODO
-        " nnoremap <leader>so source $MYVIMRC<cr>
+        nnoremap <leader>so source $MYVIMRC<cr>
 
     " School Remapping
 
@@ -228,7 +230,8 @@
       "
     " C-l redraws screen & removes highlight
         nnoremap <silent> <C-l> :nohl<CR><C-l>
-
+  
+        
 "Plugins
     "
     "Xpdf
@@ -236,7 +239,15 @@
         :command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> - |fmt -csw78
         "
         "
-    "Vim-isotope:
+    "Ranger Vim
+    "
+    "Disable Default mapping
+        let g:ranger_map_keys = 0
+    "New mapping:
+        map <leader>r :Ranger<CR>.
+
+
+    "aVim-isotope:
         "Convert next character into Superscript
         " <C-g><C-k> {char}
         "
