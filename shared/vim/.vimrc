@@ -10,8 +10,10 @@
 "╚═╝╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
 "
 "
-" Pluging Manager:
-
+"-----------------------
+"|  Pluging Manager:   |
+"-----------------------
+"
     set nocompatible
     filetype off
 
@@ -24,6 +26,7 @@
     Plugin 'VundleVim/Vundle.vim'
 
     "Eye Candy
+    Plugin 'mhinz/vim-startify'
     Plugin 'ryanoasis/vim-devicons'
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
@@ -45,8 +48,7 @@
     Plugin 'plasticboy/vim-markdown'
     Plugin 'bronson/vim-trailing-whitespace'
     Plugin 'reedes/vim-pencil'
-    Plugin 'vim-pandoc/vim-pandoc'
-    Plugin 'vim-pandoc/vim-pandoc-syntax'
+    Plugin 'previm/previm'
 
     "Colorschemes
     Plugin 'drewtempelmeyer/palenight.vim'
@@ -93,7 +95,9 @@
     " :PluginClean      - confirms removal of unused plugins; append `!` to
     " auto-approve removal
 
-" General Settings:
+"------------------------
+"|  General Settings:   |
+"------------------------
 
     "set termguicolors          " Using OSX/iterm turns colorschemes all pink
 
@@ -141,7 +145,9 @@
 
     set backspace=indent,eol,start "backspace fix in OSX
 
-" Remapping / Mapping / Abbreviation:
+"------------------------------------------
+"|   Remapping / Mapping / Abbreviation:  |
+"------------------------------------------
 
     " Change Leader
     let mapleader=","
@@ -190,10 +196,10 @@
     " nnoremap <C-t> :vs ~/notes/Index_Helper.markdown<CR>:vertical resize 35<CR>
 
     " Work Soap Notes
-    nnoremap <C-s> :tabnew <esc>i#About<CR><CR>#Bodywork<CR><CR>#Other<CR>+ <C-R>=strftime("%m.%d.%y")<CR> - 60m - ##<esc>:w ~/notes/Work/Clients.Massage.Envy/.md<left><left><left>
+        "nnoremap <C-s> :tabnew <esc>i#About<CR><CR>#Bodywork<CR><CR>#Other<CR>+ <C-R>=strftime("%m.%d.%y")<CR> - 60m - ##<esc>:w ~/notes/Work/Clients.Massage.Envy/.md<left><left><left>
 
     " Current_date
-    iab zdt <c-r>=strftime("%m.%d.%y")<CR>
+        iab zdt <c-r>=strftime("%m.%d.%y")<CR>
 
     " Vimgrep Shortcut w/ :lopen automated
     augroup myvimrc
@@ -203,13 +209,13 @@
     augroup END
 
     " Search all file for a string
-    nnoremap <leader>f :lvimgrep! // ** <left><left><left><left><left>
+        nnoremap <leader>f :lvimgrep! // ** <left><left><left><left><left>
 
     " Vim Help in full screen
-    nnoremap <C-h> :help  <bar> only <left><left><left><left><left><left><left><left>
+        nnoremap <C-h> :help  <bar> only <left><left><left><left><left><left><left><left>
 
     " Rot-13 the screen
-    map <leader>r mzHVLg?`z
+        map <leader>r mzHVLg?`z
 
     " Spelling error I'm feeling lucky
         function! FixSpellingError()
@@ -218,7 +224,7 @@
         nnoremap <leader>sp :call FixSpellingError()<cr>
 
     " Source TODO
-        nnoremap <leader>so source $MYVIMRC<cr>
+        "nnoremap <leader>so source $MYVIMRC<cr>
 
     " School Remapping
 
@@ -238,8 +244,17 @@
         nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 
-"Plugins
+    "Remove Trailing whitespace on save
+        autocmd BufWrite * :%s/\s\+$//e
+
+"----------------
+"|   Plugins    |
+"----------------
     "
+    "Previm
+        " Open Safari to provide preview
+        let g:previm_open_cmd = 'open -a Safari'
+
     "Xpdf
         :command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> -
         :command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> - |fmt -csw78
@@ -247,9 +262,10 @@
         "
     "Ranger Vim
     "
-    "Disable Default mapping
+        "Disable Default mapping
         let g:ranger_map_keys = 0
-    "New mapping:
+
+        "New mapping:
         map <leader>r :Ranger<CR>.
 
     "NERDTree
@@ -393,10 +409,11 @@
         " Change indent char
             let g:indentLine_char = '|'
 
-" Apperance:
+"---------------
+"| Apperance:  |
+"---------------
 
-
-    " set Vim-specific sequences for RGB colors
+    " Set Vim-specific sequences for RGB colors
         let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
         let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum""
 
