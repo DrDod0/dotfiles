@@ -45,6 +45,8 @@
     Plugin 'plasticboy/vim-markdown'
     Plugin 'bronson/vim-trailing-whitespace'
     Plugin 'reedes/vim-pencil'
+    Plugin 'vim-pandoc/vim-pandoc'
+    Plugin 'vim-pandoc/vim-pandoc-syntax'
 
     "Colorschemes
     Plugin 'drewtempelmeyer/palenight.vim'
@@ -81,7 +83,7 @@
     filetype plugin indent on    " required
 
     " To ignore plugin indent changes, instead use:
-    "filetype plugin on
+    " filetype plugin on
     "
     " Brief help
     " :PluginList       - lists configured plugins
@@ -250,6 +252,15 @@
     "New mapping:
         map <leader>r :Ranger<CR>.
 
+    "NERDTree
+        "Toggle NERDTree
+        nnoremap <silent> <expr> <F6> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
+
+        "Automatically open file for edit
+        let NERDTreeQuitOnOpen=1
+
+        "Show hidden files
+        let NERDTreeShowHidden=1
 
     "aVim-isotope:
         "Convert next character into Superscript
