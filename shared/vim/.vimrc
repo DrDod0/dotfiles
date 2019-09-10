@@ -101,8 +101,7 @@
 
     "set termguicolors          " Using OSX/iterm turns colorschemes all pink
 
-    "set guifont=Fira\ Code:h12
-
+    set shell=/bin/zsh\ -l
     set ma                      " Modifiable
 	set encoding=UTF-8			" Unicode support, required for devicons
 	set nrformats=				" Treat all numberals as decimal
