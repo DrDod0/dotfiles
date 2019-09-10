@@ -65,8 +65,8 @@
     Plugin 'airblade/vim-gitgutter'
 
     "Dev Tools
-    Plugin 'zchee/deoplete-jedi'
-    Plugin 'Shougo/deoplete.nvim'
+    "Plugin 'zchee/deoplete-jedi'
+    "Plugin 'Shougo/deoplete.nvim'
 
     "Python Tools
     Plugin 'vim-scripts/indentpython.vim'
@@ -101,7 +101,7 @@
 
     "set termguicolors          " Using OSX/iterm turns colorschemes all pink
 
-    set guifont=Fira\ Code:h12
+    "set guifont=Fira\ Code:h12
 
     set ma                      " Modifiable
 	set encoding=UTF-8			" Unicode support, required for devicons
@@ -418,6 +418,10 @@
         let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum""
 
 	" Colorschemes:
+
+            "Default
+            colorscheme palenight
+
 
         	" Dracula:
            	 fun! s:Dra()
