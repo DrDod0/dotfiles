@@ -20,8 +20,9 @@
     alias note='cd ~/notes/'
     alias code='cd ~/notes/code/'
     alias dot='cd ~/dotfiles'
-    alias node="cd ~/node.setup/"
+    alias node='cd ~/node.setup/'
     alias f1='cd ~/notes/F1/'
+    alias journal='cd ~/notes/mental_health/journal/'
 
 # dropbox
     alias dropbox.status='~/dropbox.py status'
