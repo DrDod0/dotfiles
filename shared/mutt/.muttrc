@@ -1,0 +1,118 @@
+
+
+
+
+set imap_user = "ochoaje"
+set imap_pass = "gqdz-auwa-qhld-fygf"
+set from = "ochoaje@icloud.com"
+set smtp_url = "smtp://user@smtp.mail.me.com:587/"
+
+set folder = "imaps://ochoaje@imap.mail.me.com/"
+set spoolfile = "imaps://ochoaje@imap.mail.me.com/INBOX"
+set postponed = "+Drafts"
+set record = "+Sent Messages"
+set folder = "~/.mutt/.mail"
+
+set imap_pipeline_depth=0
+
+set header_cache = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+set certificate_file = "~/.mutt/certificates"
+
+
+
+
+set quit=ask-yes    # Confirm quit
+set nosave_empty    # Remove files when no messages are left
+set nomark_old      # Don't care if message is old
+set mail_check=60   # How oftern to poll for new mail
+set delete=yes      # Purge deleted message without asking
+set autoedit        # Go to editor right away wehn composing
+set nobeep          # No beeping
+
+set editor="vim"
+bind pager j next-line # vim like binding
+bind pager k previous-line # vim like binding
+
+set date_format="!%a, %b %d, %Y at %I:%M:%S%p %Z"
+
+set sort=threads
+set sort_browser=reverse-date
+set sort_aux=last-date-received
+
+##############################################################################
+# HTML
+# ############################################################################
+
+auto_view text/html                                     # view html automatially
+alternative_order text/plain text/enriched text/html    # save html for last
+
+##############################################################################
+# Sidebar
+##############################################################################
+
+set sidebar_width=10
+set sidebar_format="%B%?F? [%F]?%* %?N?%N/?%S"
+set sidebar_visible=yes
+set sidebar_new_mail_only=no
+color sidebar_new yellow default
+
+mailboxes +INBOX +'All Mail'
+mailboxes = Spam
+mailboxes = Unitek
+
+###############################################################################
+# Macros
+###############################################################################
+
+# Open links in email
+    macro index,pager \cb ": unset wait_key; set pipe_decode\n|w3m\n: set wait_key; unset pipe_decode\n" "call w3m to extract URLs out of a message"
+
+# Open Unitek folder
+    macro index \Cu  "<change-folder> =Unitek<enter>"  "go to Unitek Items"
+# Open Unitek folder
+    macro index \Ci  "<change-folder> =INBOX<enter>"  "go to Inbox Items"
+
+
+
+###############################################################################
+# Dracula Theme for Mutt: https://draculatheme.com/   @author Paul Townsend <paul@caprica.org>
+###############################################################################
+
+# general ------------ foreground ---- background -----------------------------
+color error		color231	color212
+color indicator		color231	color241
+color markers		color210	default
+color message		default		default
+color normal		default		default
+color prompt		default	        default
+color search		color84		default
+color status 		color141	color236
+color tilde		color231	default
+color tree		color141	default
+
+# message index ------ foreground ---- background -----------------------------
+color index		color210	default 	~D # deleted messages
+color index		color84		default 	~F # flagged messages
+color index		color117	default 	~N # new messages
+color index		color212	default 	~Q # messages which have been replied to
+color index		color215	default 	~T # tagged messages
+color index		color141	default		~v # messages part of a collapsed thread
+
+# message headers ---- foreground ---- background -----------------------------
+color hdrdefault	color117	default
+color header		color231	default		^Subject:.*
+
+# message body ------- foreground ---- background -----------------------------
+color attachment	color228	default
+color body		color231	default		[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+               # email addresses
+color body		color228	default		(https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+        # URLs
+color body		color231	default		(^|[[:space:]])\\*[^[:space:]]+\\*([[:space:]]|$) # *bold* text
+color body		color231	default		(^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)     # _underlined_ text
+color body		color231	default		(^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)     # /italic/ text
+color quoted		color61		default
+color quoted1		color117	default
+color quoted2		color84		default
+color quoted3		color215	default
+color quoted4		color212	default
+color signature		color212	default

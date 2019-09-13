@@ -30,9 +30,12 @@
 # w3m
     alias net='w3m'
 
-# git
+# Scripts
+    # git
     alias pub='sh ~/notes/code/project.git/git.sh'
 
+    # progress
+    alias pro='py ~/notes/code/project.todo/progress.py'
 # vim
     alias vim='nvim'
     alias vi='nvim'
@@ -42,6 +45,7 @@
 
 # python
     alias py='python3'
+    alias python='python3'
 
 # pip
     alias pip='pip3'

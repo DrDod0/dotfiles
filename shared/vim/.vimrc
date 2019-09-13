@@ -69,6 +69,7 @@
     "Plugin 'Shougo/deoplete.nvim'
 
     "Python Tools
+    Plugin 'tpope/vim-fugitive'
     Plugin 'vim-scripts/indentpython.vim'
     Plugin 'vim-syntastic/syntastic'
     Plugin 'nvie/vim-flake8'

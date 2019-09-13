@@ -116,6 +116,5 @@ source $ZSH/oh-my-zsh.sh
     bindkey -v
 
 
-
 # FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
