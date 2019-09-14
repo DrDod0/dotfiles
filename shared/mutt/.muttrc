@@ -51,15 +51,15 @@ alternative_order text/plain text/enriched text/html    # save html for last
 # Sidebar
 ##############################################################################
 
-set sidebar_width=10
-set sidebar_format="%B%?F? [%F]?%* %?N?%N/?%S"
-set sidebar_visible=yes
-set sidebar_new_mail_only=no
-color sidebar_new yellow default
-
-mailboxes +INBOX +'All Mail'
-mailboxes = Spam
-mailboxes = Unitek
+#set sidebar_width=10
+#set sidebar_format="%B%?F? [%F]?%* %?N?%N/?%S"
+#set sidebar_visible=yes
+#set sidebar_new_mail_only=no
+#color sidebar_new yellow default
+#
+#mailboxes +INBOX +'All Mail'
+#mailboxes = Spam
+#mailboxes = Unitek
 
 ###############################################################################
 # Macros
