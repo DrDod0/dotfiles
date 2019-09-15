@@ -1,15 +1,19 @@
+# Author: @veggietorta
+# Last updated: 09.15.19
+
+
 #===========================================
 # Paths
 #===========================================
 
-set folder           = ~/config./mutt/.mail               # mailbox location
-set alias_file       = ~/config./mutt/.mutt/alias         # where to store aliases
-set header_cache     = ~/config./mutt/.mutt/cache/headers # where to store headers
-set message_cachedir = ~/config./mutt/.mutt/cache/bodies  # where to store bodies
-set certificate_file = ~/config./mutt/.mutt/certificates  # where to store certs
-set mailcap_path     = ~/config./mutt/.mutt/mailcap       # entries for filetypes
-set tmpdir           = ~/config./mutt/.mutt/temp          # where to keep temp files
-set signature        = ~/config./mutt/.mutt/sig           # my signature file
+set folder           = ~/.config/.mutt/.mail         # mailbox location
+set alias_file       = ~/.config/.mutt/alias         # where to store aliases
+set header_cache     = ~/.config/.mutt/cache/headers # where to store headers
+set message_cachedir = ~/.config/.mutt/cache/bodies  # where to store bodies
+set certificate_file = ~/.config/.mutt/certificates  # where to store certs
+set mailcap_path     = ~/.config/.mutt/mailcap       # entries for filetypes
+set tmpdir           = ~/.config/.mutt/temp          # where to keep temp files
+set signature        = ~/.config/.mutt/sig           # my signature file
 
 
 #===========================================
@@ -40,13 +44,13 @@ unset beep_new
 # Keybinding
 ###############################################################
 
-#bind index gg               first-entry
+bind index gg               first-entry
 bind index G                last-entry
 bind index,pager R          group-reply
 bind index <space>          collapse-thread
 bind pager k                previous-line
 bind pager j                next-line
-#bind pager gg               top
+bind pager gg               top
 bind pager G                bottom
 bind index "R"              imap-fetch-mail         # Refresh inbox
 
@@ -68,15 +72,9 @@ set fast_reply      # Include body in reply
 ignore *
 unignore From To Reply-To Cc Bcc Subject Date Organization X-Label X-Mailer User-Agent
 
+
 # Sort
 set sort=threads
 set sort_browser=reverse-date
 set sort_aux=last-date-received
-
-##############################################################################
-# HTML
-##############################################################################
-
-auto_view text/html                                     # view html automatially
-alternative_order text/plain text/enriched text/html    # save html for last
 
