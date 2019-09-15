@@ -63,7 +63,7 @@
     alias sq='sqlite3'
 
 # system
-    alias shutdown='showdown -now'
+    alias shutdown='shutdown -now'
     alias update.me='sudo apt-get update && sudo apt-get dist-upgrade -y && apt autoremove -y'
     alias time='dpkg-reconfigure tzdata'
 
