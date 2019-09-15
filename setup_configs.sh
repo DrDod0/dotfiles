@@ -1,6 +1,6 @@
 #!/bin/bash
 # Author: veggietorta
-# Update: 06.10.19
+# Update: 09.15.19
 # Puporse: Automate a consistent configuration across rigs
 
 ##############################################################
@@ -88,7 +88,7 @@ ask_user()
                  4. neofetch
                  5. ranger
                  6. newsboat
-                 7. neomutt
+                 7. mutt
                  8. tmux
                  9. neovim
                 10. vim
@@ -107,7 +107,7 @@ ask_user()
                 4) neofetch_link;;
                 5) ranger_link;;
                 6) newsboat_link;;
-                7) neomutt;;
+                7) muttrc_link;;
                 8) tmux_link;;
                 9) neovim_link;;
                 10) vim_link;;
@@ -149,8 +149,9 @@ rm_all()
     # tmux
     rm -rf $HOME/.tmux.conf 2>/dev/null
 
-    # neomutt
+    # neomutt & mutt
     rm -rf $HOME/.neomuttrc 2>/dev/null
+    rm -rf $HOME/.muttrc
 
     ask_user
     }
@@ -234,12 +235,19 @@ tmux_link()
     ask_user
     }
 
-# neomutt
-neomuttrc_link()
+# mutt
+muttrc_link()
     {
     if [ -x "$(command -v mutt)" ]
     then
-        ln -s ~/dotfiles/shared/neomutt/.neomuttrc ~/
+        # .mailcap
+        ln -s ~/dotfiles/shared/mutt/.mailcap ~/
+        # .muttrc
+        ln -s ~/dotfiles/shared/mutt/.muttrc ~/
+        # Accounts
+        ln -s ~/notes/code/account.gm ~/
+        ln -s ~/notes/code/account.me ~/
+
         echo mutt found, symbolic link established
     else
         echo mutt not found, no action taken.

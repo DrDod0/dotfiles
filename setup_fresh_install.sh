@@ -1,6 +1,6 @@
 # !/bin/bash
-# Author: veggietorta
-# Update: 06.10.19
+# Author: @veggietorta
+# Update: 09.15.19
 # Purpose: Installing tools on a fresh install
 
 #############################
@@ -12,9 +12,10 @@
 
 ###############################
 
-
-# FIX remove keyboard promp
-# FIX remove ZSH not install promp
+# TODO [] linux install
+# TODO [] osx (homebrew) install
+# TODO [] remove keyboard promp
+# TODO [] remove ZSH not install promp
 
 ask_user()
     {
@@ -368,8 +369,57 @@ newsboat_install()
 
 mutt_install()
     {
-     #install
-     	apt-get install mutt -y
+
+    # Check for OS installed
+    if [ "$(uname)" = Darwin ]
+    then
+        #OSX Install, assumes homebrew has already been installed
+        # TODO [] Add condition to check for homebrew being installed
+
+        # folder structure
+        cd ~/.config
+        mkdir .mutt
+        mkdir .mail
+        mkdir alias
+        mkdir cache
+        mkdir certificates
+        mkdir mailcap
+        mkdir sig
+        mkdir temp
+        cd ~/.config/cache
+        mkdir bodies
+        mkdir headers
+
+        # Install mutt via homebrew
+        cd
+        brew install mutt
+
+    elif [ "$(uname)" = Debian ]
+    then
+        # Assumes if OSX isn't installed then Ubuntu is installed
+        # TODO [] add condition to check for Ubuntu install
+
+        # folder structure
+        cd ~/.config
+        mkdir .mutt
+        mkdir .mail
+        mkdir alias
+        mkdir cache
+        mkdir certificates
+        mkdir mailcap
+        mkdir sig
+        mkdir temp
+        cd ~/.config/cache
+        mkdir bodies
+        mkdir headers
+
+        #Ubunut Install
+        apt-get install mutt -y
+
+    else
+        echo "your system isn't supported, this script is only for OSX & Ubuntu"
+    fi
+
     }
 
 
