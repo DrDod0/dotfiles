@@ -38,7 +38,7 @@ unset confirmappend
 unset move
 unset mark_old
 unset beep_new
-
+set pager_index_lines=10
 
 ###############################################################
 # Keybinding
