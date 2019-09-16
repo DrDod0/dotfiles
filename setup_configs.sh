@@ -251,6 +251,7 @@ muttrc_link()
         echo mutt found, symbolic link established
     else
         echo mutt not found, no action taken.
+
     fi
     ask_user
     }
