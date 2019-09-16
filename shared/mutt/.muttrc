@@ -1,0 +1,45 @@
+# Author: @veggietorta
+# Last updated: 09.15.19
+
+# TODO [] view attachements, pdfs
+# TODO [] mime.types
+# TODO [] side bars folders
+# TODO [X] split screen
+# TODO [X] mutiple email accounts
+# TODO [X] HTML emails
+
+
+##############################################################################
+# Acounts
+##############################################################################
+
+#source ~/notes/code/account.me
+source ~/notes/code/account.gm
+
+
+###############################################################################
+# Settings - Colors - Sidebar
+###############################################################################
+
+source ~/dotfiles/shared/mutt/settings
+source ~/dotfiles/shared/mutt/colors
+#source ~/dotfiles/shared/mutt/sidebar
+
+
+###############################################################################
+# HTML
+###############################################################################
+
+# Auto convert text/html MIME to type to text/plain
+auto_view text/html
+alternative_order text/plain text/html
+
+
+###############################################################################
+# Macros
+###############################################################################
+
+macro index <f1> '<sync-mailbox><enter-command>source ~/dotfiles/shared/mutt/account.me<enter><change-folder>!<enter>'
+macro index <f2> '<sync-mailbox><enter-command>source ~/dotfiles/shared/mutt/account.gm<enter><change-folder>!<enter>'
+
+
