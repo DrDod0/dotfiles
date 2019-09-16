@@ -39,7 +39,7 @@ alternative_order text/plain text/html
 # Macros
 ###############################################################################
 
-macro index <f1> '<sync-mailbox><enter-command>source ~/dotfiles/shared/mutt/account.me<enter><change-folder>!<enter>'
-macro index <f2> '<sync-mailbox><enter-command>source ~/dotfiles/shared/mutt/account.gm<enter><change-folder>!<enter>'
+macro index <f1> '<sync-mailbox><enter-command>source ~/notes/code/account.me<enter><change-folder>!<enter>'
+macro index <f2> '<sync-mailbox><enter-command>source ~/notes/code/account.gm<enter><change-folder>!<enter>'
 
 
