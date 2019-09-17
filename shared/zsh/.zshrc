@@ -116,5 +116,9 @@ source $ZSH/oh-my-zsh.sh
     bindkey -v
 
 
+# Openvpn
+    export PATH=$PATH:/usr/local/Cellar/openvpn/2.4.7_1/sbin
+
+
 # FZF
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -1,6 +1,6 @@
 # !/bin/bash
 # Author: @veggietorta
-# Update: 09.15.19
+# Update: 09.16.19
 # Purpose: Installing tools on a fresh install
 
 #############################
@@ -16,6 +16,18 @@
 # TODO [] osx (homebrew) install
 # TODO [] remove keyboard promp
 # TODO [] remove ZSH not install promp
+# TODO [] osx CLI openvpn
+            #* brew install openvpm
+            #* export PATH=$PATH:/usr/local/Cellar/openvpn/2.4.0/sbin  add to zshrc
+            #* reload zshrc
+            #* cd Cellar/openvpn/2.4.0/
+            #* sudo wget https://www.privateinternetaccess.com/openvpn/openvpn.zip
+            #* if you dont have wget, brew install wget
+            #* $ sudo openvpn region_file_you_want_.ovpn
+            #* $ sudo_password
+            #* PIA_username
+            #* PIA_password
+            #* sudo $PATH openvpn stop
 
 ask_user()
     {
