@@ -262,9 +262,16 @@ newsboat_link()
     if [ -x "$(command -v newsboat)" ]
     then
         ln -s ~/dotfiles/shared/newsboat/config ~/.config/newsboat/
+        # OSX path tested
+        ln -s ~/dotfiles/shared/newsboat/config ~/.newsboat/
+
         echo newsboat found, .config symbolic link established
 
+
         ln -s ~/dotfiles/shared/newsboat/urls ~/.config/newsboat/
+        # OSX path tested
+        ln -s ~/dotfiles/shared/newsboat/urls ~/.newsboat/
+
         echo newsboat urls sybolic link for established.
 
     else
