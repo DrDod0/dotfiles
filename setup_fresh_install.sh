@@ -55,7 +55,8 @@ ask_user()
             26. *dotfiles_symbolic_links
             27. OpenVpn
             28. Homebrew
-            29. exit_out
+            29. htop
+            xx. exit_out
 
     "
     read user_answer
@@ -90,7 +91,8 @@ ask_user()
         26) dotfiles_symbolic_links;;
         27) OpenVpn;;
         28) homebrew;;
-        29) exit_out;;
+        29) htop;;
+        xx) exit_out;;
     esac
 
     }
@@ -513,73 +515,73 @@ zsh_install()
     }
 
 
-OpenVpn()
-{
+#OpenVpn()
+#{
+#    # Check for Darwin system
+#    if [ -x "$(uname)" == Darwin ]
+#    then
+#    echo "Your OSX system is acknowledge"
+#
+#        # check if Homebrew is installed
+#        if [ -x "$(brew -v)" == homebrew 2.1.11 ]
+#        then
+#            echo "Homebrew is installed"
+#
+#            # Install OpenVPN via brew
+#            brew install openvpn
+#
+#            # Add to .zshrc, already in current ~/dotfile/share/zsh/.zshrc
+#                #* export PATH=$PATH:/usr/local/Cellar/openvpn/2.4.0/sbin
+#
+#            # Reload zshrc
+#            zsh
+#
+#            # Download PIA's servers & unzip
+#            cd ~/Downloads
+#            sudo wget https://www.privateinternetaccess.com/openvpn/openvpn.zip
+#            unzip openvpn.zip
+#            echo "
+#            # \nUse:
+#                # $ sudo openvpn ~/Downloads/region_file_you_want_.ovpn
+#                # $ sudo_password
+#                # $ PIA_username
+#                # $ PIA_password \n"
+#            read -p "Predd [Enter] key to continue"
+#            clear
+#            ask_user
+#
+#
+#        elif [ -x "$(brew -v)" != homebrew 2.1.11 ]
+#            echo "Homebrew is not installed, woudld you like to install? [Y/N]"
+#            read answer
+#
+#            if $answer == Y
+#            then
+#                homebrew
+#            elif $answer == N
+#            then
+#                ask_user
+#            else
+#                OpenVpn
+#            fi
+#
+#        else
+#            clear
+#            echo "Homebrew is not install"
+#            homebrew
+#        fi
+#    else
+#        echo "Your system is not supported"
+#        read -p "Press [Enter] key to continue"
+#        ask_user
+#    fi
+#    }
+
+
+homebrew() # Tested in OSX 10.13.6
+    {
     # Check for Darwin system
-    if [ -x "$(uname)" == Darwin ]
-    then
-    echo "Your OSX system is acknowledge"
-
-        # check if Homebrew is installed
-        if [ -x "$(brew -v)" == homebrew 2.1.11 ]
-        then
-            echo "Homebrew is installed"
-
-            # Install OpenVPN via brew
-            brew install openvpn
-
-            # Add to .zshrc, already in current ~/dotfile/share/zsh/.zshrc
-                #* export PATH=$PATH:/usr/local/Cellar/openvpn/2.4.0/sbin
-
-            # Reload zshrc
-            zsh
-
-            # Download PIA's servers & unzip
-            cd ~/Downloads
-            sudo wget https://www.privateinternetaccess.com/openvpn/openvpn.zip
-            unzip openvpn.zip
-            echo "
-            # \nUse:
-                # $ sudo openvpn ~/Downloads/region_file_you_want_.ovpn
-                # $ sudo_password
-                # $ PIA_username
-                # $ PIA_password \n"
-            read -p "Predd [Enter] key to continue"
-            clear
-            ask_user
-
-
-        elif [ -x "$(brew -v)" != homebrew 2.1.11 ]
-            echo "Homebrew is not installed, woudld you like to install? [Y/N]"
-            read answer
-
-            if $answer == Y
-            then
-                homebrew
-            elif $answer == N
-            then
-                ask_user
-            else
-                OpenVpn
-            fi
-
-        else
-            clear
-            echo "Homebrew is not install"
-            homebrew
-        fi
-    else
-        echo "Your system is not supported"
-        read -p "Press [Enter] key to continue"
-        ask_user
-    fi
-    }
-
-
-homebrew()
-{
-    # Check for Darwin system
-    if [ -x "$(uname)" == Darwin ]
+    if [ "$(uname)" == Darwin ]
     then
         echo "Darwin identified, installing Homebrew"
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -591,11 +593,30 @@ homebrew()
         clear
         ask_user
     fi
-}
+    }
 
 
+htop() # Tested in OSX 10.13.6
+    {
+        if [ "$(uname)" == Darwin ]
+        then
+            echo "Apple system recognized, installing htop via homebrew"
+            cd ~/
+            brew install htop
+            ask_user
+        elif [ "$(uname)" == Debian ]
+        then
+            echo "Debian system recognized, installing htop via apt-get"
+            cd ~/
+            apt-get install htop -y
+            ask_user
+        else
+            echo "Your system is not supported"
+            ask_user
+        fi
+    }
 
-exit_out()
+exit_out() # Tested in OSX 10.13.6
     {
     exit
     }
