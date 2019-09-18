@@ -61,7 +61,9 @@ ask_user()
             24.  scim_install
             25. *zsh_install
             26. *dotfiles_symbolic_links
-            27.  exit_out
+            27. OpenVpn
+            28. Homebrew
+            29. exit_out
 
     "
     read user_answer
@@ -94,7 +96,9 @@ ask_user()
         24) scim_install;;
         25) zsh_install;;
         26) dotfiles_symbolic_links;;
-        27) exit_out;;
+        27) OpenVpn;;
+        28) homebrew;;
+        29) exit_out;;
     esac
 
     }
@@ -514,9 +518,74 @@ zsh_install()
     # reload shell
     zsh
 
-
-
     }
+
+
+OpenVpn()
+{
+    # Check for Darwin system
+    if [ -x "$(uname)" == Darwin ]
+    then
+    echo "You OSX system is acknowledge"
+
+        # check if homebrew is installed
+        if [ -x "$(brew -v)" == homebrew 2.1.11 ]
+        then
+            echo "homebrew is installed"
+        elif
+            echo "Homebrew is not installed, woudld you like to install? [Y/N]"
+            read answer
+            if $answer == Y
+            then
+                homebrew
+            elif $answer == N
+            then
+                ask_user
+            else
+                OpenVpn
+            fi
+
+        # check if wget is installed
+
+
+
+        read -p "Press [Enter] key to return"
+        clear
+        ask_user
+
+    elif [ "$(uname)" == Debian ]
+    then
+        echo "Not set-up yet"
+        read -p "Press [Enter] key to return"
+        clear
+        ask_user
+    else
+        echo "Your system isn't supported"
+        read -p "Press [Enter] key to return"
+    fi
+    }
+
+
+            #* export PATH=$PATH:/usr/local/Cellar/openvpn/2.4.0/sbin  add to zshrc
+            #* reload zshrc
+            #* cd Cellar/openvpn/2.4.0/
+            #* sudo wget https://www.privateinternetaccess.com/openvpn/openvpn.zip
+            #* if you dont have wget, brew install wget
+            #* $ sudo openvpn region_file_you_want_.ovpn
+            #* $ sudo_password
+            #* PIA_username
+            #* PIA_password
+            #* sudo $PATH openvpn stop
+
+homebrew()
+{
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    brew update
+    brew install wget
+}
+
+
+
 
 exit_out()
     {
