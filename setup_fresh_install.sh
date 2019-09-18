@@ -526,15 +526,41 @@ OpenVpn()
     # Check for Darwin system
     if [ -x "$(uname)" == Darwin ]
     then
-    echo "You OSX system is acknowledge"
+    echo "Your OSX system is acknowledge"
 
-        # check if homebrew is installed
+        # check if Homebrew is installed
         if [ -x "$(brew -v)" == homebrew 2.1.11 ]
         then
-            echo "homebrew is installed"
+            echo "Homebrew is installed"
+
+            # Install OpenVPN via brew
+            brew install openvpn
+
+            # Add to .zshrc, already in current ~/dotfile/share/zsh/.zshrc
+                #* export PATH=$PATH:/usr/local/Cellar/openvpn/2.4.0/sbin
+
+            # Reload zshrc
+            zsh
+
+            # Download PIA's servers & unzip
+            cd ~/Downloads
+            sudo wget https://www.privateinternetaccess.com/openvpn/openvpn.zip
+            unzip openvpn.zip
+            echo "
+            # \nUse:
+                # $ sudo openvpn ~/Downloads/region_file_you_want_.ovpn
+                # $ sudo_password
+                # $ PIA_username
+                # $ PIA_password \n"
+            read -p "Predd [Enter] key to continue"
+            clear
+            ask_user
+
+
         elif
             echo "Homebrew is not installed, woudld you like to install? [Y/N]"
             read answer
+
             if $answer == Y
             then
                 homebrew
@@ -545,45 +571,34 @@ OpenVpn()
                 OpenVpn
             fi
 
-        # check if wget is installed
-
-
-
-        read -p "Press [Enter] key to return"
-        clear
-        ask_user
-
-    elif [ "$(uname)" == Debian ]
-    then
-        echo "Not set-up yet"
-        read -p "Press [Enter] key to return"
-        clear
-        ask_user
+        else
+            clear
+            echo "Homebrew is not install"
+            homebrew
+        fi
     else
-        echo "Your system isn't supported"
-        read -p "Press [Enter] key to return"
-    fi
+        echo "Your system is not supported"
+        read -p "Press [Enter] key to continue"
+        ask_user
     }
 
 
-            #* export PATH=$PATH:/usr/local/Cellar/openvpn/2.4.0/sbin  add to zshrc
-            #* reload zshrc
-            #* cd Cellar/openvpn/2.4.0/
-            #* sudo wget https://www.privateinternetaccess.com/openvpn/openvpn.zip
-            #* if you dont have wget, brew install wget
-            #* $ sudo openvpn region_file_you_want_.ovpn
-            #* $ sudo_password
-            #* PIA_username
-            #* PIA_password
-            #* sudo $PATH openvpn stop
-
 homebrew()
 {
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew update
-    brew install wget
+    # Check for Darwin system
+    if [ -x "$(uname)" == Darwin ]
+    then
+        echo "Darwin identified, installing Homebrew"
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        brew update
+        brew install wget
+    else
+        echo "Your system isn't supported"
+        read -p "Press [Enter] key to return"
+        clear
+        ask_user
+    fi
 }
-
 
 
 
@@ -591,41 +606,6 @@ exit_out()
     {
     exit
     }
-
-#####################################
-
-# [A] System essentials
-#     ubuntu_maintance
-#     python3_install
-#     git_install
-#     pip3_install
-#     ranger_install
-#     curl_install
-#
-# # [B] Editor & Like
-#     vim_install
-#     neovim_install
-#     tmux_install
-#     vundle_plugin_install
-#     pip_install_black
-#     pip_install_flake8
-#
-# # [C] Random
-#     newsboat_install
-#     mutt_install
-#     #scim_install
-# # [Z] Terminal Flash & low priority
-#     neofetch_install
-#     remove_junk
-#     #powerline_shell_install
-#
-# # sqlite_install
-# # mosh_install
-# # todo_txt_install
-# fzf_install
-# time_adjustment
-# # dropbox_install
-# # clone_notes_repo
 
 #####################################
 
