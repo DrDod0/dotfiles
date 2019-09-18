@@ -17,6 +17,7 @@
 # TODO [] remove keyboard promp
 # TODO [] remove ZSH not install promp
 # TODO [] osx CLI openvpn
+# TODO [] test every function
 
 
 
@@ -181,7 +182,7 @@ vim_install()
     sudo add-apt-repository ppa:jonathonf/vim -y
     apt update -y
     apt install vim -y
-    echo 'vim repo added and installed.'
+    echo 'vim repo added installed.'
 
     # Make vim default editor, eat shit nano
     sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim 100
@@ -282,8 +283,6 @@ ranger_install()
         fi
 
     }
-
-pip3_install()
     {
     apt-get install python3-pip -y
 
@@ -321,9 +320,12 @@ remove_junk()
 python3_install()
     {
         # check OS, if ubuntu or OSX upgrade
+        cd ~/
         apt-get upgrade python3 -y
 
         # if OS is not Ubuntu or OSX install
+        cd ~/
+        brew install
 
     }
 
@@ -389,8 +391,13 @@ neovim_install()
 
 newsboat_install()
     {
-    #install
+    # install Debian
+        cd ~/.config/
     	apt-get install newsboat -y
+
+    # install OSX
+        cd ~/ # unable to pick folder location via homebrew
+        brew install newsboat
     }
 
 mutt_install()
