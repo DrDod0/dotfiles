@@ -17,17 +17,9 @@
 # TODO [] remove keyboard promp
 # TODO [] remove ZSH not install promp
 # TODO [] osx CLI openvpn
-            #* brew install openvpm
-            #* export PATH=$PATH:/usr/local/Cellar/openvpn/2.4.0/sbin  add to zshrc
-            #* reload zshrc
-            #* cd Cellar/openvpn/2.4.0/
-            #* sudo wget https://www.privateinternetaccess.com/openvpn/openvpn.zip
-            #* if you dont have wget, brew install wget
-            #* $ sudo openvpn region_file_you_want_.ovpn
-            #* $ sudo_password
-            #* PIA_username
-            #* PIA_password
-            #* sudo $PATH openvpn stop
+
+
+
 
 ask_user()
     {
@@ -557,7 +549,7 @@ OpenVpn()
             ask_user
 
 
-        elif
+        elif [ -x "$(brew -v)" != homebrew 2.1.11 ]
             echo "Homebrew is not installed, woudld you like to install? [Y/N]"
             read answer
 
@@ -580,6 +572,7 @@ OpenVpn()
         echo "Your system is not supported"
         read -p "Press [Enter] key to continue"
         ask_user
+    fi
     }
 
 
