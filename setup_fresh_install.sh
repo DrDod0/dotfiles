@@ -1,6 +1,6 @@
 # !/bin/bash
 # Author: @veggietorta
-# Update: 09.16.19
+# Update: 09.17.19
 # Purpose: Installing tools on a fresh install
 
 #############################
@@ -138,14 +138,30 @@ dotfiles_symbolic_links()
 
 
 ubuntu_maintance()
-    {
-    # No if/then statement added, OS updt will always be preformed
-    # update
+{
+    if [ "$(uname)" == Darwin ]
+    then
+        echo "Your Apple system isn't supported"
+        read -p "Press [Enter] key to return"
+        clear
+        ask_user
+
+    elif [ "$(uname)" == Debian ]
+    then
+        echo "Your Debian system is checking for updates"
+        # update
         apt-get update -y
-    # upgrade
+        # upgrade
         apt-get dist-upgrade -y
-    # remove old shit
+        # remove old shit
         apt-get remove -y
+        read -p "Press [Enter] key to return"
+        clear
+        ask_user
+    else
+        echo "Your system isn't supported"
+        read -p "Press [Enter] key to return"
+    fi
     }
 
 mosh_install()
