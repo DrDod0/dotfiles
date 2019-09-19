@@ -1,5 +1,5 @@
 
-" Last updated: 09.04.19
+" Last updated: 09.18.19
 "
 "
 "   ██╗██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
@@ -148,6 +148,13 @@
 "------------------------------------------
 "|   Remapping / Mapping / Abbreviation:  |
 "------------------------------------------
+"
+    " Send current line to other tmux panes in the same window
+    nnoremap <silent> <leader>p :call SendLineToPanes()<cr>
+    function! SendLineToPanes()
+      let cmd="echo '" . getline('.') . "' | ~/dotfiles/shared/tmux/tmux_send.sh"
+      silent call system(cmd)
+    endfunction
 
     " Change Leader
     let mapleader=","
@@ -268,7 +275,7 @@
         "New mapping:
         map <leader>r :Ranger<CR>.
 
-    "NERDTree
+    "NERDTree:
         "Toggle NERDTree
         nnoremap <silent> <expr> <F6> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 
@@ -278,7 +285,7 @@
         "Show hidden files
         let NERDTreeShowHidden=1
 
-    "aVim-isotope:
+    "Vimisotope:
         "Convert next character into Superscript
         " <C-g><C-k> {char}
         "
@@ -302,13 +309,13 @@
         " Mapping
            " Default maping <C-d> and <C-u>
            "
-    " HowMuch:
+    "HowMuch:
        " Precisions of float calculations, default is 2
             let g:HowMuch_scale = 6
         " Define Engine
             let g:HowMuch_auto_engines = ['vim']
             "
-    " Quickmenu:
+    "Quickmenu:
         if !empty(glob('$HOME/.vim/bundle/quickmenu.vim/'))
 
              " enable cursorline (L) and cmdline help (H)
