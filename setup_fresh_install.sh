@@ -57,6 +57,8 @@ ask_user()
             27. OpenVpn
             28. Homebrew
             29. htop
+            30. Youtube-dl
+            31. Cmus
             xx. exit_out
 
     "
@@ -93,6 +95,8 @@ ask_user()
         27) OpenVpn;;
         28) homebrew;;
         29) htop;;
+        30) youtubedl;;
+        31) cmus;;
         xx) exit_out;;
     esac
 
@@ -622,6 +626,18 @@ htop() # Tested in OSX 10.13.6
             ask_user
         fi
     }
+
+youtubedl()
+{
+# OSX 10.13.6 Installed
+brew install youtube-dl
+}
+
+cmus()
+{
+# OSX 10.13.6 Installed
+brew install cmus
+}
 
 exit_out() # Tested in OSX 10.13.6
     {
