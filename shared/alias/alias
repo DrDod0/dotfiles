@@ -108,22 +108,9 @@
     alias help.sqlite='cat $HOME/dotfiles/shared/help/help.sqlite'
     alias help.env='cat $HOME/dotfiles/shared/help/help.env'
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Youtube-dl
+    alias yoump3='youtube-dl -x --audio-format mp3'
+    alias you='youtube-dl'
 
 
 
