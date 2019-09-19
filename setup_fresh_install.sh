@@ -1,6 +1,6 @@
 # !/bin/bash
 # Author: @veggietorta
-# Update: 09.17.19
+# Update: 09.19.19
 # Purpose: Installing tools on a fresh install
 
 #############################
@@ -26,26 +26,30 @@ ask_user()
     {
     echo "
 
-   #############################################################################################################
-   #
-   #         a. *essential_actions
-   #
-   #         1.  ubuntu_maintance            2.  mosh_install                3.  *vim_install
-   #         4.  *git_install                5.  sqlite_install              6.  todo_txt_install
-   #         7.  *tmux_install               8.  *ranger_install             9.  *pip3_install
-   #         10.  powerline_shell_install    11.  pip_install_black          12.  pip_install_flake8
-   #         13. *remove_junk                14. *python3_install            15. *fzf_install
-   #         16.  time_adjustment            17.  dropbox_install            18. *neovim_install
-   #         19.  newsboat_install           20.  mutt_install               21. *neofetch_install
-   #         22. *vundle_plugin_install      23. *curl_install               24.  scim_install
-   #         25. *zsh_install                26. *dotfiles_symbolic_links    27. OpenVpn
-   #         28. Homebrew                    29. htop                        30. Youtube-dl
-   #         31. Cmus
-   #
-   #         xx. exit_out
-   #
-   #         What action would you like to take?
-   ###############################################################################################################
+   ##############################################################################################################
+   #                                                                                                            #
+   #         a. *essential_actions                                                                              #
+   #                                                                                                            #
+   #         1.  ubuntu_maintance            2.  mosh_install                3.  *vim_install                   #
+   #         4.  *git_install                5.  sqlite_install              6.  todo_txt_install               #
+   #         7.  *tmux_install               8.  *ranger_install             9.  *pip3_install                  #
+   #         10.  powerline_shell_install    11.  pip_install_black          12.  pip_install_flake8            #
+   #         13. *remove_junk                14. *python3_install            15. *fzf_install                   #
+   #         16.  time_adjustment            17.  dropbox_install            18. *neovim_install                #
+   #         19.  newsboat_install           20.  mutt_install               21. *neofetch_install              #
+   #         22. *vundle_plugin_install      23. *curl_install               24.  scim_install                  #
+   #         25. *zsh_install                26. *dotfiles_symbolic_links    27. OpenVpn                        #
+   #         28. Homebrew                    29. htop                        30. Youtube-dl                     #
+   #         31. Cmus                                                                                           #
+   #                                                                                                            #
+   #         xx. exit_out                                                                                       #
+   #                                                                                                            #
+   #                                                                                                            #
+   ##############################################################################################################
+
+    What action would you like to take?
+
+
     "
     read user_answer
 
@@ -120,7 +124,7 @@ dotfiles_symbolic_links()
     git clone https://github.com/VeggieTorta/dotfiles.git
 
     # run symbolic link script
-    sh ~/dotfiles/links.bash.sh
+    sh ~/dotfiles/setup_configs.sh
 
     }
 
@@ -154,13 +158,19 @@ ubuntu_maintance()
 
 mosh_install()
     {
-    # Install
-    if [ -x "$(command -v mosh)" ]
+    if [ "$(uname)" == Darwin ]
     then
-        echo 'mosh already installed'
-    else
+        # Install via homebrew
+        brew install mosh
+        ask_user
+    elif [ if "$uname" == Debian ]
+    then
+        # Install via apt-get
         apt-get install mosh -y
-        echo 'mosh not found, installing'
+        ask_user
+    else
+        echo "Your system is not intalled"
+        read -p "Press [Enter] key to return"
     fi
 
     }
