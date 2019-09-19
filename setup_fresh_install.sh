@@ -24,43 +24,28 @@
 
 ask_user()
     {
-    echo "What action would you like to take?
+    echo "
 
-            a. *essential_actions
-
-            1.  ubuntu_maintance
-            2.  mosh_install
-            3.  *vim_install
-            4.  *git_install
-            5.  sqlite_install
-            6.  todo_txt_install
-            7.  *tmux_install
-            8.  *ranger_install
-            9.  *pip3_install
-            10.  powerline_shell_install
-            11.  pip_install_black
-            12.  pip_install_flake8
-            13. *remove_junk
-            14. *python3_install
-            15. *fzf_install
-            16.  time_adjustment
-            17.  dropbox_install
-            18. *neovim_install
-            19.  newsboat_install
-            20.  mutt_install
-            21. *neofetch_install
-            22. *vundle_plugin_install
-            23. *curl_install
-            24.  scim_install
-            25. *zsh_install
-            26. *dotfiles_symbolic_links
-            27. OpenVpn
-            28. Homebrew
-            29. htop
-            30. Youtube-dl
-            31. Cmus
-            xx. exit_out
-
+   #############################################################################################################
+   #
+   #         a. *essential_actions
+   #
+   #         1.  ubuntu_maintance            2.  mosh_install                3.  *vim_install
+   #         4.  *git_install                5.  sqlite_install              6.  todo_txt_install
+   #         7.  *tmux_install               8.  *ranger_install             9.  *pip3_install
+   #         10.  powerline_shell_install    11.  pip_install_black          12.  pip_install_flake8
+   #         13. *remove_junk                14. *python3_install            15. *fzf_install
+   #         16.  time_adjustment            17.  dropbox_install            18. *neovim_install
+   #         19.  newsboat_install           20.  mutt_install               21. *neofetch_install
+   #         22. *vundle_plugin_install      23. *curl_install               24.  scim_install
+   #         25. *zsh_install                26. *dotfiles_symbolic_links    27. OpenVpn
+   #         28. Homebrew                    29. htop                        30. Youtube-dl
+   #         31. Cmus
+   #
+   #         xx. exit_out
+   #
+   #         What action would you like to take?
+   ###############################################################################################################
     "
     read user_answer
 
@@ -287,10 +272,8 @@ ranger_install()
         fi
 
     }
-    {
-    apt-get install python3-pip -y
 
-    }
+
 
 powerline_shell_install()
     {
@@ -637,6 +620,8 @@ cmus()
 {
 # OSX 10.13.6 Installed
 brew install cmus
+# cmus-osx media key support
+pip3 install cmus-osx;wq
 }
 
 exit_out() # Tested in OSX 10.13.6
