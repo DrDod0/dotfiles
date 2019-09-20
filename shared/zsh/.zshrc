@@ -106,5 +106,17 @@
 # FZF
     #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Let files beginning with a . to be matched.
+    # Example:
+        #  <$ ls -d *zshr>
+        #  <$ .zshrc
+
+        setopt globdots
+
+# Prevents the current line from being saved in the history if it is the same as previous one.
+    set opt histignoredups
+
+
+# iTerm2 Shell Intergration TODO [] screen for OSX
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
