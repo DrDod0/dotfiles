@@ -8,7 +8,7 @@
     alias source.tmux='tmux source-file $HOME/.tmux.conf'
 
 # bash/zsh
-    alias ls='ls -a -1 -G'
+    alias ls='ls -a -G'
     alias q='exit'
     alias ra='ranger'
     alias ran='ranger'
@@ -112,7 +112,10 @@
     alias yoump3='youtube-dl -x --audio-format mp3'
     alias you='youtube-dl'
 
-
+# Wifi OSX specific
+    alias wifi.ls='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport scan'
+    alias wifi.on='networksetup -setairportpower en0 on'
+    alias wifi.off='networksetup -setairportpower en0 off'
 
 
 
