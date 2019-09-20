@@ -114,7 +114,7 @@
         setopt globdots
 
 # Prevents the current line from being saved in the history if it is the same as previous one.
-    set opt histignoredups
+    setopt histignoredups
 
 
 # iTerm2 Shell Intergration TODO [] screen for OSX
