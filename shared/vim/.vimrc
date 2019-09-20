@@ -67,6 +67,7 @@
     "Dev Tools
     "Plugin 'zchee/deoplete-jedi'
     "Plugin 'Shougo/deoplete.nvim'
+    Plugin 'christoomey/vim-tmux-runner'
 
     "Python Tools
     Plugin 'tpope/vim-fugitive'
@@ -163,7 +164,11 @@
     :nnoremap <C-k> <C-w>k
     :nnoremap <C-l> <C-w>l
 
-"
+    "Vim Tmux Runner
+    let g:VtrStripLeadingWhitespace = 0
+    let g:VtrClearEmptyLines = 0
+    let g:VtrAppendNewline = 1
+    "
     " Send current line to other tmux panes in the same window
     nnoremap <silent> <leader>p :call SendLineToPanes()<cr>
     function! SendLineToPanes()
