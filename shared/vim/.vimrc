@@ -1,5 +1,5 @@
 
-" Last updated: 09.18.19
+" Last updated: 09.20.19
 "
 "
 "   ██╗██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
@@ -14,88 +14,69 @@
 "|  Pluging Manager:   |
 "-----------------------
 "
-    set nocompatible
-    filetype off
-
-    " Runtime path, include Vundle and initialize
-        set rtp+=~/.vim/bundle/Vundle.vim
-        call vundle#begin()
-
-    "Plugin 'https://github.com/yegappan/mru.git'
-    "Plugin 'jiangmiao/auto-pairs'
-    Plugin 'VundleVim/Vundle.vim'
+    call plug#begin('~/.vim/bundle')
 
     "Eye Candy
-    Plugin 'mhinz/vim-startify'
-    Plugin 'ryanoasis/vim-devicons'
-    Plugin 'vim-airline/vim-airline'
-    Plugin 'vim-airline/vim-airline-themes'
-    Plugin 'roxma/nvim-yarp'
-    Plugin 'roxma/vim-hug-neovim-rpc'
-    Plugin 'yuttie/comfortable-motion.vim'
+    Plug 'mhinz/vim-startify'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+    Plug 'yuttie/comfortable-motion.vim'
 
     "Navigation Tools
-    Plugin 'scrooloose/nerdtree'
-    Plugin 'christoomey/vim-tmux-navigator'
-    Plugin 'kien/ctrlp.vim'
-    Plugin 'francoiscabrol/ranger.vim'
-    Plugin 'rbgrouleff/bclose.vim'
+    Plug 'scrooloose/nerdtree'
+    Plug 'christoomey/vim-tmux-navigator'
+    Plug 'kien/ctrlp.vim'
+    Plug 'francoiscabrol/ranger.vim'
+    Plug 'rbgrouleff/bclose.vim'
 
     "Writing Tools
-    Plugin 'yggdroot/indentLine'
-    Plugin 'junegunn/limelight.vim'
-    Plugin 'junegunn/goyo.vim'
-    Plugin 'plasticboy/vim-markdown'
-    Plugin 'bronson/vim-trailing-whitespace'
-    Plugin 'reedes/vim-pencil'
-    Plugin 'previm/previm'
+    Plug 'yggdroot/indentLine'
+    Plug 'junegunn/limelight.vim'
+    Plug 'junegunn/goyo.vim'
+    Plug 'plasticboy/vim-markdown'
+    Plug 'bronson/vim-trailing-whitespace'
+    Plug 'reedes/vim-pencil'
+    Plug 'previm/previm'
 
     "Colorschemes
-    Plugin 'drewtempelmeyer/palenight.vim'
-    Plugin 'sainnhe/vim-color-forest-night'
-    Plugin 'lifepillar/vim-solarized8'
-    Plugin 'crusoexia/vim-dracula'
+    Plug 'drewtempelmeyer/palenight.vim'
+    Plug 'sainnhe/vim-color-forest-night'
+    Plug 'lifepillar/vim-solarized8'
+    Plug 'crusoexia/vim-dracula'
 
-    Plugin 'skywind3000/quickmenu.vim'
-    Plugin 'pseewald/vim-anyfold'
-    Plugin 'aaronbieber/vim-quicktask'
-    Plugin 'tpope/vim-unimpaired'
-    Plugin 'tpope/vim-vinegar'
-    Plugin 'dhruvasagar/vim-table-mode'
-    Plugin 'airblade/vim-gitgutter'
+    Plug 'skywind3000/quickmenu.vim'
+    Plug 'pseewald/vim-anyfold'
+    Plug 'aaronbieber/vim-quicktask'
+    Plug 'tpope/vim-unimpaired'
+    Plug 'tpope/vim-vinegar'
+    Plug 'dhruvasagar/vim-table-mode'
+    Plug 'airblade/vim-gitgutter'
 
     "Dev Tools
-    "Plugin 'zchee/deoplete-jedi'
-    "Plugin 'Shougo/deoplete.nvim'
-    Plugin 'christoomey/vim-tmux-runner'
+    Plug 'christoomey/vim-tmux-runner'
+    Plug 'tmsvg/pear-tree'                                                        " Auto pair
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
 
     "Python Tools
-    Plugin 'tpope/vim-fugitive'
-    Plugin 'vim-scripts/indentpython.vim'
-    Plugin 'vim-syntastic/syntastic'
-    Plugin 'nvie/vim-flake8'
+    Plug 'tpope/vim-fugitive'
+    Plug 'vim-scripts/indentpython.vim'
+    Plug 'vim-syntastic/syntastic'
+    Plug 'nvie/vim-flake8'
 
     "School Tools
-    Plugin 'sk1418/HowMuch'
-    Plugin 'sotte/presenting.vim'
-    Plugin 'vim-scripts/DrawIt'
-    Plugin 'segeljakt/vim-isotope'
+    Plug 'sk1418/HowMuch'
+    Plug 'sotte/presenting.vim'
+    Plug 'vim-scripts/DrawIt'
+    Plug 'segeljakt/vim-isotope'
 
-    " All of your Plugins must be added before the following line
-
-    call vundle#end()            " required
-    filetype plugin indent on    " required
-
-    " To ignore plugin indent changes, instead use:
-    " filetype plugin on
-    "
-    " Brief help
-    " :PluginList       - lists configured plugins
-    " :PluginInstall    - installs plugins; append `!` to update or just
-    " :PluginUpdate
-    " :PluginSearch foo - searches for foo; append `!` to refresh local cache
-    " :PluginClean      - confirms removal of unused plugins; append `!` to
-    " auto-approve removal
+    call plug#end()
 
 "------------------------
 "|  General Settings:   |
@@ -278,16 +259,18 @@
 "|   Plugins    |
 "----------------
     "
-    "Previm
+    "Cocvim:
+"
+    "Previm:
         " Open Safari to provide preview
         let g:previm_open_cmd = 'open -a Safari'
 
-    "Xpdf
+    "Xpdf:
         :command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> -
         :command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> - |fmt -csw78
         "
         "
-    "Ranger Vim
+    "RangerVim:
     "
         "Disable Default mapping
         let g:ranger_map_keys = 0
@@ -314,16 +297,6 @@
         "
     "Airline:
         let g:airline_theme='minimalist'
-        "
-    "Deopelte:
-        let g:deoplete#enable_at_startup = 1
-
-        " Tab complete
-        inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-
-        " Flake 8 / Linter
-        "let g:python3_host_prog = '/usr/bin/nvim/bin/python3'
-        "
         "
     "ComfortablMotionVim:
         " Mapping
