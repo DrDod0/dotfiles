@@ -14,6 +14,13 @@
 "|  Pluging Manager:   |
 "-----------------------
 "
+" Automatic Installation of vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+"
     call plug#begin('~/.vim/bundle')
 
     "Eye Candy
@@ -100,7 +107,6 @@
 	set incsearch               " Incremental searching
 
 	set autoindent
-    set smartindent
 	set tabstop=4
 	set shiftwidth=4
 	set scrolloff=3				" Number of lines to keep above and below of cursor
@@ -110,12 +116,12 @@
 
 	set noswapfile				" No more .swap files
 	set nobackup				"
-	set nowb					" No write backup
+	set nowritebackup			" No write backup
 	set undodir=-/.vim/undodir	" Undo directory location
 	"set viminfo=""				" Disable viminfo file
 
 	set noerrorbells			" Disable bell sound
-	set vb t_vb=				" Disable bell sound, enable visual
+	set visualbell t_vb=		" Disable bell sound, enable visual
 
 	set splitright				" Window split to the right
 
@@ -123,9 +129,9 @@
 
     set spelllang=en
     set complete+=kspell
-    set spellfile=$HOME/notes/en.utf-8.add
+    set spellfile=$HOME/notes/en.utf-8.add      " Personal dictionary
 
-    set backspace=indent,eol,start "backspace fix in OSX
+    set backspace=indent,eol,start              "backspace fix in OSX
 
 "------------------------------------------
 "|   Remapping / Mapping / Abbreviation:  |
@@ -170,12 +176,6 @@
     " remap <esc> to jj
     inoremap jj <Esc>
 
-    " Vim open Directory file at launch:
-    "autocmd VimEnter * edit $HOME/notes/Index.md
-
-    " Keyboard Shortcut
-    nnoremap <C-i> :e $HOME/notes/Index.md<cr>
-
     " Move visual selection
     vnoremap J :m '>+1<CR>gv=gv
     vnoremap K :m '>-2<CR>gv=gv
@@ -193,20 +193,13 @@
     nnoremap ; :
     nnoremap : ;
 
-    " Insert current date and time
-    nnoremap ,tt "=strftime("%c")<CR>P
-    inoremap ,tt <C-R>=strftime("%c")<CR>
-
-    " <3 vim: Take me to my love
-    " nnoremap <C-V> :e ~/.vimrc<CR>
-
     " Helper file:
     " nnoremap <C-t> :vs ~/notes/Index_Helper.markdown<CR>:vertical resize 35<CR>
 
     " Work Soap Notes
         "nnoremap <C-s> :tabnew <esc>i#About<CR><CR>#Bodywork<CR><CR>#Other<CR>+ <C-R>=strftime("%m.%d.%y")<CR> - 60m - ##<esc>:w ~/notes/Work/Clients.Massage.Envy/.md<left><left><left>
 
-    " Current_date
+    " Insert current date with 'zdt'
         iab zdt <c-r>=strftime("%m.%d.%y")<CR>
 
     " Vimgrep Shortcut w/ :lopen automated
@@ -231,8 +224,6 @@
         endfunction
         nnoremap <leader>sp :call FixSpellingError()<cr>
 
-    " Source TODO
-        "nnoremap <leader>so source $MYVIMRC<cr>
 
     " School Remapping
 
@@ -260,7 +251,8 @@
 "----------------
     "
     "Cocvim:
-"
+        " No custom settings
+        "
     "Previm:
         " Open Safari to provide preview
         let g:previm_open_cmd = 'open -a Safari'
@@ -269,15 +261,6 @@
         :command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> -
         :command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> - |fmt -csw78
         "
-        "
-    "RangerVim:
-    "
-        "Disable Default mapping
-        let g:ranger_map_keys = 0
-
-        "New mapping:
-        map <leader>r :Ranger<CR>.
-
     "NERDTree:
         "Toggle NERDTree
         nnoremap <silent> <expr> <F6> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
