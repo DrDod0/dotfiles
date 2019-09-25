@@ -122,7 +122,8 @@
     alias wifi.on='networksetup -setairportpower en0 on'
     alias wifi.off='networksetup -setairportpower en0 off'
 
-
+# TUIR Terminal based reddit client
+    alias reddit='tuir -s front'
 
 
 
