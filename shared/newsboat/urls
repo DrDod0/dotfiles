@@ -1,9 +1,9 @@
 
 
-#news
+# News
 reddit.com/r/worldnews/.rss
 
-# tech
+# Tech
 https://www.theverge.com/rss/index.xml
 http://rss.slashdot.org/Slashdot/slashdotMain
 https://lifehacker.com/rss
@@ -11,4 +11,23 @@ https://9to5mac.com/guides/rss/
 
 
 # Dodgers
-http://mlb.mlb.com/partnerxml/gen/news/rss/la.xml
+https://www.mlb.com/dodgers/feeds/news/rss.xml
+http://feeds.feedburner.com/dailydodgers-news
+
+
+# Former Dodgers
+
+## Zack Greinke
+    https://www.google.com/alerts/feeds/03749423982361840274/2516445572009127146
+
+## Andrian Gonzalez
+    https://www.google.com/alerts/feeds/03749423982361840274/12568419082897752174
+
+## Manny Machado
+    https://www.google.com/alerts/feeds/03749423982361840274/937283389894417163
+
+## Yasiel Puig
+    https://www.google.com/alerts/feeds/03749423982361840274/8257558372830495668
+
+## Alex Wood
+    https://www.google.com/alerts/feeds/03749423982361840274/6526710954510720545
