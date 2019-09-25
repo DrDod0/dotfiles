@@ -54,8 +54,10 @@
     # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
     # Example format: plugins=(rails git textmate ruby lighthouse)
 
-    # Git
-    plugins=(git)
+    plugins=(
+        fzf
+        git
+        )
 
     # Oh-my-zsh
     source $ZSH/oh-my-zsh.sh
@@ -103,8 +105,6 @@
     export PATH=$PATH:/usr/local/Cellar/openvpn/2.4.7_1/sbin
 
 
-# FZF
-    #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Let files beginning with a . to be matched.
     # Example:
@@ -120,3 +120,5 @@
 # iTerm2 Shell Intergration TODO [] screen for OSX
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
