@@ -28,6 +28,7 @@ goto-next-feed no
 
 browser w3m
 
+
 bind-key j down feedlist
 bind-key k up feedlist
 bind-key j next articlelist
