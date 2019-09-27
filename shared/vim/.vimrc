@@ -1,26 +1,26 @@
 
-" Last updated: 09.20.19
-"
-"
+" Last updated: 09.25.19
+
+
 "   ██╗██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
 "   ██║██║   ██║██║████╗ ████║██╔══██╗██╔════╝
 "   ██║██║   ██║██║██╔████╔██║██████╔╝██║
 "   ██║╚██╗ ██╔╝██║██║╚██╔╝██║██╔══██╗██║
 "██╗██║ ╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗
 "╚═╝╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
-"
-"
+
+
 "-----------------------
 "|  Pluging Manager:   |
 "-----------------------
-"
+
 " Automatic Installation of vim-plug
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-"
+    if empty(glob('~/.vim/autoload/plug.vim'))
+      silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
+    "
     call plug#begin('~/.vim/bundle')
 
     "Eye Candy
@@ -53,6 +53,7 @@ endif
     Plug 'sainnhe/vim-color-forest-night'
     Plug 'lifepillar/vim-solarized8'
     Plug 'crusoexia/vim-dracula'
+    Plug 'taigacute/gruvbox9'
 
     Plug 'skywind3000/quickmenu.vim'
     Plug 'pseewald/vim-anyfold'
@@ -70,6 +71,7 @@ endif
     Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
     Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
     Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'liuchengxu/vista.vim'
 
     "Python Tools
     Plug 'tpope/vim-fugitive'
@@ -133,10 +135,19 @@ endif
 
     set backspace=indent,eol,start              "backspace fix in OSX
 
+    " Change Leader
+    let mapleader=","
+
 "------------------------------------------
 "|   Remapping / Mapping / Abbreviation:  |
 "------------------------------------------
-"
+
+    " Functions for dealing with the terminal
+    " Terms and interpreters
+    " set b:interpreter for filetypes to affect the term
+    nnoremap <silent> <Leader>t :call terminal#run('++close')<CR>
+    nnoremap <silent> <Leader>T :call terminal#run()<CR
+
     " Remap window navigation in Any modde
     :tnoremap <C-h> <C-\><C-N><C-w>h
     :tnoremap <C-j> <C-\><C-N><C-w>j
@@ -151,11 +162,11 @@ endif
     :nnoremap <C-k> <C-w>k
     :nnoremap <C-l> <C-w>l
 
-    "Vim Tmux Runner
+    " Vim Tmux Runner
     let g:VtrStripLeadingWhitespace = 0
     let g:VtrClearEmptyLines = 0
     let g:VtrAppendNewline = 1
-    "
+
     " Send current line to other tmux panes in the same window
     nnoremap <silent> <leader>p :call SendLineToPanes()<cr>
     function! SendLineToPanes()
@@ -163,35 +174,32 @@ endif
       silent call system(cmd)
     endfunction
 
-    " Change Leader
-    let mapleader=","
-
     " gd over a path opens directory
-    nnoremap <leader>gd :Ex <cfile><CR>
+        nnoremap <leader>gd :Ex <cfile><CR>
 
     " move among buffers with CTRL
-    nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
-    nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
+        nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
+        nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
     " remap <esc> to jj
-    inoremap jj <Esc>
+        inoremap jj <Esc>
 
     " Move visual selection
-    vnoremap J :m '>+1<CR>gv=gv
-    vnoremap K :m '>-2<CR>gv=gv
+        vnoremap J :m '>+1<CR>gv=gv
+        vnoremap K :m '>-2<CR>gv=gv
 
     " gf new file under cursor
-    nnoremap <leader>gf :e ~/notes/<cfile><CR>
+        nnoremap <leader>gf :e ~/notes/<cfile><CR>
 
     " Windown jumpimng
-    nnoremap <C-H> <C-W><C-H>
-    nnoremap <C-J> <C-W><C-J>
-    nnoremap <C-K> <C-W><C-K>
-    nnoremap <C-L> <C-W><C-L>
+        nnoremap <C-H> <C-W><C-H>
+        nnoremap <C-J> <C-W><C-J>
+        nnoremap <C-K> <C-W><C-K>
+        nnoremap <C-L> <C-W><C-L>
 
     " Swapped ; and : to increase speed, no need to use shift.
-    nnoremap ; :
-    nnoremap : ;
+        nnoremap : ;
+        nnoremap ; :
 
     " Helper file:
     " nnoremap <C-t> :vs ~/notes/Index_Helper.markdown<CR>:vertical resize 35<CR>
@@ -203,11 +211,11 @@ endif
         iab zdt <c-r>=strftime("%m.%d.%y")<CR>
 
     " Vimgrep Shortcut w/ :lopen automated
-    augroup myvimrc
-        autocmd!
-        autocmd QuickFixCmdPost [^l]* cwindow
-        autocmd QuickFixCmdPost l*    lwindow
-    augroup END
+        augroup myvimrc
+            autocmd!
+            autocmd QuickFixCmdPost [^l]* cwindow
+            autocmd QuickFixCmdPost l*    lwindow
+        augroup END
 
     " Search all file for a string
         nnoremap <leader>f :lvimgrep! // ** <left><left><left><left><left>
@@ -235,10 +243,6 @@ endif
             iab adown [↓]
             iab ^^ [⇅]
 
-
-      "FixWhitespace shortcut TODO
-      nnoremap <leader>ff command! FixWhitespace<CR>
-      "
     " C-l redraws screen & removes highlight
         nnoremap <silent> <C-l> :nohl<CR><C-l>
 
@@ -249,10 +253,32 @@ endif
 "----------------
 "|   Plugins    |
 "----------------
-    "
+
+    "Vista Vim:
+        let g:vista_default_executive = 'ctags'
+
+        let g:vista_executive_for = {
+                    \ 'py': 'vim_lsp',
+                    \ 'php': 'vim_lsp',
+                    \ }
+
+        let g:vista#renderer#enable_icon = 1
+
+
     "Cocvim:
-        " No custom settings
-        "
+        " Use tab for trigger completion with characters ahead and navigate.
+        " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+        inoremap <silent><expr> <TAB>
+              \ pumvisible() ? "\<C-n>" :
+              \ <SID>check_back_space() ? "\<TAB>" :
+              \ coc#refresh()
+        inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+        function! s:check_back_space() abort
+          let col = col('.') - 1
+          return !col || getline('.')[col - 1]  =~# '\s'
+        endfunction
+
     "Previm:
         " Open Safari to provide preview
         let g:previm_open_cmd = 'open -a Safari'
@@ -270,6 +296,13 @@ endif
 
         "Show hidden files
         let NERDTreeShowHidden=1
+
+        "NERDTree opened automatically
+        autocmd vimenter * silent! lcd %:p:h
+
+        "Window size
+        let g:NERDTreeWinSize=15
+
 
     "Vimisotope:
         "Convert next character into Superscript
@@ -403,7 +436,10 @@ endif
 	" Colorschemes:
 
             "Default
-            colorscheme palenight
+            colorscheme gruvbox9
+            let g:gruvbox_filetype_hi_groups = 1
+            let g:gruvbox_italic = 1
+            let g:gruvbox_plugin_hi_groups = 1
 
 
         	" Dracula:
@@ -421,7 +457,7 @@ endif
             endfun
             command Pale call s:Pale()
 
-		" Soltarize:
+		" Solarize:
             function! s:Sold()
 			    set background=dark
 			    colorscheme solarized8_high
