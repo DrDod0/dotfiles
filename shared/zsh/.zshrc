@@ -27,7 +27,7 @@
 # Disable colors in ls.
     # DISABLE_LS_COLORS="true"
 
-# Disable auto-setting terminal title.
+# Disable auto-setting terminal ttle.
     # DISABLE_AUTO_TITLE="true"
 
 # Enable command auto-correction.
@@ -98,7 +98,7 @@
 
 
 # Vim Keybinding in shell:
-    bindkey -v
+    #bindkey -v
 
 
 # Openvpn:
@@ -118,7 +118,7 @@
 
 
 # iTerm2 Shell Intergration TODO [] screen for OSX
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+    test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

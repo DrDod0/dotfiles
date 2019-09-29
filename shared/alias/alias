@@ -1,4 +1,4 @@
-# Specific programs based on extension
+# specific programs based on extension
     alias -s mp3=cmus
     alias -s md=vim
     alias -s txt=vim
@@ -64,9 +64,8 @@
 
 # RRS & Readers
     alias news='newsboat'
-    #alias read='fltrdr --config-base ~/.config/fltrdr/default'
 
-# Aria2: CLI Torrent
+# aria2: CLI Torrent
     alias torrent='aria2c'
 
 # sqlite3
@@ -77,7 +76,7 @@
     alias update.me='sudo apt-get update && sudo apt-get dist-upgrade -y && apt autoremove -y'
     alias time='dpkg-reconfigure tzdata'
 
-# VirtualEnv
+# virtualEnv
     #alias virtual_create='virtualenv '
     #alias virtual_source='source /bin/activate'
     #alias virtual_deactivate=''
@@ -97,6 +96,7 @@
 
 # fzf
     alias ff="fzf --preview 'head -100 {}'"
+    alias fff="du -a ~/dotfiles/ ~/notes/ | awk '{print $2}' | fzf | xargs $EDITOR"
 
 # SSH
     alias ssh.status='/etc/init.d/ssh status'
@@ -125,8 +125,12 @@
 # TUIR Terminal based reddit client
     alias reddit='tuir -s front'
 
+# Transmission-daemon
+    alias t.start='transmission-daemon'
+    alias t.add='transmission-remote -a'
+    alias t.ls='transmission-remote -l'
+    alias t.rm='transmission-remote -t'
+    alias t.web='open -a firefox http://127.0.0.1:9091/'
 
-
-
-
-
+# Firefox
+    alias firefox='open -a firefox'
