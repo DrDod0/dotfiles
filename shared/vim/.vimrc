@@ -1,5 +1,5 @@
 
-" Last updated: 09.25.19
+" Last updated: 10.01.19
 
 
 "   ██╗██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
@@ -38,6 +38,8 @@
     Plug 'kien/ctrlp.vim'
     Plug 'francoiscabrol/ranger.vim'
     Plug 'rbgrouleff/bclose.vim'
+    Plug 'junegunn/fzf.vim'
+    Plug 'junegunn/fzf', { 'do': './install --all' }
 
     "Writing Tools
     Plug 'yggdroot/indentLine'
@@ -54,6 +56,7 @@
     Plug 'lifepillar/vim-solarized8'
     Plug 'crusoexia/vim-dracula'
     Plug 'taigacute/gruvbox9'
+    Plug 'tyrannicaltoucan/vim-deep-space'
 
     Plug 'skywind3000/quickmenu.vim'
     Plug 'pseewald/vim-anyfold'
@@ -435,20 +438,31 @@
 
 	" Colorschemes:
 
-            "Default
+        "Default:
             colorscheme gruvbox9
             let g:gruvbox_filetype_hi_groups = 1
             let g:gruvbox_italic = 1
             let g:gruvbox_plugin_hi_groups = 1
 
+            " Vim-deep-space
+            fun! s:Deep()
+                set background=dark
+                set termguicolors
+                colorscheme deep-space
+                syntax on
+                let g:deepspace_italics=1
+                let g:airline_theme='deep_space'
+            endfunction
+            command Deep cal s:Deep()
+
 
         	" Dracula:
-           	 fun! s:Dra()
+           	    fun! s:Dra()
                 	colorscheme dracula
                 	set background=dark
                 	syntax on
-            endfun
-            command Dra call s:Dra()
+                endfunction
+                command Dra call s:Dra()
 
 		" Palenight:
 		    fun! s:Pale()
