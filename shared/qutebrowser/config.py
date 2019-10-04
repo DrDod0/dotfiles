@@ -1,33 +1,38 @@
 # Author: @veggietorta
-# Last updated: 10.01.19
+# Last updated: 10.02.19
 
 # Linux: ~/.config/qutebroswer/config.py
 # OSX: ~/.qutebrowser/config.py
 
-import subprocess
 
 
 
-
-
-# Autoload automatically
+# Autoload autoconfig.yml
 config.load_autoconfig()
+
+
+# Search Engines
+{"DEFAULT": "https://duckduckgo.com/?q={}", "yt": "https://www.youtube.com/results?search_query={}"}
+
+
+# Keybinding:
+config.bind(';m', 'hint links userscript ~/.qutebrowser/script_yt')
 
 
 
 # Dracula Theme:
-import dracula.draw
 
-dracula.draw.blood(c, {
-    'spacing': {
-        'vertical': 6,
-        'horizontal': 8
-    },
-    'font': {
-        'family': 'Menlo, Terminus, Monaco, Monospace',
-        'size': 10
-    }
-})
+    #import dracula.draw
+    #dracula.draw.blood(c, {
+    #    'spacing': {
+    #        'vertical': 6,
+    #        'horizontal': 8
+    #    },
+    #    'font': {
+    #        'family': 'Menlo, Terminus, Monaco, Monospace',
+    #        'size': 10
+    #    }
+    #})
 
 
 # No-Script-like behavior
@@ -37,3 +42,4 @@ dracula.draw.blood(c, {
 # Play youtube videos with mpv
 #bind ,m spawn mpv {url}
 #bind ,M hint links spawn mpv {hint-url}
+config.bind('m', 'spawn mpv {url}')
