@@ -1,5 +1,5 @@
 # Author: @veggietorta
-# Last updated: 09.17.19
+# Last updated: 10.03.19
 
 
 # If you come from bash you might have to change your $PATH.
@@ -98,7 +98,7 @@
 
 
 # Vim Keybinding in shell:
-    #bindkey -v
+    bindkey -v
 
 
 # Openvpn:
@@ -111,7 +111,7 @@
         #  <$ ls -d *zshr>
         #  <$ .zshrc
 
-        setopt globdots
+    setopt globdots
 
 # Prevents the current line from being saved in the history if it is the same as previous one.
     setopt histignoredups
@@ -119,6 +119,16 @@
 
 # iTerm2 Shell Intergration TODO [] screen for OSX
     test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Kitty-Terminal
+
+    if [ -x "$(command -v kitty)" ]
+        then
+            autoload -Uz compinit
+            compinit
+        # Completion for kitty
+            kitty + complete setup zsh | source /dev/stdin
+    fi
 
 # FZF
     [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
