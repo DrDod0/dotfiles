@@ -11,7 +11,16 @@
 
 
 # Autoload autoconfig.yml
-config.load_autoconfig()
+    # config.load_autoconfig()
+
+# Autoplay video
+c.content.autoplay = False
+
+# Allow websites to request geolocations
+c.content.geolocation = False
+
+# Allow websites to show notifications
+c.content.notifications = False
 
 # The directory to save downloads
 c.downloads.location.directory = "~/Downloads"
@@ -25,15 +34,11 @@ c.downloads.location.directory = "~/Downloads"
 # No-Script-like behavior, disable Javascript by default
     #:set content.javascript.enabled false
 
-# Play youtube videos with mpv
-    #bind ,m spawn mpv {url}
-    #bind ,M hint links spawn mpv {hint-url}
-    #config.bind('m', 'spawn mpv {url}')
 
 
-##################
-# Search Engines #
-##################
+######################
+#   Search Engines   #
+######################
 
 
 # Default Search
@@ -51,7 +56,7 @@ config.bind("r", "set-cmd-text -s :open !reddit")
 # Open new tab and search using DuckDuckGo
 config.bind("t", "set-cmd-text -s :open -t !ddg")
 
-# Start qutebrowser in private mode
+# Start qutebrowser in private mode with DuckDuckGo
 config.bind("pp", "set-cmd-text -s :open -p !ddg")
 
 
@@ -61,28 +66,37 @@ config.bind("pp", "set-cmd-text -s :open -p !ddg")
 ################
 
 
-#config.bind(';m', 'hint links userscript ~/.qutebrowser/script_yt')
-config.bind("Cmd+q", "wq")
+# TODO Play youtube videos with mpv
+    #bind ,m spawn mpv {url}
+    #bind ,M hint links spawn mpv {hint-url}
+    #config.bind('m', 'spawn mpv {url}')
+
+# TODO config.bind(';m', 'hint links userscript ~/.qutebrowser/script_yt')
+
+# Switch tabs
+config.bind('T', 'tab-next')
+
+# Quiting
+c.aliases = {'q': 'quit', 'w': 'session-save', 'wq': 'quit --save', 'q!': 'quit'}
 
 
-#switch tabs
-config.bind('ctrl+n', 'tab-next')
-config.bind('ctrl+p', 'tab-prev')
 
+#####################
+#     CSS Themes    #
+#####################
 
+# set custom theme across all webpages
+    # dracula.css
+    # guvbox.css
+    # solarize.css
 
-################
-#  CSS Themes  #
-################
+c.content.user_stylesheets = '~/dotfiles/shared/qutebrowser/dracula.css'
 
-
-#set content.user_stylesheets draculized-reddit.com.css
 
 
 ########################
 #  Qutebrowser Themes  #
 ########################
-
 
 # Dracula Theme:
     #import dracula.draw
