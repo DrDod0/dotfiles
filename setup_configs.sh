@@ -210,6 +210,7 @@ neovim_link()
     if [ -x "$(command -v nvim)" ]
     then
          # create nvim directory
+	 mkdir ~/.config/
          mkdir ~/.config/nvim/
          # neovim program found, symbolic link established, send back to user
          ln -s ~/dotfiles/shared/neovim/init.vim ~/.config/nvim/
