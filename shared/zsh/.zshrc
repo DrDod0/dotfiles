@@ -1,5 +1,4 @@
-# Author: @veggietorta
-# Last updated: 10.03.19
+# Author: @veggietorta Last updated: 10.03.19
 
 
 # If you come from bash you might have to change your $PATH.
@@ -40,22 +39,16 @@
     # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
-    # stamp shown in the history command output.
-    # You can set one of the optional three formats:
-    # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-    # or set a custom format using the strftime function format specifications,
-    # see 'man strftime' for details.
-    # HIST_STAMPS="mm/dd/yyyy"
+    # stamp shown in the history command output. You can set one of the optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd" or set a custom format using the strftime function format 
+    # specifications, see 'man strftime' for details. HIST_STAMPS="mm/dd/yyyy"
 
 # Custom folder than $ZSH/custom?
     # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Plugin to load. Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-    # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-    # Example format: plugins=(rails git textmate ruby lighthouse)
+    # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/ Example format: plugins=(rails git textmate ruby lighthouse)
 
     plugins=(
-        fzf
         git
         )
 
@@ -108,8 +101,7 @@
 
 # Let files beginning with a . to be matched.
     # Example:
-        #  <$ ls -d *zshr>
-        #  <$ .zshrc
+        #  <$ ls -d *zshr> <$ .zshrc
 
     setopt globdots
 
@@ -130,5 +122,9 @@
             kitty + complete setup zsh | source /dev/stdin
     fi
 
-# FZF
-    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# FZ
+    if [ -x "$(command -v fzf)" ]
+        then
+            [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+            plugins=(fzf)
+    fi
