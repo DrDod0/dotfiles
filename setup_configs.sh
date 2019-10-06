@@ -95,6 +95,7 @@ ask_user()
                 11. remove_all
                 12. sqlite
                 13. irssi
+                14. qutebrowser
             "
 
             read configuration_answer
@@ -113,6 +114,7 @@ ask_user()
                 10) vim_link;;
                 12) remove_all;;
                 13) irssi_link;;
+                14) qutebroswer_link;;
 
                 a) alias_link;;
                 b) help_link;;
@@ -320,10 +322,25 @@ git_link()
     ln -s ~/dotfiles/shared/git/.gitconfig ~/
     }
 
+# alias
 alias_link()
     {
     echo alias source in .zshrc and .bashrc
     }
+
+# qutebrowswer
+qutebrowser_link()
+    {
+    if [ -x "$(command -v qutebrowswer)" ]
+    then
+        ln -s ~/dotfiles/qutebrowser/shared/config.py ~/.qutebrowser/
+        echo found qutebrowser, config symbolic link establish.
+    else
+        echo qutebrowser not found, no action taken.
+    fi
+    ask_user
+    }
+
 
 
 # exit
