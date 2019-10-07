@@ -10,9 +10,8 @@ There really isn't a good reason for anyone (but me) to use these configurations
 
 
 ## Structure
-    + shared: Collection of configurations
+    + /configs: personalized configurations
     + setup_configs.sh: script to set-up config files
-    + setup_fresh_install.sh: script to bulk install applications.
 
 ## Configuration Collection:
     + alias
@@ -20,15 +19,20 @@ There really isn't a good reason for anyone (but me) to use these configurations
     + git
     + help
     + irssi
+    + iterm
+    + mpv
+    + mutt
     + neofetch
-    + neomutt
     + neovim
     + newsboat
+    + qutebrowser
     + ranger
     + sqlite
+    + starship
     + tmux
     + vim
+    + w3m
     + zsh
 
 
-Updated: 06.10.19
+Updated: 10.06.19
