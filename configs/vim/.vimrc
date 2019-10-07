@@ -168,7 +168,7 @@
     " Send current line to other tmux panes in the same window
     nnoremap <silent> <leader>p :call SendLineToPanes()<cr>
     function! SendLineToPanes()
-      let cmd="echo '" . getline('.') . "' | ~/dotfiles/shared/tmux/tmux_send.sh"
+      let cmd="echo '" . getline('.') . "' | ~/dotfiles/configs/tmux/tmux_send.sh"
       silent call system(cmd)
     endfunction
 

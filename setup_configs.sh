@@ -1,6 +1,6 @@
 #!/bin/bash
 # Author: veggietorta
-# Update: 09.15.19
+# Update: 10.06.19
 # Puporse: Automate a consistent configuration across rigs
 
 ##############################################################
@@ -80,7 +80,6 @@ ask_user()
     echo "Which configuration would you like to establish:
                  a. alias
                  b. help
-                 e. essential_links
 
                  1. zsh
                  2. bash
@@ -96,6 +95,11 @@ ask_user()
                 12. sqlite
                 13. irssi
                 14. qutebrowser
+                15. iterm
+                16. mpv
+                17. starship
+                18. w3m
+
             "
 
             read configuration_answer
@@ -115,10 +119,13 @@ ask_user()
                 12) remove_all;;
                 13) irssi_link;;
                 14) qutebroswer_link;;
+                15) iterm_link;;
+                16) mpv_link;;
+                17) starship;;
+                18) w3m;;
 
                 a) alias_link;;
                 b) help_link;;
-                e) essential_links;;
             esac
         }
 
@@ -164,7 +171,7 @@ bash_link()
         if [ -x "$(command -v bash)" ]
         then
             rm ~/.bashrc
-            ln -s ~/dotfiles/shared/bash/.bashrc ~/
+            ln -s ~/dotfiles/configs/bash/.bashrc ~/
             echo bash program found, created symbolick link
         else
             echo bash program NOT found, no action taken
@@ -174,11 +181,6 @@ bash_link()
 
 # zsh
 zsh_link()
- {
-     if [ -x "$(command -v zsh)" ]
-     then
-         rm ~/.zshrc
-         ln -s ~/dotfiles/shared/zsh/.zshrc ~/
          echo zsh program found, created symbolic link
      else
         echo zsh program NOT found, no action taken.
@@ -194,8 +196,8 @@ vim_link()
     then
         # vim program found, symbolic link established, send back to user
         rm ~/.vimrc
-        ln -s ~/dotfiles/shared/vim/.vimrc ~/
-        ln -s /dotfiles/shared/vim/.selected_editor ~/
+        ln -s ~/dotfiles/configs/vim/.vimrc ~/
+        ln -s /dotfiles/configs/vim/.selected_editor ~/
         echo vim program found, created symbolic link.
         ask_user
     else
@@ -215,7 +217,7 @@ neovim_link()
 	 mkdir ~/.config/
          mkdir ~/.config/nvim/
          # neovim program found, symbolic link established, send back to user
-         ln -s ~/dotfiles/shared/neovim/init.vim ~/.config/nvim/
+         ln -s ~/dotfiles/configs/neovim/init.vim ~/.config/nvim/
          echo neovim program found, created symbolic link.
          ask_user
      else
@@ -230,7 +232,7 @@ tmux_link()
     {
     if [ -x "$(command -v tmux)" ]
     then
-        ln -s $HOME/dotfiles/shared/tmux/.tmux.conf $HOME/
+        ln -s $HOME/dotfiles/configs/tmux/.tmux.conf $HOME/
         echo tmux found, symbolic link established.
     else
         echo tmux not found, no action taken.
@@ -244,9 +246,9 @@ muttrc_link()
     if [ -x "$(command -v mutt)" ]
     then
         # .mailcap
-        ln -s ~/dotfiles/shared/mutt/.mailcap ~/
+        ln -s ~/dotfiles/configs/mutt/.mailcap ~/
         # .muttrc
-        ln -s ~/dotfiles/shared/mutt/.muttrc ~/
+        ln -s ~/dotfiles/configs/mutt/.muttrc ~/
         # Accounts
         ln -s ~/notes/code/account.gm ~/
         ln -s ~/notes/code/account.me ~/
@@ -264,16 +266,16 @@ newsboat_link()
     {
     if [ -x "$(command -v newsboat)" ]
     then
-        ln -s ~/dotfiles/shared/newsboat/config ~/.config/newsboat/
+        ln -s ~/dotfiles/configs/newsboat/config ~/.config/newsboat/
         # OSX path tested
-        ln -s ~/dotfiles/shared/newsboat/config ~/.newsboat/
+        ln -s ~/dotfiles/configs/newsboat/config ~/.newsboat/
 
         echo newsboat found, .config symbolic link established
 
 
-        ln -s ~/dotfiles/shared/newsboat/urls ~/.config/newsboat/
+        ln -s ~/dotfiles/configs/newsboat/urls ~/.config/newsboat/
         # OSX path tested
-        ln -s ~/dotfiles/shared/newsboat/urls ~/.newsboat/
+        ln -s ~/dotfiles/configs/newsboat/urls ~/.newsboat/
 
         echo newsboat urls sybolic link for established.
 
@@ -290,10 +292,10 @@ ranger_link()
     if [ -x "$(command -v ranger)" ]
     then
 
-        ln -s ~/dotfiles/shared/ranger/rc.conf ~/.config/ranger/
-        ln -s ~/dotfiles/shared/ranger/rifle.conf ~/.config/ranger/
-        ln -s ~/dotfiles/shared/ranger/bookmarks ~/.config/ranger/
-        ln -s ~/dotfiles/shared/ranger/tagged ~/.config/ranger/
+        ln -s ~/dotfiles/configs/ranger/rc.conf ~/.config/ranger/
+        ln -s ~/dotfiles/configs/ranger/rifle.conf ~/.config/ranger/
+        ln -s ~/dotfiles/configs/ranger/bookmarks ~/.config/ranger/
+        ln -s ~/dotfiles/configs/ranger/tagged ~/.config/ranger/
 
         echo ranger found, configis symbolic link establish.
 
@@ -319,7 +321,7 @@ neofetch_link()
 # Git
 git_link()
     {
-    ln -s ~/dotfiles/shared/git/.gitconfig ~/
+    ln -s ~/dotfiles/configs/git/.gitconfig ~/
     }
 
 # alias
@@ -333,13 +335,21 @@ qutebrowser_link()
     {
     if [ -x "$(command -v qutebrowswer)" ]
     then
-        ln -s ~/dotfiles/qutebrowser/shared/config.py ~/.qutebrowser/
+        ln -s ~/dotfiles/qutebrowser/configs/config.py ~/.qutebrowser/
         echo found qutebrowser, config symbolic link establish.
     else
         echo qutebrowser not found, no action taken.
     fi
     ask_user
     }
+
+#iterm TODO
+
+# mpv TODO
+
+# starship TODO
+
+# w3m TODO
 
 
 

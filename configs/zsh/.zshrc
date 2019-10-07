@@ -80,7 +80,7 @@
 
 
 # Personal Aliases:
-    source ~/dotfiles/shared/alias/alias
+    source ~/dotfiles/configs/alias/alias
 
 
 # Neofetch:
