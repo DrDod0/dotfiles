@@ -97,7 +97,8 @@
 # Openvpn:
     export PATH=$PATH:/usr/local/Cellar/openvpn/2.4.7_1/sbin
 
-
+# Hombrew:
+export PATH="/usr/local/sbin:$PATH"
 
 # Let files beginning with a . to be matched.
     # Example:

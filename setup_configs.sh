@@ -175,7 +175,6 @@ bash_link()
             echo bash program found, created symbolick link
         else
             echo bash program NOT found, no action taken
-            ask_user
         fi
     }
 
@@ -187,7 +186,6 @@ zsh_link()
          echo zsh program found, created symbolic link
     else
        echo zsh program NOT found, no action taken.
-       ask_user
     fi
     }
 
@@ -202,11 +200,9 @@ vim_link()
         ln -s ~/dotfiles/configs/vim/.vimrc ~/
         ln -s /dotfiles/configs/vim/.selected_editor ~/
         echo vim program found, created symbolic link.
-        ask_user
     else
         # vim program NOT found, no action taken, send back to user
         echo vim program NOT installed, no action taken.
-        ask_user
     fi
     }
 
@@ -222,11 +218,9 @@ neovim_link()
          # neovim program found, symbolic link established, send back to user
          ln -s ~/dotfiles/configs/neovim/init.vim ~/.config/nvim/
          echo neovim program found, created symbolic link.
-         ask_user
      else
          # neovim program NOT found, no action taken, send back to user
          echo neovim program NOT installed, no action taken.
-         ask_user
      fi
     }
 
@@ -240,7 +234,6 @@ tmux_link()
     else
         echo tmux not found, no action taken.
     fi
-    ask_user
     }
 
 # mutt
@@ -261,7 +254,6 @@ muttrc_link()
         echo mutt not found, no action taken.
 
     fi
-    ask_user
     }
 
 # newsboat
@@ -284,8 +276,6 @@ newsboat_link()
 
     else
         echo newsboat not found, no action taken.
-
-    ask_user
     fi
     }
 
@@ -318,7 +308,6 @@ neofetch_link()
     else
         echo neofetch not found, no action taken.
     fi
-    ask_user
     }
 
 # Git
@@ -338,12 +327,11 @@ qutebrowser_link()
     {
     if [ -x "$(command -v qutebrowser)" ]
     then
-        ln -s ~/dotfiles/qutebrowser/configs/config.py ~/.qutebrowser/
+        ln -s ~/dotfiles/configs/qutebrowser/config.py ~/.qutebrowser
         echo found qutebrowser, config symbolic link establish.
     else
         echo qutebrowser not found, no action taken.
     fi
-    ask_user
     }
 
 #iterm TODO
