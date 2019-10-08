@@ -118,7 +118,7 @@ ask_user()
                 10) vim_link;;
                 12) remove_all;;
                 13) irssi_link;;
-                14) qutebroswer_link;;
+                14) qutebrowser_link;;
                 15) iterm_link;;
                 16) mpv_link;;
                 17) starship;;
@@ -181,10 +181,13 @@ bash_link()
 
 # zsh
 zsh_link()
+    {
+    if [ -x "$(command -v zsh)" ]
+    then
          echo zsh program found, created symbolic link
-     else
-        echo zsh program NOT found, no action taken.
-        ask_user
+    else
+       echo zsh program NOT found, no action taken.
+       ask_user
     fi
     }
 
@@ -291,7 +294,8 @@ ranger_link()
     {
     if [ -x "$(command -v ranger)" ]
     then
-
+        mkdir ~/.config
+        mkdir ~/.config/ranger/
         ln -s ~/dotfiles/configs/ranger/rc.conf ~/.config/ranger/
         ln -s ~/dotfiles/configs/ranger/rifle.conf ~/.config/ranger/
         ln -s ~/dotfiles/configs/ranger/bookmarks ~/.config/ranger/
@@ -302,7 +306,6 @@ ranger_link()
     else
         echo ranger not found, no action taken.
     fi
-    ask_user
     }
 
 # neofetch
@@ -330,10 +333,10 @@ alias_link()
     echo alias source in .zshrc and .bashrc
     }
 
-# qutebrowswer
+# qutebrowser
 qutebrowser_link()
     {
-    if [ -x "$(command -v qutebrowswer)" ]
+    if [ -x "$(command -v qutebrowser)" ]
     then
         ln -s ~/dotfiles/qutebrowser/configs/config.py ~/.qutebrowser/
         echo found qutebrowser, config symbolic link establish.

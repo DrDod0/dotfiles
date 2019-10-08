@@ -90,7 +90,7 @@ c.aliases = {'q': 'quit', 'w': 'session-save', 'wq': 'quit --save', 'q!': 'quit'
     # guvbox.css
     # solarize.css
 
-c.content.user_stylesheets = '~/dotfiles/shared/qutebrowser/dracula.css'
+c.content.user_stylesheets = '~/dotfiles/configs/qutebrowser/solarize.css'
 
 
 
