@@ -1,0 +1,410 @@
+" Check OS {{{ "
+if has('win')
+    let $VIFM_IS_WIN = 1
+elseif has('unix')
+    if system('uname -s') == 'Darwin'
+        let $VIFM_IS_MAC = 1
+    elseif system('uname -o') == 'Android'
+        let $VIFM_IS_AND = 1
+    else
+        let $VIFM_IS_LIN = 1
+    endif
+endif
+" }}} Check OS "
+" Common settings {{{ "
+
+" This makes vifm perform file operations on its own instead of relying on
+" standard utilities like `cp`.  While using `cp` and alike is a more universal
+" solution, it's also much slower when processing large amounts of files and
+" doesn't support progress measuring.
+set syscalls
+
+" Trash Directory
+" The default is to move files that are deleted with dd or :d to
+" the trash directory.  If you change this you will not be able to move
+" files by deleting them and then using p to put the file in the new location.
+" I recommend not changing this until you are familiar with vifm.
+" This probably shouldn't be an option.
+set trash
+
+" This is how many directories to store in the directory history.
+set history=100
+
+" Automatically resolve symbolic links on l or Enter.
+set followlinks
+
+" Natural sort of (version) numbers within text.
+set sortnumbers
+
+" Maximum number of changes that can be undone.
+set undolevels=100
+
+" If you installed the vim.txt help file set vimhelp.
+" If would rather use a plain text help file set novimhelp.
+set vimhelp
+
+" If you would like to run an executable file when you
+" press return on the file name set this.
+set norunexec
+
+" Selected color scheme
+colorscheme Default
+
+" Show list of matches on tab completion in command-line mode
+set wildmenu
+
+" Display completions in a form of bar/popup with descriptions of the matches
+set wildstyle=popup
+
+" Display suggestions in normal, visual and view modes for keys, marks and
+" registers (at most 5 files).  In other view, when available.
+set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
+
+" Ignore case in search patterns unless it contains at least one uppercase
+" letter
+set ignorecase
+set smartcase
+
+" Don't highlight search results automatically
+set nohlsearch
+
+" Use increment searching (search while typing)
+set incsearch
+
+" Try to leave some space from cursor to upper/lower border in lists
+set scrolloff=4
+
+" Don't do too many requests to slow file systems
+if !has('win')
+    set slowfs=curlftpfs
+endif
+
+" }}} Common settings "
+" View settings {{{ "
+" Fill files list by columns (not lines). Added in vifm 0.9.1.
+set lsoptions=transposed
+
+" Format for displaying time in file list. For example:
+" TIME_STAMP_FORMAT=%m/%d-%H:%M
+" See man date or man strftime for details.
+set timefmt=%m/%d\ %H:%M
+
+" Show status bar
+set laststatus
+
+" Show the dot files
+set dotfiles
+
+" Columns format
+set viewcolumns=-60%{name},20%{size},{mtime}
+
+" Set custom status line look
+"set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
+
+" Information for status bar
+"set statusline="%-35f%10E%20d%15A | Осталось места: %8a"
+" }}} View settings "
+" Marks {{{ "
+" :mark mark /full/directory/path [filename]
+mark h ~/
+" }}} Marks "
+" Commands {{{ "
+" :com[mand][!] command_name action
+" The following macros can be used in a command
+" %a is replaced with the user arguments.
+" %c the current file under the cursor.
+" %C the current file under the cursor in the other directory.
+" %f the current selected file, or files.
+" %F the current selected file, or files in the other directory.
+" %b same as %f %F.
+" %d the current directory name.
+" %D the other window directory name.
+" %m run the command in a menu window
+" All macroses you can find here:
+" https://vifm.info/manual.shtml#Command%20macros
+
+command! df df -h %m 2> /dev/null
+command! diff vim -d %f %F
+" Archive commands {{{ "
+" You can also create an archive with more when one file. Archive name will
+" be equal to file name under cursor.
+command! zip zip -r %c.zip %f
+command! tar tar cf %c.tar %f
+command! targz tar czf %c.tar.gz %f
+command! tarbz tar cjf %c.tar.bz2 %f
+" }}} Archive commands "
+command! run !! ./%f
+command! make !!make %a
+command! mkcd :mkdir %a | cd %a
+command! reload :write | restart
+command! sshsel ls -d ~/.config/vifm/ssh_hosts/*.ssh %M
+command! fsize du -h -d 0 %c:p %m
+command! dsize du -h -d 1 %c:p | sort -h -r %m
+command! ncdu ncdu %d
+
+" Add simple support for ssh remote
+" :ssh user@remote:/path/to/remote/folder
+command ssh
+    \ : let $SSH_FILE = system('mktemp /tmp/XXXX.ssh')
+    \ | execute '!echo ''%a'' > $SSH_FILE; ls $SSH_FILE %%U'
+    \ | execute 'normal l'
+    \ | execute '!rm $SSH_FILE'
+" }}} Commands "
+" OS Specific settings {{{ "
+if $VIFM_IS_WIN
+    filetype * start, explorer
+endif
+if $VIFM_IS_MAC
+    "filetype * open
+    source ~/.config/vifm/os_specific/mac_settings.vifmrc
+endif
+if $VIFM_IS_LIN
+    "filetype * xdg-open
+    source ~/.config/vifm/os_specific/linux_settings.vifmrc
+endif
+" }}} OS Specific settings "
+" Filetypes {{{ "
+" SshMount
+filetype *.ssh
+       \ {Mount with sshfs}
+       \ FUSE_MOUNT2|sshfs %PARAM %DESTINATION_DIR %FOREGROUND,
+"
+" Object
+filetype *.o nm %f | less
+
+" Man page
+filetype *.[1-8] man ./%c
+
+" MD5
+filetype *.md5
+       \ {Check MD5 hash sum}
+       \ md5sum -c %f %S,
+
+" SHA1
+filetype *.sha1
+       \ {Check SHA1 hash sum}
+       \ sha1sum -c %f %S,
+
+" SHA256
+filetype *.sha256
+       \ {Check SHA256 hash sum}
+       \ sha256sum -c %f %S,
+
+" SHA512
+filetype *.sha512
+       \ {Check SHA512 hash sum}
+       \ sha512sum -c %f %S,
+" }}} Filetypes "
+" Fileviewer {{{ "
+" Images
+fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.nef,*.xpm
+         \ tput cup %py %px > /dev/tty && preview.py %c:p --width %pw --height %ph
+
+" pdf
+fileviewer *.pdf
+         \ tput cup %py %px > /dev/tty && preview.py %c --width %pw --height %ph --type pdf
+
+" Audio
+fileviewer *.mp3 mp3info
+fileviewer *.flac soxi
+
+" Video
+fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
+          \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
+          \*.as[fx]
+         \ tput cup %py %px > /dev/tty && preview.py %c --width %pw --height %ph --type video
+
+" Epub
+fileviewer *.epub epub2txt ./%c
+
+" Man page
+fileviewer *.[1-8] man ./%c | col -b
+
+" Torrent
+fileviewer *.torrent dumptorrent -v %c
+
+" Zip files
+fileviewer *.zip,*.jar,*.war,*.ear,*.oxt zip -sf %c
+
+" Rar files
+fileviewer *.rar unrar vb %c
+
+" Doc files
+fileviewer *.docx docx2txt.pl %f -
+" }}} Fileviewer "
+" Syntax highlighting in preview {{{ "
+"
+" Explicitly set highlight type for some extensions
+"
+" 256-color terminal
+fileviewer *[^/] highlight -O ansi --force %c
+" fileviewer *.[ch],*.[ch]pp highlight -O xterm256 -s dante --syntax c %c
+" fileviewer Makefile,Makefile.* highlight -O xterm256 -s dante --syntax make %c
+"
+" 16-color terminal
+" fileviewer *.c,*.h highlight -O ansi -s dante %c
+"
+" Or leave it for automatic detection
+"
+" fileviewer *[^/] pygmentize -O style=monokai -f console256 -g
+
+" Displaying pictures in terminal
+"
+" fileviewer *.jpg,*.png shellpic %c
+
+" Open all other files with default system programs (you can also remove all
+" :file[x]type commands above to ensure they don't interfere with system-wide
+" settings).  By default all unknown files are opened with 'vi[x]cmd'
+" uncommenting one of lines below will result in ignoring 'vi[x]cmd' option
+" for unknown file types.
+" For *nix:
+" filetype * xdg-open
+" For OS X:
+" filetype * open
+" For Windows:
+" filetype * start, explorer
+" }}} Syntax highlighting in preview "
+" Auto saving settings {{{ "
+" What should be saved automatically between vifm runs
+" Like in previous versions of vifm
+" set vifminfo=options,filetypes,commands,bookmarks,dhistory,state,cs
+" Like in vi
+set vifminfo=dhistory,chistory,state,tui,shistory,
+    \phistory,fhistory,dirstack,registers,bookmarks,bmarks
+" }}} Auto saving settings "
+" Mapping {{{ "
+" Go to up directory
+nnoremap - gh
+
+" Select current file and go to next
+nnoremap t tj
+
+" Start shell in current directory
+nnoremap s :shell<cr>
+
+" Display sorting dialog
+nnoremap S :sort<cr>
+
+" Toggle visibility of preview window
+nnoremap w :view<cr>
+vnoremap w :view<cr>gv
+
+" Mappings for faster renaming
+nnoremap I cw<c-a>
+nnoremap cc cw<c-u>
+nnoremap A cw
+
+" Open editor to edit vifmrc and apply settings after returning to vifm
+nnoremap ,c :write | edit $MYVIFMRC | restart<cr>
+
+" Toggle wrap setting on ,w key
+nnoremap ,w :set wrap!<cr>
+
+" Example of standard two-panel file managers mappings
+nnoremap <f3> :!less %f<cr>
+nnoremap <f4> :edit<cr>
+nnoremap <f5> :copy<cr>
+nnoremap <f6> :move<cr>
+nnoremap <f7> :mkdir<space>
+nnoremap <f8> :delete<cr>
+" }}} Mapping "
+" DevIcons {{{ "
+" Filetypes/directories
+set classify=' :dir:/, :exe:, :reg:, :link:,? :?:, ::../::'
+
+" Specific directories
+set classify+=' ::.git/,,*.git/::/'
+set classify+=' ::Desktop/::/'
+set classify+=' ::Documents/::/'
+set classify+=' ::Downloads/::/'
+set classify+=' ::Dropbox/::/'
+set classify+=' ::Music/::/'
+set classify+=' ::Pictures/::/'
+set classify+=' ::Public/::/'
+set classify+=' ::Templates/::/'
+set classify+=' ::Videos/::/'
+
+" Specific files
+set classify+=' ::.Xdefaults,,.Xresources,,.bashprofile,,.bash_profile,,.bashrc*,,.dmrc,,.d_store,,.fasd,,.gitconfig,,.gitignore,,.jack-settings,,.mime.types,,.nvidia-settings-rc,,.pam_environment,,.profile,,.recently-used,,.selected_editor,,.xinitpurc,,.zprofile,,.yarnc,,.snclirc,,.tmux.conf,,.urlview,,.config,,.ini,,.user-dirs.dirs,,.mimeapps.list,,.offlineimaprc,,.msmtprc,,.Xauthority,,config,,.zshrc::'
+set classify+=' ::dropbox::'
+set classify+=' ::favicon.*,,README,,readme::'
+set classify+=' ::.vim,,.vimrc,,.gvimrc,,.vifm::'
+set classify+=' ::gruntfile.coffee,,gruntfile.js,,gruntfile.ls::'
+set classify+=' ::gulpfile.coffee,,gulpfile.js,,gulpfile.ls::'
+set classify+=' ::ledger::'
+set classify+=' ::license,,copyright,,copying,,LICENSE,,COPYRIGHT,,COPYING::'
+set classify+=' ::node_modules::'
+set classify+=' ::react.jsx::'
+
+" File extensions
+set classify+='λ ::*.ml,,*.mli::'
+set classify+=' ::*.styl::'
+set classify+=' ::*.scss::'
+set classify+=' ::*.py,,*.pyc,,*.pyd,,*.pyo::'
+set classify+=' ::*.php::'
+set classify+=' ::*.markdown,,*.md::'
+set classify+=' ::*.json::'
+set classify+=' ::*.js::'
+set classify+=' ::*.bmp,,*.gif,,*.ico,,*.jpeg,,*.jpg,,*.png,,*.svg,,*.nef,,*.svgz,,*.tga,,*.tiff,,*.xmb,,*.xcf,,*.xpm,,*.xspf,,*.xwd,,*.cr2,,*.dng,,*.3fr,,*.ari,,*.arw,,*.bay,,*.crw,,*.cr3,,*.cap,,*.data,,*.dcs,,*.dcr,,*drf,,*.eip,,*.erf,,*.fff,,*.gpr,,*.iiq,,*.k25,,*.kdc,,*.mdc,,.*mef,,*.mos,,.*.mrw,,.*.obm,,*.orf,,*.pef,,*.ptx,,*.pxn,,*.r3d,,*.raf,,*.raw,,*.rwl,,*.rw2,,*.rwz,,*.sr2,,*.srf,,*.srf,,*.srw,,*.tif,,*.x3f::'
+set classify+=' ::*.ejs,,*.css,,*.htm,,*.html,,**.[sx]html,,*.slim,,*.xml::'
+set classify+=' ::*.less,,*.bat,,*.conf,,*.ini,,*.rc,,*.yml,,*.cfg::'
+set classify+=' ::*.rss::'
+set classify+=' ::*.coffee::'
+set classify+=' ::*.twig::'
+set classify+=' ::*.c++,,*.cc,,*.c,,*.[hc]pp,,*.cxx,,*.[hc]::'
+set classify+=' ::*.hs,,*.lhs::'
+set classify+=' ::*.lua::'
+set classify+=' ::*.jl::'
+set classify+=' ::*.go::'
+set classify+=' ::*.ts::'
+set classify+=' ::*.db,,*.dump,,*.sql::'
+set classify+=' ::*.sln,,*.suo::'
+set classify+=' ::*.exe::'
+set classify+=' ::*.diff,,*.sum,,*.md5,,*.sha512::'
+set classify+=' ::*.scala::'
+set classify+=' ::*.java,,*.jar::'
+set classify+=' ::*.xul::'
+set classify+=' ::*.clj,,*.cljc::'
+set classify+=' ::*.pl,,*.pm,,*.t::'
+set classify+=' ::*.cljs,,*.edn::'
+set classify+=' ::*.rb::'
+set classify+=' ::*.fish,,*.sh,,*.bash,,*.zsh::'
+set classify+=' ::*.rlib,,*.rs::'
+set classify+=' ::*.ai::'
+set classify+=' ::*.psb,,*.psd::'
+set classify+=' ::*.jsx::'
+set classify+=' ::*.vim,,*.vimrc::'
+set classify+='ﱘ ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.mid,,*.midi,,*.mp3,,*.mpc,,*.oga,,*.ogg,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.wav,,*.wma,,*.ac3::'
+set classify+=' ::*.avi,,*.ts,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv,,*.mov,,*.mp4,,*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.xvid::'
+set classify+=' ::*.epub,,*.fb2,,*.djvu::'
+set classify+=' ::*.pdf::'
+set classify+=' ::*.7z,,*.apk,,*.bz2,,*.cab,,*.cpio,,*.deb,,*.gem,,*.gz,,*.gzip,,*.lh,,*.lzh,,*.lzma,,*.rar,,*.rpm,,*.tar,,*.tb2,,*.tbz,,*.tbz2,,*.tgz,,*.tlz,,*.trz,,*.txz,,*.tz,,*.tz2,,*.xz,,*.zip,,*.dmg::'
+set classify+=' ::*.cbr,,*.cbz::'
+set classify+=' ::*.log::'
+set classify+=' ::*.doc,,*.docx,,*.adoc,,*.odt::'
+set classify+=' ::*.xlsx,,*.xls,,*.xlsmx,,*.csv::'
+set classify+=' ::*.pptx,,*.ppt::'
+" }}} DevIcons "
+" Grep settings {{{ "
+" Use ripgrep for grep command
+set grepprg='rg --line-number %i %a %s'
+" }}} Grep settings "
+
+" Add additional place to look for executables
+"
+" let $PATH = $HOME.'/bin/fuse:'.$PATH
+
+" Block particular shortcut
+"
+" nnoremap <left> <nop>
+
+" Export IPC name of current instance as environment variable and use it to
+" communicate with the instance later.
+"
+" It can be used in some shell script that gets run from inside vifm, for
+" example, like this:
+"     vifm --server-name "$VIFM_SERVER_NAME" --remote +"cd '$PWD'"
+"
+" let $VIFM_SERVER_NAME = v:servername
+
+" vim: ft=vim:foldmethod=marker:foldlevel=0
