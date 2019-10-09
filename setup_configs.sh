@@ -121,8 +121,8 @@ ask_user()
                 14) qutebrowser_link;;
                 15) iterm_link;;
                 16) mpv_link;;
-                17) starship;;
-                18) w3m;;
+                17) starship_link;;
+                18) w3m_link;;
 
                 a) alias_link;;
                 b) help_link;;
@@ -341,8 +341,6 @@ qutebrowser_link()
 # starship TODO
 
 # w3m TODO
-
-
 
 # exit
 exit_link()

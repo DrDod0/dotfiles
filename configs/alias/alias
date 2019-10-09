@@ -58,6 +58,10 @@
     #alias py='python3'
     #alias python='python3'
 
+    # python3 and pip3 alias if installed via homebrew
+    alias python="/usr/local/bin/python3"
+    alias pip="/usr/local/bin/pip3"
+
 # pip
     alias pip='pip3'
 
