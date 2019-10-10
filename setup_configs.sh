@@ -100,6 +100,7 @@ ask_user()
                 17. starship
                 18. w3m
                 19. vifm
+                20. neomutt
 
             "
 
@@ -125,6 +126,7 @@ ask_user()
                 17) starship_link;;
                 18) w3m_link;;
                 19) vifm_link;;
+                20) neomutt_link;;
 
 
                 a) alias_link;;
@@ -357,6 +359,19 @@ vifm_link()
         echo found vifm, config and colorscheme symbolic link establish.
     else
         echo vifm not found, no action taken.
+    fi
+    }
+
+
+# neomutt
+neomutt_link()
+    {
+    if [ -x "$(command -v neomutt)" ]
+    then
+        ln -s ~/dotfiles/configs/neomutt/neomuttrc ~/
+        echo found neomutt, symbolic link establish.
+    else
+        echo neomutt not found, no action taken.
     fi
     }
 
