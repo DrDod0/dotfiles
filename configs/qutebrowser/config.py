@@ -87,10 +87,10 @@ c.aliases = {'q': 'quit', 'w': 'session-save', 'wq': 'quit --save', 'q!': 'quit'
 
 # set custom theme across all webpages
     # dracula.css
-    # guvbox.css
+    # gruvbox.css
     # solarize.css
 
-c.content.user_stylesheets = '~/dotfiles/configs/qutebrowser/solarize.css'
+c.content.user_stylesheets = '~/dotfiles/configs/qutebrowser/gruvbox.css'
 
 
 
