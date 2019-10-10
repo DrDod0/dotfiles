@@ -99,6 +99,7 @@ ask_user()
                 16. mpv
                 17. starship
                 18. w3m
+                19. vifm
 
             "
 
@@ -123,6 +124,8 @@ ask_user()
                 16) mpv_link;;
                 17) starship_link;;
                 18) w3m_link;;
+                19) vifm_link;;
+
 
                 a) alias_link;;
                 b) help_link;;
@@ -341,6 +344,23 @@ qutebrowser_link()
 # starship TODO
 
 # w3m TODO
+
+# vifm
+vifm_link()
+    {
+    if [ -x "$(command -v vifm)" ]
+    then
+        ln -s ~/dotfiles/configs/vifm/vifmrc ~/.config/vifm/
+        ln -s ~/dotfiles/configs/vifm/gruvbox.vifm ~/.config/vifm/
+        ln -s ~/dotfiles/configs/vifm/molakai.vifm ~/.config/vifm/
+        ln -s ~/dotfiles/configs/vifm/dracula.vifm ~/.config/vifm/
+        echo found vifm, config and colorscheme symbolic link establish.
+    else
+        echo vifm not found, no action taken.
+    fi
+    }
+
+
 
 # exit
 exit_link()
