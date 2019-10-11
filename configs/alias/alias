@@ -3,7 +3,6 @@
     alias -s md=vim
     alias -s txt=vim
 
-
 # tmux alias
     alias tl='tmux ls'
     alias td='tmux detach'
@@ -139,3 +138,6 @@
 
 # conf files
     alias config="sh ~/dotfiles/setup_configs.sh"
+
+# Weather
+    alias weather='curl -H "Accept-Language: ${LANG%_*}" wttr.in/"${1:-Hayward}"'
