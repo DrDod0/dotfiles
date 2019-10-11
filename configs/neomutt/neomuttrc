@@ -1,0 +1,171 @@
+# Created: 10.10.19
+# Author: @veggietorta
+
+
+
+################
+## Identity
+##
+#set realname = "Example User"
+#set from = "user@example.com"
+#
+## If you have another address:
+#alternates "^neomutt@example\.com$"
+#
+## Or, if you use the entire domain:
+#alternates "@example\.com$"
+#set reverse_name
+#
+################
+## Example: local mailboxes
+##
+## Some people use mbsync or getmail to retrieve their mail locally.
+##
+#set folder = ~/Mail           # This has the shortcut '+' or '='
+#set spoolfile = "+inbox"      # This has the shortcut '!'
+#set record = "+sent"
+#set trash = "+trash"
+#set postponed = "+drafts"
+#
+#mailboxes ! +neomutt +family +work
+#
+################
+## Gmail over IMAP
+##
+set imap_user = "USERNAME@gmail.com"
+set imap_pass = ""
+set imap_authenticators="login"
+set folder = "imaps://server:port"
+set spoolfile = "+INBOX"
+
+#
+#set folder = imaps://imap.gmail.com/
+#set spoolfile = "+INBOX"
+#unset record                # Gmail auto-stores in "+[Gmail].Sent Mail"
+#unset trash                 # Unset, deletion will remove labels
+#set postponed = "+[Gmail].Drafts"
+#
+#set mail_check = 60
+#
+################
+## Pager settings
+##
+#ignore *
+#unignore From Message-ID Date To Cc Bcc Subject
+#
+#set pager_stop
+#unset markers
+#
+## Prefer plain text to html.
+## However, for brain dead clients that bundle attachments inside a
+## multipart/alternative, prefer that alternative.
+#alternative_order multipart/mixed multipart/related text/plain
+#
+## Consult mime.types for determining types of these attachments
+#mime_lookup application/octet-stream
+#
+## This requires a ~/.mailcap entry with the copiousoutput flag, such as:
+## text/html; lynx -dump -width ${COLUMNS:-80} %s; nametemplate=%s.html; copiousoutput
+#auto_view text/html
+#
+################
+## Index settings
+
+# Confirm quit
+set quit
+
+# Confim the recipient and the subject when reply
+set fast_reply = yes
+set include = yes
+
+# Make mutt faster
+set sleep_time = 0
+
+
+set sort = threads
+#
+## Remember to `mkdir -p ~/.neomutt/hcache` first:
+#set header_cache= "~/.neomutt/hcache"
+#
+################
+## Message composition settings
+##
+#set edit_headers
+#
+set editor = "vim"
+#
+#set mime_type_query_command = "xdg-mime query filetype"
+#
+## msmtp is a solid SMTP client.
+## neomutt also has built-in SMTP, or you can use an MTA like exim4 or postfix.
+#set sendmail = "/usr/bin/msmtp"
+#
+## lbdb is a versatile contact query tool.
+## Invoke via ctrl-t in an address prompt
+#set query_command = "/usr/bin/lbdbq"
+#
+################
+## GnuPG
+##
+#unset crypt_use_gpgme
+#source /usr/local/share/doc/neomutt/samples/gpg.rc
+#set pgp_default_key = "0x1234567890ABCDEF"
+#set crypt_opportunistic_encrypt
+#set postpone_encryptjk
+#
+#############
+# Location
+set header_cache = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+set certificate_file = "~/.mutt/certificates"
+
+
+##############
+## charset
+set charset = "utf-8"
+et assumed_charset = "utf-8"
+set send_charset = "utf-8:iso-8859-15:us-ascii"
+
+###############
+## sidebar
+set sidebar_visible
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
+#
+#
+# general ------------ foreground ---- background -----------------------------
+color error        color231    color212
+color indicator        color231    color241
+color markers        color210    default
+color message        default        default
+color normal        default        default
+color prompt        default            default
+color search        color84        default
+color status         color141    color236
+color tilde        color231    default
+color tree        color141    default
+
+# message index ------ foreground ---- background -----------------------------
+color index        color210    default     ~D # deleted messages
+color index        color84        default     ~F # flagged messages
+color index        color117    default     ~N # new messages
+color index        color212    default     ~Q # messages which have been replied to
+color index        color215    default     ~T # tagged messages
+color index        color141    default        ~v # messages part of a collapsed thread
+
+# message headers ---- foreground ---- background -----------------------------
+color hdrdefault    color117    default
+color header        color231    default        ^Subject:.*
+# message body ------- foreground ---- background -----------------------------
+color attachment    color228    default
+color body        color231    default        [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+               # email addresses
+color body        color228    default        (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+        # URLs
+color body        color231    default        (^|[[:space:]])\\*[^[:space:]]+\\*([[:space:]]|$) # *bold* text
+color body        color231    default        (^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)     # _underlined_ text
+color body        color231    default        (^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)     # /italic/ text
+color quoted        color61        default
+color quoted1        color117    default
+color quoted2        color84        default
+color quoted3        color215    default
+color quoted4        color212    default
+color signature color212 default
