@@ -1,6 +1,6 @@
 #!/bin/bash
 # Author: veggietorta
-# Update: 10.06.19
+# Update: 10.11.19
 # Puporse: Automate a consistent configuration across rigs
 
 ##############################################################
@@ -95,7 +95,7 @@ ask_user()
                 12. sqlite
                 13. irssi
                 14. qutebrowser
-                15. iterm
+                15.
                 16. mpv
                 17. starship
                 18. w3m
@@ -121,7 +121,7 @@ ask_user()
                 12) remove_all;;
                 13) irssi_link;;
                 14) qutebrowser_link;;
-                15) iterm_link;;
+                15) ;;
                 16) mpv_link;;
                 17) starship_link;;
                 18) w3m_link;;
@@ -189,6 +189,8 @@ zsh_link()
     if [ -x "$(command -v zsh)" ]
     then
          echo zsh program found, created symbolic link
+         rm ~/.zshrc
+         ln -s ~/dotfiles/configs/zsh/.zshrc ~/
     else
        echo zsh program NOT found, no action taken.
     fi
@@ -246,10 +248,13 @@ muttrc_link()
     {
     if [ -x "$(command -v mutt)" ]
     then
+
         # .mailcap
         ln -s ~/dotfiles/configs/mutt/.mailcap ~/
+
         # .muttrc
         ln -s ~/dotfiles/configs/mutt/.muttrc ~/
+
         # Accounts
         ln -s ~/notes/code/account.gm ~/
         ln -s ~/notes/code/account.me ~/
@@ -267,6 +272,7 @@ newsboat_link()
     if [ -x "$(command -v newsboat)" ]
     then
         ln -s ~/dotfiles/configs/newsboat/config ~/.config/newsboat/
+
         # OSX path tested
         ln -s ~/dotfiles/configs/newsboat/config ~/.newsboat/
 
@@ -274,6 +280,7 @@ newsboat_link()
 
 
         ln -s ~/dotfiles/configs/newsboat/urls ~/.config/newsboat/
+
         # OSX path tested
         ln -s ~/dotfiles/configs/newsboat/urls ~/.newsboat/
 
@@ -330,7 +337,7 @@ alias_link()
 # qutebrowser
 qutebrowser_link()
     {
-    if [ -x "$(command -v qutebrowser)" ]
+    if [ -x "$(command -v vim)" ]
     then
         ln -s ~/dotfiles/configs/qutebrowser/config.py ~/.qutebrowser
         echo found qutebrowser, config symbolic link establish.
@@ -339,7 +346,6 @@ qutebrowser_link()
     fi
     }
 
-#iterm TODO
 
 # mpv TODO
 
@@ -352,10 +358,11 @@ vifm_link()
     {
     if [ -x "$(command -v vifm)" ]
     then
+        rm ~/.config/vifm/vifmrc
         ln -s ~/dotfiles/configs/vifm/vifmrc ~/.config/vifm/
-        ln -s ~/dotfiles/configs/vifm/gruvbox.vifm ~/.config/vifm/
-        ln -s ~/dotfiles/configs/vifm/molakai.vifm ~/.config/vifm/
-        ln -s ~/dotfiles/configs/vifm/dracula.vifm ~/.config/vifm/
+        ln -s ~/dotfiles/configs/vifm/gruvbox.vifm ~/.config/vifm/colors/
+        ln -s ~/dotfiles/configs/vifm/molakai.vifm ~/.config/vifm/colors/
+        ln -s ~/dotfiles/configs/vifm/dracula.vifm ~/.config/vifm/colors/
         echo found vifm, config and colorscheme symbolic link establish.
     else
         echo vifm not found, no action taken.
