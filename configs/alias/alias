@@ -47,8 +47,8 @@
     alias pro='py ~/notes/code/project.todo/progress.py'
 
 # vim
-    #alias vim='nvim'
-    #alias vi='nvim'
+    alias vim='nvim'
+    alias vi='vim'
 
     alias vimrc='vim ~/dotfiles/vim/.vimrc'
     alias source.vimrc='source $HOME/.vimrc'
@@ -96,8 +96,13 @@
     alias install.dotfiles='git clone https://github.com/VeggieTorta/dotfiles.git'
 
 # fzf
-    alias ff="fzf --preview 'head -100 {}'"
-    alias fff="du -a ~/dotfiles/ ~/notes/ | awk '{print $2}' | fzf | xargs $EDITOR"
+    #alias ff="fzf --preview 'head -100 {}'"
+    #alias fff="du -a ~/dotfiles/ ~/notes/ | awk '{print $2}' | fzf | xargs $EDITOR"
+    alias ffff="du -a ~/dotfiles/ ~/notes/ | awk '{print $2}' | fzf"
+
+
+
+
 
 # SSH
     alias ssh.status='/etc/init.d/ssh status'
@@ -126,7 +131,7 @@
 # TUIR Terminal based reddit client
     alias reddit='tuir -s front'
 
-# Transmission-daemon
+# Torrent Transmission-daemon
     alias t.start='transmission-daemon'
     alias t.add='transmission-remote -a'
     alias t.ls='transmission-remote -l'
@@ -141,3 +146,6 @@
 
 # Weather
     alias weather='curl -H "Accept-Language: ${LANG%_*}" wttr.in/"${1:-Hayward}"'
+
+# Geolocation
+    alias geo='curl ipinfo.io/8.8.8.8'
