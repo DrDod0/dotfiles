@@ -1,4 +1,4 @@
-# Author: @veggietorta Last updated: 10.03.19
+# Author: @veggietorta Last updated: 10.15.19
 
 
 # If you come from bash you might have to change your $PATH.
@@ -52,15 +52,41 @@
         git
         )
 
-    # Oh-my-zsh
+# Oh-my-zsh
     source $ZSH/oh-my-zsh.sh
+
+
+# Zplug
+    source ~/.zplug/init.zsh
+
+    zplug clear
+
+    zplug "zsh-users/zsh-autosuggestions"
+    zplug "zsh-users/zsh-syntax-highlighting"
+    zplug "zsh-users/zsh-autosuggestions"
+    zplug "tysonwolker/iterm-tab-colors"
+    zplug "hlissner/zsh-autopair", defer:2
+    zplug "peterhurford/up.zsh"
+
+    # Install packages that have not been installed yet
+    if ! zplug check --verbose; then
+        printf "Install? [y/N]: "
+        if read -q; then
+            echo; zplug install
+        else
+            echo
+        fi
+    fi
+
+    zplug load
+
 
 # User configuration
     # export MANPATH="/usr/local/man:$MANPATH"
 
 
 # You may need to manually set your language environment
-    # export LANG=en_US.UTF-8
+    export LANG=en_US.UTF-8
 
 
 # Preferred editor for local and remote sessions
@@ -97,14 +123,17 @@
 # Openvpn:
     export PATH=$PATH:/usr/local/Cellar/openvpn/2.4.7_1/sbin
 
+
 # Hombrew:
-export PATH="/usr/local/sbin:$PATH"
+    export PATH="/usr/local/sbin:$PATH"
+
 
 # Let files beginning with a . to be matched.
     # Example:
         #  <$ ls -d *zshr> <$ .zshrc
 
     setopt globdots
+
 
 # Prevents the current line from being saved in the history if it is the same as previous one.
     setopt histignoredups
@@ -113,8 +142,8 @@ export PATH="/usr/local/sbin:$PATH"
 # iTerm2 Shell Intergration TODO [] screen for OSX
     test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# Kitty-Terminal
 
+# Kitty-Terminal
     if [ -x "$(command -v kitty)" ]
         then
             autoload -Uz compinit
@@ -123,12 +152,19 @@ export PATH="/usr/local/sbin:$PATH"
             kitty + complete setup zsh | source /dev/stdin
     fi
 
-# FZ
+# FZF
+    # Source if installed
     if [ -x "$(command -v fzf)" ]
         then
             [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
             plugins=(fzf)
     fi
+
+    # Keybinding open
+    #bindkey -s '^o' 'nvim $(fzf)\n'
+    #bindkey -s '^o' 'nvim $(fzf)^M'
+
+    bindkey -s '^o' 'nvim $(du -a ~/dotfiles/ ~/notes/ | awk "{print $2}" | fzf )^M'
 
 # Starship prompt
     if [ -x "$(command -v starship)" ]
