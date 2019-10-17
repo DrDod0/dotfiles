@@ -1,5 +1,5 @@
 
-" Last updated: 10.01.19
+" Last updated: 10.15.19
 
 
 "   ██╗██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
@@ -14,8 +14,6 @@
 "|  Pluging Manager:   |
 "-----------------------
 
-
-"
     call plug#begin('~/.vim/bundle')
 
     "Eye Candy
@@ -31,7 +29,6 @@
     Plug 'scrooloose/nerdtree'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'kien/ctrlp.vim'
-    Plug 'francoiscabrol/ranger.vim'
     Plug 'rbgrouleff/bclose.vim'
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/fzf', { 'do': './install --all' }
@@ -70,6 +67,7 @@
     Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
     Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
     Plug 'liuchengxu/vista.vim'
+    Plug 'voldikss/vim-floaterm'
 
     "Python Tools
     Plug 'tpope/vim-fugitive'
@@ -84,6 +82,7 @@
     Plug 'segeljakt/vim-isotope'
 
     call plug#end()
+
 
 "------------------------
 "|  General Settings:   |
@@ -135,6 +134,7 @@
 
     " Change Leader
     let mapleader=","
+
 
 "------------------------------------------
 "|   Remapping / Mapping / Abbreviation:  |
@@ -241,16 +241,30 @@
             iab adown [↓]
             iab ^^ [⇅]
 
-    " C-l redraws screen & removes highlight
+    " C-l redraws screen & removes highlight TODO
         nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 
     "Remove Trailing whitespace on save
         autocmd BufWrite * :%s/\s\+$//e
 
+
+
 "----------------
 "|   Plugins    |
 "----------------
+
+
+
+    "Vim Floaterm:
+        " Float position
+            let g:floaterm_position = 'topright'
+
+        " Key binding F12 to toggle
+            noremap  <silent> <F12>           :FloatermToggle<CR>i
+            noremap! <silent> <F12>           <Esc>:FloatermToggle<CR>i
+            tnoremap <silent> <F12>           <C-\><C-n>:FloatermToggle<CR>
+
 
     "Vista Vim:
         let g:vista_default_executive = 'ctags'
