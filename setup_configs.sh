@@ -1,6 +1,6 @@
 #!/bin/bash
 # Author: veggietorta
-# Update: 10.11.19
+# Update: 10.20.19
 # Puporse: Automate a consistent configuration across rigs
 
 ##############################################################
@@ -205,7 +205,6 @@ vim_link()
         # vim program found, symbolic link established, send back to user
         rm ~/.vimrc
         ln -s ~/dotfiles/configs/vim/.vimrc ~/
-        ln -s /dotfiles/configs/vim/.selected_editor ~/
         echo vim program found, created symbolic link.
     else
         # vim program NOT found, no action taken, send back to user
