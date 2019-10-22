@@ -12,20 +12,17 @@
     alias source.tmux='tmux source-file $HOME/.tmux.conf'
 
 # bash/zsh
-    alias ls='ls -a -G'
+    alias ls='ls -l'
     alias q='exit'
-    alias ra='ranger'
-    alias ran='ranger'
+    alias v='vifm'
     alias c='clear'
-    alias source.bash='source $HOME/.bashrc'
+    alias source.zsh='source $HOME/.zshrc'
 
 # locations
     alias notes='cd ~/notes/'
     alias note='cd ~/notes/'
     alias code='cd ~/notes/code/'
     alias dot='cd ~/dotfiles'
-    alias node='cd ~/node.setup/'
-    alias f1='cd ~/notes/F1/'
     alias journal='cd ~/notes/mental_health/journal/'
 
 # dropbox
@@ -74,7 +71,14 @@
 
 # system
     alias shutdown='shutdown -now'
-    alias update.me='sudo apt-get update && sudo apt-get dist-upgrade -y && apt autoremove -y'
+
+
+    #linux
+    #alias update.me='sudo apt-get update && sudo apt-get dist-upgrade -y && apt autoremove -y'
+    #osx
+    alias update.me='softwareupdate -i -a'
+
+
     alias time='dpkg-reconfigure tzdata'
 
 # virtualEnv
@@ -99,10 +103,6 @@
     #alias ff="fzf --preview 'head -100 {}'"
     #alias fff="du -a ~/dotfiles/ ~/notes/ | awk '{print $2}' | fzf | xargs $EDITOR"
     alias ffff="du -a ~/dotfiles/ ~/notes/ | awk '{print $2}' | fzf"
-
-
-
-
 
 # SSH
     alias ssh.status='/etc/init.d/ssh status'
