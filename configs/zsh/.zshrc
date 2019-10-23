@@ -1,4 +1,8 @@
-# Author: @veggietorta Last updated: 10.15.19
+# Author: @veggietorta Last updated: 10.22.19
+
+# Source a small script to determine systerms OS.
+source ~/dotfiles/configs/zsh/os_check.sh
+
 
 
 # If you come from bash you might have to change your $PATH.
@@ -106,7 +110,17 @@
 
 
 # Personal Aliases:
-    source ~/dotfiles/configs/alias/alias
+#   Pulls $OS_sys variable from source on line-3 & sources alias based on OS.
+
+    if [[ $OS_sys == 🍎 ]]
+    then
+        source ~/dotfiles/configs/alias/alias_osx
+    elif [[ $OS_sys == 🐧 ]]
+    then
+        source ~/dotfiles/configs/alias/alias_ubuntu
+    else
+        echo 'System not recognized, alias not sourced'
+    fi
 
 
 # Neofetch:
