@@ -1,0 +1,139 @@
+# specific programs based on extension
+    alias -s mp3=cmus
+    alias -s md=vim
+    alias -s txt=vim
+
+# tmux alias
+    alias tl='tmux ls'
+    alias td='tmux detach'
+    alias ta='tmux attach'
+    alias tk='tmux kill-server'
+    alias tu='tmux'
+    alias source.tmux='tmux source-file $HOME/.tmux.conf'
+
+# bash/zsh
+    alias ls='ls -l'
+    alias q='exit'
+    alias v='vifm'
+    alias c='clear'
+    alias source.zsh='source $HOME/.zshrc'
+
+# locations
+    alias notes='cd ~/notes/'
+    alias note='cd ~/notes/'
+    alias code='cd ~/notes/code/'
+    alias dot='cd ~/dotfiles'
+    alias journal='cd ~/notes/mental_health/journal/'
+
+# dropbox
+    alias dropbox.status='~/dropbox.py status'
+
+# w3m
+    alias net='w3m'
+
+# Scripts
+    # git
+    alias pub='sh ~/notes/code/project.git/git.sh'
+    alias gs='git status'
+    alias gc='git commit -m'
+    alias gp='git push'
+    alias ga='git add'
+
+
+    # progress
+    alias pro='py ~/notes/code/project.todo/progress.py'
+
+# vim
+    alias vim='nvim'
+    alias vi='vim'
+
+    alias vimrc='vim ~/dotfiles/vim/.vimrc'
+    alias source.vimrc='source $HOME/.vimrc'
+
+# python
+    #alias py='python3'
+    #alias python='python3'
+
+    #alias python=""
+    #alias pip=""
+
+# pip
+    alias pip='pip3'
+
+
+# RRS & Readers
+    alias news='newsboat'
+
+
+# sqlite3
+    alias sq='sqlite3'
+
+# system
+    alias shutdown='shutdown -now'
+    alias update.me='sudo apt-get update && sudo apt-get dist-upgrade -y && apt autoremove -y'
+
+
+    alias time='dpkg-reconfigure tzdata'
+
+# virtualEnv
+    #alias virtual_create='virtualenv '
+    #alias virtual_source='source /bin/activate'
+    #alias virtual_deactivate=''
+
+# fail2band
+    alias fail2band.start='sudo systemctl start fail2ban'
+    alias fail2band.enable='sudo systemctl enable fail2ban'
+
+# school
+    alias school='cd ~/notes/school/'
+
+# install
+    alias install.tmux.plugin.manager='git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm'
+    alias install.notes='git clone https://gitlab.com/veggietorta/notes.git'
+    alias install.dotfiles='git clone https://github.com/VeggieTorta/dotfiles.git'
+
+# fzf
+    #alias ff="fzf --preview 'head -100 {}'"
+    #alias fff="du -a ~/dotfiles/ ~/notes/ | awk '{print $2}' | fzf | xargs $EDITOR"
+    alias ffff="du -a ~/dotfiles/ ~/notes/ | awk '{print $2}' | fzf"
+
+# SSH
+    alias ssh.status='/etc/init.d/ssh status'
+    alias ssh.reload='/etc/init.d/ssh reload'
+    alias ssh.stop='/etc/init.d/ssh stop'
+    alias ssh.restart='/etc/init.d/ssh restart'
+    alias ssh.start='/etc/init.d/ssh start'
+
+# help
+    alias help.ssh='cat $HOME/dotfiles/shared/help/help.ssh'
+    alias help.tmux='cat $HOME/dotfiles/shared/help/help.tmux'
+    alias help.git='cat $HOME/dotfiles/shared/help/help.git'
+    alias help.apt-get='cat $HOME/dotfiles/shared/help/help.apt-get'
+    alias help.sqlite='cat $HOME/dotfiles/shared/help/help.sqlite'
+    alias help.env='cat $HOME/dotfiles/shared/help/help.env'
+
+# Youtube-dl
+    alias yoump3='youtube-dl -x --audio-format mp3'
+    alias you='youtube-dl'
+
+# TUIR Terminal based reddit client
+    alias reddit='tuir -s front'
+
+# Torrent Transmission-daemon
+    alias t.start='transmission-daemon'
+    alias t.add='transmission-remote -a'
+    alias t.ls='transmission-remote -l'
+    alias t.rm='transmission-remote -t'
+    alias t.web='open -a firefox http://127.0.0.1:9091/'
+
+# Firefox
+    alias firefox='open -a firefox'
+
+# conf files
+    alias config="sh ~/dotfiles/setup_configs.sh"
+
+# Weather
+    alias weather='curl -H "Accept-Language: ${LANG%_*}" wttr.in/"${1:-Hayward}"'
+
+# Geolocation
+    alias geo='curl ipinfo.io/8.8.8.8'
