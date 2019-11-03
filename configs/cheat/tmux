@@ -1,0 +1,16 @@
+# Tmux
+
+### Leader
+    * Control + A
+
+### Change windows
+    * Leader + h/j/k/l
+
+### Split screens
+    * Leader + -
+    * Leader + \
+
+### Sessions save/restore
+    * Save:     Leader, Control + s
+    * Restore:  Leader, Control + r
+

@@ -1,0 +1,23 @@
+# Bash
+
+### if, then statement
+    if [ test_something ]
+    then
+        body of if
+    elif [ test someting ]
+    then
+        body of elif
+    else
+        body of else
+
+### Function
+    function_name()
+        {
+        something something
+        }
+
+### Pause script
+     read -p "Please hit [Enter] key to continue"
+
+
+

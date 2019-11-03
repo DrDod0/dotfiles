@@ -1,0 +1,41 @@
+# Python
+
+### Multiline print
+    * print("""      something        """)
+    * notes that 'print' is lower case
+
+### Single line print
+    * print("something")
+    * note that 'print is lower case'
+
+### Print with % operator
+    * x = "something"
+    * print("%s is missing here") %(x)
+
+### Run command in terminal
+    *  os.system('arg')
+        import os
+        os.system('ls -a')
+
+### If, then statement
+    if test_something:
+        Body of if
+    elif test_something:
+        Body of elif
+    else:
+        Body of else
+
+### Function
+    * Body of fucntion
+        def function_name():
+            something something
+            something something
+            something something
+            return
+
+    * Calling functions
+        function_name()
+
+### Users input
+    something = input("Enter Something")
+

@@ -1,0 +1,15 @@
+# FISH
+## set fish as default
+
+sudo into /etc/shells, add /usr/local/bin/fish
+
+    /bin/bash
+    /bin/csh
+    /bin/ksh
+    /bin/sh
+    /bin/tcsh
+    /bin/zsh
+    /usr/local/bin/fish
+
+Then chsh -s /usr/local/bin/fish.
+

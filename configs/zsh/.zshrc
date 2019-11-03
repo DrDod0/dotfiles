@@ -1,7 +1,7 @@
 # Author: @veggietorta Last updated: 10.22.19
 
 # Source a small script to determine systerms OS.
-source ~/dotfiles/configs/zsh/os_check.sh
+    source ~/dotfiles/configs/zsh/os_check.sh
 
 
 
@@ -58,31 +58,6 @@ source ~/dotfiles/configs/zsh/os_check.sh
 
 # Oh-my-zsh
     source $ZSH/oh-my-zsh.sh
-
-
-# Zplug
-    source ~/.zplug/init.zsh
-
-    zplug clear
-
-    zplug "zsh-users/zsh-autosuggestions"
-    zplug "zsh-users/zsh-syntax-highlighting"
-    zplug "zsh-users/zsh-autosuggestions"
-    zplug "tysonwolker/iterm-tab-colors"
-    zplug "hlissner/zsh-autopair", defer:2
-    zplug "peterhurford/up.zsh"
-
-    # Install packages that have not been installed yet
-    if ! zplug check --verbose; then
-        printf "Install? [y/N]: "
-        if read -q; then
-            echo; zplug install
-        else
-            echo
-        fi
-    fi
-
-    zplug load
 
 
 # User configuration
@@ -185,3 +160,4 @@ source ~/dotfiles/configs/zsh/os_check.sh
         then
             eval "$(starship init zsh)"
     fi
+

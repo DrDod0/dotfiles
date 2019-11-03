@@ -1,0 +1,5 @@
+# Exporting public key
+* gpg --armor --export you@example.com > mykey.asc
+
+# Exporting to a keyserver
+* gpg --keyserver search.keyserver.net --send-key you@example.com
