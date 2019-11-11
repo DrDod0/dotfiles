@@ -1,4 +1,15 @@
 
+
+###################################################
+# Fzf
+
+function ff
+    #vim (FZF)
+    vim ~/dotfiles ~/notes (FZF)
+end
+
+#fzf --preview="bat {} --color=always"
+
 ###################################################
 # vim keybindings
 
@@ -9,8 +20,7 @@ end
 
 
 ###################################################
-# system
-
+# System
 
 function q
     exit
@@ -34,7 +44,6 @@ end
 #################################################
 # Locations
 
-
 function code # code
     cd ~/notes/code/
 end
@@ -55,7 +64,7 @@ function journal # journal
 end
 
 ##################################################
-# git
+# Git
 
 function gs # gs
    git status
@@ -73,7 +82,7 @@ end
 
 
 function ga # ga
-   git add
+   git add -A
 end
 
 
