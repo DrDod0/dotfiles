@@ -72,7 +72,7 @@ end
 
 
 function gc # gc
-   git commit -m
+   git commit -message
 end
 
 
