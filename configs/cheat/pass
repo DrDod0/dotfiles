@@ -1,0 +1,34 @@
+
+# Password-store
+
+## Auto completion not working
+* rm ~/.zcompdump*
+* $ exec zsh
+
+## Show stored passwords
+* pass ls
+
+## Copy password to clipboard
+* pass -c something
+* pass -c Folder/something
+
+## Show password
+* pass Folder/something
+* pass something
+
+## Add password
+* pass insert Folder/something
+* pass insert something
+
+## Generate password
+* pass generate Folder/something 15
+
+## Remove password
+* pass rm Folder/something
+
+## Edit password
+* pass edit something
+
+## Git commands
+* pass git status
+* pass git push

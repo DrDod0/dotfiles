@@ -11,9 +11,9 @@
     * transmission-remote -t all -r
     * transmission-remote -t 3,4 -r
 
-
 ### Web interface
     * Transmission on current computer http://127.0.0.1:9091/
     * Transmission on other computee http://<IP_Address>:9091/
 
-
+### Stop
+    * transmission-remote --exit

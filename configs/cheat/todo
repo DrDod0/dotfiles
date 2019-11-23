@@ -1,0 +1,35 @@
+# List directory
+* todo.sh ls
+* todo.sh list +something
+
+# List projects
+* todo.sh lsprj
+* todo.sh listproj
+
+# Add
+* todo.sh add something
+* todo.sh a something
+
+# Archive
+* todo.sh archive
+
+# Remove duplicates
+* todo.sh deduplicate
+
+# Delete
+* todo.sh del something
+* todo.sh rm something
+
+# Complete
+* todo.sh do #number
+
+# Report
+* todo.sh report
+
+# Find / look in todo.txt & done.txt
+* todo.sh listall something
+* todo.sh lsa something
+
+# Replace / Edit
+* todo.sh replace ITEM# something
+

@@ -1,6 +1,6 @@
 #!/bin/bash
 # Author: veggietorta
-# Update: 10.20.19
+# Update: 11.18.19
 # Puporse: Automate a consistent configuration across rigs
 
 ##############################################################
@@ -95,7 +95,7 @@ ask_user()
                 12. sqlite
                 13. irssi
                 14. qutebrowser
-                15.
+                15. todo
                 16. mpv
                 17. starship
                 18. w3m
@@ -121,7 +121,7 @@ ask_user()
                 12) remove_all;;
                 13) irssi_link;;
                 14) qutebrowser_link;;
-                15) ;;
+                15) todo_link;;
                 16) mpv_link;;
                 17) starship_link;;
                 18) w3m_link;;
@@ -362,7 +362,7 @@ vifm_link()
         ln -s ~/dotfiles/configs/vifm/gruvbox.vifm ~/.config/vifm/colors/
         ln -s ~/dotfiles/configs/vifm/molakai.vifm ~/.config/vifm/colors/
         ln -s ~/dotfiles/configs/vifm/dracula.vifm ~/.config/vifm/colors/
-        echo found vifm, config and colorscheme symbolic link establish.
+        echo found vifm, config and colorscheme symbolic link established.
     else
         echo vifm not found, no action taken.
     fi
@@ -375,12 +375,33 @@ neomutt_link()
     if [ -x "$(command -v neomutt)" ]
     then
         ln -s ~/dotfiles/configs/neomutt/neomuttrc ~/
-        echo found neomutt, symbolic link establish.
+        echo found neomutt, symbolic link established.
     else
         echo neomutt not found, no action taken.
     fi
     }
 
+#todo
+todo_link()
+    {
+    if [ -x "$(command -v todo.sh)" ]
+    then
+        ln -s ~/dotfiles/configs/todo/todo.cfg ~/
+        echo found todo.txt-cli, symbolic link established.
+        echo
+        echo repo-dotfiles established alias t='todo.sh'
+
+        ln -s /Users/vt/Library/Mobile\ Documents/com~apple~CloudDocs/todo.txt
+        echo todo.txt symbolic link established
+
+        ln -s /Users/vt/Library/Mobile\ Documents/com~apple~CloudDocs/done.txt
+        echo done.txt symbolic link established
+
+        ln -s /Users/vt/Library/Mobile\ Documents/com~apple~CloudDocs/report.txt
+        echo report.txt symbolic link established
+
+    fi
+    }
 
 
 # exit

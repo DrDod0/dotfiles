@@ -158,7 +158,7 @@ end
 
 
 function t.start
-    transmission-deamon
+    transmission-daemon
 end
 
 
@@ -180,6 +180,27 @@ end
 function t.web
     open -a firefox http://127.0.0.1:9091/
 end
+
+
+
+
+
+
+##################################################
+# Todo.txt
+
+# short
+alias t="todo.sh"
+
+# list projects
+alias tp="todo.sh lsprj"
+
+
+
+
+##################################################
+# Neomutt
+alias mail="neomutt"
 
 
 ##################################################

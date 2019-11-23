@@ -1,4 +1,4 @@
-# Created: 10.10.19
+# Created: 11.12.19
 # Author: @veggietorta
 
 
@@ -28,19 +28,33 @@
 #set postponed = "+drafts"
 #
 #mailboxes ! +neomutt +family +work
-#
+
+
+
 ################
 ## Gmail over IMAP
-##
-set imap_user = "USERNAME@gmail.com"
-set imap_pass = ""
-set imap_authenticators="login"
-set folder = "imaps://server:port"
+set imap_user = "ochoaje@gmail.com"
+set imap_pass = "qr$L}e[9KaH2N8J&2xt3myyoZBty#qKVY6(2U(2ba%8bAJ7f)."
+
+# Default location of mailboxes
+set folder = "imaps://imap.gmail.com:993"
+
+
+# Configure Simple Mail Transfer Protocol for sending mail
+set smtp_url = "smtp://ochoaje@smtp.gmail.com:587"
+set smtp_pass = "qr$L}e[9KaH2N8J&2xt3myyoZBty#qKVY6(2U(2ba%8bAJ7f)."
+
+# 'No authenticator available' error
+set smtp_authenticators = 'gssapi:login'
+
+# Location of inbox
 set spoolfile = "+INBOX"
+
+# Location of draft
+set postponed = "+[Gmail]/Drafts"
 
 #
 #set folder = imaps://imap.gmail.com/
-#set spoolfile = "+INBOX"
 #unset record                # Gmail auto-stores in "+[Gmail].Sent Mail"
 #unset trash                 # Unset, deletion will remove labels
 #set postponed = "+[Gmail].Drafts"
@@ -89,11 +103,10 @@ set sort = threads
 #
 ################
 ## Message composition settings
-##
+
 #set edit_headers
-#
 set editor = "vim"
-#
+
 #set mime_type_query_command = "xdg-mime query filetype"
 #
 ## msmtp is a solid SMTP client.
@@ -114,25 +127,58 @@ set editor = "vim"
 #set postpone_encryptjk
 #
 #############
-# Location
+# Activate caching, improves speed
 set header_cache = "~/.mutt/cache/headers"
 set message_cachedir = "~/.mutt/cache/bodies"
+
+# Disable saving outgoing mail, Gmail saves them by default
+set record = ""
+
 set certificate_file = "~/.mutt/certificates"
 
 
 ##############
 ## charset
 set charset = "utf-8"
-et assumed_charset = "utf-8"
+set assumed_charset = "utf-8"
 set send_charset = "utf-8:iso-8859-15:us-ascii"
 
 ###############
 ## sidebar
-set sidebar_visible
+set sidebar_visible = yes
+set sidebar_folder_indent = yes
+set sidebar_indent_string ='  '
 set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
-set mail_check_stats
-#
-#
+set mail_check_stats = yes
+set sidebar_divider_char = ' │ '
+set sidebar_short_path = yes
+set sidebar_delim_chars ='/.'
+set sidebar_width = 15
+
+# Move the highlight to the previous mailbox
+bind index,pager \Cp sidebar-prev
+
+# # Move the highlight to the next mailbox
+bind index,pager \Cn sidebar-next
+
+# # Open the highlighted mailbox
+bind index,pager \Co sidebar-open
+
+
+
+##############
+# HTML
+auto_view text/html
+alternative_order text/enriched text/plain text/html text
+
+## Make quick html view macro
+bind index,pager V  noop        ## Unbinds V from version
+macro index,pager V "<view-attachments><search>html<enter><view-mailcap><exit>"
+
+
+
+
+
 # general ------------ foreground ---- background -----------------------------
 color error        color231    color212
 color indicator        color231    color241
@@ -156,6 +202,7 @@ color index        color141    default        ~v # messages part of a collapsed 
 # message headers ---- foreground ---- background -----------------------------
 color hdrdefault    color117    default
 color header        color231    default        ^Subject:.*
+
 # message body ------- foreground ---- background -----------------------------
 color attachment    color228    default
 color body        color231    default        [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+               # email addresses
@@ -169,3 +216,4 @@ color quoted2        color84        default
 color quoted3        color215    default
 color quoted4        color212    default
 color signature color212 default
+

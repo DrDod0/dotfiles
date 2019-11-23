@@ -62,7 +62,7 @@
     Plug 'christoomey/vim-tmux-runner'
     Plug 'tmsvg/pear-tree'                                                        " Auto pair
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+    "Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
     Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
     Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
     Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
@@ -455,6 +455,18 @@
 "---------------
 "| Apperance:  |
 "---------------
+
+" In GIT Branch
+silent! !git rev-parse --is-inside-work-tree
+if v:shell_error == 0
+  noremap <C-p> :GFiles --cached --others --exclude-standard<CR>
+  noremap <C-o> :GFiles?<CR>
+else
+  noremap <C-p> :Files<CR>
+endif
+
+
+
 
     " Set Vim-specific sequences for RGB colors
         let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
