@@ -1,0 +1,15 @@
+# Mount Voulumes
+* diskutil list
+
+# Creat Symbolic link
+* ln -s ~/origins ~/destination
+
+# List Drives
+* cd -> cd /Volumes -> ls
+
+# Move local files to server
+* rsync -alPvz ./source_dir server.com:destination_dir
+
+# ip address
+* ipconfig getifaddr en0
+

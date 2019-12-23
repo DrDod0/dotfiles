@@ -1,53 +1,48 @@
+# Author: @veggietorta
+# Last updated: 12.15.19
 
-
-###################################################
-# Fzf
-
-function ff
-    #vim (FZF)
-    vim ~/dotfiles ~/notes (FZF)
-end
-
-#fzf --preview="bat {} --color=always"
 
 ###################################################
 # vim keybindings
+###################################################
 
 function fish_user_key_bindings
   fish_vi_key_bindings
 end
 
+###################################################
+# Python 3
+###################################################
+
+alias py='python3'
+
+###################################################
+# Fzf
+###################################################
+
+alias ff='vim ~/dotfiles ~/notes (FZF)'
 
 
 ###################################################
 # System
+###################################################
 
-function q
-    exit
-end
+alias q='exit'
 
+alias v='vifm'
 
-function v
-    vifm
-end
+alias c='clear'
 
+alias l='exa -lahF'
 
-function c
-    clear
-end
-
-function l
-    exa -lahF
-end
+alias ls='ls -F'
 
 
 #################################################
 # Locations
+#################################################
 
-function code # code
-    cd ~/notes/code/
-end
-
+alias code='cd ~/notes/code/'
 
 function note # note
     cd ~/notes/
@@ -65,25 +60,15 @@ end
 
 ##################################################
 # Git
+##################################################
 
-function gs # gs
-   git status
-end
+alias gs='git status'
 
+alias gc='git commit -message'
 
-function gc # gc
-   git commit -message
-end
+alias gp='git push'
 
-
-function gp # gp
-   git push
-end
-
-
-function ga # ga
-   git add -A
-end
+alias ga='git add -A'
 
 
 ##################################################
@@ -102,92 +87,64 @@ end
 
 ##################################################
 # tmux
+##################################################
 
+alias tl='tmux ls'
 
-function tl
-    tmux ls
-end
+alias td='tmux detach'
 
+alias ta='tmux attach'
 
-function td
-    tmux detach
-end
+alias tk='tmux kill-server'
 
+alias tu='tmux'
 
-function ta
-    tmux attach
-end
+alias source.tmux='tmux source-file $HOME/.tmux.conf'
 
-
-function tk
-    tmux kill-server
-end
-
-
-function tu
-    tmux
-end
-
-
-function source.tmux
-    tmux source-file $HOME/.tmux.conf
-end
 
 ##################################################
 # RRS
+##################################################
 
-function news
-    newsboat
-end
+alias news='newsboat'
+
+
+
+##################################################
+# Files to server
+##################################################
+
+    #rsync -alPvz ./source_dir server.com:destination_dir
 
 
 ##################################################
 # Youtube-dl
+##################################################
 
-function yoump3
-    youtube-dl -x --audio-format mp3
-end
+alias yoump3='youtube-dl -x --audio-format mp3'
 
-
-function you
-    youtube-dl
-end
+alias you='youtube-dl'
 
 ##################################################
 # Torrent Transmission-deamon
+##################################################
 
+alias t.start="transmission-daemon"
 
-function t.start
-    transmission-daemon
-end
+alias t.add ="transmission-remote -a"
 
+alias t.l="transmission-remote -l"
 
-function t.add
-    transmission-remote -a
-end
+alias t.rm="transmission-remote -t"
 
+alias t.web="open -a firefox http://127.0.0.1:9091/"
 
-function t.l
-    transmission-remote -l
-end
-
-
-function t.rm
-    transmission-remote -t
-end
-
-
-function t.web
-    open -a firefox http://127.0.0.1:9091/
-end
-
-
-
-
+alias t.exit="transmission-remote --exit"
 
 
 ##################################################
 # Todo.txt
+##################################################
 
 # short
 alias t="todo.sh"
@@ -196,16 +153,30 @@ alias t="todo.sh"
 alias tp="todo.sh lsprj"
 
 
-
-
 ##################################################
 # Neomutt
+##################################################
+
 alias mail="neomutt"
 
 
 ##################################################
 # Weather
+##################################################
 
-#function weather
-#    curl -H "Accept-Language: ${LANG%_*}" wttr.in/"${1:-Hayward}"
-#end
+#alias weather='curl -H "Accept-Language: ${LANG%_*}" wttr.in/"${1:-Hayward}"'
+
+
+##################################################
+# Scripts
+##################################################
+
+# move files to server
+alias move='python3 /Users/vt/notes/code/scripts/move_files_to_server.py'
+
+##################################################
+# Server
+##################################################
+
+alias server='sftp vt@10.216.1.57'
+

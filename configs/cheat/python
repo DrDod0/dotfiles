@@ -18,9 +18,9 @@
         os.system('ls -a')
 
 ### If, then statement
-    if test_something:
+    if input == 'A':
         Body of if
-    elif test_something:
+    elif input == 'B':
         Body of elif
     else:
         Body of else
@@ -39,3 +39,17 @@
 ### Users input
     something = input("Enter Something")
 
+### Input Case sensitive
+    * something = input('Please pick something').upper()
+    * something = input('Please pick something').lower()
+
+### Append to file
+    with open("file.txt", 'a') as myfile:
+        myfile.write('text_to_be_added')
+        myfile.close
+
+### $ls a directory
+    * os.listdir('$PATH')
+    * Example:
+            for downloads in os.listdir('~/Downloads')
+                print(downloads)

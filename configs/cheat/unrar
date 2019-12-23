@@ -1,0 +1,12 @@
+# Install
+* brew install unrar
+
+# Unrar file
+* unrar x something.rar
+
+# List file inside of .rar
+* unrar l something.rar
+
+# Extract single file from .rar
+* unrar e something.rar folder/file.exe desired_location/
+
