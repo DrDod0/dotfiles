@@ -85,7 +85,7 @@ set viewcolumns=-60%{name},20%{size},{mtime}
 " Information for status bar
 "set statusline="%-35f%10E%20d%15A | Осталось места: %8a"
 command! df df -h %m 2> /dev/null
-command! diff vim -d %f %F
+command! diff nvim -d %f %F
 
 " Images
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.nef,*.xpm
