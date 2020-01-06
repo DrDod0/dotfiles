@@ -12,7 +12,7 @@
     alias source.tmux='tmux source-file $HOME/.tmux.conf'
 
 # bash/zsh
-    alias ls='ls -l'
+    #alias ls='ls -l'
     alias q='exit'
     alias v='vifm'
     alias c='clear'
@@ -51,7 +51,7 @@
     alias source.vimrc='source $HOME/.vimrc'
 
 # python
-    #alias py='python3'
+    alias py='python3'
     #alias python='python3'
 
     # python3 and pip3 alias if installed via homebrew
@@ -70,14 +70,11 @@
     alias sq='sqlite3'
 
 # system
+    # shutdown
     alias shutdown='shutdown -now'
 
-
-    #linux
-    #alias update.me='sudo apt-get update && sudo apt-get dist-upgrade -y && apt autoremove -y'
-    #osx
+    # osx update
     alias update.me='softwareupdate -i -a'
-
 
     alias time='dpkg-reconfigure tzdata'
 
