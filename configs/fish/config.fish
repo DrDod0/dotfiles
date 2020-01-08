@@ -178,5 +178,6 @@ alias move='python3 /Users/vt/notes/code/scripts/move_files_to_server.py'
 # Server
 ##################################################
 
-alias server='sftp vt@10.216.1.57'
+alias server.plex.ftp='sftp vt@10.216.1.57'
+alias server.ssh.plex='ssh vt@10.216.1.57'
 
