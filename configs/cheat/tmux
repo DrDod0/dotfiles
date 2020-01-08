@@ -1,5 +1,10 @@
 # Tmux
 
+### Sessions
+    * List:     tmux -ls
+    * Attach:   tmux -a
+    * Dettach:  tmux -d
+
 ### Leader
     * Control + A
 
@@ -13,4 +18,13 @@
 ### Sessions save/restore
     * Save:     Leader, Control + s
     * Restore:  Leader, Control + r
+
+### New Window & navigation
+    * New:          Leader + c
+    * Previous:     Leader + p
+    * Next:         Leader + n
+    * Enlarge/Min:  Leader + z
+    * Rename:       Leaser + ,
+
+
 

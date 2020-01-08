@@ -1,6 +1,6 @@
 #!/bin/bash
 # Author: veggietorta
-# Update: 11.18.19
+# Update: 01.07.20
 # Puporse: Automate a consistent configuration across rigs
 
 ##############################################################
@@ -101,6 +101,7 @@ ask_user()
                 18. w3m
                 19. vifm
                 20. neomutt
+                21. cheat
 
             "
 
@@ -127,6 +128,7 @@ ask_user()
                 18) w3m_link;;
                 19) vifm_link;;
                 20) neomutt_link;;
+                21) cheat_link;;
 
 
                 a) alias_link;;
@@ -403,6 +405,20 @@ todo_link()
     fi
     }
 
+#cheat
+cheat_link()
+    {
+        if [ -x "$(command -v cheat)" ]
+        then
+            cd ~/.config/
+            mkdir cheat
+            cd cheat
+            ln -s ~/dotfiles/configs/cheat/conf.yml ~/.config/cheat/
+            echo "found cheat, symbolic link established"
+        else
+            echo "cheat not installed, to install 'brew install cheat'"
+        fi
+    }
 
 # exit
 exit_link()
