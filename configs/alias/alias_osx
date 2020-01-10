@@ -146,3 +146,5 @@
 
 # Geolocation
     alias geo='curl ipinfo.io/8.8.8.8'
+    alias ip='curl https://freegeoip.app/xml/'
+
