@@ -1,0 +1,13 @@
+# Container
+$ docker container <>
+    * create
+    * start
+    * run
+    * ls
+    * inspect
+    * logs
+    * stop
+    * kills
+    * rm
+
+
