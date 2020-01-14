@@ -1,25 +1,26 @@
-# Tmux
 
-### Sessions
+
+
+# Sessions
     * List:     tmux -ls
     * Attach:   tmux -a
     * Dettach:  tmux -d
 
-### Leader
+# Leader
     * Control + A
 
-### Change windows
+# Change windows
     * Leader + h/j/k/l
 
-### Split screens
+# Split screens
     * Leader + -
     * Leader + \
 
-### Sessions save/restore
+# Sessions save/restore
     * Save:     Leader, Control + s
     * Restore:  Leader, Control + r
 
-### New Window & navigation
+# New Window & navigation
     * New:          Leader + c
     * Previous:     Leader + p
     * Next:         Leader + n

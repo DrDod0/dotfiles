@@ -1,0 +1,37 @@
+
+
+
+# Heading 1
+## Heading 2
+### Heading 3
+###### Heading 6
+
+# Bold
+    **bold text**
+
+# Italic
+    *italic text*
+
+# Blockquotes
+    > This text will be blockquoted.
+    >
+    > This one too.
+    >
+    >> This text here will be a nested blockquote.
+    >> This is also nested.
+
+# Ordered List
+    1. one
+    2. two
+    3. three
+
+# Unordered List
+    - one, + one, * one
+    - two, + two, * two
+
+# Images
+    ![Name_the_image](path/to/image.png)
+
+# Link
+    Something something [Duck Duck Go](https://duckduckduckgo.com).
+

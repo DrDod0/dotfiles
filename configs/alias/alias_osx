@@ -39,6 +39,8 @@
     alias gp='git push'
     alias ga='git add'
 
+    # cheat-cli clone
+    alias cheat='py ~/notes/code/scripts/script_cheat_cli_clone.py'
 
     # progress
     alias pro='py ~/notes/code/project.todo/progress.py'
@@ -150,3 +152,6 @@
 
 # Docker
     alias docker.start='eval $(docker-machine env)'
+
+# Server
+    source $HOME/notes/code/dotfiles/configs/alias/srv_add
