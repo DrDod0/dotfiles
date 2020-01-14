@@ -1,3 +1,8 @@
+" Edit: @veggietorta
+" Last Update: 01.13.20
+
+
+
 " Common settings {{{ "
 
 " This makes vifm perform file operations on its own instead of relying on
@@ -12,6 +17,13 @@ set syscalls
 " files by deleting them and then using p to put the file in the new location.
 " I recommend not changing this until you are familiar with vifm.
 set trash
+
+
+" Set non-vim $EDITOR
+set vicmd=nvim
+
+" Remap access command line
+nmap ; :
 
 " This is how many directories to store in the directory history.
 set history=100
@@ -81,6 +93,7 @@ set viewcolumns=-60%{name},20%{size},{mtime}
 
 " Set custom status line look
 "set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
+set statusline="  %t%= %A %11u:%-7g %15E %20d "
 
 " Information for status bar
 "set statusline="%-35f%10E%20d%15A | Осталось места: %8a"
@@ -88,8 +101,14 @@ command! df df -h %m 2> /dev/null
 command! diff nvim -d %f %F
 
 " Images
-fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.nef,*.xpm
-         \ tput cup %py %px > /dev/tty && preview.py %c:p --width %pw --height %ph
+    "fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.nef,*.xpm
+    "        \ tput cup %py %px > /dev/tty && preview.py %c:p --width %pw --height %ph
+
+" Images iTerm2 specific
+fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
+    \ tput cup %py %px > /dev/tty && /usr/local/bin/imgcat --width %pw --height %ph %c:p > /dev/tty
+
+
 
 " pdf
 fileviewer *.pdf
