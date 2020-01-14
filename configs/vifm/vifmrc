@@ -105,10 +105,11 @@ command! diff nvim -d %f %F
     "        \ tput cup %py %px > /dev/tty && preview.py %c:p --width %pw --height %ph
 
 " Images iTerm2 specific
+"fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
+"    \ tput cup %py %px > /dev/tty && /usr/local/bin/imgcat --width %pw --height %ph %c:p > /dev/tty
+
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-    \ tput cup %py %px > /dev/tty && /usr/local/bin/imgcat --width %pw --height %ph %c:p > /dev/tty
-
-
+    \ tput cup %py %px > /dev/tty && /Users/vt/.iTerm2/imgcat --width %pw --height %ph %c:p > /dev/tty
 
 " pdf
 fileviewer *.pdf
