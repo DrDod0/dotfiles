@@ -136,6 +136,7 @@
     alias t.ls='transmission-remote -l'
     alias t.rm='transmission-remote -t'
     alias t.web='open -a firefox http://127.0.0.1:9091/'
+    alias t.stop='sudo service transmission-daemon stop'
 
 # Firefox
     alias firefox='open -a firefox'
