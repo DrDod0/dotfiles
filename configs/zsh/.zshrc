@@ -3,8 +3,6 @@
 # Source a small script to determine systerms OS.
     source ~/dotfiles/configs/zsh/os_check.sh
 
-
-
 # If you come from bash you might have to change your $PATH.
     # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -74,7 +72,6 @@
     else
       export EDITOR='nvim'
     fi
-
 
 
 # Compilation flags
@@ -162,3 +159,5 @@
             eval "$(starship init zsh)"
     fi
 
+# Zsh Syntax-Highlighting
+    #source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
