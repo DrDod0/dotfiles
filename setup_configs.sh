@@ -5,6 +5,21 @@
 
 ##############################################################
 
+
+
+
+
+# Fresh install:
+# openssh-server > zsh > curl > ohmyzsh >
+
+
+
+
+
+
+
+
+
 ### Act on users OS
 
     #user_OS_profile()

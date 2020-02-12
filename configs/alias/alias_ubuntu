@@ -104,6 +104,9 @@
     alias ssh.restart='/etc/init.d/ssh restart'
     alias ssh.start='/etc/init.d/ssh start'
 
+# SSH MP3
+    alias ssh.mp3='ssh user@10.216.1.57 "cat /home/vt/Downloads/*.mp3" | play -t mp3 -'
+
 # help
     alias help.ssh='cat $HOME/dotfiles/shared/help/help.ssh'
     alias help.tmux='cat $HOME/dotfiles/shared/help/help.tmux'
@@ -137,3 +140,8 @@
 
 # Geolocation
     alias geo='curl ipinfo.io/8.8.8.8'
+
+# Docker
+    alias d.ls='docker ps'
+    alias d.image='docker image ls'
+    alias d.exiftool='sudo docker run -i -t -v /media/vt/plex_media:/media/usb/ hackmushroom/exiftool /bin/sh'
