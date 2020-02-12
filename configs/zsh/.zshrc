@@ -73,7 +73,6 @@
     fi
 
 
-
 # Compilation flags
     # export ARCHFLAGS="-arch x86_64"
 
@@ -159,3 +158,5 @@
             eval "$(starship init zsh)"
     fi
 
+# Zsh Syntax-Highlighting
+    #source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
