@@ -10,7 +10,7 @@
     export ZSH="$HOME/.oh-my-zsh"
 
 # Theme:
-    ZSH_THEME="spaceship"
+    ZSH_THEME="avit"
 
 # Case-sensitive completion.
     # CASE_SENSITIVE="true"
