@@ -10,7 +10,7 @@
     export ZSH="$HOME/.oh-my-zsh"
 
 # Theme:
-    ZSH_THEME="avit"
+    ZSH_THEME="spaceship"
 
 # Case-sensitive completion.
     # CASE_SENSITIVE="true"
@@ -50,7 +50,11 @@
     # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/ Example format: plugins=(rails git textmate ruby lighthouse)
 
     plugins=(
+        brew
         git
+        osx
+        z
+        zsh-syntax-highlighting
         )
 
 # Oh-my-zsh
@@ -158,5 +162,9 @@
             eval "$(starship init zsh)"
     fi
 
-# Zsh Syntax-Highlighting
-    #source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#npm
+    export PATH=$PATH:/usr/local/bin/node
+
+  # Set Spaceship ZSH as a prompt
+  autoload -U promptinit; promptinit
+  prompt spaceship

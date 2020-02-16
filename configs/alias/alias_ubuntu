@@ -1,5 +1,5 @@
 # specific programs based on extension
-    alias -s mp3=cmus
+    #alias -s mp3=cmus
     alias -s md=vim
     alias -s txt=vim
 

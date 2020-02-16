@@ -1,0 +1,29 @@
+# Author: @veggietorta
+# Update: 02.12.20
+
+# Notes
+# e edit numbers
+# E edit text
+# <,>,\, input text
+# = input number
+# aa automatic size cell
+# x delete
+# fh make column smaller
+# fl make column bigger
+#
+
+set autocalc
+set numeric
+set numeric_decimal=0
+set overlap
+set xlsx_readformulas
+
+# Theme
+#color "type=INPUT fg=BLACK bg=DEFAULT_COLOR"
+#color "type=NORMAL fg=BLACK bg=DEFAULT_COLOR"
+#color "type=WELCOME fg=BLACK bg=DEFAULT_COLOR"
+#color "type=CELL_SELECTION_SC fg=WHITE bg=BLACK"
+#color "type=MODE fg=BLACK bg=DEFAULT_COLOR"
+cellcolor A0:Z0 "fg=WHITE" bg=BLACK bold=1"
+cellcolor A:Z "fg=WHITE" bg=BLACK bold=1"
+
