@@ -12,6 +12,25 @@
 # Theme:
     ZSH_THEME="spaceship"
 
+
+
+    if [[ $OS_sys == 🍎 ]]
+    then
+       ZSH_THEME="spaceship"
+    elif [[ $OS_sys == 🐧 ]]
+    then
+        ZSH_THEM="avit"
+    else
+        echo 'System not recognized, no zsh theme'
+    fi
+
+
+
+
+
+
+
+
 # Case-sensitive completion.
     # CASE_SENSITIVE="true"
 
