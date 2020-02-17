@@ -1,0 +1,28 @@
+
+
+mysql -u root -p
+
+
+use mlb
+
+
+CREATE TABLE bio(
+    player_id INT NOT NULL AUTO_INCREMENT,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    birthplace VARCHAR(255),
+    dob DATE,
+    age INT,
+    PRIMARY KEY ( player_id )
+    );
+
+
+INSERT INTO bio(first_name, last_name)
+    VALUES('Clayton','Kershaw')
+
+
+ALTER TABLE bio
+    ADD COLUMN player_number INT AFTER last_name;
+
+UPDATE bio
+    SET birthplace = "Dallas, TX" WHERE first_name = "Clayton"
