@@ -1,4 +1,4 @@
-# Author: @veggietorta Last updated: 10.22.19
+# Author: @veggietorta Last updated: 11.22.19
 
 # Source a small script to determine systerms OS.
     source ~/dotfiles/configs/zsh/os_check.sh
@@ -10,25 +10,7 @@
     export ZSH="$HOME/.oh-my-zsh"
 
 # Theme:
-    ZSH_THEME="spaceship"
-
-
-
-    if [[ $OS_sys == 🍎 ]]
-    then
-       ZSH_THEME="spaceship"
-    elif [[ $OS_sys == 🐧 ]]
-    then
-        ZSH_THEM="avit"
-    else
-        echo 'System not recognized, no zsh theme'
-    fi
-
-
-
-
-
-
+    ZSH_THEME="avit"
 
 
 # Case-sensitive completion.
