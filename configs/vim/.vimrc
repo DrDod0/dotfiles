@@ -1,5 +1,5 @@
 
-" Last updated: 10.15.19
+" Last updated: 06.11.20
 
 
 "   ██╗██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
@@ -68,12 +68,15 @@
     Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
     Plug 'liuchengxu/vista.vim'
     Plug 'voldikss/vim-floaterm'
+    "Plug 'severin-lemaignan/vim-minimap'
 
     "Python Tools
     Plug 'tpope/vim-fugitive'
     Plug 'vim-scripts/indentpython.vim'
     Plug 'vim-syntastic/syntastic'
     Plug 'nvie/vim-flake8'
+    Plug 'jeetsukumaran/vim-pythonsense'
+    Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
     "School Tools
     Plug 'sk1418/HowMuch'
@@ -146,7 +149,7 @@
     nnoremap <silent> <Leader>t :call terminal#run('++close')<CR>
     nnoremap <silent> <Leader>T :call terminal#run()<CR
 
-    " Remap window navigation in Any modde
+    "Remap window navigation in Any modde
     :tnoremap <C-h> <C-\><C-N><C-w>h
     :tnoremap <C-j> <C-\><C-N><C-w>j
     :tnoremap <C-k> <C-\><C-N><C-w>k
@@ -160,7 +163,7 @@
     :nnoremap <C-k> <C-w>k
     :nnoremap <C-l> <C-w>l
 
-    " Vim Tmux Runner
+    "Vim Tmux Runner
     let g:VtrStripLeadingWhitespace = 0
     let g:VtrClearEmptyLines = 0
     let g:VtrAppendNewline = 1
@@ -175,63 +178,63 @@
     " gd over a path opens directory
         nnoremap <leader>gd :Ex <cfile><CR>
 
-    " move among buffers with CTRL
+    "Move among buffers with CTRL
         nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
         nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
-    " remap <esc> to jj
+    "remap <esc> to jj
         inoremap jj <Esc>
 
-    " Move visual selection
+    "Move visual selection
         vnoremap J :m '>+1<CR>gv=gv
         vnoremap K :m '>-2<CR>gv=gv
 
-    " gf new file under cursor
+    "gf new file under cursor
         nnoremap <leader>gf :e ~/notes/<cfile><CR>
 
-    " Windown jumpimng
+    "Windown jumpimng
         nnoremap <C-H> <C-W><C-H>
         nnoremap <C-J> <C-W><C-J>
         nnoremap <C-K> <C-W><C-K>
         nnoremap <C-L> <C-W><C-L>
 
-    " Swapped ; and : to increase speed, no need to use shift.
+    "Swapped ; and : to increase speed, no need to use shift.
         nnoremap : ;
         nnoremap ; :
 
-    " Helper file:
+    "Helper file:
     " nnoremap <C-t> :vs ~/notes/Index_Helper.markdown<CR>:vertical resize 35<CR>
 
-    " Work Soap Notes
+    "Work Soap Notes
         "nnoremap <C-s> :tabnew <esc>i#About<CR><CR>#Bodywork<CR><CR>#Other<CR>+ <C-R>=strftime("%m.%d.%y")<CR> - 60m - ##<esc>:w ~/notes/Work/Clients.Massage.Envy/.md<left><left><left>
 
-    " Insert current date with 'zdt'
+    "Insert current date with 'zdt'
         iab zdt <c-r>=strftime("%m.%d.%y")<CR>
 
-    " Vimgrep Shortcut w/ :lopen automated
+    "Vimgrep Shortcut w/ :lopen automated
         augroup myvimrc
             autocmd!
             autocmd QuickFixCmdPost [^l]* cwindow
             autocmd QuickFixCmdPost l*    lwindow
         augroup END
 
-    " Search all file for a string
+    "Search all file for a string
         nnoremap <leader>f :lvimgrep! // ** <left><left><left><left><left>
 
-    " Vim Help in full screen
+    "Vim Help in full screen
         nnoremap <C-h> :help  <bar> only <left><left><left><left><left><left><left><left>
 
-    " Rot-13 the screen
+    "Rot-13 the screen
         map <leader>r mzHVLg?`z
 
-    " Spelling error I'm feeling lucky
+    "Spelling error I'm feeling lucky
         function! FixSpellingError()
             normal! mm[s1z=`m
         endfunction
         nnoremap <leader>sp :call FixSpellingError()<cr>
 
 
-    " School Remapping
+    "School Remapping
 
 
         " Calculator
@@ -241,7 +244,7 @@
             iab adown [↓]
             iab ^^ [⇅]
 
-    " C-l redraws screen & removes highlight TODO
+    "C-l redraws screen & removes highlight TODO
         nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 
@@ -254,7 +257,7 @@
 "|   Plugins    |
 "----------------
 
-    "Fzf:
+    " Fzf:
         let g:fzf_action = {
               \ 'ctrl-s': 'split',
               \ 'ctrl-v': 'vsplit'
@@ -269,19 +272,16 @@
             \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
         augroup END
 
-
-
-    "Vim Floaterm:
-        " Float position
+    " Vim Floaterm:
+        "Float position
             let g:floaterm_position = 'topright'
 
-        " Key binding F12 to toggle
+        "Key binding F12 to toggle
             noremap  <silent> <F12>           :FloatermToggle<CR>i
             noremap! <silent> <F12>           <Esc>:FloatermToggle<CR>i
             tnoremap <silent> <F12>           <C-\><C-n>:FloatermToggle<CR>
 
-
-    "Vista Vim:
+    " Vista Vim:
         let g:vista_default_executive = 'ctags'
 
         let g:vista_executive_for = {
@@ -291,8 +291,7 @@
 
         let g:vista#renderer#enable_icon = 1
 
-
-    "Cocvim:
+    " Cocvim:
         " Use tab for trigger completion with characters ahead and navigate.
         " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
         inoremap <silent><expr> <TAB>
@@ -306,15 +305,15 @@
           return !col || getline('.')[col - 1]  =~# '\s'
         endfunction
 
-    "Previm:
-        " Open Safari to provide preview
+    " Previm:
+        "Open Safari to provide preview
         let g:previm_open_cmd = 'open -a Safari'
 
-    "Xpdf:
+    " Xpdf:
         :command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> -
         :command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> - |fmt -csw78
         "
-    "NERDTree:
+    " NERDTree:
         "Toggle NERDTree
         nnoremap <silent> <expr> <F6> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 
@@ -330,47 +329,46 @@
         "Window size
         let g:NERDTreeWinSize=15
 
-
-    "Vimisotope:
+    " Vimisotope:
         "Convert next character into Superscript
         " <C-g><C-k> {char}
-        "
-        " Convert next character into Subscript
+
+        "Convert next character into Subscript
         " <C-g><C-j> {char}
-        "
-    "Airline:
+
+    " Airline:
         let g:airline_theme='minimalist'
         "
-    "ComfortablMotionVim:
-        " Mapping
+    " ComfortablMotionVim:
+        "Mapping
            " Default maping <C-d> and <C-u>
-           "
-    "HowMuch:
-       " Precisions of float calculations, default is 2
+
+    " HowMuch:
+        "Precisions of float calculations, default is 2
             let g:HowMuch_scale = 6
-        " Define Engine
+        "Define Engine
             let g:HowMuch_auto_engines = ['vim']
-            "
-    "Quickmenu:
+
+    " Quickmenu:
         if !empty(glob('$HOME/.vim/bundle/quickmenu.vim/'))
 
-             " enable cursorline (L) and cmdline help (H)
+             "enable cursorline (L) and cmdline help (H)
              let g:quickmenu_options = "LH"
 
              " clear all the items
              call g:quickmenu#reset()
 
-             " remapping
+             "remapping
              noremap <leader>m :call quickmenu#toggle(0)<cr>
 
-             " section 1, text starting with "#" represents a section (see the screen capture below)
+             "section 1, text starting with "#" represents a section (see the screen capture below)
              call g:quickmenu#append('# Develop', '')
 
              call g:quickmenu#append('item 1.1', 'echo "1.1 is selected"', 'select item 1.1')
              call g:quickmenu#append('item 1.2', 'echo "1.2 is selected"', 'select item 1.2')
              call g:quickmenu#append('item 1.3', 'echo "1.3 is selected"', 'select item 1.3')
 
-             " section 2
+             "section 2
              call g:quickmenu#append('# Misc', '')
 
              call g:quickmenu#append('item 2.1', 'echo "2.1 is selected"', 'select item 2.1')
@@ -397,11 +395,11 @@
 		" Stop <Leader>ds
 
 	" Goyo Limeline:
-		" Limeline Color name (:help cterm-colors) or ANSI code
+		"Limeline Color name (:help cterm-colors) or ANSI code
 		let g:limelight_conceal_ctermfg = 'gray'
 		let g:limelight_conceal_ctermfg = 240
 
-		" Goyo & Limeline intergration TODO needed?
+		"Goyo & Limeline intergration TODO needed?
 			" autocmd! User GoyoEnter Limelight
 			" autocmd! User GoyoLeave Limelight!
 
@@ -420,59 +418,66 @@
 			autocmd! User GoyoLeave nested call <SID>Goyo_Leave()
 
 	" Vim Pencil:
-		" Activated with Goyo, auto detects wrap and hardlines breaks
+		"Activated with Goyo, auto detects wrap and hardlines breaks
 
 	" Vim_Anyfold:
 		let AnyfoldActivate=1
 		set foldlevel=0
 
 	" CtrlP:
-		" Invoke CtrlP
+		"Invoke CtrlP
 			 let g:ctrlp_map = '<C-p>'	"aka Command-P
 			 let g:ctrlp_cmd = 'CtrlP'
 			 let g:ctrlp_match_window = 'top,order:btt,min:1,max:10,results:10'
 
 	" Netrw:
-        " Default Directory
+        "Default Directory
 			"let g:notes_directories = ['~/notes', '~/Dropbox/Shared notes']
 
-		" Default file extentsion
+		"Default file extentsion
 			let g:notes_suffix = '.md'
 
 	" Autopairs:
-		" Default settings used.
+		"Default settings used.
 
     " Unimpaired:
-	    " Useful mapping for navigating :vimgrep results
+	    "Useful mapping for navigating :vimgrep results
 		 	"<[q> to <cprevious>
 		 	"<q]> to <cnext>
 
-
     " IndentLine:
-        " Change indent char
+        "Change indent char
             let g:indentLine_char = '|'
+
+    " Vimgutter:
+        "Update time
+        set updatetime=100
+
+        "Customise symbol
+        let g:gitgutter_sign_added = ''
+        let g:gitgutter_sign_modified = ''
+        let g:gitgutter_sign_removed = ''
+        "let g:gitgutter_sign_removed_first_line = '^^'
+        "let g:gitgutter_sign_modified_removed = 'ww'
 
 "---------------
 "| Apperance:  |
 "---------------
 
-" In GIT Branch
-silent! !git rev-parse --is-inside-work-tree
-if v:shell_error == 0
-  noremap <C-p> :GFiles --cached --others --exclude-standard<CR>
-  noremap <C-o> :GFiles?<CR>
-else
-  noremap <C-p> :Files<CR>
-endif
-
-
-
+    " In GIT Branch
+        silent! !git rev-parse --is-inside-work-tree
+        if v:shell_error == 0
+            noremap <C-p> :GFiles --cached --others --exclude-standard<CR>
+            noremap <C-o> :GFiles?<CR>
+        else
+            noremap <C-p> :Files<CR>
+        endif
 
     " Set Vim-specific sequences for RGB colors
         let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
         let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum""
 
-	" Colorschemes:
+	"Colorschemes:
 
         "Default:
             colorscheme gruvbox9
@@ -480,7 +485,7 @@ endif
             let g:gruvbox_italic = 1
             let g:gruvbox_plugin_hi_groups = 1
 
-            " Vim-deep-space
+        "VimDeepSpace:
             fun! s:Deep()
                 set background=dark
                 set termguicolors
@@ -491,23 +496,22 @@ endif
             endfunction
             command Deep cal s:Deep()
 
+        "Dracula:
+           	fun! s:Dra()
+                colorscheme dracula
+                set background=dark
+                syntax on
+            endfunction
+            command Dra call s:Dra()
 
-        	" Dracula:
-           	    fun! s:Dra()
-                	colorscheme dracula
-                	set background=dark
-                	syntax on
-                endfunction
-                command Dra call s:Dra()
-
-		" Palenight:
+		"Palenight:
 		    fun! s:Pale()
                 set background=dark
                 colorscheme palenight
             endfun
             command Pale call s:Pale()
 
-		" Solarize:
+		"Solarize:
             function! s:Sold()
 			    set background=dark
 			    colorscheme solarized8_high
@@ -521,7 +525,6 @@ endif
             command Soll call s:Soll()
 
 	"Statusline:
-
         " Non-Powerline
         "set laststatus =2                       "show sttaus line
 		"set statusline +=%1*\ %n\ %*            "buffer number
@@ -531,13 +534,13 @@ endif
 		"set statusline +=%2*%m%*                "[+] will if current buffer is modified
 		"set statusline +=%1*%=%5l%*             "current line
 		"set statusline +=%2*/%L%*               "total lines
-		"set statusline +=%1*%4v\ %*	            "virtual column number
+		"set statusline +=%1*%4v\ %*	         "virtual column number
 		"set statusline +=%{strftime('%-I:%M')}	"time in 12h format
 
-	" Syntax:
+	"Syntax:
         " File type *markdown
 		    "autocmd! bufreadpost *.markdown set syntax=off
-        "
+
         " File type *.md
             "augroup md_settings " {
                 "autocmd!
@@ -550,4 +553,4 @@ endif
         " Highlight TODO FIXME NOTE OPTIMIZE & FYI
             syn match myTodo contained "\<\(FIXME\|NOTE\|TODO\|OPTIMIZE\|FYI\):"
             hi def link myTodo Todo
-            "
+
