@@ -55,7 +55,6 @@
         git
         osx
         z
-        zsh-syntax-highlighting
         )
 
 # Oh-my-zsh
@@ -169,3 +168,6 @@
   # Set Spaceship ZSH as a prompt
   autoload -U promptinit; promptinit
   prompt spaceship
+
+# ZSH Syntax highlight
+source /home/vt/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

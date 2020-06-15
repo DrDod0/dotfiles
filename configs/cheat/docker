@@ -10,4 +10,16 @@ $ docker container <>
     * kills
     * rm
 
+-d = dettached
+-i =
+-t =
+
+
+# SSH into container
+docker exec -it <container> /bin/bash
+docker exec -it <container> <command> && <command>
+
+# Copy data, CONTAINER -> HOST
+cp vtmysql:/var/lib/mysql /home/vt/Downlaods/mysql
+
 
