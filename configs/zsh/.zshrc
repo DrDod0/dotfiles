@@ -170,4 +170,4 @@
   prompt spaceship
 
 # ZSH Syntax highlight
-source /home/vt/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#    source /Users/vt/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

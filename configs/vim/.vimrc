@@ -1,5 +1,5 @@
-
-" Last updated: 06.11.20
+" Author: @veggietorta
+" Last updated: 06.19.20
 
 
 "   ██╗██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
@@ -61,11 +61,11 @@
     "Dev Tools
     Plug 'christoomey/vim-tmux-runner'
     Plug 'tmsvg/pear-tree'                                                        " Auto pair
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    "Plug 'neoclide/coc.nvim', {'branch': 'release'}
     "Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
+    "Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+    "Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+    "Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
     Plug 'liuchengxu/vista.vim'
     Plug 'voldikss/vim-floaterm'
     "Plug 'severin-lemaignan/vim-minimap'
@@ -77,6 +77,7 @@
     Plug 'nvie/vim-flake8'
     Plug 'jeetsukumaran/vim-pythonsense'
     Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+    Plug 'Vimjas/vim-python-pep8-indent'
 
     "School Tools
     Plug 'sk1418/HowMuch'
@@ -143,39 +144,33 @@
 "|   Remapping / Mapping / Abbreviation:  |
 "------------------------------------------
 
-    " Functions for dealing with the terminal
-    " Terms and interpreters
-    " set b:interpreter for filetypes to affect the term
-    nnoremap <silent> <Leader>t :call terminal#run('++close')<CR>
-    nnoremap <silent> <Leader>T :call terminal#run()<CR
-
     "Remap window navigation in Any modde
-    :tnoremap <C-h> <C-\><C-N><C-w>h
-    :tnoremap <C-j> <C-\><C-N><C-w>j
-    :tnoremap <C-k> <C-\><C-N><C-w>k
-    :tnoremap <C-l> <C-\><C-N><C-w>l
-    :inoremap <C-h> <C-\><C-N><C-w>h
-    :inoremap <C-j> <C-\><C-N><C-w>j
-    :inoremap <C-k> <C-\><C-N><C-w>k
-    :inoremap <C-l> <C-\><C-N><C-w>l
-    :nnoremap <C-h> <C-w>h
-    :nnoremap <C-j> <C-w>j
-    :nnoremap <C-k> <C-w>k
-    :nnoremap <C-l> <C-w>l
+        :tnoremap <C-h> <C-\><C-N><C-w>h
+        :tnoremap <C-j> <C-\><C-N><C-w>j
+        :tnoremap <C-k> <C-\><C-N><C-w>k
+        :tnoremap <C-l> <C-\><C-N><C-w>l
+        :inoremap <C-h> <C-\><C-N><C-w>h
+        :inoremap <C-j> <C-\><C-N><C-w>j
+        :inoremap <C-k> <C-\><C-N><C-w>k
+        :inoremap <C-l> <C-\><C-N><C-w>l
+        :nnoremap <C-h> <C-w>h
+        :nnoremap <C-j> <C-w>j
+        :nnoremap <C-k> <C-w>k
+        :nnoremap <C-l> <C-w>l
 
     "Vim Tmux Runner
-    let g:VtrStripLeadingWhitespace = 0
-    let g:VtrClearEmptyLines = 0
-    let g:VtrAppendNewline = 1
+        let g:VtrStripLeadingWhitespace = 0
+        let g:VtrClearEmptyLines = 0
+        let g:VtrAppendNewline = 1
 
-    " Send current line to other tmux panes in the same window
-    nnoremap <silent> <leader>p :call SendLineToPanes()<cr>
-    function! SendLineToPanes()
-      let cmd="echo '" . getline('.') . "' | ~/dotfiles/configs/tmux/tmux_send.sh"
-      silent call system(cmd)
-    endfunction
+    "Send current line to other tmux panes in the same window
+        nnoremap <silent> <leader>p :call SendLineToPanes()<cr>
+        function! SendLineToPanes()
+            let cmd="echo '" . getline('.') . "' | ~/dotfiles/configs/tmux/tmux_send.sh"
+            silent call system(cmd)
+        endfunction
 
-    " gd over a path opens directory
+    "gd over a path opens directory
         nnoremap <leader>gd :Ex <cfile><CR>
 
     "Move among buffers with CTRL
@@ -203,7 +198,7 @@
         nnoremap ; :
 
     "Helper file:
-    " nnoremap <C-t> :vs ~/notes/Index_Helper.markdown<CR>:vertical resize 35<CR>
+        "nnoremap <C-t> :vs ~/notes/Index_Helper.markdown<CR>:vertical resize 35<CR>
 
     "Work Soap Notes
         "nnoremap <C-s> :tabnew <esc>i#About<CR><CR>#Bodywork<CR><CR>#Other<CR>+ <C-R>=strftime("%m.%d.%y")<CR> - 60m - ##<esc>:w ~/notes/Work/Clients.Massage.Envy/.md<left><left><left>
@@ -233,9 +228,14 @@
         endfunction
         nnoremap <leader>sp :call FixSpellingError()<cr>
 
+    "Leader-h redraws screen & removes highlight
+        nnoremap <leader>h :nohl<CR>
+
+    "Remove Trailing whitespace on save
+        autocmd BufWrite * :%s/\s\+$//e
+
 
     "School Remapping
-
 
         " Calculator
             ino <C-A> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
@@ -244,18 +244,15 @@
             iab adown [↓]
             iab ^^ [⇅]
 
-    "C-l redraws screen & removes highlight TODO
-        nnoremap <silent> <C-l> :nohl<CR><C-l>
-
-
-    "Remove Trailing whitespace on save
-        autocmd BufWrite * :%s/\s\+$//e
-
 
 
 "----------------
 "|   Plugins    |
 "----------------
+
+    " Vimpythonpep8indent:
+        "closing brackets line up with the items:
+        let g:python_pep8_indent_hang_closing = 1
 
     " Fzf:
         let g:fzf_action = {
@@ -339,6 +336,7 @@
     " Airline:
         let g:airline_theme='minimalist'
         "
+
     " ComfortablMotionVim:
         "Mapping
            " Default maping <C-d> and <C-u>

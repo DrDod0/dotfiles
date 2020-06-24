@@ -24,6 +24,7 @@
     alias code='cd ~/notes/code/'
     alias dot='cd ~/dotfiles'
     alias journal='cd ~/notes/mental_health/journal/'
+    alias mlb='cd ~/notes/code/project.mlb/'
 
 # dropbox
     alias dropbox.status='~/dropbox.py status'

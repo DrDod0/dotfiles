@@ -1,0 +1,7 @@
+{
+  "codeLens.enable": true,
+  "diagnostic.errorSign": "✘",
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": "",
+  "diagnostic-languageserver.filetypes": {
+    "sh": "shellcheck"}}
