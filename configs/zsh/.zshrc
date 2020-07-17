@@ -7,10 +7,10 @@
     # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-    #export ZSH="$HOME/.oh-my-zsh"
+    export ZSH="$HOME/.oh-my-zsh"
 
 # Theme:
-ZSH_THEME="avit"
+    ZSH_THEME="avit"
 
 
 # Case-sensitive completion.
@@ -58,7 +58,7 @@ ZSH_THEME="avit"
         )
 
 # Oh-my-zsh
-#    source $ZSH/oh-my-zsh.sh
+    source $ZSH/oh-my-zsh.sh
 
 
 # User configuration
@@ -90,7 +90,7 @@ ZSH_THEME="avit"
 
 #    if [[ $OS_sys == 🍎 ]]
 #    then
-#        source ~/dotfiles/configs/alias/alias_osx
+        source ~/dotfiles/configs/alias/alias_osx
 #    elif [[ $OS_sys == 🐧 ]]
 #    then
 #        source ~/dotfiles/configs/alias/alias_ubuntu
