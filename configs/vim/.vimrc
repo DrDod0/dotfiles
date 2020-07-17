@@ -1,5 +1,5 @@
 " Author: @veggietorta
-" Last updated: 06.19.20
+" Last updated: 06.23.20
 
 
 "   ██╗██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
@@ -32,6 +32,7 @@
     Plug 'rbgrouleff/bclose.vim'
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'wsdjeg/vim-fetch'
 
     "Writing Tools
     Plug 'yggdroot/indentLine'
@@ -41,6 +42,8 @@
     Plug 'bronson/vim-trailing-whitespace'
     Plug 'reedes/vim-pencil'
     Plug 'previm/previm'
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
 
     "Colorschemes
     Plug 'drewtempelmeyer/palenight.vim'
@@ -49,6 +52,7 @@
     Plug 'crusoexia/vim-dracula'
     Plug 'taigacute/gruvbox9'
     Plug 'tyrannicaltoucan/vim-deep-space'
+    Plug 'skbolton/embark'
 
     Plug 'skywind3000/quickmenu.vim'
     Plug 'pseewald/vim-anyfold'
@@ -68,7 +72,8 @@
     "Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
     Plug 'liuchengxu/vista.vim'
     Plug 'voldikss/vim-floaterm'
-    "Plug 'severin-lemaignan/vim-minimap'
+    Plug 'severin-lemaignan/vim-minimap'
+    Plug 'ludovicchabant/vim-gutentags'
 
     "Python Tools
     Plug 'tpope/vim-fugitive'
@@ -143,6 +148,13 @@
 "------------------------------------------
 "|   Remapping / Mapping / Abbreviation:  |
 "------------------------------------------
+
+    " Automatically reload .vimrc file on save
+    augroup myvimrc
+        au!
+        au BufWritePost .vimrc so ~/.vimrc
+    augroup END
+
 
     "Remap window navigation in Any modde
         :tnoremap <C-h> <C-\><C-N><C-w>h
@@ -250,6 +262,11 @@
 "|   Plugins    |
 "----------------
 
+
+    " Minimaps:
+        au BufEnter * :Minimap
+
+
     " Vimpythonpep8indent:
         "closing brackets line up with the items:
         let g:python_pep8_indent_hang_closing = 1
@@ -311,6 +328,7 @@
         :command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> - |fmt -csw78
         "
     " NERDTree:
+
         "Toggle NERDTree
         nnoremap <silent> <expr> <F6> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 
@@ -322,6 +340,8 @@
 
         "NERDTree opened automatically
         autocmd vimenter * silent! lcd %:p:h
+
+        autocmd vimenter * if !argc() | NERDTree | endif
 
         "Window size
         let g:NERDTreeWinSize=15

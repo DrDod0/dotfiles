@@ -1,33 +1,95 @@
 
+#                          _                 _
+#                         | |               | |
+#  _ __   _____      _____| |__   ___   __ _| |_
+# | '_ \ / _ \ \ /\ / / __| '_ \ / _ \ / _` | __|
+# | | | |  __/\ V  V /\__ \ |_) | (_) | (_| | |_
+# |_| |_|\___| \_/\_/ |___/_.__/ \___/ \__,_|\__|
 
-# News
-reddit.com/r/worldnews/.rss
 
-# Tech
-https://www.theverge.com/rss/index.xml
+" "
+"------------------------------REDDIT---------------------------"
+" "
+https://www.reddit.com/r/Alfred/.rss "~Alfred" "osx"
+https://www.reddit.com/r/Anatomy/.rss
+https://www.reddit.com/r/AppHookup/.rss
+https://www.reddit.com/r/audiobooks/.rss "~Audiobooks"
+https://www.reddit.com/r/commandline/.rss
+https://www.reddit.com/r/coolguides/.rss
+https://www.reddit.com/r/Dodgers/.rss "~Dodgers" "sports"
+https://www.reddit.com/r/ErgoDoxEZ/.rss
+https://www.reddit.com/r/formula1/.rss "sports"
+https://www.reddit.com/r/Hayward/.rss
+https://www.reddit.com/r/iosgaming/.rss
+https://www.reddit.com/r/ish/.rss "~ish"
+https://www.reddit.com/r/learnprogramming/.rss "~Learn Programing"
+https://www.reddit.com/r/Python/.rss
+https://www.reddit.com/r/vim_magic/.rss "~vim magic" "vim"
+https://www.reddit.com/r/vimplugins/.rss "~vimplugins" "vim"
+https://www.reddit.com/r/neovim/.rss "~Neovim" "vim"
+https://www.reddit.com/r/tmux/.rss "~Tmux"
+https://www.reddit.com/r/mechmarket/.rss "~MechMarket"
+https://www.reddit.com/r/Thunderbird/.rss "~Thunderbird" "osx"
+https://www.reddit.com/r/privacy/.rss "~Privacy"
+https://www.reddit.com/r/keto/.rss "~Keto"
+https://www.reddit.com/r/ketorecipes/.rss "~Keto Recipes"
+https://www.reddit.com/r/uBlockOrigin/.rss "~uBlock"
+https://www.reddit.com/r/qutebrowser/.rss "~qutebrowser"
+https://www.reddit.com/r/worldnews/.rss
+https://www.reddit.com/r/Vermiculture/.rss "~Vermiculture"
+https://www.reddit.com/r/vim/.rss "~VIM" "vim"
+https://www.reddit.com/r/zsh/.rss "~Zsh"
+
+" "
+"-----------------------------TWITTER-----------------------------"
+" "
+https://nitter.net/tpope/rss "~Tpope"
+https://nitter.net/SmileSoftware/rss "~Smilesoftware"
+https://nitter.net/mindnode/rss "~Mindnode"
+https://nitter.net/firefox/rss "~Firefox"
+https://nitter.net/macpowerusers/rss "~Macpowerusers"
+https://nitter.net/AirParrot/rss "~Airparrot"
+
+" "
+"----------------------------INSTAGRAM----------------------------"
+" "
+https://rsshub.app/instagram/joerogan/
+
+" "
+"----------------------------YOUTUBE------------------------------"
+" "
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~Luke Smith" "youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCfDNi1aEljAQ17mUrfUjkvg "~Alton Brown" "youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCXuqSBlHAE6Xw-yeJA0Tunw "~Linus Tech Tips" "youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UChKlSK39lLg8eZHIX0iVzLA "~DIY Creators" "youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCduKuJToxWPizJ7I2E6n1kA "~Bro Science" "youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCX6b17PVsYBQ0ip5gyeme-Q "~Crash Course" "youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC85VW73bQLEjs_taFKP7TwQ "~Nucleus Medical Media" "youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCrJhliKNQ8g0qoE_zvL8eVg "~PyCon 2017" "youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCwTD5zJbsQGJN75MwbykYNw "~PyCon 2016" "youtube"
+
+#https://www.youtube.com/feeds/videos.xml?channel_id=
+" "
+"-----------------------------TECH---------------------------------"
+" "
+https://www.theverge.com/rss/index.xml "~Verge"
 http://rss.slashdot.org/Slashdot/slashdotMain
 https://lifehacker.com/rss
-https://9to5mac.com/guides/rss/
+http://blog.qutebrowser.org/feeds/all.rss.xml "~Dev qutebrowser"
 
-
-# Dodgers
+" "
+"---------------------------DODGERS--------------------------------"
+" "
 https://www.mlb.com/dodgers/feeds/news/rss.xml
 http://feeds.feedburner.com/dailydodgers-news
 
+" "
+"--- Former Dodgers ---"
+" "
+https://www.google.com/alerts/feeds/03749423982361840274/2516445572009127146 # zack greinke
+https://www.google.com/alerts/feeds/03749423982361840274/12568419082897752174 # andrian gonzalez
+https://www.google.com/alerts/feeds/03749423982361840274/937283389894417163 # manny machado
+https://www.google.com/alerts/feeds/03749423982361840274/8257558372830495668 # yasiel puig
+https://www.google.com/alerts/feeds/03749423982361840274/6526710954510720545 # alex wood
 
-# Former Dodgers
 
-## Zack Greinke
-    https://www.google.com/alerts/feeds/03749423982361840274/2516445572009127146
-
-## Andrian Gonzalez
-    https://www.google.com/alerts/feeds/03749423982361840274/12568419082897752174
-
-## Manny Machado
-    https://www.google.com/alerts/feeds/03749423982361840274/937283389894417163
-
-## Yasiel Puig
-    https://www.google.com/alerts/feeds/03749423982361840274/8257558372830495668
-
-## Alex Wood
-    https://www.google.com/alerts/feeds/03749423982361840274/6526710954510720545

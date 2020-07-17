@@ -89,7 +89,7 @@
 
 
 ask_user()
-    {
+{
 
     clear
     echo "Which configuration would you like to establish:
@@ -149,7 +149,7 @@ ask_user()
                 a) alias_link;;
                 b) help_link;;
             esac
-        }
+}
 
 
 #########################################################################

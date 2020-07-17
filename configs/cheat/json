@@ -1,0 +1,28 @@
+JavaScript Object Notation (json)
+
+Types:
+    Strings
+    Numbers
+    Booleans
+    Nulls
+    Arrays
+    Object
+
+example.json
+[
+    {
+        "key": "value",
+        "name": "John",
+        "age": 21,
+        "isProgramer": true,
+        "hobbies": ["cooking", "chess"]
+    },
+    {
+        "key": "anothe"
+
+    }
+]
+
+
+
+

@@ -7,37 +7,70 @@ download-retries 4
 download-timeout 10
 prepopulate-query-feeds yes
 refresh-on-startup yes
+article-sort-order date-asc
 
 # -- display -------------------------------------------------------------------
 
-show-read-feeds no
-feed-sort-order unreadarticlecount-asc
+# ctrl-e to flag
+#"query:Unread Articles:unread = \"yes\""
 
-color article cyan default
-color info red black bold
-color listnormal_unread cyan default
-color listfocus blue default reverse bold
-color listfocus_unread yellow default bold
+articlelist-title-format "%N: (%u) %T [%U]"
+articlelist-format  "%4i %f %D   %?T?|%-24T|  ?%t"
+datetime-format "%m.%d.%y"
+dialogs-title-format "%N: Dialogs"
+feedlist-title-format "%N: (%u) Feeds"
+feedlist-format "%11y %t"
+itemview-title-format "%N: %T"
+searchresult-title-format "%N (%u) Search"
+selectfilter-title-format "%N: Select Filter"
+selecttag-title-format "%N: Select Tag"
+urlview-title-format "%N: URLs"
 
-text-width 80
+highlight article "\\[image\\ [0-9]+\\]" green default
+highlight article "\\[[0-9][0-9]*\\]" magenta default bold
+highlight article "^Feed:.*" color5 color8
+highlight article "^Title:.*" color3 color0 bold
+highlight article "^Author:.*" color2 color0
+highlight article "^Link:.*" color4 color8
+highlight article "^Flags:.*" color9 color0
+
+highlight all           "---.*---" yellow
+highlight feedlist      ".*(0/0))" black
+
+
+ignore-article "*" "title =~ \"Android\""
+ignore-article "*" "title =~ \"Sponsor\""
+ignore-article "*" "title =~ \"Sponsored\""
+ignore-article "*" "title =~ \"Windows\""
+ignore-article "*" "title =~ \"Promotion\""
+
+
+#show-read-feeds no
+#feed-sort-order unreadarticlecount-asc
+
+# -- Colors -------------------------------------------------------------------
+color listnormal            cyan    default
+color listfocus             black   yellow  standout    bold
+color listnormal_unread     blue    default
+color listfocus_unread      yellow  default bold
+color info                  red     black   bold
+color article               cyan    default
 
 
 # -- navigation ----------------------------------------------------------------
-
-goto-next-feed no
-
-browser w3m
-
 
 bind-key j down feedlist
 bind-key k up feedlist
 bind-key j next articlelist
 bind-key k prev articlelist
+
 bind-key J next-feed articlelist
 bind-key K prev-feed articlelist
 bind-key j down article
 bind-key k up article
 bind-key G end article
+
+bind-key a toggle-article-read
 
 
 # -- bookmarks -----------------------------------------------------------------
@@ -49,12 +82,23 @@ bind-key G end article
 
 # -- misc ----------------------------------------------------------------------
 
-unbind-key C feedlist
-confirm-exit no
-cleanup-on-quit yes
-delete-read-articles-on-quit yes
-history-limit 0 # disables history saving
-keep-articles-days 0
-notify-beep no
+# browser /usr/bin/open -a "/Applications/Safari.app" '%u'
 
+
+# OSX
+browser open
+
+# Macros Leader ","
+#macro w set browser "w3m"; open-in-browser ;
+macro v set browser "source $HOME/.zshrc && video "; open-in-browser ; set browser open
+
+unbind-key C feedlist
+goto-next-feed                          no
+confirm-exit                            no
+cleanup-on-quit                         yes
+delete-read-articles-on-quit            yes
+history-limit                           0 # disables history saving
+keep-articles-days                      0
+text-width                              80
+notify-beep                             no
 

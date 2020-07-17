@@ -1,16 +1,16 @@
-# Author: @veggietorta Last updated: 11.22.19
+# Author: @veggietorta Last updated: 07.16.20
 
 # Source a small script to determine systerms OS.
-    source ~/dotfiles/configs/zsh/os_check.sh
+#source ~/dotfiles/configs/zsh/os_check.sh
 
 # If you come from bash you might have to change your $PATH.
     # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-    export ZSH="$HOME/.oh-my-zsh"
+    #export ZSH="$HOME/.oh-my-zsh"
 
 # Theme:
-    ZSH_THEME="avit"
+ZSH_THEME="avit"
 
 
 # Case-sensitive completion.
@@ -35,7 +35,7 @@
     # ENABLE_CORRECTION="true"
 
 # Display red dots whilst waiting for completion.
-    COMPLETION_WAITING_DOTS="true"
+#COMPLETION_WAITING_DOTS="true"
 
 # Uncomment to disable version control tracking
     # DISABLE_UNTRACKED_FILES_DIRTY="true"
@@ -58,7 +58,7 @@
         )
 
 # Oh-my-zsh
-    source $ZSH/oh-my-zsh.sh
+#    source $ZSH/oh-my-zsh.sh
 
 
 # User configuration
@@ -66,15 +66,15 @@
 
 
 # You may need to manually set your language environment
-    export LANG=en_US.UTF-8
+#    export LANG=en_US.UTF-8
 
 
 # Preferred editor for local and remote sessions
-    if [[ -n $SSH_CONNECTION ]]; then
-      export EDITOR='nvim'
-    else
-      export EDITOR='nvim'
-    fi
+#    if [[ -n $SSH_CONNECTION ]]; then
+#      export EDITOR='nvim'
+#    else
+#      export EDITOR='nvim'
+#    fi
 
 
 # Compilation flags
@@ -88,30 +88,30 @@
 # Personal Aliases:
 #   Pulls $OS_sys variable from source on line-3 & sources alias based on OS.
 
-    if [[ $OS_sys == 🍎 ]]
-    then
-        source ~/dotfiles/configs/alias/alias_osx
-    elif [[ $OS_sys == 🐧 ]]
-    then
-        source ~/dotfiles/configs/alias/alias_ubuntu
-    else
-        echo 'System not recognized, alias not sourced'
-    fi
+#    if [[ $OS_sys == 🍎 ]]
+#    then
+#        source ~/dotfiles/configs/alias/alias_osx
+#    elif [[ $OS_sys == 🐧 ]]
+#    then
+#        source ~/dotfiles/configs/alias/alias_ubuntu
+#    else
+#        echo 'System not recognized, alias not sourced'
+#    fi
 
 
 # Neofetch:
-    if [ -x "$(command -v neofetch)" ]
-    then
-        neofetch
-    fi
+#    if [ -x "$(command -v neofetch)" ]
+#    then
+#        neofetch
+#    fi
 
 
 # Vim Keybinding in shell:
-    bindkey -v
+#bindkey -v
 
 
 # Openvpn:
-    export PATH=$PATH:/usr/local/Cellar/openvpn/2.4.7_1/sbin
+#    export PATH=$PATH:/usr/local/Cellar/openvpn/2.4.7_1/sbin
 
 
 # Hombrew:
@@ -122,11 +122,11 @@
     # Example:
         #  <$ ls -d *zshr> <$ .zshrc
 
-    setopt globdots
+#    setopt globdots
 
 
 # Prevents the current line from being saved in the history if it is the same as previous one.
-    setopt histignoredups
+#setopt histignoredups
 
 
 # iTerm2 Shell Intergration TODO [] screen for OSX
@@ -134,40 +134,49 @@
 
 
 # Kitty-Terminal
-    if [ -x "$(command -v kitty)" ]
-        then
-            autoload -Uz compinit
-            compinit
-        # Completion for kitty
-            kitty + complete setup zsh | source /dev/stdin
-    fi
+#    if [ -x "$(command -v kitty)" ]
+#        then
+#            autoload -Uz compinit
+#            compinit
+#        # Completion for kitty
+#            kitty + complete setup zsh | source /dev/stdin
+#    fi
 
 # FZF
     # Source if installed
-    if [ -x "$(command -v fzf)" ]
-        then
-            [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-            plugins=(fzf)
-    fi
+#    if [ -x "$(command -v fzf)" ]
+#        then
+#            [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#            plugins=(fzf)
+#    fi
 
     # Keybinding open
     #bindkey -s '^o' 'nvim $(fzf)\n'
     #bindkey -s '^o' 'nvim $(fzf)^M'
 
-    bindkey -s '^o' 'nvim $(du -a ~/dotfiles/ ~/notes/ | awk "{print $2}" | fzf )^M'
+#    bindkey -s '^o' 'nvim $(du -a ~/dotfiles/ ~/notes/ | awk "{print $2}" | fzf )^M'
 
 # Starship prompt
-    if [ -x "$(command -v starship)" ]
-        then
-            eval "$(starship init zsh)"
-    fi
+#    if [ -x "$(command -v starship)" ]
+#        then
+#            eval "$(starship init zsh)"
+#    fi
+
+# mpv player run through terminal
+video(){
+
+    PAGE=$(curl -s $1)
+    url="$(echo \"$PAGE\" | grep -Eoi '<source [^>]+>' | grep -Eo 'src="[^\"]+"' | grep -Eo '(http|https)://[^"]+')"
+    TITLE=$(echo \"$PAGE\" | grep -oEi "<title>(.*)</title>" | cut -d '>' -f2 | cut -d '<' -f1)
+    mpv --ontop=yes --title="$TITLE" --snap-window --autofit-larger='25%' --geometry='-10-10' $url &
+    }
 
 #npm
     export PATH=$PATH:/usr/local/bin/node
 
-  # Set Spaceship ZSH as a prompt
-  autoload -U promptinit; promptinit
-  prompt spaceship
+# Set Spaceship ZSH as a prompt
+#  autoload -U promptinit; promptinit
+#  prompt spaceship
 
 # ZSH Syntax highlight
 #    source /Users/vt/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
