@@ -49,6 +49,7 @@ ignore-article "*" "title =~ \"Promotion\""
 #feed-sort-order unreadarticlecount-asc
 
 # -- Colors -------------------------------------------------------------------
+
 color listnormal            cyan    default
 color listfocus             black   yellow  standout    bold
 color listnormal_unread     blue    default
@@ -63,6 +64,9 @@ bind-key j down feedlist
 bind-key k up feedlist
 bind-key j next articlelist
 bind-key k prev articlelist
+bind-key G end
+bind-key g home
+
 
 bind-key J next-feed articlelist
 bind-key K prev-feed articlelist
@@ -83,14 +87,11 @@ bind-key a toggle-article-read
 # -- misc ----------------------------------------------------------------------
 
 # browser /usr/bin/open -a "/Applications/Safari.app" '%u'
-
-
-# OSX
 browser open
 
 # Macros Leader ","
-#macro w set browser "w3m"; open-in-browser ;
-macro v set browser "source $HOME/.zshrc && video "; open-in-browser ; set browser open
+macro w set browser "w3m"; open-in-browser ;
+macro v set browser "mpv --ytdl --ontop --no-border --force-window --autofit=960x540 --geometry=-20-50 %u > /dev/null &"; open-in-browser ; set browser "$BROWSER %u"
 
 unbind-key C feedlist
 goto-next-feed                          no

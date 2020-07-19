@@ -1,7 +1,7 @@
 # specific programs based on extension
-    alias -s mp3=cmus
-    alias -s md=vim
-    alias -s txt=vim
+    #alias -s mp3=cmus
+    #alias -s md=vim
+    #alias -s txt=vim
 
 # tmux alias
     alias tl='tmux ls'

@@ -16,7 +16,7 @@ https://www.reddit.com/r/AppHookup/.rss
 https://www.reddit.com/r/audiobooks/.rss "~Audiobooks"
 https://www.reddit.com/r/commandline/.rss
 https://www.reddit.com/r/coolguides/.rss
-https://www.reddit.com/r/Dodgers/.rss "~Dodgers" "sports"
+https://www.reddit.com/r/Dodgers/.rss "~Dodgers" "Dodgers"
 https://www.reddit.com/r/ErgoDoxEZ/.rss
 https://www.reddit.com/r/formula1/.rss "sports"
 https://www.reddit.com/r/Hayward/.rss
@@ -43,12 +43,12 @@ https://www.reddit.com/r/zsh/.rss "~Zsh"
 " "
 "-----------------------------TWITTER-----------------------------"
 " "
-https://nitter.net/tpope/rss "~Tpope"
-https://nitter.net/SmileSoftware/rss "~Smilesoftware"
-https://nitter.net/mindnode/rss "~Mindnode"
-https://nitter.net/firefox/rss "~Firefox"
-https://nitter.net/macpowerusers/rss "~Macpowerusers"
-https://nitter.net/AirParrot/rss "~Airparrot"
+https://nitter.net/tpope/rss "~Tpope" "twitter"
+https://nitter.net/SmileSoftware/rss "~Smilesoftware" "twitter"
+https://nitter.net/mindnode/rss "~Mindnode" "twitter"
+https://nitter.net/firefox/rss "~Firefox" "twitter"
+https://nitter.net/macpowerusers/rss "~Macpowerusers" "twitter"
+https://nitter.net/AirParrot/rss "~Airparrot" "twitter"
 
 " "
 "----------------------------INSTAGRAM----------------------------"
@@ -72,24 +72,23 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCwTD5zJbsQGJN75MwbykYNw "~P
 " "
 "-----------------------------TECH---------------------------------"
 " "
-https://www.theverge.com/rss/index.xml "~Verge"
-http://rss.slashdot.org/Slashdot/slashdotMain
-https://lifehacker.com/rss
+https://www.theverge.com/rss/index.xml "~Verge" "Tech News"
+http://rss.slashdot.org/Slashdot/slashdotMain "Tech News"
+https://lifehacker.com/rss "Tech News"
 http://blog.qutebrowser.org/feeds/all.rss.xml "~Dev qutebrowser"
 
 " "
 "---------------------------DODGERS--------------------------------"
 " "
-https://www.mlb.com/dodgers/feeds/news/rss.xml
-http://feeds.feedburner.com/dailydodgers-news
+https://www.mlb.com/dodgers/feeds/news/rss.xml "Dodgers"
+http://feeds.feedburner.com/dailydodgers-news "Dodgers"
 
 " "
 "--- Former Dodgers ---"
 " "
-https://www.google.com/alerts/feeds/03749423982361840274/2516445572009127146 # zack greinke
-https://www.google.com/alerts/feeds/03749423982361840274/12568419082897752174 # andrian gonzalez
-https://www.google.com/alerts/feeds/03749423982361840274/937283389894417163 # manny machado
-https://www.google.com/alerts/feeds/03749423982361840274/8257558372830495668 # yasiel puig
-https://www.google.com/alerts/feeds/03749423982361840274/6526710954510720545 # alex wood
-
+https://www.google.com/alerts/feeds/03749423982361840274/2516445572009127146 # zack greinke "Dodgers"
+https://www.google.com/alerts/feeds/03749423982361840274/12568419082897752174 # andrian gonzalez "Dodgers"
+https://www.google.com/alerts/feeds/03749423982361840274/937283389894417163 # manny machado "Dodgers"
+https://www.google.com/alerts/feeds/03749423982361840274/8257558372830495668 # yasiel puig "Dodgers"
+https://www.google.com/alerts/feeds/03749423982361840274/6526710954510720545 # alex wood "Dodgers"
 

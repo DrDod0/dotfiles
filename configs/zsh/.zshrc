@@ -107,7 +107,7 @@
 
 
 # Vim Keybinding in shell:
-#bindkey -v
+bindkey -v
 
 
 # Openvpn:
