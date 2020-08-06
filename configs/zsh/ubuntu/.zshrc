@@ -1,4 +1,4 @@
-# Author: @veggietorta Last updated: 07.16.20
+# Author: @veggietorta Last updated: 08.04.20
 
 # Source a small script to determine systerms OS.
 #source ~/dotfiles/configs/zsh/os_check.sh
@@ -53,7 +53,6 @@
     plugins=(
         brew
         git
-        osx
         z
         )
 
@@ -90,10 +89,10 @@
 
 #    if [[ $OS_sys == 🍎 ]]
 #    then
-        source ~/dotfiles/configs/alias/alias_osx
+#        source ~/dotfiles/configs/alias/alias_osx
 #    elif [[ $OS_sys == 🐧 ]]
 #    then
-#        source ~/dotfiles/configs/alias/alias_ubuntu
+        source ~/dotfiles/configs/alias/alias_ubuntu
 #    else
 #        echo 'System not recognized, alias not sourced'
 #    fi
@@ -114,10 +113,6 @@ bindkey -v
 #    export PATH=$PATH:/usr/local/Cellar/openvpn/2.4.7_1/sbin
 
 
-# Hombrew:
-    export PATH="/usr/local/sbin:$PATH"
-
-
 # Let files beginning with a . to be matched.
     # Example:
         #  <$ ls -d *zshr> <$ .zshrc
@@ -129,18 +124,6 @@ bindkey -v
 #setopt histignoredups
 
 
-# iTerm2 Shell Intergration TODO [] screen for OSX
-    test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-
-# Kitty-Terminal
-#    if [ -x "$(command -v kitty)" ]
-#        then
-#            autoload -Uz compinit
-#            compinit
-#        # Completion for kitty
-#            kitty + complete setup zsh | source /dev/stdin
-#    fi
 
 # FZF
     # Source if installed
@@ -155,12 +138,6 @@ bindkey -v
     #bindkey -s '^o' 'nvim $(fzf)^M'
 
 #    bindkey -s '^o' 'nvim $(du -a ~/dotfiles/ ~/notes/ | awk "{print $2}" | fzf )^M'
-
-# Starship prompt
-#    if [ -x "$(command -v starship)" ]
-#        then
-#            eval "$(starship init zsh)"
-#    fi
 
 # mpv player run through terminal
 video(){
