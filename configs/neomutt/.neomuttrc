@@ -33,16 +33,16 @@
 
 ################
 ## Gmail over IMAP
-set imap_user = "ochoaje@gmail.com"
-set imap_pass = "qr$L}e[9KaH2N8J&2xt3myyoZBty#qKVY6(2U(2ba%8bAJ7f)."
+set imap_user = "vt@gmail.com"
+set imap_pass = "<password>"
 
 # Default location of mailboxes
 set folder = "imaps://imap.gmail.com:993"
 
 
 # Configure Simple Mail Transfer Protocol for sending mail
-set smtp_url = "smtp://ochoaje@smtp.gmail.com:587"
-set smtp_pass = "qr$L}e[9KaH2N8J&2xt3myyoZBty#qKVY6(2U(2ba%8bAJ7f)."
+set smtp_url = "smtp://vt@smtp.gmail.com:587"
+set smtp_pass = "<password>"
 
 # 'No authenticator available' error
 set smtp_authenticators = 'gssapi:login'
