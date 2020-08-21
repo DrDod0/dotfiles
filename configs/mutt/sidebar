@@ -30,17 +30,17 @@ bind pager \CP sidebar-prev
 bind pager \CN sidebar-next
 bind pager \CO sidebar-open
 
-#set spoolfile=+ochoaje@me.com/INBOX
+#set spoolfile=+vt@me.com/INBOX
 
 
 # Mailboxes
-#named-mailboxes "ochoaje.me ========" "+ochoaje@me.com/INBOX"
-#mailboxes "+ochoaje@me.com/sent"
-#mailboxes "+ochoaje@me.com/spam"
-#mailboxes "+ochoaje@me.com/archive"
+#named-mailboxes "ochoaje.me ========" "+vt@me.com/INBOX"
+#mailboxes "+vt@me.com/sent"
+#mailboxes "+vt@me.com/spam"
+#mailboxes "+vt@me.com/archive"
 #
-#named-mailboxes "ochoaje.gmail =======" "+ochoaje@gmail.com/INBOX"
-#mailboxes "+ochoaje@gmail.com/sent"
+#named-mailboxes "ochoaje.gmail =======" "+vt@gmail.com/INBOX"
+#mailboxes "+vt@gmail.com/sent"
 
 
 
