@@ -1,91 +1,10 @@
 #!/bin/bash
 # Author: @veggietorta
-# Update: 01.07.20
+# Update: 08.21.20
 # Puporse: Automate a consistent configuration across rigs
 
-##############################################################
-
-
-
-
-
-# Fresh install:
-# openssh-server > zsh > curl > ohmyzsh >
-
-
-
-
-
-
-
-
-
-### Act on users OS
-
-    #user_OS_profile()
-        #{
-
-    # Reason: Promp system with 'uname' to provide name of OS. Write uname output to file name tmp_os. File tmp_os
-    #         is then compared to variables which have been assigned to Ubuntu and OSX.
-
-        # OS name to tmp_os:
-            #uname > ~/notes/code/project.dotfiles/tmp_os
-
-        # Assign varible to content of tmp_os
-            #os_readout=$(cat ~/notes/code/project.dotfiles/tmp_os)
-
-        # OS Variables:
-            #os_ubuntu="Linux"
-            #os_osx="Darwin"
-
-
-    ### Identify Users OS and assign path based on OS
-
-        # Identify OS
-         #if [ $os_readout = $os_ubuntu ]
-         #then
-         #    ubuntu_path=~/dotfiles/ubuntu/
-         #    echo "What's up Linux motherfucker"
-         #    ask_user
-
-
-         #elif [ $os_readout = $os_osx ]
-         #then
-         #    osx_path=~/dotfiles/osx/
-         #    echo "What's up OSX motherfucker"
-         #    ask_user
-         #fi
-
-        # Delete tmp_os file, plain O'clean-up
-         #rm ~/notes/code/project.dotfiles/tmp_os
-        #}
-
-
-### Act on users SHELL
-
-        # users '$SHELL' written to tmp_shell file
-            #echo $SHELL > ~/notes/code/project.dotfiles/tmp_shell
-
-        # variable assigned to shell, to be used in if/then statement
-                #shell_zsh="/usr/bin/zsh"
-                #shell_bash="PATH HERE"
-
-        # read and assign variable 'shell_readout' to shell read out to compare with variable in if/then below
-        #shell_readout=$(cat ~/notes/code/project.dotfiles/tmp_shell)
-
-
-        # if/then to compare variable with shell
-            #if [ $shell_zsh = $shell_readout ]
-            #then echo ZSH is recognized as your shell, configuration file in default location established.
-            #    #ln -s ~/dotfiles/ ~/
-            #else echo you do not have zsh
-            #fi
-
-        # delete tmp file
-            #rm ~/notes/code/project.dotfiles/tmp_shell
-
-
-###############################################################
+#############################################################
+#############################################################
 
 
 ask_user()
@@ -151,52 +70,34 @@ ask_user()
             esac
 }
 
-
+#########################################################################
 #########################################################################
 
-# Remove existing directory and configs
-rm_all()
+# Install vim-plug plugin manager
+        sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+
+# Git
+git_link()
     {
-
-    # bashrc
-    rm -rf $HOME/.bashrc 2>/dev/null
-
-    # vim plugins
-    rm -rf $HOME/.vim/bundle/ 2>/dev/null
-
-    # ranger
-    rm -rf $HOME/.config/ranger/ 2>/dev/null
-
-    # neovim
-    rm -rf $HOME/.config/nvim/ 2>/dev/null
-
-    # neofetch
-    rm -rf $HOME/.config/neofetch/ 2>/dev/null
-
-    # newsboat
-    rm -rf $HOME/.config/newsboat/urls 2>/dev/null
-    rm -rf $HOME/.config/newsboat/config 2>/dev/null
-
-    # tmux
-    rm -rf $HOME/.tmux.conf 2>/dev/null
-
-    # neomutt & mutt
-    rm -rf $HOME/.neomuttrc 2>/dev/null
-    rm -rf $HOME/.muttrc
-
-    ask_user
+    ln -s $HOME/dotfiles/configs/git/.gitconfig $HOME/
     }
+
+
 
 # bash
 bash_link()
     {
         if [ -x "$(command -v bash)" ]
         then
-            rm ~/.bashrc
-            ln -s ~/dotfiles/configs/bash/.bashrc ~/
+            rm $HOME/.bashrc
+            ln -s $HOME/dotfiles/configs/bash/.bashrc $HOME/
             echo bash program found, created symbolick link
+            ask_user()
         else
             echo bash program NOT found, no action taken
+            ask_user()
         fi
     }
 
@@ -205,11 +106,13 @@ zsh_link()
     {
     if [ -x "$(command -v zsh)" ]
     then
-         echo zsh program found, created symbolic link
-         rm ~/.zshrc
-         ln -s ~/dotfiles/configs/zsh/.zshrc ~/
+         echo zsh program found, created symbolic link.
+         rm $HOME/.zshrc
+         ln -s $HOME/dotfiles/configs/zsh/.zshrc $HOME/
+         ask_user()
     else
        echo zsh program NOT found, no action taken.
+       ask_user()
     fi
     }
 
@@ -217,141 +120,147 @@ zsh_link()
 vim_link()
     {
         # check for program of vim
-    if [ -x "$(command -v nvim)" ]
+    if [ -x "$(command -v vim)" ]
     then
-        # vim program found, symbolic link established, send back to user
-        rm ~/.vimrc
-        ln -s ~/dotfiles/configs/vim/.vimrc ~/
+        # vim program found, existing .virmc deleted, new config symbolic link established, send back to user
+        rm $HOME/.vimrc
+        ln -s $HOME/dotfiles/configs/vim/.vimrc $HOME/
         echo vim program found, created symbolic link.
+        ask_user()
     else
         # vim program NOT found, no action taken, send back to user
         echo vim program NOT installed, no action taken.
+        ask_user()
     fi
     }
 
 # neovim
 neovim_link()
     {
-        # Install vim-plug
-        sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
         # check for program neovim
         if [ -x "$(command -v nvim)" ]
         then
-            # create nvim directories
-            mkdir ~/.config/
-            mkdir ~/.config/nvim/
+            # create nvim directories for config file 
+            mkdir $HOME/.config/
+            mkdir $HOME/.config/nvim/
+            
+            # remove existing vimrc and establish symbolic link
+            # one config file is used for nvim and vim
+            rm $HOME/.vimrc
+            ln -s $HOME/dotfiles/configs/vim/.vimrc $HOME/
 
             # neovim program found, symbolic link established, send back to user
-            ln -s ~/dotfiles/configs/neovim/init.vim ~/.config/nvim/
+            ln -s $HOME/dotfiles/configs/neovim/init.vim $HOME/.config/nvim/
             echo neovim program found, created symbolic link.
+            ask_user()
         else
             # neovim program NOT found, no action taken, send back to user
             echo neovim program NOT installed, no action taken.
+            ask_user()
         fi
     }
 
 # tmux
 tmux_link()
     {
+    # Check if program installed on system
     if [ -x "$(command -v tmux)" ]
     then
         ln -s $HOME/dotfiles/configs/tmux/.tmux.conf $HOME/
         echo tmux found, symbolic link established.
+        ask_user()
     else
         echo tmux not found, no action taken.
+        ask_user()
     fi
     }
 
 # mutt
 muttrc_link()
     {
+    # Check if program installed on system
     if [ -x "$(command -v mutt)" ]
     then
 
         # .mailcap
-        ln -s ~/dotfiles/configs/mutt/.mailcap ~/
+        ln -s $HOME/dotfiles/configs/mutt/.mailcap $HOME/
 
         # .muttrc
-        ln -s ~/dotfiles/configs/mutt/.muttrc ~/
+        ln -s $HOME/dotfiles/configs/mutt/.muttrc $HOME/
 
         # Accounts
-        ln -s ~/notes/code/account.gm ~/
-        ln -s ~/notes/code/account.me ~/
+        ln -s $HOME/notes/code/account.gm $HOME/
+        ln -s $HOME/notes/code/account.me $HOME/
 
-        echo mutt found, symbolic link established
+        echo mutt found, symbolic link established.
+        ask_user()
     else
         echo mutt not found, no action taken.
+        ask_user()
     fi
     }
 
 # newsboat
 newsboat_link()
     {
+    # check if Newsboat is installed
     if [ -x "$(command -v newsboat)" ]
-    then
-        ln -s ~/dotfiles/configs/newsboat/config ~/.config/newsboat/
-
-        # OSX path tested
-        ln -s ~/dotfiles/configs/newsboat/config ~/.newsboat/
-
-        echo newsboat found, .config symbolic link established
-
-
-        ln -s ~/dotfiles/configs/newsboat/urls ~/.config/newsboat/
-
-        # OSX path tested
-        ln -s ~/dotfiles/configs/newsboat/urls ~/.newsboat/
-
-        echo newsboat urls sybolic link for established.
+    then 
+        ln -s $HOME/dotfiles/configs/newsboat/config $HOME/.config/newsboat/
+        ln -s $HOME/dotfiles/configs/newsboat/urls $HOME/.config/newsboat/
+        echo Newsboat found, symbolic link established.
+        echo NEWSBOAT urls symbolic link established.
+        ask_user()
 
     else
-        echo newsboat not found, no action taken.
+        echo NEWSBOAT not found, no action taken.
+        ask_user()
     fi
     }
 
 # ranger
 ranger_link()
     {
+    # check if Newsboat is installed
     if [ -x "$(command -v ranger)" ]
     then
-        mkdir ~/.config
-        mkdir ~/.config/ranger/
-        ln -s ~/dotfiles/configs/ranger/rc.conf ~/.config/ranger/
-        ln -s ~/dotfiles/configs/ranger/rifle.conf ~/.config/ranger/
-        ln -s ~/dotfiles/configs/ranger/bookmarks ~/.config/ranger/
-        ln -s ~/dotfiles/configs/ranger/tagged ~/.config/ranger/
+        mkdir $HOME/.config
+        mkdir $HOME/.config/ranger/
+        ln -s $HOME/dotfiles/configs/ranger/rc.conf $HOME/.config/ranger/
+        ln -s $HOME/dotfiles/configs/ranger/rifle.conf $HOME/.config/ranger/
+        ln -s $HOME/dotfiles/configs/ranger/bookmarks $HOME/.config/ranger/
+        ln -s $HOME/dotfiles/configs/ranger/tagged $HOME/.config/ranger/
 
-        echo ranger found, configis symbolic link establish.
+        echo RANGER found, symbolic link established.
+        ask_user()
 
     else
         echo ranger not found, no action taken.
+        ask_user()
     fi
     }
 
 # neofetch
 neofetch_link()
     {
+    # check if Newsboat is installed
     if [ -x "$(command -v neofetch)" ]
     then
-        ln -s ~/dotfiles/neofetch/sheared/config.conf ~/.config/neofetch/
-        echo neofetch found, config symbolic link establish.
+        ln -s $HOME/dotfiles/neofetch/sheared/config.conf $HOME/.config/neofetch/
+        echo Neofetch found, symbolic link establish.
+        ask_user()
     else
         echo neofetch not found, no action taken.
+        ask_user()
     fi
     }
 
-# Git
-git_link()
-    {
-    ln -s ~/dotfiles/configs/git/.gitconfig ~/
-    }
 
 # alias
 alias_link()
     {
     echo alias source in .zshrc and .bashrc
+    ask_user()
     }
 
 # qutebrowser
@@ -359,17 +268,18 @@ qutebrowser_link()
     {
     if [ -x "$(command -v vim)" ]
     then
-        ln -s ~/dotfiles/configs/qutebrowser/config.py ~/.qutebrowser
+        ln -s $HOME/dotfiles/configs/qutebrowser/config.py $HOME/.qutebrowser
         echo found qutebrowser, config symbolic link establish.
+        ask_user()
     else
         echo qutebrowser not found, no action taken.
+        ask_user()
     fi
     }
 
 
 # mpv TODO
 
-# starship TODO
 
 # w3m TODO
 
@@ -378,14 +288,16 @@ vifm_link()
     {
     if [ -x "$(command -v vifm)" ]
     then
-        rm ~/.config/vifm/vifmrc
-        ln -s ~/dotfiles/configs/vifm/vifmrc ~/.config/vifm/
-        ln -s ~/dotfiles/configs/vifm/gruvbox.vifm ~/.config/vifm/colors/
-        ln -s ~/dotfiles/configs/vifm/molakai.vifm ~/.config/vifm/colors/
-        ln -s ~/dotfiles/configs/vifm/dracula.vifm ~/.config/vifm/colors/
+        rm $HOME/.config/vifm/vifmrc
+        ln -s $HOME/dotfiles/configs/vifm/vifmrc ~/.config/vifm/
+        ln -s $HOME/dotfiles/configs/vifm/gruvbox.vifm ~/.config/vifm/colors/
+        ln -s $HOME/dotfiles/configs/vifm/molakai.vifm ~/.config/vifm/colors/
+        ln -s $HOME/dotfiles/configs/vifm/dracula.vifm ~/.config/vifm/colors/
         echo found vifm, config and colorscheme symbolic link established.
+        ask_user()
     else
         echo vifm not found, no action taken.
+        ask_user()
     fi
     }
 
@@ -395,10 +307,12 @@ neomutt_link()
     {
     if [ -x "$(command -v neomutt)" ]
     then
-        ln -s ~/dotfiles/configs/neomutt/neomuttrc ~/
+        ln -s $HOME/dotfiles/configs/neomutt/neomuttrc ~/
         echo found neomutt, symbolic link established.
+        ask_user()
     else
         echo neomutt not found, no action taken.
+        ask_user()
     fi
     }
 
@@ -407,7 +321,7 @@ todo_link()
     {
     if [ -x "$(command -v todo.sh)" ]
     then
-        ln -s ~/dotfiles/configs/todo/todo.cfg ~/
+        ln -s $HOME/dotfiles/configs/todo/todo.cfg ~/
         echo found todo.txt-cli, symbolic link established.
         echo
         echo repo-dotfiles established alias t='todo.sh'
@@ -420,6 +334,7 @@ todo_link()
 
         ln -s /Users/vt/Library/Mobile\ Documents/com~apple~CloudDocs/report.txt
         echo report.txt symbolic link established
+        ask_user()
 
     fi
     }
@@ -429,13 +344,15 @@ cheat_link()
     {
         if [ -x "$(command -v cheat)" ]
         then
-            cd ~/.config/
+            cd $HOME/.config/
             mkdir cheat
             cd cheat
-            ln -s ~/dotfiles/configs/cheat/conf.yml ~/.config/cheat/
+            ln -s $HOME/dotfiles/configs/cheat/conf.yml $HOME/.config/cheat/
             echo "found cheat, symbolic link established"
+            ask_user()
         else
             echo "cheat not installed, to install 'brew install cheat'"
+            ask_user()
         fi
     }
 
