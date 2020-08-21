@@ -98,10 +98,10 @@ fi
 
 
 ####################### veggietorta <3 #########################
-# Updated: 05.25.19
+# Updated: 08.21.20
 
 # Alias
-    source ~/dotfiles/shared/alias/alias
+    source ~/dotfiles/configs/alias/alias_ubuntu
 
 # FZF
     [ -f ~/.fzf.bash ] && source ~/.fzf.bash
