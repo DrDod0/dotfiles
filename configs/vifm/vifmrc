@@ -1,6 +1,6 @@
 " Edit: @veggietorta
-" Last Update: 01.13.20
-
+" Last Update: 08.19.20
+" Location: ~/.config/vifm/
 
 
 " Common settings {{{ "
@@ -18,6 +18,8 @@ set syscalls
 " I recommend not changing this until you are familiar with vifm.
 set trash
 
+" Show numbers
+set number
 
 " Set non-vim $EDITOR
 set vicmd=nvim
@@ -92,11 +94,11 @@ set dotfiles
 set viewcolumns=-60%{name},20%{size},{mtime}
 
 " Set custom status line look
-"set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
+" set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
 set statusline="  %t%= %A %11u:%-7g %15E %20d "
 
 " Information for status bar
-"set statusline="%-35f%10E%20d%15A | Осталось места: %8a"
+" set statusline="%-35f%10E%20d%15A | Осталось места: %8a"
 command! df df -h %m 2> /dev/null
 command! diff nvim -d %f %F
 
@@ -142,6 +144,7 @@ fileviewer *.rar unrar vb %c
 
 " Doc files
 fileviewer *.docx docx2txt.pl %f -
+
 " }}} Fileviewer "
 " Syntax highlighting in preview {{{ "
 "

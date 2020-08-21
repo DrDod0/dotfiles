@@ -1,7 +1,9 @@
-# specific programs based on extension
-    #alias -s mp3=cmus
-    alias -s md=vim
-    alias -s txt=vim
+# Author: @veggietorta
+# Update: 08.15.20
+
+
+# Wallpaper change
+    alias w='nitrogen --set-zoom-fill --random ~/dotfiles/configs/wallpapers'
 
 # tmux alias
     alias tl='tmux ls'
@@ -25,22 +27,20 @@
     alias dot='cd ~/dotfiles'
     alias journal='cd ~/notes/mental_health/journal/'
 
-# dropbox
-    alias dropbox.status='~/dropbox.py status'
-
 # w3m
     alias net='w3m'
 
 # Scripts
-    # git
     alias pub='sh ~/notes/code/project.git/git.sh'
+
+# git
     alias gs='git status'
     alias gc='git commit -m'
     alias gp='git push'
     alias ga='git add'
 
 
-    # progress
+# progress
     alias pro='py ~/notes/code/project.todo/progress.py'
 
 # vim
@@ -53,9 +53,7 @@
 # python
     #alias py='python3'
     #alias python='python3'
-
     #alias python=""
-    #alias pip=""
 
 # pip
     alias pip='pip3'
@@ -71,9 +69,9 @@
 # system
     alias shutdown='shutdown -now'
     alias update.me='sudo apt-get update && sudo apt-get dist-upgrade -y && apt autoremove -y'
-
-
     alias time='dpkg-reconfigure tzdata'
+    alias drives='sudo lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL'
+    alias network='sudo arp-scan --localnet'
 
 # virtualEnv
     #alias virtual_create='virtualenv '
@@ -119,9 +117,6 @@
     alias yoump3='youtube-dl -x --audio-format mp3'
     alias you='youtube-dl'
 
-# TUIR Terminal based reddit client
-    alias reddit='tuir -s front'
-
 # Torrent Transmission-daemon
     alias t.start='transmission-daemon'
     alias t.add='transmission-remote -a'
@@ -144,4 +139,3 @@
 # Docker
     alias d.ls='docker ps'
     alias d.image='docker image ls'
-    alias d.exiftool='sudo docker run -i -t -v /media/vt/plex_media:/media/usb/ hackmushroom/exiftool /bin/sh'

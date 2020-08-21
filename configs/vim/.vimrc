@@ -1,5 +1,6 @@
 " Author: @veggietorta
 " Last updated: 06.23.20
+" Location ~/
 
 
 "   ██╗██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
@@ -8,6 +9,14 @@
 "   ██║╚██╗ ██╔╝██║██║╚██╔╝██║██╔══██╗██║
 "██╗██║ ╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗
 "╚═╝╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
+
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 
 
 "-----------------------
@@ -72,7 +81,7 @@
     "Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
     Plug 'liuchengxu/vista.vim'
     Plug 'voldikss/vim-floaterm'
-    Plug 'severin-lemaignan/vim-minimap'
+    "Plug 'severin-lemaignan/vim-minimap'
     Plug 'ludovicchabant/vim-gutentags'
 
     "Python Tools
@@ -541,6 +550,9 @@
                 colorscheme solarized8
             endfunction
             command Soll call s:Soll()
+
+    "Background Transparent:
+        hi Normal guibg=NONE ctermbg=NONE
 
 	"Statusline:
         " Non-Powerline

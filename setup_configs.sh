@@ -1,5 +1,5 @@
 #!/bin/bash
-# Author: veggietorta
+# Author: @veggietorta
 # Update: 01.07.20
 # Puporse: Automate a consistent configuration across rigs
 
@@ -232,19 +232,24 @@ vim_link()
 # neovim
 neovim_link()
     {
+        # Install vim-plug
+        sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
         # check for program neovim
-    if [ -x "$(command -v nvim)" ]
-    then
-         # create nvim directory
-	 mkdir ~/.config/
-         mkdir ~/.config/nvim/
-         # neovim program found, symbolic link established, send back to user
-         ln -s ~/dotfiles/configs/neovim/init.vim ~/.config/nvim/
-         echo neovim program found, created symbolic link.
-     else
-         # neovim program NOT found, no action taken, send back to user
-         echo neovim program NOT installed, no action taken.
-     fi
+        if [ -x "$(command -v nvim)" ]
+        then
+            # create nvim directories
+            mkdir ~/.config/
+            mkdir ~/.config/nvim/
+
+            # neovim program found, symbolic link established, send back to user
+            ln -s ~/dotfiles/configs/neovim/init.vim ~/.config/nvim/
+            echo neovim program found, created symbolic link.
+        else
+            # neovim program NOT found, no action taken, send back to user
+            echo neovim program NOT installed, no action taken.
+        fi
     }
 
 # tmux
@@ -278,7 +283,6 @@ muttrc_link()
         echo mutt found, symbolic link established
     else
         echo mutt not found, no action taken.
-
     fi
     }
 
