@@ -43,14 +43,18 @@
 #    bindkey -s '^o' 'nvim $(du -a ~/dotfiles/ ~/notes/ | awk "{print $2}" | fzf )^M'
 
 
-# Remap Capslock to Esc:
-    # xcape required
-    # coming out of sleep mode will reset the keys.
-	setxkbmap -option ctrl:swapcaps
-	xcape -e 'Control_L=Escape'
-
 # Set screen color temp
     # requires, sct
     sct 3500
 
+# neofetch
+    # if neofetch is install run neofetch
+    # with terminal emulator Terminology install
+    # --tycat image view, unique to Terminology
+    # --source <path to image>
+    if [ -x "$(command -v neofetch)" ]
+    then
+        neofetch --tycat --source $HOME/dotfiles/configs/wallpapers/muerte.jpg
+    fi
 
+#neofetch --tycat --source $HOME/dotfiles/configs/wallpapers/muerte.jpg

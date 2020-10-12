@@ -1,9 +1,6 @@
 # Author: @veggietorta
-# Update: 08.15.20
+# Update: 09.24.20
 
-
-# Wallpaper change
-    alias w='nitrogen --set-zoom-fill --random ~/dotfiles/configs/wallpapers'
 
 # tmux alias
     alias tl='tmux ls'
@@ -14,7 +11,6 @@
     alias source.tmux='tmux source-file $HOME/.tmux.conf'
 
 # bash/zsh
-    alias ls='ls -l'
     alias q='exit'
     alias v='vifm'
     alias c='clear'
@@ -39,7 +35,6 @@
     alias gp='git push'
     alias ga='git add'
 
-
 # progress
     alias pro='py ~/notes/code/project.todo/progress.py'
 
@@ -58,20 +53,15 @@
 # pip
     alias pip='pip3'
 
-
 # RRS & Readers
     alias news='newsboat'
-
 
 # sqlite3
     alias sq='sqlite3'
 
 # system
+    alias tools='sh $HOME/notes/code/project.command_line.tool/tool.sh'
     alias shutdown='shutdown -now'
-    alias update.me='sudo apt-get update && sudo apt-get dist-upgrade -y && apt autoremove -y'
-    alias time='dpkg-reconfigure tzdata'
-    alias drives='sudo lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL'
-    alias network='sudo arp-scan --localnet'
 
 # virtualEnv
     #alias virtual_create='virtualenv '
@@ -105,6 +95,10 @@
 # SSH MP3
     alias ssh.mp3='ssh user@10.216.1.57 "cat /home/vt/Downloads/*.mp3" | play -t mp3 -'
 
+# SSH Servers
+    alias pi.torrent='sshpass -f pass ssh pi@10.216.1.91'
+    alias pi.plex='sshpass -f pass ssh ubuntu@10.216.1.18'
+
 # help
     alias help.ssh='cat $HOME/dotfiles/shared/help/help.ssh'
     alias help.tmux='cat $HOME/dotfiles/shared/help/help.tmux'
@@ -129,12 +123,6 @@
 
 # conf files
     alias config="sh ~/dotfiles/setup_configs.sh"
-
-# Weather
-    alias weather='curl -H "Accept-Language: ${LANG%_*}" wttr.in/"${1:-Hayward}"'
-
-# Geolocation
-    alias geo='curl ipinfo.io/8.8.8.8'
 
 # Docker
     alias d.ls='docker ps'

@@ -1,4 +1,4 @@
-"VIFM COLORS
+" VIFM COLORS
 " dracula
 " based on: https://github.com/istib/dotfiles/blob/master/vifm/vifm-colors
 
@@ -42,4 +42,5 @@ highlight BrokenLink      cterm=none ctermfg=red ctermbg=default
 highlight Socket          cterm=none ctermfg=magenta ctermbg=black
 highlight Device          cterm=none ctermfg=red ctermbg=default
 highlight Fifo            cterm=none ctermfg=yellow ctermbg=black
-highlight Executable      cterm=none ctermfg=green ctermbg=default"
+highlight Executable      cterm=none ctermfg=green ctermbg=default
+

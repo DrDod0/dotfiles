@@ -1,6 +1,7 @@
+"
 " Author: @veggietorta
-" Last updated: 06.23.20
-" Location ~/
+" Last updated: 09.20.20
+" Location $HOME/
 
 
 "   ██╗██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
@@ -9,14 +10,6 @@
 "   ██║╚██╗ ██╔╝██║██║╚██╔╝██║██╔══██╗██║
 "██╗██║ ╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗
 "╚═╝╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
-
-
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
 
 
 "-----------------------
@@ -52,7 +45,7 @@ endif
     Plug 'reedes/vim-pencil'
     Plug 'previm/previm'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-
+    Plug 'vimwiki/vimwiki'
 
     "Colorschemes
     Plug 'drewtempelmeyer/palenight.vim'
@@ -79,10 +72,10 @@ endif
     "Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
     "Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
     "Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'liuchengxu/vista.vim'
+    "Plug 'liuchengxu/vista.vim'
     Plug 'voldikss/vim-floaterm'
     "Plug 'severin-lemaignan/vim-minimap'
-    Plug 'ludovicchabant/vim-gutentags'
+    "Plug 'ludovicchabant/vim-gutentags'
 
     "Python Tools
     Plug 'tpope/vim-fugitive'
@@ -159,10 +152,10 @@ endif
 "------------------------------------------
 
     " Automatically reload .vimrc file on save
-    augroup myvimrc
-        au!
-        au BufWritePost .vimrc so ~/.vimrc
-    augroup END
+        augroup myvimrc
+            au!
+            au BufWritePost .vimrc so ~/.vimrc
+        augroup END
 
 
     "Remap window navigation in Any modde
@@ -273,7 +266,7 @@ endif
 
 
     " Minimaps:
-        au BufEnter * :Minimap
+    "   au BufEnter * :Minimap
 
 
     " Vimpythonpep8indent:
@@ -305,14 +298,14 @@ endif
             tnoremap <silent> <F12>           <C-\><C-n>:FloatermToggle<CR>
 
     " Vista Vim:
-        let g:vista_default_executive = 'ctags'
+        "let g:vista_default_executive = 'ctags'
 
-        let g:vista_executive_for = {
-                    \ 'py': 'vim_lsp',
-                    \ 'php': 'vim_lsp',
-                    \ }
+        "let g:vista_executive_for = {
+                    "\ 'py': 'vim_lsp',
+                    "\ 'php': 'vim_lsp',
+                    "\ }
 
-        let g:vista#renderer#enable_icon = 1
+        "let g:vista#renderer#enable_icon = 1
 
     " Cocvim:
         " Use tab for trigger completion with characters ahead and navigate.
@@ -348,9 +341,8 @@ endif
         let NERDTreeShowHidden=1
 
         "NERDTree opened automatically
-        autocmd vimenter * silent! lcd %:p:h
-
-        autocmd vimenter * if !argc() | NERDTree | endif
+            "autocmd vimenter * silent! lcd %:p:h
+            "autocmd vimenter * if !argc() | NERDTree | endif
 
         "Window size
         let g:NERDTreeWinSize=15
@@ -423,7 +415,7 @@ endif
 
 	" Goyo Limeline:
 		"Limeline Color name (:help cterm-colors) or ANSI code
-		let g:limelight_conceal_ctermfg = 'gray'
+		let g:limelight_conceal_ctermfg = 'pink'
 		let g:limelight_conceal_ctermfg = 240
 
 		"Goyo & Limeline intergration TODO needed?
@@ -486,6 +478,38 @@ endif
         let g:gitgutter_sign_removed = ''
         "let g:gitgutter_sign_removed_first_line = '^^'
         "let g:gitgutter_sign_modified_removed = 'ww'
+
+    " Vimwiki:
+        set nocompatible
+        filetype plugin on
+        syntax on
+
+        " Disable auto-save notification
+        let g:auto_save_silent = 1
+
+        " Save after changes
+        let g:auto_save_events = ["InsertLeave", "TextChanged"]
+
+        " Write to All Buffers
+        let g:auto_save_wite_all_buffers = 1
+
+        " Path to wikis
+        let g:vimwiki_list = [{'path': '$HOME/notes/books', 'syntax': 'markdown', 'ext': '.md'},
+                            \{'path': '$HOME/notes/code', 'syntax': 'markdown', 'ext': '.md'},
+                            \{'path': '$HOME/notes/warhammer', 'syntax': 'markdown', 'ext': '.md'},
+                            \{'path': '$HOME/notes/computer_science', 'syntax': 'markdown', 'ext': '.md'},
+                            \{'path': '$HOME/notes/formula_1', 'syntax': 'markdown', 'ext': '.md'},
+                            \{'path': '$HOME/notes/mental_health', 'syntax': 'markdown', 'ext': '.md'},
+                            \{'path': '$HOME/notes/random', 'syntax': 'markdown', 'ext': '.md'},
+                            \{'path': '$HOME/notes/work', 'syntax': 'markdown', 'ext': '.md'},
+                            \{'path': '$HOME/notes/mental_health/journal', 'syntax': 'markdown', 'ext': '.md'},
+                            \{'path': '$HOME/notes/yelp', 'syntax': 'markdown', 'ext': '.md'}]
+
+
+
+        " Consider every markdown file as a wiki file
+        let g:vimwiki_global_ext = 0
+
 
 "---------------
 "| Apperance:  |

@@ -14,6 +14,7 @@ ask_user()
     echo "Which configuration would you like to establish:
                  a. alias
                  b. help
+		 q. quit
 
                  1. zsh
                  2. bash
@@ -74,7 +75,12 @@ ask_user()
 #########################################################################
 
 # Install vim-plug plugin manager
-        sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+
+    # install curl
+    sudo apt install curl -y
+
+    # install plugin manager
+    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 # mpv TODO
 
@@ -115,11 +121,13 @@ zsh_link()
     # create symbolic link
     # return to user
          rm $HOME/.zshrc
-         ln -s $HOME/dotfiles/configs/zsh/.zshrc $HOME/
-         echo zsh program found, created symbolic link.
+         ln -s $HOME/dotfiles/configs/zsh/ubuntu/.zshrc $HOME/
+	 source $HOME/.zshrc
+         echo zsh program found, created symbolic link and sourced.
+	 sleep 5 && echo -en '\007'
          ask_user
     else
-    # ZSH program NOT found, no action taken, 
+    # ZSH program NOT found, no action taken,
     # return to user
        echo zsh program NOT found, no action taken.
        ask_user
@@ -133,9 +141,9 @@ vim_link()
     # check for program of VIM
     if [ -x "$(command -v vim)" ]
     then
-    # vim program found, 
+    # vim program found,
     # existing .virmc deleted
-    # new config symbolic link established 
+    # new config symbolic link established
     # send back to user
         rm $HOME/.vimrc
         ln -s $HOME/dotfiles/configs/vim/.vimrc $HOME/
@@ -156,10 +164,10 @@ neovim_link()
     # check for program neovim
     if [ -x "$(command -v nvim)" ]
     then
-    # create nvim directories for config file 
+    # create nvim directories for config file
         mkdir $HOME/.config/
         mkdir $HOME/.config/nvim/
-            
+
     # remove existing vimrc and establish symbolic link
     # one config file is used for nvim and vim
         rm $HOME/.vimrc
@@ -224,7 +232,7 @@ newsboat_link()
     {
     # check if Newsboat is installed
     if [ -x "$(command -v newsboat)" ]
-    then 
+    then
         ln -s $HOME/dotfiles/configs/newsboat/config $HOME/.config/newsboat/
         ln -s $HOME/dotfiles/configs/newsboat/urls $HOME/.config/newsboat/
         echo Newsboat found, symbolic link established.
@@ -247,13 +255,13 @@ ranger_link()
     # directories for configs
         mkdir $HOME/.config
         mkdir $HOME/.config/ranger/
-        
+
     # remove any existing configs
         rm $HOME/.config/ranger/rc.conf
         rm $HOME/.config/ranger/rifle.conf
         rm $HOME/.config/ranger/bookmarks
         rm $HOME/.config/ranger/tagged
-        
+
     # establish symbolic links to config files
     # send back to user
         ln -s $HOME/dotfiles/configs/ranger/rc.conf $HOME/.config/ranger/
@@ -304,10 +312,10 @@ qutebrowser_link()
         # create directories for configs
         mkdir $HOME/.configs/qutebrowser/
         /qutebrowser
-    
+
         # remove existing config
         rm $HOME/dotfiles/configs/qutebrowser/config.py
-        
+
         # establish symbolic link
         ln -s $HOME/dotfiles/configs/qutebrowser/config.py $HOME/.qutebrowser
         echo found qutebrowser, config symbolic link establish.
