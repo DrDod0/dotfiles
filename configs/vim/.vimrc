@@ -608,3 +608,6 @@
             syn match myTodo contained "\<\(FIXME\|NOTE\|TODO\|OPTIMIZE\|FYI\):"
             hi def link myTodo Todo
 
+
+" Terminal Alacritty mouse issue fix
+" set ttymouse-sgr

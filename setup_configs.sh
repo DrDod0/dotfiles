@@ -10,7 +10,7 @@
 ask_user()
 {
 
-    clear
+    #clear
     echo "Which configuration would you like to establish:
                  a. alias
                  b. help

@@ -6,13 +6,27 @@
     export ZSH="$HOME/.oh-my-zsh"
 
 # Theme:
-	ZSH_THEME="avit"
+	ZSH_THEME="bira"
 
 # Plugin to load. Standard plugins can be found in ~/.oh-my-zsh/plugins/*
     # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/ Example format: plugins=(rails git textmate ruby lighthouse)
     plugins=(
         git
+        extract
+        colored-man-pages
+        sudo
+        history
+        npm
+        python
+        ubuntu
+        zsh-interactive-cd
+        web-search
         z
+        tmux
+        systemadmin
+        safe-paste
+        last-working-dir
+        colorize
         )
 
 # Oh-my-zsh
@@ -52,9 +66,9 @@
     # with terminal emulator Terminology install
     # --tycat image view, unique to Terminology
     # --source <path to image>
-    if [ -x "$(command -v neofetch)" ]
-    then
-        neofetch --tycat --source $HOME/dotfiles/configs/wallpapers/muerte.jpg
-    fi
+#    if [ -x "$(command -v neofetch)" ]
+#    then
+#        neofetch --tycat --source $HOME/dotfiles/configs/wallpapers/muerte.jpg
+#    fi
 
 #neofetch --tycat --source $HOME/dotfiles/configs/wallpapers/muerte.jpg

@@ -2,6 +2,9 @@
 # Update: 09.24.20
 
 
+# make it pretty
+    alias ls='colorls --sort-dirs'
+
 # tmux alias
     alias tl='tmux ls'
     alias td='tmux detach'
@@ -62,6 +65,10 @@
 # system
     alias tools='sh $HOME/notes/code/project.command_line.tool/tool.sh'
     alias shutdown='shutdown -now'
+    alias update="sudo -- sh -c 'apt-get update; apt-get upgrade -y; apt-get dist-upgrade -y; apt-get autoremove -y; apt-get autoclean -y' "
+    alias mv='mv -iv'
+    alias cp='cp -riv'
+    alias mkdir='mkdir -vp'
 
 # virtualEnv
     #alias virtual_create='virtualenv '
