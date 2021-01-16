@@ -14,7 +14,7 @@ ask_user()
     echo "Which configuration would you like to establish:
                  a. alias
                  b. help
-		 q. quit
+        		 q. quit
 
                  1. zsh
                  2. bash
@@ -77,22 +77,33 @@ ask_user()
 # Install vim-plug plugin manager
 
     # install curl
-    sudo apt install curl -y
+        #sudo apt install curl -y
 
-    # install plugin manager
-    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    # install vim-plug manager
+        #sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+        #https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
 # mpv TODO
-
-
 # w3m TODO
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Git
 git_link()
     {
     ln -s $HOME/dotfiles/configs/git/.gitconfig $HOME/
     }
-
 
 
 # bash
@@ -122,14 +133,22 @@ zsh_link()
     # return to user
          rm $HOME/.zshrc
          ln -s $HOME/dotfiles/configs/zsh/ubuntu/.zshrc $HOME/
-	 source $HOME/.zshrc
+         source $HOME/.zshrc
          echo zsh program found, created symbolic link and sourced.
-	 sleep 5 && echo -en '\007'
+         sleep 5 && echo -en '\007'
          ask_user
     else
-    # ZSH program NOT found, no action taken,
-    # return to user
-       echo zsh program NOT found, no action taken.
+    # ZSH program NOT found
+    # install zsh
+
+       echo zsh program NOT found, installing.
+       sleep 3
+       sudo apt sudo install zsh -y
+       echo
+       echo ZSH has been installed but with out Oh-my-Zsh its chop, installing Oh-my-Zsh
+       sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+       echo
+       echo "ZSH & Oh-my-zsh are now installed"
        ask_user
     fi
     }

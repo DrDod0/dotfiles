@@ -80,7 +80,7 @@
     "Python Tools
     Plug 'tpope/vim-fugitive'
     Plug 'vim-scripts/indentpython.vim'
-    Plug 'vim-syntastic/syntastic'
+    "Plug 'vim-syntastic/syntastic'
     Plug 'nvie/vim-flake8'
     Plug 'jeetsukumaran/vim-pythonsense'
     Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
@@ -326,8 +326,8 @@
         let g:previm_open_cmd = 'open -a Safari'
 
     " Xpdf:
-        :command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> -
-        :command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> - |fmt -csw78
+    "    :command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> -
+    "   :command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> - |fmt -csw78
         "
     " NERDTree:
 

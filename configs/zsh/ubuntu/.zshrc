@@ -59,7 +59,10 @@
 
 # Set screen color temp
     # requires, sct
-    sct 3500
+    if [ -x "$(command -v sct)" ]
+    then
+        sct 3500
+    fi
 
 # neofetch
     # if neofetch is install run neofetch

@@ -3,7 +3,7 @@
 
 
 # make it pretty
-    alias ls='colorls --sort-dirs'
+    #alias ls='colorls --sort-dirs'
 
 # tmux alias
     alias tl='tmux ls'
@@ -65,7 +65,7 @@
 # system
     alias tools='sh $HOME/notes/code/project.command_line.tool/tool.sh'
     alias shutdown='shutdown -now'
-    alias update="sudo -- sh -c 'apt-get update; apt-get upgrade -y; apt-get dist-upgrade -y; apt-get autoremove -y; apt-get autoclean -y' "
+    alias update="sudo -- sh -c 'apt update; apt upgrade -y; apt autoremove -y; apt autoclean -y' "
     alias mv='mv -iv'
     alias cp='cp -riv'
     alias mkdir='mkdir -vp'
@@ -100,11 +100,11 @@
     alias ssh.start='/etc/init.d/ssh start'
 
 # SSH MP3
-    alias ssh.mp3='ssh user@10.216.1.57 "cat /home/vt/Downloads/*.mp3" | play -t mp3 -'
+    #alias ssh.mp3='ssh user@10.216.1.57 "cat /home/vt/Downloads/*.mp3" | play -t mp3 -'
 
 # SSH Servers
-    alias pi.torrent='sshpass -f pass ssh pi@10.216.1.91'
-    alias pi.plex='sshpass -f pass ssh ubuntu@10.216.1.18'
+    alias pi.torrent='ssh -p 5056 torrent@10.216.1.99'
+    alias pi.plex='ssh ubuntu@10.216.1.18'
 
 # help
     alias help.ssh='cat $HOME/dotfiles/shared/help/help.ssh'
