@@ -34,3 +34,18 @@ else
   # log it
 fi
 
+
+# xclip
+# check if xclip is installed
+# if installed log and move on
+# if not installed, install and set-up config files
+
+if [ -x "$command -v xclip" ]
+  then
+  echo "xclip installed"
+  # log it
+else
+  sudo apt install xclip -y
+  # log it
+fi
+
