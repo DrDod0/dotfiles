@@ -22,7 +22,7 @@
         zsh-interactive-cd
         web-search
         z
-        tmux
+        #tmux
         systemadmin
         safe-paste
         last-working-dir

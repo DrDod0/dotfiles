@@ -2,6 +2,10 @@
 # Author: veggietorta
 # Update: 01.15.21
 
+
+
+CURL NEEDS TO BE INSTALLED
+
 zsh_install()
 {
     # Log entrance into 'zsh_install'

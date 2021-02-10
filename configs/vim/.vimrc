@@ -52,7 +52,7 @@
     Plug 'sainnhe/vim-color-forest-night'
     Plug 'lifepillar/vim-solarized8'
     Plug 'crusoexia/vim-dracula'
-    Plug 'taigacute/gruvbox9'
+    Plug 'poiuto/gruvbox9'
     Plug 'tyrannicaltoucan/vim-deep-space'
     Plug 'skbolton/embark'
 
