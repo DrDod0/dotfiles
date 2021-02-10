@@ -1,0 +1,9 @@
+# Author: @veggietorta
+# Updated: 02.10.21
+# Installed: Ubuntu 20.10
+
+# Install VirtualBox
+sudo apt install virtualbox
+
+# Install VirtualBox Extension pack
+audo apt instal virtualbox-ext-pack
