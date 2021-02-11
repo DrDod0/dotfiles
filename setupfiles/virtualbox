@@ -2,8 +2,13 @@
 # Updated: 02.10.21
 # Installed: Ubuntu 20.10
 
+# Note to user
+echo "To enable full features, enable Virtualization on BIOS of host computer
+pause
+
 # Install VirtualBox
 sudo apt install virtualbox
 
 # Install VirtualBox Extension pack
 audo apt instal virtualbox-ext-pack
+
