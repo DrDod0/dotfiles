@@ -12,3 +12,16 @@ sudo apt install virtualbox
 # Install VirtualBox Extension pack
 audo apt instal virtualbox-ext-pack
 
+## WINDOW Specific settings:
+# Setting -> System -> Motherboard -> 
+                                    -> Enable EFI (special OSes only)
+                                    -> Enable I/O APIC
+                                    -> Hardware Clock in UTC Time
+                    -> Processor -> assign 2 or more processor
+                                  -> Enable Extended features, PAE/NX
+           -> Display -> Enable 3D Acellaration
+           -> Display -> Enable 2D Aceleration
+           -> Storage -> Empty Disk -> Optical Drive -> Select ISO
+# After installation select 'Devices' from menu, and select 'Insert Guest Additions CD image..', maintain defaults in installation
+                                  
+          
