@@ -1,15 +1,86 @@
+#!/bin/bash
 # Author: @veggietorta
-# Update: 02.10.21
+# Update: 02.14.21
 # System: Ubuntu 20.10
-# Purpose: Install neovim full setup
+# Purpose: Install neovim and/or supporting neovim items
 
 
-
-# Install neovim
-sudo apt install neovim -y
+echo $el_day_time ": Neovim file sourced" >> $el_log
 
 
-# Install plugin manager
-# Plugin manager https://github.com/junegunn/vim-plug
+menu_neovim()
+{
+    echo $el_day_time ": Entered menu_neovim function" >> $el_log
 
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    clear
+
+    # Promp user for input
+    echo "Please select action:\n"
+    echo "  1. Install neovim"
+    echo "  2. Install Plugin manager"
+    echo "  3. Install custom .vimrc "
+    echo "  4. Install custom font\n"
+    echo "  r. Return to Main Menu"
+
+    read user_input_neovim
+
+
+    # Check if neovim is installed,
+    #   if not, install neovim and vim.
+    #   if installed, inform user and return user to top of menu_neovim
+    if [ $user_input_neovim -eq "1" ];
+    then
+        # log
+        if [ -x "$(command -v neovim)" ];
+        then
+            echo "nvim already installed"
+            sleep 2
+            menu_vim
+            # log it
+        else
+            sudo apt install neovim vim -y
+            # log it
+        fi
+
+    # Install plugin manager
+    elif [ $user_input_neovim -eq "2" ];
+        then
+            # Plugin manager https://github.com/junegunn/vim-plug
+            sh -c \'curl -fLo \"${XDG_DATA_HOME:-$HOME/.local/share}\"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim\'\"
+            # log it
+            echo "Vim-plug has been installed"
+            sleep 2
+            menu_neovim
+
+    # Custom .vimrc
+    elif [ $user_input_neovim -eq "3" ];
+        then
+            rm $HOME/.vimrc
+            ln -s $HOME/dotfiles/config/vim/.vimrc $HOME/
+            # log it
+            echo "Symbolic link to custom .vimrc establish"
+            menu_neovim
+
+    # Custom font
+    elif [ $user_input_neovim -eq "4" ];
+        then
+            # Create directory for fonts and direct errors log.
+            mkdir $HOME/.local/share/fonts > log 2>1&
+
+            # Copy font from dotfiles to newly created directory
+            cp $HOME/dotfiles/configs/font/Hack_Regular_Nerd_Font_Mono.ttf $HOME/.local/share/fonts/
+
+            # Clear and regenerate font cache, requires fontconfig
+            #fc-cache -f -v
+
+            echo "Font 'Hack Regular Nerd Font Complete Mono' has been installed"
+            # log it
+            sleep 10
+            menu_neovim
+
+    else
+        menu_vim
+    fi
+
+}
+

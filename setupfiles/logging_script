@@ -1,0 +1,27 @@
+#!/bin/bash
+# Author: @veggietorta
+# Update: 02.14.21
+
+# Date and Time variable to be used in loggin actions
+el_day_time=$(date)
+
+
+# Establish log file
+log_it_up()
+{
+    # Assign variable to file
+    el_log="$HOME/dotfiles/setupfiles/log"
+
+    # Look for assigned varible 'el_log' using if/then statement
+    # If variable found create new line in 'log' and send to 'menu_ask_user'
+    # If variable not found create file name 'log' and send to 'menu_ask_user'
+    if [ -f "$el_log" ]
+    then
+        echo "---" >> $el_log
+        menu_ask_user
+    else
+        touch $el_log
+        echo $el_day_time ": Created" >> $el_log
+        menu_ask_user
+    fi
+}

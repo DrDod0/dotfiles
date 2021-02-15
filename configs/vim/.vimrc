@@ -1,6 +1,6 @@
 "
 " Author: @veggietorta
-" Last updated: 09.20.20
+" Last updated: 02.14.21
 " Location $HOME/
 
 

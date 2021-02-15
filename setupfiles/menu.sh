@@ -1,31 +1,8 @@
-#!/bin/bash # Author: @veggietorta
-# Update: 01.15.21
+#!/bin/bash
+# Author: @veggietorta
+# Update: 02.14.21
 
-
-# Date and Time variable to be used in loggin actions
-el_day_time=$(date)
-
-
-# Establish log file
-log_it_up()
-{
-    # Assign variable to file
-    el_log="/home/vt/dotfiles/setupfiles/log"
-
-    # Look for assigned varible 'el_log' using if/then statement
-    # If variable found create new line in 'log' and send to 'menu_ask_user'
-    # If variable not found create file name 'log' and send to 'menu_ask_user'
-    if [ -f "$el_log" ]
-    then
-        echo "---" >> $el_log
-        menu_ask_user
-    else
-        touch $el_log
-        echo "Created: " $el_day_time >> $el_log
-        menu_ask_user
-    fi
-}
-
+. $HOME/dotfiles/setupfiles/logging_script
 
 menu_ask_user()
 {
@@ -33,32 +10,43 @@ menu_ask_user()
     # Promp & read input
     # Load source based on input using If/then statement
 
-    echo "enter menu_ask_user: " $el_day_time >> $el_log
+    echo $el_day_tim ": enter menu_ask_user" >> $el_log
     clear
     echo "Select program to setup or modify:\n"
     echo 1. zsh and Oh-my-zsh
-    echo 2. vim
+    echo 2. neovim
+
+    echo "q. exit"
 
     read main_menu_input
 
     # Source ZSH file
     if [ $main_menu_input = '1' ]
     then
-        . /home/vt/dotfiles/setupfiles/zsh.sh
-        echo "sourced zsh.sh file: " $el_day_time >> $el_log
-        zsh_install
+        . $HOME/dotfiles/setupfiles/zsh
+        echo $el_day_time ": sourced zsh file" >> $el_log
+        menu_zsh
 
 
-    # Source
+    # Source Neovim file
     elif [ $main_menu_input = '2' ]
     then
-        echo "hello"
-        echo "sourced xxxxxx file: " $el_day_time >> $el_log
+        . $HOME/dotfiles/setupfiles/neovim
+        echo $el_day_time ": sourced neovim file" >> $el_log
+        menu_neovim
+
+
+    # Exit
+    elif [ $main_menu_input = 'q' ]
+    then
+        exit 1
+
 
     else
-        echo "Input not understood sent back to menu_ask_user: " $el_day_time >> $el_log
+        echo $el_day_time ": Input not understood sent back to menu_ask_user" >> $el_log
         menu_ask_user
     fi
+
 }
 
 
