@@ -14,7 +14,8 @@ menu_ask_user()
 
     echo "Select program to setup or modify:\n"
     echo "1. zsh and Oh-my-zsh"
-    echo "2. neovim\n"
+    echo "2. neovim"
+    echo "3. gnome-tweak-tool\n"
     echo "q. exit"
 
     read main_menu_input
@@ -33,6 +34,14 @@ menu_ask_user()
         echo $el_day_time ": Option 2, Neovim file selected" >> $el_log
         . $HOME/dotfiles/setupfiles/neovim
         menu_neovim
+
+    # Source gnome-tweak-tool
+    elif [ $main_menu_input = '3' ]
+    then
+        echo $el_day_input ": Option 3, gnome-tweak-tool file selected" >> $el_log
+        . $HOME/dotfiles/setupfiles/gnome-tweak-tool
+        menu_gtl
+
 
     # Exit
     elif [ $main_menu_input = 'q' ]

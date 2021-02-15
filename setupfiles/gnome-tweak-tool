@@ -1,0 +1,49 @@
+#!/bin/bash
+# Author: @veggietorta
+# Update: 02.15.21
+# Pupose: Install gnome-tweak-tool
+
+
+gnome-tweak-tool()
+{
+    #log
+    $el_day_time ": Entered gnome-tweak-tool function" >> $el_log
+
+    # menu_gtl
+    echo "1. Install gnome-tweak-tool"
+    echo "2. See gnome-tweak-tools notes\n"
+    echo "r. Return to main menu"
+
+    menu_gtl
+
+    if [ $menu_gtl = '1' ]
+    then
+        #log
+        $el_day_time ": Input received as 1, Install gnome-tweak-tool" >> $el_log
+
+        sudo apt install gnome-tweak-tool
+        menu_gtl
+
+
+    elif [ $menu_gtl = '2' ]
+    then
+        #log
+        $el_day_time ": Input received as 2, See gnome-tweak_tools ntoes" >> $el_log
+
+        #notes
+        echo Gnome-tweak-tools\n
+        echo Best for changing the behavior of CapsLock key
+        echo Keyboard \& Mouse -\> Additional Layout Options -\> Caps Lock behavior -\> Make Caps Lock an additional Esc
+
+        menu_gtl
+
+
+    elif [ $menu_gtl = '3' ]
+    then
+        #log
+        $el_day_time ": Input received as 3, Return to main menu" >> $el_log
+
+        menu_ask_user
+
+    fi
+}

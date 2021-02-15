@@ -58,30 +58,37 @@ menu_neovim()
             # Plugin manager https://github.com/junegunn/vim-plug
             curl -fLo ~/.var/app/io.neovim.nvim/data/nvim/site/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+            menu_neovim
+
     # Custom .vimrc
     elif [ $user_input_neovim = "3" ];
         then
-            rm $HOME/.vimrc
+            # log
+            echo $el_day_time ": Input received as 3, Install custom .vimrc" >> $el_log
+
+            # Remove any existing .vimrc and redirect error output to log
+            rm $HOME/.vimrc 2>>log
+
+            # Symbolic link to .vimrc
             ln -s $HOME/dotfiles/config/vim/.vimrc $HOME/
-            # log it
-            echo "Symbolic link to custom .vimrc establish"
+
             menu_neovim
 
     # Custom font
     elif [ $user_input_neovim = "4" ];
         then
-            # Create directory for fonts and direct errors log.
-            mkdir $HOME/.local/share/fonts > log 2>1&
+            # log
+            echo $el_day_time ": Input received as 4, Install custom font" >> $el_log
+
+            # Create directory for fonts and direct errors output to log.
+            mkdir $HOME/.local/share/fonts 2>>log
 
             # Copy font from dotfiles to newly created directory
             cp $HOME/dotfiles/configs/font/Hack_Regular_Nerd_Font_Mono.ttf $HOME/.local/share/fonts/
 
             # Clear and regenerate font cache, requires fontconfig
-            #fc-cache -f -v
+            fc-cache -f -v 2>>log
 
-            echo "Font 'Hack Regular Nerd Font Complete Mono' has been installed"
-            # log it
-            sleep 4
             menu_neovim
 
 
