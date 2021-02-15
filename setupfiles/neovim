@@ -16,7 +16,7 @@ menu_neovim()
 
     # Promp user for input
     echo "Please select action:\n"
-    echo "  1. Install neovim"
+    echo "  1. Install Neovim"
     echo "  2. Install Plugin manager"
     echo "  3. Install custom .vimrc "
     echo "  4. Install custom font\n"
@@ -28,32 +28,38 @@ menu_neovim()
     # Check if neovim is installed,
     #   if not, install neovim and vim.
     #   if installed, inform user and return user to top of menu_neovim
-    if [ $user_input_neovim -eq "1" ];
+    if [ $user_input_neovim = "1" ];
     then
-        # log
-        if [ -x "$(command -v neovim)" ];
-        then
-            echo "nvim already installed"
-            sleep 2
-            menu_vim
-            # log it
-        else
-            sudo apt install neovim vim -y
-            # log it
-        fi
 
-    # Install plugin manager
-    elif [ $user_input_neovim -eq "2" ];
+        # log
+        echo $el_day_time ": Input received as 1, Intall Neovim" >> $el_log
+
+        if [ -x "$(command -v nvim)" ];
         then
-            # Plugin manager https://github.com/junegunn/vim-plug
-            sh -c \'curl -fLo \"${XDG_DATA_HOME:-$HOME/.local/share}\"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim\'\"
-            # log it
-            echo "Vim-plug has been installed"
+            # log
+            echo $el_day_time ": Found neovim on system, send back to menu_neovim" >> $el_log
+            echo "nvim already installed"
             sleep 2
             menu_neovim
 
+        else
+            # log
+            echo $el_day_time ": Neovim not found on system, move forward with install" >> $el_log
+            sudo apt install neovim vim -y
+            menu_neovim
+        fi
+
+    # Install plugin manager
+    elif [ $user_input_neovim = "2" ];
+        then
+            # log
+            echo $el_day_time ": Input received as 2, Install Plugin Manager" >> $el_log
+
+            # Plugin manager https://github.com/junegunn/vim-plug
+            curl -fLo ~/.var/app/io.neovim.nvim/data/nvim/site/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
     # Custom .vimrc
-    elif [ $user_input_neovim -eq "3" ];
+    elif [ $user_input_neovim = "3" ];
         then
             rm $HOME/.vimrc
             ln -s $HOME/dotfiles/config/vim/.vimrc $HOME/
@@ -62,7 +68,7 @@ menu_neovim()
             menu_neovim
 
     # Custom font
-    elif [ $user_input_neovim -eq "4" ];
+    elif [ $user_input_neovim = "4" ];
         then
             # Create directory for fonts and direct errors log.
             mkdir $HOME/.local/share/fonts > log 2>1&
@@ -75,11 +81,18 @@ menu_neovim()
 
             echo "Font 'Hack Regular Nerd Font Complete Mono' has been installed"
             # log it
-            sleep 10
+            sleep 4
             menu_neovim
 
-    else
-        menu_vim
+
+    # Return to main menu
+    elif [ $user_input_neovim = 'r' ];
+        then
+            menu_ask_user
+
+
+        else
+            menu_neovim
     fi
 
 }

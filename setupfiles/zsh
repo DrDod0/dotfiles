@@ -5,7 +5,7 @@
 
 
 # Log entrance into 'zsh_install'
-echo $el_day_time ": zsh_install sourced" >> $el_log
+echo $el_day_time ": Zsh file sourced" >> $el_log
 
 
 menu_zsh()
@@ -54,11 +54,14 @@ menu_zsh()
 
     elif [ $zsh_user_input = "3" ];
     then
+        # Log input receivd as '3'
+        echo $el_day_time ": Input received as '3', return to main menu" >> $el_log
+
         # Return to menu
         clear
         menu_ask_user
 
-    else
+    else #### review need for this else statement
         # Send back to menu
         clear
         menu_ask_user

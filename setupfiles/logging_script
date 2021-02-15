@@ -1,6 +1,8 @@
 #!/bin/bash
 # Author: @veggietorta
 # Update: 02.14.21
+# Purpose: Create a logging mechanism
+
 
 # Date and Time variable to be used in loggin actions
 el_day_time=$(date)
@@ -21,7 +23,7 @@ log_it_up()
         menu_ask_user
     else
         touch $el_log
-        echo $el_day_time ": Created" >> $el_log
+        echo $el_day_time ": Log created" >> $el_log
         menu_ask_user
     fi
 }
