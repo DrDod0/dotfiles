@@ -67,11 +67,11 @@
     "Dev Tools
     Plug 'christoomey/vim-tmux-runner'
     Plug 'tmsvg/pear-tree'                                                        " Auto pair
-    "Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    "Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
-    "Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-    "Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
-    "Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
     "Plug 'liuchengxu/vista.vim'
     Plug 'voldikss/vim-floaterm'
     "Plug 'severin-lemaignan/vim-minimap'
@@ -445,9 +445,14 @@
 
 	" CtrlP:
 		"Invoke CtrlP
+            " Key mapping
 			 let g:ctrlp_map = '<C-p>'	"aka Command-P
 			 let g:ctrlp_cmd = 'CtrlP'
+             " Move search window to the top
 			 let g:ctrlp_match_window = 'top,order:btt,min:1,max:10,results:10'
+             " Ignore all files .git ignores
+             let g:ctrlp_user_command = ['.git', '--git-dir=%s/.git ls-files -oc --exclude-standar']
+
 
 	" Netrw:
         "Default Directory
