@@ -1,0 +1,79 @@
+#!/bin/bash
+# Author: @veggietorta
+# Update: 02.16.21
+# Purpose: Install vifm and supporting items
+
+menu_vifm()
+{
+
+    echo $el_day_time ": Enter menu_vifm" >> $el_log
+
+    clear
+
+    # Promp user for input
+    echo "Please select action:\n"
+    echo "  1. Install vifm"
+    echo "  2. Install custom .vifmrc\n"
+    echo "  r. Return to Main Menu"
+
+    read user_input_vifm
+
+
+    # Check if vifm is installed
+    #   if not, install vifm
+    #   if installed, inform user and return to top of menu_vifm
+    if [ $user_input_vifm = '1' ];
+    then
+
+        # log
+        echo $el_day_time ": Input received as 1, Install vifm" >> $el_log
+
+        if [ -x "$(command -v vifm)" ];
+        then
+            # log
+            echo $el_day_time ": Found vifm on system, send back to menu_vifm" >> $el_log
+            echo "vifm already installed"
+            sleep 2
+
+            menu_vifm
+
+        else
+            # log
+            echo $el_day_time ": vifm not found on system, move forward with install" >> $el_log
+            sudo apt install vifm -y
+
+            menu_vifm
+        fi
+
+
+    elif [ $user_input_vifm = '2' ];
+    then
+        # log
+        echo $el_day_time ": Input received as 2, Install custom .vifmrc" >> $el_log
+
+        # remove existing .vifmrc and reroute error
+        rm $HOME/.config/vifm/vifmrc 2>>log
+
+        # Symbolic link
+        ln -s $HOME/dotfiles/configs/vifm/vifmrc $HOME/.config/vifm/
+        ln -s $HOME/dotfiles/configs/vifm/dracula.vifm $HOME/.config/vifm/colors/
+        ln -s $HOME/dotfiles/configs/vifm/gruvbox.vifm $HOME/.config/vifm/colors/
+        ln -s $HOME/dotfiles/configs/vifm/molokai.vifm $HOME/.config/vifm/colors/
+        ln -s $HOME/dotfiles/configs/vifm/palenight.vifm $HOME/.config/vifm/colors/
+
+        echo Symbolic links for vifmrc and theme established
+
+        sleep 2
+
+        menu_vifm
+
+
+    elif [ $user_input_vifm = '3' ];
+    then
+        # log
+        echo $el_day_time ": Input received as 3, return to Main Menu"
+
+        menu_ask_user
+
+    fi
+}

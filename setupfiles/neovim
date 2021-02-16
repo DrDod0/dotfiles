@@ -1,6 +1,6 @@
 #!/bin/bash
 # Author: @veggietorta
-# Update: 02.14.21
+# Update: 02.16.21
 # System: Ubuntu 20.10
 # Purpose: Install neovim and/or supporting neovim items
 
@@ -19,7 +19,8 @@ menu_neovim()
     echo "  1. Install Neovim"
     echo "  2. Install Plugin manager"
     echo "  3. Install custom .vimrc "
-    echo "  4. Install custom font\n"
+    echo "  4. Install custom font"
+    echo "  5. Install node (required for COC)\n"
     echo "  r. Return to Main Menu"
 
     read user_input_neovim
@@ -88,6 +89,19 @@ menu_neovim()
 
             # Clear and regenerate font cache, requires fontconfig
             fc-cache -f -v 2>>log
+
+            menu_neovim
+
+
+    # Install Node
+    elif [ $user_input_neovim = "5" ];
+        then
+            # log
+            echo $el_day_time ": Input received as 5, Install Node" >> $el_log
+
+            # Node install
+            curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
+            sudo apt install nodejs
 
             menu_neovim
 

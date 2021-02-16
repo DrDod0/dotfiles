@@ -38,7 +38,7 @@ gnome-tweak-tool()
         menu_gtl
 
 
-    elif [ $menu_gtl = '3' ]
+    elif [ $menu_gtl = 'r' ]
     then
         #log
         $el_day_time ": Input received as 3, Return to main menu" >> $el_log

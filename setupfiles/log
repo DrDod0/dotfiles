@@ -1,0 +1,10 @@
+Tue Feb 16 03:21:43 UTC 2021 : Log created
+Tue Feb 16 03:21:43 UTC 2021 : Enter menu_ask_user
+: Option 4, vifm file selected
+Tue Feb 16 03:21:43 UTC 2021 : Enter menu_vifm
+Tue Feb 16 03:21:43 UTC 2021 : Input received as 1, Install vifm
+Tue Feb 16 03:21:43 UTC 2021 : Found vifm on system, send back to menu_vifm
+Tue Feb 16 03:21:43 UTC 2021 : Enter menu_vifm
+rm: cannot remove '/home/dev/.config/vifm/vifmrc': No such file or directory
+Tue Feb 16 03:21:43 UTC 2021 : Enter menu_vifm
+Tue Feb 16 03:21:43 UTC 2021 : Enter menu_vifm

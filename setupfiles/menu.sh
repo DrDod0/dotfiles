@@ -15,7 +15,8 @@ menu_ask_user()
     echo "Select program to setup or modify:\n"
     echo "1. zsh and Oh-my-zsh"
     echo "2. neovim"
-    echo "3. gnome-tweak-tool\n"
+    echo "3. gnome-tweak-tool"
+    echo "4. vifm\n"
     echo "q. exit"
 
     read main_menu_input
@@ -42,6 +43,12 @@ menu_ask_user()
         . $HOME/dotfiles/setupfiles/gnome-tweak-tool
         menu_gtl
 
+    # Source vifm
+    elif [ $main_menu_input = '4' ]
+    then
+        echo $el_day_input ": Option 4, vifm file selected" >> $el_log
+        . $HOME/dotfiles/setupfiles/vifm
+        menu_vifm
 
     # Exit
     elif [ $main_menu_input = 'q' ]
