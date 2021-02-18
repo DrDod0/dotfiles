@@ -1,13 +1,14 @@
 #!/bin/bash
 # Author: @veggietorta
 # Update: 02.14.21
+# Purpose: Launching point for other installations and configurations
 
 
 menu_ask_user()
 {
     # Log function
     # Promp & read input
-    # Load source based on input using If/then statement
+    # Load source based on input using if/then statement
 
     echo $el_day_time ": Enter menu_ask_user" >> $el_log
     clear
@@ -21,10 +22,11 @@ menu_ask_user()
 
     read main_menu_input
 
+
     # Source ZSH file
     if [ $main_menu_input = '1' ]
     then
-        echo $el_day_time ": Option 1, Zsh file selected" >> $el_log
+        echo $el_day_time": Option 1, Zsh file selected" >> $el_log
         . $HOME/dotfiles/setupfiles/zsh
         menu_zsh
 
@@ -36,6 +38,7 @@ menu_ask_user()
         . $HOME/dotfiles/setupfiles/neovim
         menu_neovim
 
+
     # Source gnome-tweak-tool
     elif [ $main_menu_input = '3' ]
     then
@@ -43,16 +46,19 @@ menu_ask_user()
         . $HOME/dotfiles/setupfiles/gnome-tweak-tool
         menu_gtl
 
+
     # Source vifm
     elif [ $main_menu_input = '4' ]
     then
-        echo $el_day_input ": Option 4, vifm file selected" >> $el_log
+        echo $el_day_time ": Option 4, vifm file selected" >> $el_log
         . $HOME/dotfiles/setupfiles/vifm
         menu_vifm
+
 
     # Exit
     elif [ $main_menu_input = 'q' ]
     then
+        echo $el_day_time ": Option q, exit selected" >> $el_log
         exit 1
 
 
@@ -63,5 +69,13 @@ menu_ask_user()
 
 }
 
-. $HOME/dotfiles/setupfiles/logging_script
-log_it_up
+logger()
+{
+    # Source logging_script
+    . $HOME/dotfiles/setupfiles/logging_script
+
+    # Launch function log_it_up from logging_script
+    log_it_up
+}
+
+logger

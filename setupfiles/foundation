@@ -1,51 +1,67 @@
-Author: @veggietorta
-Update: 02.10.21
-System: Ubuntu 20.10
-Purpose: Install programs and system files required to install other installs
+#!/bin/bash
+# Author: @veggietorta
+# Update: 02.16.21
+# System: Ubuntu 20.10
+# Purpose: Install programs and system files required to install other installs
 
-# curl
-# check if curl is installed
-# if installed log and move on
-# if not installed, install curl and log
 
-if [ -x "$(command -v curl)" ]
-  then
-  echo "curl installed"
-  # log it
-else
-  sudo apt install curl -y
-  # log it
+#log
+$el_day_time ": Entered Foundation file" >> $el_log
+
+
+# curl, check if installed
+#   if installed log and move on
+#   if not installed, install curl and log
+
+if [ -x "$(command -v curl)" ];
+    then
+        #log
+        echo $el_day_time ": Foundation Curl installed" >> $el_log
+
+    else
+        #log
+        echo $el_day_time ": Foundation Curl not installed, moving forward with installation"
+
+        sudo apt install curl -y
 fi
 
 
-# git
-# check if git is installed
-# if installed log  and move on
-# if not installed, install and set-up config files
+# git, check if installed
+#   if installed log  and move on
+#   if not installed, install and set-up config files
 
-if [ -x "$(command -v git" ]
-  then
-  echo "git installed"
-  # logt it
-else
-  sudo apt install git-all -y
-  git config --global user.name "vt"
-  git config --global user.email "vt@vt.com"
-  # log it
+if [ -x "$(command -v git)" ];
+    then
+        # log
+        echo $el_day_time ": Foundation GIT installed" >> $el_log
+
+    else
+
+        # log
+        echo $el_day_time ": Git not installed, moving forward with installation"
+
+        sudo apt install git-all -y
+        git config --global user.name "vt"
+        git config --global user.email "vt@vt.com"
+
 fi
 
 
-# xclip
-# check if xclip is installed
-# if installed log and move on
-# if not installed, install and set-up config files
+# xclip, check if installed
+#   if installed log and move on
+#   if not installed, install and set-up config files
 
-if [ -x "$command -v xclip" ]
-  then
-  echo "xclip installed"
-  # log it
+if [ -x "$(command -v xclip)" ]
+then
+    # log
+    echo $el_day_time ": Foundation xclip installed" >> $el_log
+
 else
-  sudo apt install xclip -y
-  # log it
+    # log
+    echo $el_day_time ": Foundation xclip not installed, moving forward with installation" >> $el_log
+
+    sudo apt install xclip -y
 fi
 
+
+menu_ask_user

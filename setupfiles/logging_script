@@ -20,10 +20,10 @@ log_it_up()
     if [ -f "$el_log" ]
     then
         echo "---" >> $el_log
-        menu_ask_user
+        . $HOME/dotfiles/setupfiles/foundation
     else
         touch $el_log
         echo $el_day_time ": Log created" >> $el_log
-        menu_ask_user
+        . $HOME/dotfiles/setupfiles/foundation
     fi
 }

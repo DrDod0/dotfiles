@@ -1,19 +1,42 @@
+#!/bin/bash
 # Author: @veggietorta
 # Updated: 02.10.21
 # Installed: Ubuntu 20.10
+# Purpose: Install virtualbox and supporting items
+
+
+echo $el_day_time ": Entered virtualbox file" >> $el_log
+
+menu_virtualbox()
+{
+    echo $el_day_time ": Entered menu_virtualbox" >> $el_log
+
+    echo " Please select action:\n"
+    echo "  1. Install VirtualBox"
+    echo "  2. Install VirtualBox-ext-pack"
+    echo "  2. Review notes on VirtualBox\n"
+    echo "  r. Return to Main Menu"
+
+    read user_input_virtualbox
+
+
+    # VirtualBox
+    if [ -x "$(command -v vboxmanage)"];
+    then
+        echo
 
 # Note to user
 echo "To enable full features, enable Virtualization on BIOS of host computer
-pause
+pause"
 
 # Install VirtualBox
 sudo apt install virtualbox
 
 # Install VirtualBox Extension pack
-audo apt instal virtualbox-ext-pack
+sudo apt instal virtualbox-ext-pack
 
 ## WINDOW Specific settings:
-# Setting -> System -> Motherboard -> 
+# Setting -> System -> Motherboard ->
                                     -> Enable EFI (special OSes only)
                                     -> Enable I/O APIC
                                     -> Hardware Clock in UTC Time
@@ -23,5 +46,7 @@ audo apt instal virtualbox-ext-pack
            -> Display -> Enable 2D Aceleration
            -> Storage -> Empty Disk -> Optical Drive -> Select ISO
 # After installation select 'Devices' from menu, and select 'Insert Guest Additions CD image..', maintain defaults in installation
-                                  
-          
+
+
+
+}

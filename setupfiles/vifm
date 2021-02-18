@@ -55,11 +55,11 @@ menu_vifm()
         rm $HOME/.config/vifm/vifmrc 2>>log
 
         # Symbolic link
-        ln -s $HOME/dotfiles/configs/vifm/vifmrc $HOME/.config/vifm/
-        ln -s $HOME/dotfiles/configs/vifm/dracula.vifm $HOME/.config/vifm/colors/
-        ln -s $HOME/dotfiles/configs/vifm/gruvbox.vifm $HOME/.config/vifm/colors/
-        ln -s $HOME/dotfiles/configs/vifm/molokai.vifm $HOME/.config/vifm/colors/
-        ln -s $HOME/dotfiles/configs/vifm/palenight.vifm $HOME/.config/vifm/colors/
+        ln -s $HOME/dotfiles/configs/vifm/vifmrc $HOME/.config/vifm/ 2>>log
+        ln -s $HOME/dotfiles/configs/vifm/dracula.vifm $HOME/.config/vifm/colors/ 2>>log
+        ln -s $HOME/dotfiles/configs/vifm/gruvbox.vifm $HOME/.config/vifm/colors/ 2>>log
+        ln -s $HOME/dotfiles/configs/vifm/molokai.vifm $HOME/.config/vifm/colors/ 2>>log
+        ln -s $HOME/dotfiles/configs/vifm/palenight.vifm $HOME/.config/vifm/colors/ 2>>log
 
         echo Symbolic links for vifmrc and theme established
 
@@ -68,10 +68,10 @@ menu_vifm()
         menu_vifm
 
 
-    elif [ $user_input_vifm = '3' ];
+    elif [ $user_input_vifm = 'r' ];
     then
         # log
-        echo $el_day_time ": Input received as 3, return to Main Menu"
+        echo $el_day_time ": Input received as r, return to Main Menu" >> $el_log
 
         menu_ask_user
 
