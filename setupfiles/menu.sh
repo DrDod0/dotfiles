@@ -17,7 +17,8 @@ menu_ask_user()
     echo "1. zsh and Oh-my-zsh"
     echo "2. neovim"
     echo "3. gnome-tweak-tool"
-    echo "4. vifm\n"
+    echo "4. vifm"
+    echo "5. virtualbox\n"
     echo "q. exit"
 
     read main_menu_input
@@ -54,6 +55,12 @@ menu_ask_user()
         . $HOME/dotfiles/setupfiles/vifm
         menu_vifm
 
+    # virtualbox
+    elif [ $main_menu_input = '5' ]
+    then
+        echo $el_day_time ": Option 5, virtualbox file selected" >> $el_log
+        . $HOME/dotfiles/setupfiles/virtualbox
+        menu_virtualbox
 
     # Exit
     elif [ $main_menu_input = 'q' ]
