@@ -13,12 +13,14 @@ menu_ask_user()
     echo $el_day_time ": Enter menu_ask_user" >> $el_log
     clear
 
-    echo "Select program to setup or modify:\n"
+    echo "Select program to setup or modify:"
+    echo ""
     echo "1. zsh and Oh-my-zsh"
     echo "2. neovim"
     echo "3. gnome-tweak-tool"
     echo "4. vifm"
-    echo "5. virtualbox\n"
+    echo "5. virtualbox"
+    echo ""
     echo "q. exit"
 
     read main_menu_input
