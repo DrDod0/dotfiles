@@ -1,5 +1,5 @@
 # Author: @veggietorta
-# Last updated: 08.04.20
+# Last updated: 02.19.21
 # Location: ~/
 
 # Path to your oh-my-zsh installation.
@@ -29,10 +29,10 @@
         colorize
         )
 
-# Oh-my-zsh
+# Oh-My-Zsh
 	source $ZSH/oh-my-zsh.sh
 
-# Alias location
+# Alias Location
     source ~/dotfiles/configs/alias/alias_ubuntu
 
 # Vim Keybinding in shell:
@@ -75,3 +75,37 @@
 #    fi
 
 #neofetch --tycat --source $HOME/dotfiles/configs/wallpapers/muerte.jpg
+
+
+# GNOME Terminal, reduce title bar, requires xdotool
+    if [ -x "$(command -v xdotool)" ];
+    then
+        #
+        if [ "$TERM" = "xterm-256color" ]; then
+          xprop \
+            -id $(xdotool getactivewindow) \
+            -f _MOTIF_WM_HINTS 32c \
+            -set _MOTIF_WM_HINTS "0x2, 0x0, 0x0, 0x0, 0x0"
+        fi
+    fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
