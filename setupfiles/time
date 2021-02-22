@@ -1,0 +1,80 @@
+#!/bin/bash
+# Author: @veggietorta
+# Update: 02.18.21
+# Purpose: Time related changes
+
+
+# log
+echo $el_day_time ": Entered time file" >> $el_log
+
+menu_time()
+{
+
+    # log
+    echo $el_day_time ": Entered menu_time() " >> $el_log
+
+    # Request input from user
+    echo "Please select an action:"
+    echo ""
+    echo "0. View current time settings"
+    echo "1. View Time Zone options"
+    echo "2. Change Time Zone"
+    echo "3. Change"
+    echo ""
+    echo "r. Return to Main Menu"
+
+    read user_menu_selection
+
+
+    if [ $user_menu_selection = '0' ];
+    then
+        timedatectl
+        menu_time
+
+
+    elif [ $user_menu_selection = '1' ];
+    then
+
+        clear
+        echo /usr/share/zoneinfo
+        echo
+        timedatectl list-timezones >> temp_time_file
+        cat temp_time_file
+        rm temp_time_file
+
+        menu_time
+
+
+    elif [ $user_menu_selection = '2' ];
+    then
+        clear
+        echo "Enter timezone name, for example:"
+        echo ""
+        echo "      America/Los_Angeles"
+        echo ""
+        echo ": "
+
+        read user_new_time_zone
+
+        sudo timedatectl set-timezone $user_new_time_zone
+
+        menu_time
+
+
+    elif [ $user_menu_selection = 'r' ];
+    then
+        # log
+        echo $el_day_time": menu_time input received as 'r', sent to main_menu_input" >> $el_log
+
+        menu_ask_user
+
+
+    else
+        echo "Input not understood, please try again."
+
+        menu_time
+
+    fi
+
+}
+

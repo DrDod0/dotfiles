@@ -4,23 +4,27 @@
 # System: Ubuntu 20.10
 # Purpose: Install neovim and/or supporting neovim items
 
-
+# log
 echo $el_day_time ": Neovim file sourced" >> $el_log
 
 
 menu_neovim()
 {
+    #log
     echo $el_day_time ": Entered menu_neovim function" >> $el_log
 
     clear
 
     # Promp user for input
-    echo "Please select action:\n"
+    echo "Please select action:"
+    echo ""
     echo "  1. Install Neovim"
     echo "  2. Install Plugin manager"
     echo "  3. Install custom .vimrc "
     echo "  4. Install custom font"
-    echo "  5. Install node (required for COC)\n"
+    echo "  5. Install node (required for COC)"
+    echo "  6. Install vim"
+    echo ""
     echo "  r. Return to Main Menu"
 
     read user_input_neovim
@@ -46,7 +50,7 @@ menu_neovim()
         else
             # log
             echo $el_day_time ": Neovim not found on system, move forward with install" >> $el_log
-            sudo apt install neovim vim -y
+            sudo apt install neovim -y
             menu_neovim
         fi
 
@@ -102,6 +106,18 @@ menu_neovim()
             # Node install
             curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
             sudo apt install nodejs
+
+            menu_neovim
+
+
+    # Install Vim
+    elif [ $user_input_neovim = "6" ];
+        then
+            # log
+            echo $el_day_time ": Input received as 6, Install Vim" >> $el_log
+
+            # Vim Install
+            sudo apt install vim -y
 
             menu_neovim
 

@@ -16,10 +16,12 @@ menu_ask_user()
     echo "Select program to setup or modify:"
     echo ""
     echo "1. zsh and Oh-my-zsh"
-    echo "2. neovim"
+    echo "2. vim or neovim"
     echo "3. gnome-tweak-tool"
     echo "4. vifm"
     echo "5. virtualbox"
+    echo "6. time"
+    echo "7. python3"
     echo ""
     echo "q. exit"
 
@@ -27,22 +29,29 @@ menu_ask_user()
 
 
     # Source ZSH file
-    if [ $main_menu_input = '1' ]
+    if [ $main_menu_input = '6' ]
+    then
+        echo $el_day_time": Option 6, time file selected" >> $el_log
+        . $HOME/dotfiles/setupfiles/time
+        menu_time
+
+    # Source ZSH file
+    elif [ $main_menu_input = '1' ]
     then
         echo $el_day_time": Option 1, Zsh file selected" >> $el_log
         . $HOME/dotfiles/setupfiles/zsh
         menu_zsh
 
 
-    # Source Neovim file
+    # Source Vim or Neovim file
     elif [ $main_menu_input = '2' ]
     then
-        echo $el_day_time ": Option 2, Neovim file selected" >> $el_log
-        . $HOME/dotfiles/setupfiles/neovim
+        echo $el_day_time ": Option 2, Vim or Neovim file selected" >> $el_log
+        . $HOME/dotfiles/setupfiles/neovim_vim
         menu_neovim
 
 
-    # Source gnome-tweak-tool
+    # Source gnome-tweak-tool file
     elif [ $main_menu_input = '3' ]
     then
         echo $el_day_input ": Option 3, gnome-tweak-tool file selected" >> $el_log
@@ -50,19 +59,27 @@ menu_ask_user()
         menu_gtl
 
 
-    # Source vifm
+    # Source vifm file
     elif [ $main_menu_input = '4' ]
     then
         echo $el_day_time ": Option 4, vifm file selected" >> $el_log
         . $HOME/dotfiles/setupfiles/vifm
         menu_vifm
 
-    # virtualbox
+    # Source virtualbox file
     elif [ $main_menu_input = '5' ]
     then
         echo $el_day_time ": Option 5, virtualbox file selected" >> $el_log
         . $HOME/dotfiles/setupfiles/virtualbox
         menu_virtualbox
+
+
+    # Source Python3 file
+    elif [ $main_menu_input = '7' ]
+    then
+        echo $el_day_time ": Option 7, virtualbox file selected" >> $el_log
+        . $HOME/dotfiles/setupfiles/python3
+        menu_python
 
     # Exit
     elif [ $main_menu_input = 'q' ]
@@ -71,6 +88,7 @@ menu_ask_user()
         exit 1
 
 
+    # Input not received, start over
     else
         echo $el_day_time ": Input not understood sent back to menu_ask_user" >> $el_log
         menu_ask_user

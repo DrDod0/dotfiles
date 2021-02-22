@@ -1,0 +1,22 @@
+#!/bin/bash
+# Author: @veggietorta
+# Update: 02.20.21
+# Purpose: Install python3 and supporting items
+
+
+# log
+echo $el_day_time ": Entered python file" >> $el_log
+
+menu_python()
+{
+
+    # log
+    echo $el_day_time ": Entered menu_python" >> $el_log
+
+    # Install python3
+    sudo apt install python3-pip -y
+
+    # Main menu
+    menu_ask_user
+
+}
