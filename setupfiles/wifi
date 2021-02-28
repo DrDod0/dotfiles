@@ -1,0 +1,11 @@
+
+# Multiple IP address showing for a system
+
+sudo ip addr flush dev eth0
+sudo ip addr flush dev wlan0
+
+
+# push key to server
+cat ~/.ssh/id_rsa.pub | ssh user@hostname 'cat >> .ssh/authorized_keys'
+
+#

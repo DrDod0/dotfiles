@@ -1,0 +1,89 @@
+#!/bin/bash
+# Author: @veggietorta
+# Update: 02.27.21
+# Purpose: Set-up SSH properly
+
+
+menu_ssh()
+{
+    echo ""
+    echo "1. List users"
+    echo "2. Remove user"
+    echo "3. Generating SSH Keys"
+    echo "4. Adding SSH Key to ssh-agent"
+    echo "5. Change hostname"
+
+    read menu_ssh_input
+
+
+    # List users
+    if [ $menu_ssh_input = '1' ];
+    then
+        #log list users
+        clear
+        getent passwd
+        menu_ssh
+
+
+    # Remove user
+    elif [ $menu_ssh_input = '2' ];
+    then
+
+        # log list users
+        getent passwd
+        echo ""
+
+        #log remove user
+        echo "Enter user to be deleted:"
+
+        read user_to_delete
+
+        sudo deluser --remove-home $user_to_delete
+
+        echo "Confirm user has been removed: "
+        getent passwd
+
+
+    # Generating SSH Keys
+    elif [ $menu_ssh_input = '3' ];
+    then
+
+        #log generating SSH Keys
+        ssh-keygen -t ed25519 -C "vt@T480"
+
+
+    # Adding SSH Key to ssh-agent
+    elif [ $menu_ssh_input = '4' ];
+    then
+
+        #enable ssh-agent in background
+        eval "$(ssh-agent-s)"
+
+        #log add SSH private key to ssh-agent
+        ssh-add ~/.ssh/id_ed25519.pub
+
+
+    # Change Hostname (computer name)
+    elif [ $menu_ssh_input = '5' ];
+    then
+
+        echo "Enter hostname: "
+
+        read input_hostname
+
+        hostnamectl set-hostname $input_hostname
+
+
+    else
+        #log
+        echo "Input not understood, try again"
+        menu_ssh
+
+    fi
+
+
+
+}
+
+menu_ssh
+

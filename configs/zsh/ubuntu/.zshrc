@@ -44,8 +44,12 @@
 
 # FZF
     # Source if installed
-#    if [ -x "$(command -v fzf)" ]
-#        then
+    if [ -x "$(command -v fzf)" ]
+    then
+        source /usr/share/doc/fzf/examples/key-bindings.zsh
+        source /usr/share/doc/fzf/examples/completion.zsh
+    fi
+
 #            [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 #            plugins=(fzf)
 #    fi

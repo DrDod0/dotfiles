@@ -1,9 +1,5 @@
-" Author: @veggietorta
-" Update: 08.06.20
-" Location: ~/.config/nvim/
-
-
-set runtimepath^=/.vim runtimepath+=~/.vim/after
-let &packpath = &runtimepath
-source ~/.vimrc
+source $HOME/dotfiles/configs/neovim/plugins.vim
+source $HOME/dotfiles/configs/neovim/settings.vim
+source $HOME/dotfiles/configs/neovim/mappings.vim
+source $HOME/dotfiles/configs/neovim/apperance.vim
 

@@ -1,0 +1,7 @@
+
+
+
+sudo install ffmpeg -y
+sudo snap install youtube-dl -y
+sudo ln -s /usr/bin/python3 /usr/bin/python
+

@@ -22,6 +22,9 @@ menu_ask_user()
     echo "5. virtualbox"
     echo "6. time"
     echo "7. python3"
+     # 8. youtube-dl
+     # 9. ssh
+
     echo ""
     echo "q. exit"
 
