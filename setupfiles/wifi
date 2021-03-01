@@ -1,11 +1,192 @@
+#!/bin/bash
+# Author: @veggietorta
+# Update: 02.28.21
+# Purpose: Increasing my lazyness with wifi
 
-# Multiple IP address showing for a system
 
-sudo ip addr flush dev eth0
-sudo ip addr flush dev wlan0
+menu_wifi()
+    {
+
+    echo "*******************************************"
+    echo "*******************************************\n"
+    echo "Select your action:
+
+    1. Clients on current network
+    2. My ip address
+    4. Mounted drives
+    5. Configure_time
+    6. Update and Upgrade System
+    7. Weather
+    8. Geo location
+    9. Wifi card name
+    10. Connect to Wifi
+    11. Gateway / router address
+    12. Edit SourceList
+    13. Wifi networks available
+    14. Current network interface
+    15. Systems temps
+    16. DNS information
+    17. Flush IP Address
+    "
+
+    read users_selection
+
+    case "$users_selection" in
+
+    1) Clients_on_current_network;;
+    2) My_ip_address;;
+    4) Mounted_drives;;
+    5) Configure_time;;
+    6) Update_Upgrade_System;;
+    7) Weather;;
+    8) Geo_location;;
+    9) Wifi_card_name;;
+    10) Connect_to_Wifi;;
+    11) Gateway_router_address;;
+    12) Edit_Source_list;;
+    13) Wifi_networks_available;;
+    14) Current_network_interface;;
+    15) Systems_temps;;
+    16) DNS_information;;
+    17) Flush_ip_address
+
+    esac
+    }
+
+DNS_information()
+    {
+    clear
+    echo DNS server in linux is stored in /etc/resolv.conf
+    grep nameserver /etc/resolv.conf
+    }
+
+Systems_temps()
+    {
+        #raspe/opt/vc/bin/vcgencmd measure_tempberry pi,
+            # /opt/vc/bin/vcgencmd measure_temp
+
+        #debian
+            #sudo apt install lm-sensors
+            sensors
+    }
+
+Current_network_interface()
+    {
+        nmcli d
+    }
+
+Wifi_networks_available()
+    {
+        nmcli d wifi
+        nmcli -f "CHAN,BARS,SIGNAL,SSID" d wifi | sort -n
+    }
 
 
-# push key to server
-cat ~/.ssh/id_rsa.pub | ssh user@hostname 'cat >> .ssh/authorized_keys'
+Edit_Source_list()
+    {
+        sudo vim /etc/apt/sources.list
+    }
 
-#
+Gateway_router_address()
+    {
+        ip route | grep default
+
+        # alternative, $ sudo apt install net-tools
+                    #  $ netstat -r -n
+    }
+
+Connect_to_Wifi()
+    {
+        # debian need apt-get install network-manager
+            nmtui
+        # if raspberrypi
+            #raspi-config
+    }
+
+Wifi_card_name()
+    {
+        ls /sys/class/net
+    }
+
+Geo_location()
+    {
+        curl ipinfo.io/8.8.8.8
+    }
+
+Weather()
+    {
+        curl -H "Accept-Language: ${LANG%_*}" wttr.in/"${1:-Hayward}"
+    }
+
+Update_Upgrade_System()
+    {
+        sudo apt-get update -y && sudo apt-get dist-upgrade -y && apt autoremove -y
+    }
+
+Configure_time()
+    {
+        sudo dpkg-reconfigure tzdata
+    }
+
+Mounted_drives()
+    {
+        sudo lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL
+    }
+
+Clients_on_current_network()
+    {
+        if [ -x "$(command -v arp-scan)" ]
+        then
+            sudo arp-scan --localnet
+            ask_user
+        else
+            # echo Woudl you like to install arp-scan
+            # sudo apt install arp-scan -y
+
+            # arp-scan --localnet
+            echo arp-scan not found
+            echo here is a less detailed option.
+            ip neigh
+            ask_user
+        fi
+    }
+
+My_ip_address()
+    {
+    echo "Local IP address:"
+    hostname -I
+    echo ""
+
+    echo "Public IP address:"
+    if [ -x "$(command -v curl)" ]
+    then
+        curl https://ipinfo.io/ip
+        echo ""
+    elif [ -x "$(command -v wget)" ]
+    then
+        wget -qO- https://ipecho.net/plain ; echo \n
+        echo ""
+        ask_user
+    else
+        echo "curl or wget are needed, for a Public IP address, install (y/n)?"
+        select yn in "Yes" "No"
+        case $yn in
+            Yy ) sudo apt install wget && curl -y ;;
+            Nn ) ask_user;;
+        esac
+    fi
+    }
+
+Flush_ip_address()
+    {
+    # Multiple IP address showing for a system
+    sudo ip addr flush dev eth0
+    sudo ip addr flush dev wlan0
+    }
+
+
+
+
+
+
+

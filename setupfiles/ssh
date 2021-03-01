@@ -4,14 +4,21 @@
 # Purpose: Set-up SSH properly
 
 
+echo $el_day_time ": Entered SSH file" >> $el_log
+
 menu_ssh()
 {
+
+    echo $el_day_time ": Entered menu_ssh" >> $el_log
+
     echo ""
     echo "1. List users"
     echo "2. Remove user"
     echo "3. Generating SSH Keys"
     echo "4. Adding SSH Key to ssh-agent"
     echo "5. Change hostname"
+    echo "6. Push SSH Key to server"
+
 
     read menu_ssh_input
 
@@ -20,6 +27,8 @@ menu_ssh()
     if [ $menu_ssh_input = '1' ];
     then
         #log list users
+        echo $el_day_time "Menu_ssh input received as 1 " >> $el_log
+
         clear
         getent passwd
         menu_ssh
@@ -30,10 +39,11 @@ menu_ssh()
     then
 
         # log list users
+        echo $el_day_time "Menu_ssh input received as 2 " >> $el_log
+
         getent passwd
         echo ""
 
-        #log remove user
         echo "Enter user to be deleted:"
 
         read user_to_delete
@@ -49,12 +59,17 @@ menu_ssh()
     then
 
         #log generating SSH Keys
+        echo $el_day_time "Menu_ssh input received as 3 " >> $el_log
+
         ssh-keygen -t ed25519 -C "vt@T480"
 
 
     # Adding SSH Key to ssh-agent
     elif [ $menu_ssh_input = '4' ];
     then
+
+        #log
+        echo $el_day_time "Menu_ssh input received as 4 " >> $el_log
 
         #enable ssh-agent in background
         eval "$(ssh-agent-s)"
@@ -67,11 +82,31 @@ menu_ssh()
     elif [ $menu_ssh_input = '5' ];
     then
 
+        #log
+
+        echo $el_day_time "Menu_ssh input received as 5 " >> $el_log
+
         echo "Enter hostname: "
 
         read input_hostname
 
         hostnamectl set-hostname $input_hostname
+
+
+    # Push SSH key to server
+    elif [ $menu_ssh_input = '6' ];
+    then
+
+        #log
+        echo $el_day_time "Menu_ssh input received as 5 " >> $el_log
+
+        echo "Enter username & server address, example: ubutnu@10.216.1.18"
+        echo ""
+
+        read server_address
+
+
+        cat ~/.ssh/id_ed25519.pub | ssh $server_address 'cat >> .ssh/authorized_keys'
 
 
     else
@@ -81,9 +116,6 @@ menu_ssh()
 
     fi
 
-
-
 }
 
-menu_ssh
 

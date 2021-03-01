@@ -1,0 +1,28 @@
+#!/bin/bash
+# Author: @veggietorta
+# Update: 02.28.21
+
+
+Install_plex()
+{
+    # prep system
+    sudo apt-get update -y
+    sudo apt-get upgrade -y
+
+    # Allow apt packages over https
+    sudo apt-get install apt-transport-https -y
+
+    # Dll and add plex GPG key to package manager
+    curl https://downloads.plex.tv/plex-keys/PlexSign.key | sudo apt-key add -
+
+    # Add official Plex repo
+    echo deb https://downloads.plex.tv/repo/deb public main | sudo tee /etc/apt/sources.list.d/plexmediaserver.list
+
+    # update system, again
+    sudo apt-get update -y
+    sudo apt-get upgrade -y
+
+    # Install plex media server
+    sudo apt install plexmediaserver -y
+    echo plex is installed
+}
