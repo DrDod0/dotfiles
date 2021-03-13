@@ -1,0 +1,32 @@
+# set-up keybinding to launch dmenu
+
+    settings -> keyboard shortcuts -> Scroll to '+' ->
+
+    Name: dmenu
+    Command: dmenu_run   -l 20 -nb '#44475a' -sf '#eeeeee' -sb '#bd93f9' -nf '#ff79c6'
+    Shortcut Alt + SPACE
+
+
+
+# download dmenu
+    https://tools.suckless.org/dmenu/
+
+
+# download patch center into dmenu directory
+    https://tools.suckless.org/dmenu/patches/case-insensitive/
+
+    $ patch -p1 < dmenu-center-XXX.diff
+    $ sudo make install
+
+
+# download patch case insensitive
+    https://tools.suckless.org/dmenu/patches/center/
+
+
+    $ patch -p1 < dmenu-center-XXX.diff
+    $ sudo make install
+
+
+# Dependencies
+
+    $ sudo apt install libxft-dev

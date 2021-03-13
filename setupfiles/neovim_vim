@@ -75,7 +75,7 @@ menu_neovim()
             rm $HOME/.vimrc 2>>log
 
             # Symbolic link to .vimrc
-            ln -s $HOME/dotfiles/config/vim/.vimrc $HOME/
+            ln -s $HOME/dotfiles/configs/vim/.vimrc $HOME/
 
             menu_neovim
 

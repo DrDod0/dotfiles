@@ -99,33 +99,50 @@ set statusline="  %t%= %A %11u:%-7g %15E %20d "
 
 " Information for status bar
 " set statusline="%-35f%10E%20d%15A | Осталось места: %8a"
-command! df df -h %m 2> /dev/null
-command! diff nvim -d %f %F
+"command! df df -h %m 2> /dev/null
+"command! diff nvim -d %f %F
 
-" Images
-    "fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.nef,*.xpm
-    "        \ tput cup %py %px > /dev/tty && preview.py %c:p --width %pw --height %ph
-
-" Images iTerm2 specific
-"fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-"    \ tput cup %py %px > /dev/tty && /usr/local/bin/imgcat --width %pw --height %ph %c:p > /dev/tty
-
-fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-    \ tput cup %py %px > /dev/tty && /Users/vt/.iTerm2/imgcat --width %pw --height %ph %c:p > /dev/tty
-
-" pdf
 fileviewer *.pdf
-         \ tput cup %py %px > /dev/tty && preview.py %c --width %pw --height %ph --type pdf
+        \ vifmimg pdfpreview %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
 
-" Audio
-fileviewer *.mp3 mp3info
-fileviewer *.flac soxi
+    fileviewer *.epub
+        \ vifmimg epubpreview %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
 
-" Video
-fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
-          \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
-          \*.as[fx]
-         \ tput cup %py %px > /dev/tty && preview.py %c --width %pw --height %ph --type video
+    fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
+        \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
+        \ vifmimg videopreview %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
+
+    fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.xpm
+        \ vifmimg draw %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
+
+    fileviewer *.gif
+        \ vifmimg gifpreview %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
+
+    fileviewer *.ico
+        \ vifmimg magickpreview %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
+
+    fileviewer <audio/*>
+        \ vifmimg audiopreview %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
+
+    fileviewer <font/*>
+        \ vifmimg fontpreview %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
+
 
 " Epub
 fileviewer *.epub epub2txt ./%c
@@ -152,6 +169,7 @@ fileviewer *.docx docx2txt.pl %f -
 "
 " 256-color terminal
 fileviewer *[^/] highlight -O ansi --force %c
+
 " fileviewer *.[ch],*.[ch]pp highlight -O xterm256 -s dante --syntax c %c
 " fileviewer Makefile,Makefile.* highlight -O xterm256 -s dante --syntax make %c
 "

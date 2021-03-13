@@ -1,4 +1,5 @@
 #!/bin/bash
+#
 # Author: @veggietorta
 # Update: 02.14.21
 # Purpose: Launching point for other installations and configurations
@@ -10,41 +11,71 @@ menu_ask_user()
     # Promp & read input
     # Load source based on input using if/then statement
 
+
     echo $el_day_time ": Enter menu_ask_user" >> $el_log
     clear
 
-    echo "Select program to setup or modify:"
-    echo ""
-    echo "1. zsh and Oh-my-zsh"
-    echo "2. vim or neovim"
-    echo "3. gnome-tweak-tool"
-    echo "4. vifm"
-    echo "5. virtualbox"
-    echo "6. time"
-    echo "7. python3"
-     # 8. youtube-dl
-    echo 9. SSH
-    echo 10. Wifi
+    main_menu_input=$(
+    whiptail --menu "Select program to setup or modify" 25 65 15 \
+        "1)" "zsh and Oh-my-zsh" \
+        "2)" "vim or neovim" \
+        "3)" "gnome-tweak-tool" \
+        "4)" "vifm" \
+        "5)" "virtualbox" \
+        "6)" "time" \
+        "7)" "python3" \
+        "8)" "youtube-dl | ytfzf | fzf" \
+        "9)" "SSH" \
+        "10)" "Wifi" 3>&1 1>&2 2>&3
+    )
     # echo 11. Plex
+    # echo 12. dmenu
+    # echo OS check
+    # echo fzf
+    # echo foundation
 
-    echo ""
-    echo "q. exit"
 
-    read main_menu_input
+    case $main_menu_input in
+        "10)")
+            source $HOME/dotfiles/setupfiles/wifi/launch.sh
+            menu_wifi
+            ;;
+    esac
+
+
+
+
+
+
+
+
+    if [ -z $main_menu_input ];
+        then
+            echo "You canceled"
+        else
+            "something something"
+    fi
 
 
     # Source SSH file
-    if [ $main_menu_input = '9' ]
+    if [ $main_menu_input = '9' ];
         then
             echo $el_day_time": Option 9, time file selected" >> $el_log
             . $HOME/dotfiles/setupfiles/ssh
             menu_ssh
 
+    # Source youtube-dl & ytfzf file
+    elif [ $main_menu_input = '8' ]
+        then
+            echo $el_day_time": Option 8, time file selected" >> $el_log
+            . $HOME/dotfiles/setupfiles/yt-fzf
+            menu_yt-fzf
+
     # Source wifi file
     elif [ $main_menu_input = '10' ]
         then
             echo $el_day_time": Option 10, time file selected" >> $el_log
-            . $HOME/dotfiles/setupfiles/wifi
+            . $HOME/dotfiles/setupfiles/wifi/wifi
             menu_wifi
 
     # Source time file

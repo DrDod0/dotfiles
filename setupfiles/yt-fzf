@@ -1,0 +1,102 @@
+#!/bin/bash
+# Author: @veggietorta
+# Update: 03.07.21
+# Purpose: Install ytfzf
+
+
+#log
+echo $el_day_time ": Entered yt-fzf file" >> $el_log
+
+menu_yt-fzf()
+{
+    #log
+    echo $el_day_time ": Entered menu_yt-fzf function" >> $el_log
+
+    echo Select action:
+    echo
+    echo "1. Install ytfzf"
+    echo "2. Install youtube-dl"
+    echo "3. Install fzf"
+    echo
+
+    read menu_ytfzf_input
+
+
+    # Install ytfzf
+    if [ $menu_ytfzf_input = '1' ];
+        then
+
+            #log
+            echo $el_day_time ": menu_ytfzf_input received as 1" >> $el_log
+
+            # Install Dependencies
+            sudo apt install libjpeg8-dev zlib1g-dev python-dev python3-dev libxtst-dev -y
+            sudo apt install jq mpv youtube-dl fzf -y
+
+
+            # Install to use thumbnail option
+            pip install ueberzug -y
+
+
+            # Install Actuall program
+            cd ~/
+            git clone https://github.compystardust/ytfzf
+            cd ytfzf
+            sudo make install
+
+
+            # echo >>
+
+            menu_yt-fzf
+
+    # Install youtube-dl
+    elif [ $menu_yt_input = '2' ];
+        then
+
+            #log
+            echo $el_day_time ": menu_ytfzf_input received as 2" >> $el_log
+
+            sudo install ffmpeg -y
+            sudo snap install youtube-dl -y
+            sudo ln -s /usr/bin/python3 /usr/bin/python
+
+
+            menu_yt-fzf
+
+    # Install fzf
+    elif [ $menu_yt_input = '3' ];
+        then
+
+            #log
+            echo $el_day_time ": menu_ytfzf_input received as 3" >> $el_log
+
+            sudo apt install fzf -y
+
+            echo Zsh
+            echo ===
+
+            echo Append this line to ~/.zshrc to enable fzf keybindings for Zsh:
+            echo ">>> $ source /usr/share/doc/fzf/examples/key-bindings.zsh"
+
+            echo Append this line to ~/.zshrc to enable fuzzy auto-completion for Zsh:
+            echo ">>> $ source /usr/share/doc/fzf/examples/completion.zsh"
+
+
+            echo Vim
+            echo ===
+
+            echo The straightforward way to use fzf.vim is appending this line to your vimrc:
+            echo ">>> $ source /usr/share/doc/fzf/examples/fzf.vim"
+
+
+            menu_yt-fzf
+
+    # Input not understood
+    else
+            #log
+            echo $el_day_time ": menu_ytfzf_input not understood, return to menu_yt-fzf" >> $el_log
+
+            menu_yt-fzf
+
+    fi
+}

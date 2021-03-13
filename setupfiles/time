@@ -19,7 +19,7 @@ menu_time()
     echo "0. View current time settings"
     echo "1. View Time Zone options"
     echo "2. Change Time Zone"
-    echo "3. Change"
+    echo "3. Change Time"
     echo ""
     echo "r. Return to Main Menu"
 
@@ -58,6 +58,12 @@ menu_time()
 
         sudo timedatectl set-timezone $user_new_time_zone
 
+        menu_time
+
+    elif [ $user_menu_selection = '3' ];
+    then
+        clear
+        sudo dpkg-reconfigure tzdata
         menu_time
 
 

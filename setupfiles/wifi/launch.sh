@@ -4,60 +4,102 @@
 # Purpose: Increasing my lazyness with wifi
 
 
-menu_wifi()
-    {
 
-    echo "*******************************************"
-    echo "*******************************************\n"
-    echo "Select your action:
 
-    1. Clients on current network
-    2. My ip address
-    4. Mounted drives
-    5. Configure_time
-    6. Update and Upgrade System
-    7. Weather
-    8. Geo location
-    9. Wifi card name
-    10. Connect to Wifi
-    11. Gateway / router address
-    12. Edit SourceList
-    13. Wifi networks available
-    14. Current network interface
-    15. Systems temps
-    16. DNS information
-    17. Flush IP Address
-    "
+pause 3
+clear
 
-    read users_selection
+users_selection=$(
+whiptail --title "Wifi tools" --menu "Make your choice" 16 100 9 \
 
-    case "$users_selection" in
+"1)" "Clients on current network" \
+"2)" "My ip address" \
+"4)" "Mounted drives" \
+"6)" "Update and Upgrade System" \
+"7)" "Weather" \
+"8)" "Geo location" \
+"9)" "Wifi card name" \
+"10)" "Connect to Wifi" \
+"11)" "Gateway / router address" \
+"12)" "Edit SourceList" \
+"13)" "Wifi networks available" \
+"14)" "Current network interface" \
+"15)" "Systems temps" \
+"16)" "DNS information" \
+"17)" "Flush IP Address" \ 3>&2 2>&1 1>&3
+)
 
-    1) Clients_on_current_network;;
-    2) My_ip_address;;
-    4) Mounted_drives;;
-    5) Configure_time;;
-    6) Update_Upgrade_System;;
-    7) Weather;;
-    8) Geo_location;;
-    9) Wifi_card_name;;
-    10) Connect_to_Wifi;;
-    11) Gateway_router_address;;
-    12) Edit_Source_list;;
-    13) Wifi_networks_available;;
-    14) Current_network_interface;;
-    15) Systems_temps;;
-    16) DNS_information;;
-    17) Flush_ip_address
+case "$users_selection" in
+"1)")
+    Clients_on_current_network
+    ;;
 
-    esac
-    }
+"2)")
+    My_ip_address
+    ;;
+
+"4)")
+    Mounted_drives
+    ;;
+
+"6)")
+    Update_Upgrade_System
+    ;;
+
+"7)")
+    Weather
+    ;;
+
+"8)")
+    Geo_location
+    ;;
+
+"9)")
+    Wifi_card_name
+    ;;
+
+"10)")
+    Connect_to_Wifi
+    ;;
+
+"11)")
+    Gateway_router_address
+    ;;
+
+"12)")
+    Edit_Source_list
+    ;;
+
+"13)")
+    Wifi_networks_available
+    ;;
+
+"14)")
+    Current_network_interface
+    ;;
+
+"15)")
+    Systems_temps
+    ;;
+
+"16)")
+    #DNS_information
+    grep nameserver /etc/resolv.conf
+    ;;
+
+"17)")
+    Flush_ip_address
+    ;;
+
+esac
+
 
 DNS_information()
     {
     clear
     echo DNS server in linux is stored in /etc/resolv.conf
     grep nameserver /etc/resolv.conf
+    menu_wifi
     }
 
 Systems_temps()
@@ -68,23 +110,27 @@ Systems_temps()
         #debian
             #sudo apt install lm-sensors
             sensors
+            menu_wifi
     }
 
 Current_network_interface()
     {
         nmcli d
+        menu_wifi
     }
 
 Wifi_networks_available()
     {
         nmcli d wifi
         nmcli -f "CHAN,BARS,SIGNAL,SSID" d wifi | sort -n
+        menu_wifi
     }
 
 
 Edit_Source_list()
     {
         sudo vim /etc/apt/sources.list
+        menu_wifi
     }
 
 Gateway_router_address()
@@ -93,6 +139,7 @@ Gateway_router_address()
 
         # alternative, $ sudo apt install net-tools
                     #  $ netstat -r -n
+        menu_wifi
     }
 
 Connect_to_Wifi()
@@ -101,36 +148,39 @@ Connect_to_Wifi()
             nmtui
         # if raspberrypi
             #raspi-config
+        menu_wifi
     }
 
 Wifi_card_name()
     {
         ls /sys/class/net
+        menu_wifi
     }
 
 Geo_location()
     {
         curl ipinfo.io/8.8.8.8
+        wifi_menu
+
     }
 
 Weather()
     {
         curl -H "Accept-Language: ${LANG%_*}" wttr.in/"${1:-Hayward}"
+        wifi_menu
     }
 
 Update_Upgrade_System()
     {
         sudo apt-get update -y && sudo apt-get dist-upgrade -y && apt autoremove -y
+        wifi_menu
     }
 
-Configure_time()
-    {
-        sudo dpkg-reconfigure tzdata
-    }
 
 Mounted_drives()
     {
         sudo lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL
+        wifi_menu
     }
 
 Clients_on_current_network()
@@ -138,7 +188,7 @@ Clients_on_current_network()
         if [ -x "$(command -v arp-scan)" ]
         then
             sudo arp-scan --localnet
-            ask_user
+            wifi_menu
         else
             # echo Woudl you like to install arp-scan
             # sudo apt install arp-scan -y
@@ -147,7 +197,7 @@ Clients_on_current_network()
             echo arp-scan not found
             echo here is a less detailed option.
             ip neigh
-            ask_user
+            wifi_menu
         fi
     }
 
@@ -182,6 +232,8 @@ Flush_ip_address()
     # Multiple IP address showing for a system
     sudo ip addr flush dev eth0
     sudo ip addr flush dev wlan0
+    wifi_menu
+
     }
 
 
