@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Author: @veggietorta
-# Update: 02.14.21
+# Update: 03.12.21
 # Purpose: Launching point for other installations and configurations
 
 
@@ -38,7 +38,6 @@ menu_ask_user()
     case $main_menu_input in
         "10)")
             source $HOME/dotfiles/setupfiles/wifi/launch.sh
-            menu_wifi
             ;;
     esac
 
