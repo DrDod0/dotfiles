@@ -530,3 +530,47 @@ Fri Mar 12 20:13:15 PST 2021 : Input not understood sent back to menu_ask_user
 Fri Mar 12 20:13:15 PST 2021 : Enter menu_ask_user
 Fri Mar 12 20:13:15 PST 2021 : Input not understood sent back to menu_ask_user
 Fri Mar 12 20:13:15 PST 2021 : Enter menu_ask_user
+---
+Sun Mar 21 17:11:54 PDT 2021 : Foundation Curl installed
+Sun Mar 21 17:11:54 PDT 2021 : Foundation GIT installed
+Sun Mar 21 17:11:54 PDT 2021 : Foundation xclip installed
+Sun Mar 21 17:11:54 PDT 2021 : Enter menu_ask_user
+Sun Mar 21 17:11:54 PDT 2021 : Input not understood sent back to menu_ask_user
+Sun Mar 21 17:11:54 PDT 2021 : Enter menu_ask_user
+Sun Mar 21 17:11:54 PDT 2021 : Input not understood sent back to menu_ask_user
+Sun Mar 21 17:11:54 PDT 2021 : Enter menu_ask_user
+Sun Mar 21 17:11:54 PDT 2021 : Input not understood sent back to menu_ask_user
+Sun Mar 21 17:11:54 PDT 2021 : Enter menu_ask_user
+Sun Mar 21 17:11:54 PDT 2021 : Input not understood sent back to menu_ask_user
+Sun Mar 21 17:11:54 PDT 2021 : Enter menu_ask_user
+Sun Mar 21 17:11:54 PDT 2021 : Input not understood sent back to menu_ask_user
+Sun Mar 21 17:11:54 PDT 2021 : Enter menu_ask_user
+Sun Mar 21 17:11:54 PDT 2021 : Input not understood sent back to menu_ask_user
+Sun Mar 21 17:11:54 PDT 2021 : Enter menu_ask_user
+Sun Mar 21 17:11:54 PDT 2021 : Input not understood sent back to menu_ask_user
+Sun Mar 21 17:11:54 PDT 2021 : Enter menu_ask_user
+Sun Mar 21 17:11:54 PDT 2021 : Input not understood sent back to menu_ask_user
+Sun Mar 21 17:11:54 PDT 2021 : Enter menu_ask_user
+Sun Mar 21 17:11:54 PDT 2021 : Input not understood sent back to menu_ask_user
+Sun Mar 21 17:11:54 PDT 2021 : Enter menu_ask_user
+Sun Mar 21 17:11:54 PDT 2021 : Input not understood sent back to menu_ask_user
+Sun Mar 21 17:11:54 PDT 2021 : Enter menu_ask_user
+---
+Thu Mar 25 20:35:46 PDT 2021 : Foundation Curl installed
+Thu Mar 25 20:35:46 PDT 2021 : Foundation GIT installed
+Thu Mar 25 20:35:46 PDT 2021 : Foundation xclip installed
+Thu Mar 25 20:35:46 PDT 2021 : Enter menu_ask_user
+Thu Mar 25 20:35:46 PDT 2021: Option 10, time file selected
+---
+Thu Mar 25 20:36:00 PDT 2021 : Foundation Curl installed
+Thu Mar 25 20:36:00 PDT 2021 : Foundation GIT installed
+Thu Mar 25 20:36:00 PDT 2021 : Foundation xclip installed
+Thu Mar 25 20:36:00 PDT 2021 : Enter menu_ask_user
+Thu Mar 25 20:36:00 PDT 2021: Option 6, time file selected
+Thu Mar 25 20:36:00 PDT 2021 : Entered time file
+Thu Mar 25 20:36:00 PDT 2021 : Entered menu_time() 
+Thu Mar 25 20:36:00 PDT 2021: menu_time input received as 'r', sent to main_menu_input
+Thu Mar 25 20:36:00 PDT 2021 : Enter menu_ask_user
+Thu Mar 25 20:36:00 PDT 2021: Option 9, time file selected
+Thu Mar 25 20:36:00 PDT 2021 : Entered SSH file
+Thu Mar 25 20:36:00 PDT 2021 : Entered menu_ssh

@@ -1,6 +1,6 @@
 "
 " Author: @veggietorta
-" Last updated: 02.14.21
+" Last updated: 03.26.21
 " Location $HOME/
 
 
@@ -16,25 +16,17 @@
 "|  Pluging Manager:   |
 "-----------------------
 
-    call plug#begin('~/.vim/bundle')
+    call plug#begin()
 
     "Eye Candy
-    Plug 'mhinz/vim-startify'
     Plug 'ryanoasis/vim-devicons'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
     Plug 'yuttie/comfortable-motion.vim'
 
     "Navigation Tools
-    Plug 'scrooloose/nerdtree'
-    Plug 'christoomey/vim-tmux-navigator'
-    Plug 'kien/ctrlp.vim'
-    Plug 'rbgrouleff/bclose.vim'
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plug 'wsdjeg/vim-fetch'
 
     "Writing Tools
     Plug 'yggdroot/indentLine'
@@ -42,55 +34,31 @@
     Plug 'junegunn/goyo.vim'
     Plug 'plasticboy/vim-markdown'
     Plug 'bronson/vim-trailing-whitespace'
-    Plug 'reedes/vim-pencil'
-    Plug 'previm/previm'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-    Plug 'vimwiki/vimwiki'
 
     "Colorschemes
-    Plug 'drewtempelmeyer/palenight.vim'
-    Plug 'sainnhe/vim-color-forest-night'
-    Plug 'lifepillar/vim-solarized8'
     Plug 'crusoexia/vim-dracula'
-    Plug 'poiuto/gruvbox9'
-    Plug 'tyrannicaltoucan/vim-deep-space'
-    Plug 'skbolton/embark'
 
-    Plug 'skywind3000/quickmenu.vim'
-    Plug 'pseewald/vim-anyfold'
-    Plug 'aaronbieber/vim-quicktask'
     Plug 'tpope/vim-unimpaired'
     Plug 'tpope/vim-vinegar'
-    Plug 'dhruvasagar/vim-table-mode'
     Plug 'airblade/vim-gitgutter'
 
     "Dev Tools
-    Plug 'christoomey/vim-tmux-runner'
-    Plug 'tmsvg/pear-tree'                                                        " Auto pair
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
     Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
     Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
     Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
-    "Plug 'liuchengxu/vista.vim'
     Plug 'voldikss/vim-floaterm'
-    "Plug 'severin-lemaignan/vim-minimap'
-    "Plug 'ludovicchabant/vim-gutentags'
 
     "Python Tools
     Plug 'tpope/vim-fugitive'
     Plug 'vim-scripts/indentpython.vim'
-    "Plug 'vim-syntastic/syntastic'
     Plug 'nvie/vim-flake8'
     Plug 'jeetsukumaran/vim-pythonsense'
     Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
     Plug 'Vimjas/vim-python-pep8-indent'
 
-    "School Tools
-    Plug 'sk1418/HowMuch'
-    Plug 'sotte/presenting.vim'
-    Plug 'vim-scripts/DrawIt'
-    Plug 'segeljakt/vim-isotope'
 
     call plug#end()
 
@@ -99,40 +67,30 @@
 "|  General Settings:   |
 "------------------------
 
-    "set termguicolors          " Using OSX/iterm turns colorschemes all pink
-
     set shell=/bin/zsh\ -l
     set ma                      " Modifiable
 	set encoding=UTF-8			" Unicode support, required for devicons
 	set nrformats=				" Treat all numberals as decimal
     set number
-	"set relativenumber			" Numbers displayed relative to position
+	set relativenumber			" Numbers displayed relative to position
 	set nowrap					" No text wrap
-	"set lazyredraw				" Vim don't redraw the screen, macros need speed
     set clipboard^=unnamed
-
 	set ignorecase				" Ignore case when searching
 	set smartcase				" Use case when used
 	set hlsearch				" Highlight searches by default
 	set incsearch               " Incremental searching
-
 	set autoindent
 	set tabstop=4
 	set shiftwidth=4
 	set scrolloff=3				" Number of lines to keep above and below of cursor
 	set expandtab
-
 	set sidescrolloff=5			" Number of columns to keep left and right of cursor
-
 	set noswapfile				" No more .swap files
-	set nobackup				"
+	set nobackup
 	set nowritebackup			" No write backup
 	set undodir=-/.vim/undodir	" Undo directory location
-	"set viminfo=""				" Disable viminfo file
-
 	set noerrorbells			" Disable bell sound
 	set visualbell t_vb=		" Disable bell sound, enable visual
-
 	set splitright				" Window split to the right
 
     setlocal define=^#\\s*
@@ -141,8 +99,6 @@
     set complete+=kspell
     set spellfile=$HOME/notes/en.utf-8.add      " Personal dictionary
 
-    set backspace=indent,eol,start              "backspace fix in OSX
-
     " Change Leader
     let mapleader=","
 
@@ -150,13 +106,6 @@
 "------------------------------------------
 "|   Remapping / Mapping / Abbreviation:  |
 "------------------------------------------
-
-    " Automatically reload .vimrc file on save
-        augroup myvimrc
-            au!
-            au BufWritePost .vimrc so ~/.vimrc
-        augroup END
-
 
     "Remap window navigation in Any modde
         :tnoremap <C-h> <C-\><C-N><C-w>h
@@ -171,11 +120,6 @@
         :nnoremap <C-j> <C-w>j
         :nnoremap <C-k> <C-w>k
         :nnoremap <C-l> <C-w>l
-
-    "Vim Tmux Runner
-        let g:VtrStripLeadingWhitespace = 0
-        let g:VtrClearEmptyLines = 0
-        let g:VtrAppendNewline = 1
 
     "Send current line to other tmux panes in the same window
         nnoremap <silent> <leader>p :call SendLineToPanes()<cr>
@@ -211,30 +155,11 @@
         nnoremap : ;
         nnoremap ; :
 
-    "Helper file:
-        "nnoremap <C-t> :vs ~/notes/Index_Helper.markdown<CR>:vertical resize 35<CR>
-
-    "Work Soap Notes
-        "nnoremap <C-s> :tabnew <esc>i#About<CR><CR>#Bodywork<CR><CR>#Other<CR>+ <C-R>=strftime("%m.%d.%y")<CR> - 60m - ##<esc>:w ~/notes/Work/Clients.Massage.Envy/.md<left><left><left>
-
     "Insert current date with 'zdt'
         iab zdt <c-r>=strftime("%m.%d.%y")<CR>
 
-    "Vimgrep Shortcut w/ :lopen automated
-        augroup myvimrc
-            autocmd!
-            autocmd QuickFixCmdPost [^l]* cwindow
-            autocmd QuickFixCmdPost l*    lwindow
-        augroup END
-
     "Search all file for a string
         nnoremap <leader>f :lvimgrep! // ** <left><left><left><left><left>
-
-    "Vim Help in full screen
-        nnoremap <C-h> :help  <bar> only <left><left><left><left><left><left><left><left>
-
-    "Rot-13 the screen
-        map <leader>r mzHVLg?`z
 
     "Spelling error I'm feeling lucky
         function! FixSpellingError()
@@ -249,25 +174,9 @@
         autocmd BufWrite * :%s/\s\+$//e
 
 
-    "School Remapping
-
-        " Calculator
-            ino <C-A> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
-        " arrow
-            iab aup [↑]
-            iab adown [↓]
-            iab ^^ [⇅]
-
-
-
 "----------------
 "|   Plugins    |
 "----------------
-
-
-    " Minimaps:
-    "   au BufEnter * :Minimap
-
 
     " Vimpythonpep8indent:
         "closing brackets line up with the items:
@@ -297,16 +206,6 @@
             noremap! <silent> <F12>           <Esc>:FloatermToggle<CR>
             tnoremap <silent> <F12>           <C-\><C-n>:FloatermToggle<CR>
 
-    " Vista Vim:
-        "let g:vista_default_executive = 'ctags'
-
-        "let g:vista_executive_for = {
-                    "\ 'py': 'vim_lsp',
-                    "\ 'php': 'vim_lsp',
-                    "\ }
-
-        "let g:vista#renderer#enable_icon = 1
-
     " Cocvim:
         " Use tab for trigger completion with characters ahead and navigate.
         " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -321,39 +220,6 @@
           return !col || getline('.')[col - 1]  =~# '\s'
         endfunction
 
-    " Previm:
-        "Open Safari to provide preview
-        let g:previm_open_cmd = 'open -a Safari'
-
-    " Xpdf:
-    "    :command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> -
-    "   :command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> - |fmt -csw78
-        "
-    " NERDTree:
-
-        "Toggle NERDTree
-        nnoremap <silent> <expr> <F6> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
-
-        "Automatically open file for edit
-        let NERDTreeQuitOnOpen=1
-
-        "Show hidden files
-        let NERDTreeShowHidden=1
-
-        "NERDTree opened automatically
-            "autocmd vimenter * silent! lcd %:p:h
-            "autocmd vimenter * if !argc() | NERDTree | endif
-
-        "Window size
-        let g:NERDTreeWinSize=15
-
-    " Vimisotope:
-        "Convert next character into Superscript
-        " <C-g><C-k> {char}
-
-        "Convert next character into Subscript
-        " <C-g><C-j> {char}
-
     " Airline:
         let g:airline_theme='minimalist'
         "
@@ -362,65 +228,17 @@
         "Mapping
            " Default maping <C-d> and <C-u>
 
-    " HowMuch:
-        "Precisions of float calculations, default is 2
-            let g:HowMuch_scale = 6
-        "Define Engine
-            let g:HowMuch_auto_engines = ['vim']
-
-    " Quickmenu:
-        if !empty(glob('$HOME/.vim/bundle/quickmenu.vim/'))
-
-             "enable cursorline (L) and cmdline help (H)
-             let g:quickmenu_options = "LH"
-
-             " clear all the items
-             call g:quickmenu#reset()
-
-             "remapping
-             noremap <leader>m :call quickmenu#toggle(0)<cr>
-
-             "section 1, text starting with "#" represents a section (see the screen capture below)
-             call g:quickmenu#append('# Develop', '')
-
-             call g:quickmenu#append('item 1.1', 'echo "1.1 is selected"', 'select item 1.1')
-             call g:quickmenu#append('item 1.2', 'echo "1.2 is selected"', 'select item 1.2')
-             call g:quickmenu#append('item 1.3', 'echo "1.3 is selected"', 'select item 1.3')
-
-             "section 2
-             call g:quickmenu#append('# Misc', '')
-
-             call g:quickmenu#append('item 2.1', 'echo "2.1 is selected"', 'select item 2.1')
-             call g:quickmenu#append('item 2.2', 'echo "2.2 is selected"', 'select item 2.2')
-             call g:quickmenu#append("Turn fold %{&fen? 'off':'on'}", "set fold!", "enable/disable fold check (:set fen!)")
-             call g:quickmenu#append("Turn spell %{&spell? 'off':'on'}", "set spell!", "enable/disable spell check (:set spell!)")
-        else
-            echom 'Not Installed, Quickmenu'
-        endif
-
-	" Vim Markdown:
+    " Vim Markdown:
 		let g:markdown_enable_folding = 0 					" Folding
 		let g:markdown_enable_spell_checking = 0			" Disable spell checking
 
 		au FileType markdown setlocal nofoldenable	        "no folding in markdown
-
-	" Presenting Vim:
-		" Start Presenting <:PresentingStart> or <Presenting>
-		" Navigate Presentation <n, p , q >
-		" Slide Separator in markdown <#>
-
-	" Drawit:
-		" Start <Leader>di
-		" Stop <Leader>ds
 
 	" Goyo Limeline:
 		"Limeline Color name (:help cterm-colors) or ANSI code
 		let g:limelight_conceal_ctermfg = 'pink'
 		let g:limelight_conceal_ctermfg = 240
 
-		"Goyo & Limeline intergration TODO needed?
-			" autocmd! User GoyoEnter Limelight
-			" autocmd! User GoyoLeave Limelight!
 
 		" Enter Goyo Settings:
 
@@ -436,24 +254,6 @@
 			autocmd! User GoyoEnter nested call <SID>Goyo_Enter()
 			autocmd! User GoyoLeave nested call <SID>Goyo_Leave()
 
-	" Vim Pencil:
-		"Activated with Goyo, auto detects wrap and hardlines breaks
-
-	" Vim_Anyfold:
-		let AnyfoldActivate=1
-		set foldlevel=0
-
-	" CtrlP:
-		"Invoke CtrlP
-            " Key mapping
-			 let g:ctrlp_map = '<C-p>'	"aka Command-P
-			 let g:ctrlp_cmd = 'CtrlP'
-             " Move search window to the top
-			 let g:ctrlp_match_window = 'top,order:btt,min:1,max:10,results:10'
-             " Ignore all files .git ignores
-             let g:ctrlp_user_command = ['.git', '--git-dir=%s/.git ls-files -oc --exclude-standar']
-
-
 	" Netrw:
         "Default Directory
 			"let g:notes_directories = ['~/notes', '~/Dropbox/Shared notes']
@@ -463,11 +263,6 @@
 
 	" Autopairs:
 		"Default settings used.
-
-    " Unimpaired:
-	    "Useful mapping for navigating :vimgrep results
-		 	"<[q> to <cprevious>
-		 	"<q]> to <cnext>
 
     " IndentLine:
         "Change indent char
@@ -483,37 +278,6 @@
         let g:gitgutter_sign_removed = ''
         "let g:gitgutter_sign_removed_first_line = '^^'
         "let g:gitgutter_sign_modified_removed = 'ww'
-
-    " Vimwiki:
-        set nocompatible
-        filetype plugin on
-        syntax on
-
-        " Disable auto-save notification
-        let g:auto_save_silent = 1
-
-        " Save after changes
-        let g:auto_save_events = ["InsertLeave", "TextChanged"]
-
-        " Write to All Buffers
-        let g:auto_save_wite_all_buffers = 1
-
-        " Path to wikis
-        let g:vimwiki_list = [{'path': '$HOME/notes/books', 'syntax': 'markdown', 'ext': '.md'},
-                            \{'path': '$HOME/notes/code', 'syntax': 'markdown', 'ext': '.md'},
-                            \{'path': '$HOME/notes/warhammer', 'syntax': 'markdown', 'ext': '.md'},
-                            \{'path': '$HOME/notes/computer_science', 'syntax': 'markdown', 'ext': '.md'},
-                            \{'path': '$HOME/notes/formula_1', 'syntax': 'markdown', 'ext': '.md'},
-                            \{'path': '$HOME/notes/mental_health', 'syntax': 'markdown', 'ext': '.md'},
-                            \{'path': '$HOME/notes/random', 'syntax': 'markdown', 'ext': '.md'},
-                            \{'path': '$HOME/notes/work', 'syntax': 'markdown', 'ext': '.md'},
-                            \{'path': '$HOME/notes/mental_health/journal', 'syntax': 'markdown', 'ext': '.md'},
-                            \{'path': '$HOME/notes/yelp', 'syntax': 'markdown', 'ext': '.md'}]
-
-
-
-        " Consider every markdown file as a wiki file
-        let g:vimwiki_global_ext = 0
 
 
 "---------------
@@ -531,88 +295,13 @@
 
     " Set Vim-specific sequences for RGB colors
         let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-        let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum""
+        let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 	"Colorschemes:
 
         "Default:
-            colorscheme gruvbox9
-            let g:gruvbox_filetype_hi_groups = 1
-            let g:gruvbox_italic = 1
-            let g:gruvbox_plugin_hi_groups = 1
-
-        "VimDeepSpace:
-            fun! s:Deep()
-                set background=dark
-                set termguicolors
-                colorscheme deep-space
-                syntax on
-                let g:deepspace_italics=1
-                let g:airline_theme='deep_space'
-            endfunction
-            command Deep cal s:Deep()
-
-        "Dracula:
-           	fun! s:Dra()
-                colorscheme dracula
-                set background=dark
-                syntax on
-            endfunction
-            command Dra call s:Dra()
-
-		"Palenight:
-		    fun! s:Pale()
-                set background=dark
-                colorscheme palenight
-            endfun
-            command Pale call s:Pale()
-
-		"Solarize:
-            function! s:Sold()
-			    set background=dark
-			    colorscheme solarized8_high
-            endfunction
-            command Sold call s:Sold()
-
-            function! s:Soll()
-                set background=light
-                colorscheme solarized8
-            endfunction
-            command Soll call s:Soll()
+            colorscheme Dracula
 
     "Background Transparent:
         hi Normal guibg=NONE ctermbg=NONE
 
-	"Statusline:
-        " Non-Powerline
-        "set laststatus =2                       "show sttaus line
-		"set statusline +=%1*\ %n\ %*            "buffer number
-		"set statusline +=%5*%{&ff}%*            "file format
-		"set statusline +=%3*%y%*                "file type
-		"set statusline +=%4*\ %<%F%*            "full path
-		"set statusline +=%2*%m%*                "[+] will if current buffer is modified
-		"set statusline +=%1*%=%5l%*             "current line
-		"set statusline +=%2*/%L%*               "total lines
-		"set statusline +=%1*%4v\ %*	         "virtual column number
-		"set statusline +=%{strftime('%-I:%M')}	"time in 12h format
-
-	"Syntax:
-        " File type *markdown
-		    "autocmd! bufreadpost *.markdown set syntax=off
-
-        " File type *.md
-            "augroup md_settings " {
-                "autocmd!
-                "autocmd BufNewfile,BufRead md set syntax on
-                "autocmd BufNewfile,BufRead md set linebreak
-                "autocmd BufNewfile,BufRead md set wrap
-                "autocmd BufNewfile,BufRead md setlocal spell
-            "augroup END " }
-
-        " Highlight TODO FIXME NOTE OPTIMIZE & FYI
-            syn match myTodo contained "\<\(FIXME\|NOTE\|TODO\|OPTIMIZE\|FYI\):"
-            hi def link myTodo Todo
-
-
-" Terminal Alacritty mouse issue fix
-" set ttymouse-sgr

@@ -42,8 +42,8 @@
     alias pro='py ~/notes/code/project.todo/progress.py'
 
 # vim
-    alias vim='nvim'
-    alias vi='vim'
+    #alias vim='nvim'
+    #alias vi='vim'
 
     alias vimrc='vim ~/dotfiles/vim/.vimrc'
     alias source.vimrc='source $HOME/.vimrc'

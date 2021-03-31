@@ -1,5 +1,5 @@
-#!/bin/bash
-# Author: @veggietorta
+
+
 # Update: 02.28.21
 # Purpose: Increasing my lazyness with wifi
 
@@ -9,25 +9,25 @@
 pause 3
 clear
 
-users_selection=$(
-whiptail --title "Wifi tools" --menu "Make your choice" 16 100 9 \
+echo """ Make your choice
 
-"1)" "Clients on current network" \
-"2)" "My ip address" \
-"4)" "Mounted drives" \
-"6)" "Update and Upgrade System" \
-"7)" "Weather" \
-"8)" "Geo location" \
-"9)" "Wifi card name" \
-"10)" "Connect to Wifi" \
-"11)" "Gateway / router address" \
-"12)" "Edit SourceList" \
-"13)" "Wifi networks available" \
-"14)" "Current network interface" \
-"15)" "Systems temps" \
-"16)" "DNS information" \
-"17)" "Flush IP Address" \ 3>&2 2>&1 1>&3
-)
+    Clients on current network
+    My ip address
+    Mounted drives
+    Update and Upgrade System
+    Weather
+    Geo location
+    Wifi card name
+    Connect to Wifi
+    Gateway / router address
+    Edit SourceList
+    Wifi networks available
+    Current network interface
+    Systems temps
+    DNS information
+    Flush IP Address """
+
+read $users_selection
 
 case "$users_selection" in
 "1)")
@@ -84,7 +84,7 @@ case "$users_selection" in
 
 "16)")
     #DNS_information
-    grep nameserver /etc/resolv.conf
+    #grep nameserver /etc/resolv.conf
     ;;
 
 "17)")

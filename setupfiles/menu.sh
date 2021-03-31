@@ -15,45 +15,25 @@ menu_ask_user()
     echo $el_day_time ": Enter menu_ask_user" >> $el_log
     clear
 
-    main_menu_input=$(
-    whiptail --menu "Select program to setup or modify" 25 65 15 \
-        "1)" "zsh and Oh-my-zsh" \
-        "2)" "vim or neovim" \
-        "3)" "gnome-tweak-tool" \
-        "4)" "vifm" \
-        "5)" "virtualbox" \
-        "6)" "time" \
-        "7)" "python3" \
-        "8)" "youtube-dl | ytfzf | fzf" \
-        "9)" "SSH" \
-        "10)" "Wifi" 3>&1 1>&2 2>&3
-    )
+    echo """ Select program to setup or modify
+        1) zsh and Oh-my-zsh
+        2) vim or neovim
+        3) gnome-tweak-tool
+        4) vifm
+        5) virtualbox
+        6) time
+        7) python3
+        8) youtube-dl | ytfzf | fzf
+        9) SSH
+        10) Wifi """
+
+    read main_menu_input
+
     # echo 11. Plex
     # echo 12. dmenu
     # echo OS check
     # echo fzf
     # echo foundation
-
-
-    case $main_menu_input in
-        "10)")
-            source $HOME/dotfiles/setupfiles/wifi/launch.sh
-            ;;
-    esac
-
-
-
-
-
-
-
-
-    if [ -z $main_menu_input ];
-        then
-            echo "You canceled"
-        else
-            "something something"
-    fi
 
 
     # Source SSH file
@@ -74,8 +54,8 @@ menu_ask_user()
     elif [ $main_menu_input = '10' ]
         then
             echo $el_day_time": Option 10, time file selected" >> $el_log
-            . $HOME/dotfiles/setupfiles/wifi/wifi
-            menu_wifi
+            . $HOME/dotfiles/setupfiles/wifi/wifi_launch.sh
+            menu_launkkk
 
     # Source time file
     elif [ $main_menu_input = '6' ]
