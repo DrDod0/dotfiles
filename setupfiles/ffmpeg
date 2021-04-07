@@ -1,0 +1,18 @@
+#!/bin/bash/
+
+echo """
+
+Install
+    sudo apt-get install ffpeg
+
+
+
+View mp3 metadata
+    ffprobe foo.mp3
+
+
+
+
+
+
+"""

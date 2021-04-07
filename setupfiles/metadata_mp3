@@ -1,0 +1,54 @@
+#!/bin/bash/
+
+# require ffmpeg, mid3v2
+
+    # sudo apt-get install ffmpeg
+    # apt-get install python3-mutagen
+
+
+menu_metadata()
+{
+
+    echo """ select action\n
+            1. view metadata
+            3. edit artist name
+            4. edit song title
+            5. edit album
+            6. edit genre
+            7. edit year
+            8. edit track number\n
+        """
+
+
+    read user_selection
+    clear
+
+    echo enter file name:\n
+    read file_name
+    clear
+
+    if [ $user_selection = '1' ];
+    then
+
+        ffprobe $file_name 2>&1 | grep -A90 'Metadata:'
+
+        menu_metadata
+
+
+    elif [ $user_selection = '2' ];
+    then
+        echo enter Artist name:
+        read artist_name
+
+        mid3v2 -a="$artist_name" $file_name
+
+        menu_metadata
+
+
+    else
+        menu_metadata
+
+
+    fi
+
+}
