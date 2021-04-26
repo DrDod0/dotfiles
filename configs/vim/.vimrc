@@ -300,7 +300,7 @@
 	"Colorschemes:
 
         "Default:
-            colorscheme Dracula
+            colorscheme dracula
 
     "Background Transparent:
         hi Normal guibg=NONE ctermbg=NONE

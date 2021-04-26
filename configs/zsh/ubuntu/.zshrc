@@ -97,3 +97,12 @@
 
 
 
+# Toggle preview window visibility with '?'
+#fzf --bind '?:toggle-preview'
+
+# Copy the selected entries to the clipboard with 'CTRL-Y'
+#fzf --bind 'ctrl-y:execute-silent(echo {+} | pbcopy)'
+
+# Open the selected entries in vim with 'CTRL-E'
+#fzf --bind 'ctrl-e:execute(echo {+} | xargs -o vim)'
+
