@@ -38,7 +38,7 @@
 
     "Colorschemes
     Plug 'crusoexia/vim-dracula'
-
+    Plug 'owozsh/amora'
     Plug 'tpope/vim-unimpaired'
     Plug 'tpope/vim-vinegar'
     Plug 'airblade/vim-gitgutter'
@@ -300,7 +300,7 @@
 	"Colorschemes:
 
         "Default:
-            colorscheme dracula
+            colorscheme amora
 
     "Background Transparent:
         hi Normal guibg=NONE ctermbg=NONE
