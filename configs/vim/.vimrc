@@ -32,9 +32,11 @@
     Plug 'yggdroot/indentLine'
     Plug 'junegunn/limelight.vim'
     Plug 'junegunn/goyo.vim'
-    Plug 'plasticboy/vim-markdown'
     Plug 'bronson/vim-trailing-whitespace'
-    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+    Plug 'xolox/vim-notes'
+    Plug 'xolox/vim-misc'
+    Plug 'dkarter/bullets.vim'
+
 
     "Colorschemes
     Plug 'crusoexia/vim-dracula'
@@ -229,10 +231,14 @@
            " Default maping <C-d> and <C-u>
 
     " Vim Markdown:
-		let g:markdown_enable_folding = 0 					" Folding
 		let g:markdown_enable_spell_checking = 0			" Disable spell checking
-
 		au FileType markdown setlocal nofoldenable	        "no folding in markdown
+
+
+    " Vim Note:
+        "let g:notes_directories = ['~/home/dev/notes']
+        "let g:notes_suffix = '.md'
+
 
 	" Goyo Limeline:
 		"Limeline Color name (:help cterm-colors) or ANSI code
