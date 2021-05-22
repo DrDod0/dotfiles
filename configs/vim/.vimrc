@@ -52,6 +52,7 @@
     Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
     Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
     Plug 'voldikss/vim-floaterm'
+    Plug 'vim-test/vim-test'
 
     "Python Tools
     Plug 'tpope/vim-fugitive'
@@ -94,6 +95,7 @@
 	set noerrorbells			" Disable bell sound
 	set visualbell t_vb=		" Disable bell sound, enable visual
 	set splitright				" Window split to the right
+    set signcolumn=number       " Display signs in the number columns
 
     setlocal define=^#\\s*
 
@@ -179,6 +181,19 @@
 "----------------
 "|   Plugins    |
 "----------------
+
+
+    "Vim Test:
+        " these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
+            nmap <silent> t<C-n> :TestNearest<CR>
+            nmap <silent> t<C-f> :TestFile<CR>
+            nmap <silent> t<C-s> :TestSuite<CR>
+            nmap <silent> t<C-l> :TestLast<CR>
+            nmap <silent> t<C-g> :TestVisit<CR>
+
+
+
+
 
     " Vimpythonpep8indent:
         "closing brackets line up with the items:
