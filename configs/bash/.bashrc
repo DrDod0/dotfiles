@@ -84,10 +84,7 @@ fi
 # Updated: 05.21.21
 
 # Alias
-    if [ -d "~/dotfiles" ]
-        then
-            source ~/dotfiles/configs/alias/alias_ubuntu
-    fi
+    source ~/dotfiles/configs/alias/alias_ubuntu
 
     alias ytmp3='youtube-dl -x --audio-format mp3'
     alias plex="ssh -p 5056 ubuntu@10.216.1.18"
