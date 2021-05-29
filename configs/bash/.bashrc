@@ -93,6 +93,7 @@ fi
     alias yt="ytfzf -t"
     alias vifm="vifm ."
     alias merge="sh ~/notes/code/scripts/script_merge_mp3.sh"
+    alias ta="sh ~/notes/code/scripts/script_transfer_audiobooks.sh"
 
 # Dracula Theme
 #if [ "$TERM" = "linux" ]; then
