@@ -94,6 +94,7 @@ fi
     alias vifm="vifm ."
     alias merge="sh ~/notes/code/scripts/script_merge_mp3.sh"
     alias ta="sh ~/notes/code/scripts/script_transfer_audiobooks.sh"
+    alias c="clear"
 
 # Dracula Theme
 #if [ "$TERM" = "linux" ]; then
@@ -143,4 +144,10 @@ fi
     fi
 
 # My motherfucking prompt
-PS1="☠️  "
+    # \w\   :Show pwd
+    # \n    :New line
+
+PS1="\n\w\\n☠️  "
+
+
+
