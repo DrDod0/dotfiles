@@ -2,16 +2,8 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# don't put duplicate lines in the history. See bash(1) for more options
-# ... or force ignoredups and ignorespace
-HISTCONTROL=ignoredups:ignorespace
 
-# append to the history file, don't overwrite it
-shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -61,7 +53,6 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
@@ -81,11 +72,34 @@ fi
 
 
 ####################### veggietorta <3 #########################
-# Updated: 05.21.21
+####################### veggietorta <3 #########################
+####################### veggietorta <3 #########################
+# Updated: 06.05.21
+
+
+
+# History settings:
+
+    # No Duplicates & No lines that start with a space
+    export HISTCONTROL=erasedups:ignoredups:ignorespace
+
+    # Append to the history file, don't overwrite it
+    shopt -s histappend
+
+    # Expand History Size
+    HISTSIZE=1000
+    HISTFILESIZE=2000
+
+# No more single quotes around a file's name with spaces
+    # A highly unpopular feature introduced to version 8.25 of the GNU coreutils package
+    export QUOTING_STYLE=literal
 
 # Alias
+    # Main alias file
     source ~/dotfiles/configs/alias/alias_ubuntu
 
+    # Testing out Alias
+    alias ll='ls -CFlh'
     alias ytmp3='youtube-dl -x --audio-format mp3'
     alias plex="ssh -p 5056 ubuntu@10.216.1.18"
     alias dev="ssh -p 5056 dev@10.216.1.20"
@@ -95,6 +109,8 @@ fi
     alias merge="sh ~/notes/code/scripts/script_merge_mp3.sh"
     alias ta="sh ~/notes/code/scripts/script_transfer_audiobooks.sh"
     alias c="clear"
+    alias rm="rm -i"
+    alias reboot='sudo shutdown -r -n now'
 
 # Dracula Theme
 #if [ "$TERM" = "linux" ]; then
@@ -118,16 +134,13 @@ fi
 #        printf %b '\e]PFffffff'    # redefine 'bright-white'   as '#ffffff'
 #        clear
 #fi
-#
+
 
 # FZF
     [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# Vim Keybindings
-    if [ -x "$(command -v vim)" ]
-    then
-	    set -o vi
-    fi
+# Vim Keybindings in terminal
+	set -o vi
 
 # Neofetch show at login/boot
     if [ -x "$(command -v neofetch)" ]
@@ -135,19 +148,50 @@ fi
 	    neofetch
     fi
 
-# GNOME Terminal, reduce title bar, requires xdotool
-    if [ "$TERM" = "xterm-256color" ]; then
-      xprop \
-        -id $(xdotool getactivewindow) \
-        -f _MOTIF_WM_HINTS 32c \
-        -set _MOTIF_WM_HINTS "0x2, 0x0, 0x0, 0x0, 0x0"
-    fi
-
 # My motherfucking prompt
     # \w\   :Show pwd
     # \n    :New line
+    # PS1="\n\w\\n☠️  "
 
-PS1="\n\w\\n☠️  "
+    # changes prompt when ssh
+    function __setprompt {
+      local BLUE="\[\033[0;34m\]"
+      local NO_COLOUR="\[\033[0m\]"
+      local SSH_IP=`echo $SSH_CLIENT | awk '{ print $1 }'`
+      local SSH2_IP=`echo $SSH2_CLIENT | awk '{ print $1 }'`
+      if [ $SSH2_IP ] || [ $SSH_IP ] ; then
+        local SSH_FLAG="@\h"
+      fi
+      PS1="$BLUE[\$(date +%H:%M)][\u$SSH_FLAG:\w]\\$ $NO_COLOUR"
+      PS2="$BLUE>$NO_COLOUR "
+      PS4='$BLUE+$NO_COLOUR '
+    }
+    __setprompt
 
 
+# Set vim as default editor
+    export EDITOR=vim
 
+# Bind used instead of sticking in .inputc
+    bind "set completion-ignore-case no"
+
+# No Bell, Yes visual
+    bind "set bell-style none"
+    bind "set bell-style visible"
+
+
+# Goes up a specified number of directories  (i.e. up 4)
+up ()
+{
+	local d=""
+	limit=$1
+	for ((i=1 ; i <= limit ; i++))
+		do
+			d=$d/..
+		done
+	d=$(echo $d | sed 's/^\///')
+	if [ -z "$d" ]; then
+		d=..
+	fi
+	cd $d
+}
