@@ -111,6 +111,7 @@ fi
     alias c="clear"
     alias rm="rm -i"
     alias reboot='sudo shutdown -r -n now'
+    alias mid='sh ~/notes/code/scripts/script_metadata.sh'
 
 # Dracula Theme
 #if [ "$TERM" = "linux" ]; then
@@ -143,10 +144,10 @@ fi
 	set -o vi
 
 # Neofetch show at login/boot
-    if [ -x "$(command -v neofetch)" ]
-    then
-	    neofetch
-    fi
+#    if [ -x "$(command -v neofetch)" ]
+#    then
+#	    neofetch
+#fi
 
 # My motherfucking prompt
     # \w\   :Show pwd
@@ -195,3 +196,7 @@ up ()
 	fi
 	cd $d
 }
+
+# vifm & bash love
+shopt -s expand_aliases
+unset BASH_ENV
