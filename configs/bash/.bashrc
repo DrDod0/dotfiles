@@ -99,8 +99,7 @@ fi
     source ~/dotfiles/configs/alias/alias_ubuntu
 
     # Testing out Alias
-    alias ll='ls -CFlh'
-    alias ytmp3='youtube-dl -x --audio-format mp3'
+    alias ll="ls -CFlh"
     alias plex="ssh -p 5056 ubuntu@10.216.1.18"
     alias dev="ssh -p 5056 dev@10.216.1.20"
     alias python="python3"
@@ -111,7 +110,22 @@ fi
     alias c="clear"
     alias rm="rm -i"
     alias reboot='sudo shutdown -r -n now'
-    alias mid='sh ~/notes/code/scripts/script_metadata.sh'
+    alias mid='bash ~/notes/code/scripts/script_metadata.sh'
+    alias scripts='cd ~/notes/code/scripts/'
+    alias downloads='cd ~/Downloads/'
+    alias plex_music="sh ~/notes/code/scripts/script_transfer_music.sh"
+
+    # Allows Ctrl-V, pasting of clipboard
+    alias xclip="clip -selection c"
+
+
+# Function youtube-dl to mp3
+ytm ()
+{
+    youtube-dl -x --audio-format mp3 "$1"
+
+}
+
 
 # Dracula Theme
 #if [ "$TERM" = "linux" ]; then
